@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import heroShowcase from "@assets/Screenshot-2025-02-14-at-20.27.41_(3)_1779878754711.webp";
 import { Star, ArrowUpRight } from "lucide-react";
 
-const proofRows = [
-  { client: "Circular Branding",  tag: "Labels & packaging",  metric: "200+",   unit: "brands worldwide" },
-  { client: "Ockerby Academy",    tag: "Dance academy",       metric: "5.0 ★",  unit: "Google rating"    },
-  { client: "Marley Doulas",      tag: "Birth doula",         metric: "Booked", unit: "out within weeks" },
+const CLIENTS = [
+  "Circular Branding",
+  "Manton Executives",
+  "Ockerby Academy",
+  "Marley Doulas",
+  "MA Virtuals",
 ];
 
 export function Hero() {
@@ -19,130 +21,124 @@ export function Hero() {
         style={{ background: "radial-gradient(ellipse at 85% 5%, hsl(22 88% 48% / 0.06) 0%, transparent 55%)" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-10 md:pt-14 pb-14 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-12 md:pt-16 pb-16 relative z-10">
 
-        {/* ── Top row: location + Google chip ── */}
-        <div className="flex items-center justify-between mb-9 md:mb-11">
-          <div className="flex items-center gap-3">
-            <span className="type-index text-foreground/35">Sunderland, North East England</span>
-            <span className="w-8 h-px bg-border shrink-0" />
-            <span className="type-index text-foreground/35">Est. 2023</span>
+        {/* ── Stamp row ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="flex items-center justify-between mb-14 md:mb-16"
+        >
+          <div className="flex items-center gap-2.5">
+            <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 flex items-center justify-center shrink-0 select-none">
+              <span className="text-[7px] font-black text-foreground/35 leading-none">E</span>
+            </div>
+            <span className="type-index text-foreground/40">Evolux Web Design</span>
+            <span className="hidden sm:inline w-1 h-1 rounded-full bg-foreground/15 shrink-0" />
+            <span className="hidden sm:inline type-index text-foreground/25">Sunderland, UK · Est. 2023</span>
           </div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="hidden sm:flex items-center gap-2 border border-border rounded-full px-4 py-2"
+            className="flex items-center gap-2 rounded-full border border-border px-4 py-2"
           >
-            <div className="flex gap-0.5">
-              {[1,2,3,4,5].map(s => <Star key={s} size={9} className="fill-accent text-accent" />)}
-            </div>
-            <span className="type-index text-foreground/50">5.0 on Google</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+            <span className="type-index text-foreground/45">Available for new projects</span>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* ── H1 — full width, no sidebar competing for space ── */}
-        <h1 className="mb-12 lg:mb-16">
+        {/* ── H1 ── */}
+        <h1 className="mb-12 md:mb-14">
           <span className="block overflow-hidden">
             <motion.span
               className="block type-display-lg font-extrabold text-foreground tracking-tight"
               initial={{ y: "108%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               Websites built to win
             </motion.span>
           </span>
           <span className="block overflow-hidden">
             <motion.span
-              className="block type-display-lg font-extrabold text-foreground tracking-tight"
+              className="block type-display-lg font-extrabold tracking-tight"
               initial={{ y: "108%" }}
               animate={{ y: 0 }}
-              transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.85, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="accent-underline">enquiries,</span> not just traffic.
+              <span className="text-foreground accent-underline">enquiries,</span>
+              <span className="text-foreground/30"> not just traffic.</span>
             </motion.span>
           </span>
         </h1>
 
-        {/* ── Sub-row: copy + CTAs left · proof card right ── */}
+        {/* ── Content row ── */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
         >
-          {/* Left: sub-copy + CTAs + testimonial */}
-          <div className="lg:col-span-6 xl:col-span-5 flex flex-col gap-7">
-            <p className="type-body-lg text-foreground/50 leading-relaxed max-w-[46ch]">
+          {/* Left */}
+          <div className="lg:col-span-6 xl:col-span-5">
+            <p className="type-body-lg text-foreground/50 leading-relaxed mb-8 max-w-[44ch]">
               If your website isn't consistently generating enquiries, there's usually a reason. We find it, fix it, and build you something that works as hard as you do.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-5 mb-12 md:mb-14">
               <button
-                className="bg-primary text-primary-foreground px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
+                className="flex items-center gap-2.5 bg-foreground text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-accent transition-colors duration-300"
                 data-testid="button-book-call"
               >
+                <span className="w-1.5 h-1.5 rounded-full bg-white/50 shrink-0" />
                 Book a Strategy Call
               </button>
               <a
                 href="#review"
-                className="border border-border px-6 py-3.5 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors duration-300 flex items-center gap-2"
+                className="text-sm font-medium text-foreground/40 hover:text-accent border-b border-transparent hover:border-accent pb-px transition-colors flex items-center gap-1.5"
                 data-testid="link-free-review"
               >
-                Free website review <ArrowUpRight size={13} />
+                Free website review <ArrowUpRight size={12} />
               </a>
             </div>
 
-            {/* Testimonial */}
-            <div className="flex items-start gap-4 pt-6 border-t border-border">
-              <div className="flex flex-col items-center gap-1.5 shrink-0 pt-0.5">
-                <div className="flex gap-0.5">
-                  {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
-                </div>
-                <span className="type-index text-foreground/30 whitespace-nowrap">5.0 Google</span>
-              </div>
-              <div className="w-px self-stretch bg-border shrink-0" />
-              <div>
-                <p className="type-body text-foreground/50 leading-relaxed italic">
-                  "We couldn't be happier with the new website Joe created for us. It truly captures who we are."
-                </p>
-                <p className="type-index text-foreground/30 mt-2">Katie Dutton — Manton Executives</p>
+            {/* Trusted by — horizontal name strip */}
+            <div className="border-t border-border pt-7">
+              <p className="type-index text-foreground/25 mb-4 uppercase tracking-[0.2em]">Trusted by</p>
+              <div className="flex flex-wrap gap-x-7 gap-y-2">
+                {CLIENTS.map(name => (
+                  <span key={name} className="text-[13px] font-semibold text-foreground/30">{name}</span>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Right: proof card — desktop only */}
-          <motion.aside
-            aria-label="Recent client results"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-            className="hidden lg:flex flex-col lg:col-span-4 xl:col-span-4 lg:col-start-9 xl:col-start-9 rounded-2xl overflow-hidden border border-border bg-white shadow-sm self-start"
+          {/* Right — editorial testimonial, desktop only */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.65 }}
+            className="hidden lg:flex lg:col-span-5 lg:col-start-8 items-end pb-3"
           >
-            <div className="px-5 pt-4 pb-3 border-b border-border flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-accent text-accent" />)}
-                <span className="type-index ml-0.5">5.0 on Google</span>
+            <figure className="flex flex-col gap-4">
+              <div className="flex gap-0.5 mb-1">
+                {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-accent text-accent" />)}
               </div>
-              <span className="type-index text-foreground/30">Recent work</span>
-            </div>
-            {proofRows.map((row, i) => (
-              <div
-                key={row.client}
-                className={`px-5 py-3.5 flex items-center justify-between gap-4 ${i < proofRows.length - 1 ? "border-b border-border" : ""}`}
-              >
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold text-foreground leading-none mb-1">{row.client}</p>
-                  <p className="type-index text-foreground/35">{row.tag}</p>
+              <blockquote>
+                <p className="text-[1.05rem] font-semibold text-foreground/50 leading-relaxed italic max-w-[30ch]">
+                  "We couldn't be happier with the new website Joe created for us. It truly captures who we are."
+                </p>
+              </blockquote>
+              <figcaption className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-full bg-foreground/8 flex items-center justify-center shrink-0">
+                  <span className="text-[9px] font-black text-foreground/35">KD</span>
                 </div>
-                <div className="text-right shrink-0">
-                  <p className="text-sm font-extrabold text-accent leading-none mb-1">{row.metric}</p>
-                  <p className="type-index text-foreground/35">{row.unit}</p>
-                </div>
-              </div>
-            ))}
-          </motion.aside>
+                <span className="type-index text-foreground/35">Katie Dutton — Manton Executives</span>
+              </figcaption>
+            </figure>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -162,19 +158,25 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/5" />
         </div>
         <div className="absolute inset-0 z-10 pointer-events-none" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }} />
+
         <div className="relative z-20 px-6 md:px-10 pt-10 pb-8 min-h-[44vh] md:min-h-[48vh] flex flex-col justify-end">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 border-t border-white/10 pt-6">
-            <div className="flex items-center gap-5 sm:gap-7">
-              <div>
-                <p className="text-white text-xl font-extrabold tracking-tight leading-none mb-1">20+</p>
-                <p className="type-index text-white/30">projects delivered</p>
-              </div>
-              <div className="w-px h-7 bg-white/10" />
-              <div>
-                <div className="flex items-center gap-0.5 mb-1">
-                  {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-white text-white" />)}
+            <div className="flex items-center gap-5 sm:gap-8">
+              {/* Client stacks */}
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {["CB","ME","OA"].map(init => (
+                    <div key={init} className="w-7 h-7 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+                      <span className="text-[8px] font-black text-white/60">{init}</span>
+                    </div>
+                  ))}
                 </div>
-                <p className="type-index text-white/30">5.0 Google rating</p>
+                <div>
+                  <div className="flex gap-0.5 mb-0.5">
+                    {[1,2,3,4,5].map(s => <Star key={s} size={8} className="fill-white text-white" />)}
+                  </div>
+                  <p className="type-index text-white/35">20+ clients served</p>
+                </div>
               </div>
               <div className="hidden sm:block w-px h-7 bg-white/10" />
               <div className="hidden sm:block">

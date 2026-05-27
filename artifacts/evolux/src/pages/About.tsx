@@ -98,63 +98,67 @@ export default function About() {
       <main>
 
         {/* ── Page hero ── */}
-        <section className="pt-[62px] bg-background">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-20 md:pb-28">
+        <section className="pt-[62px] bg-background border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-24 md:pb-32">
 
-            {/* Breadcrumb */}
+            {/* Stamp row */}
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex items-center gap-3 mb-12"
+              className="flex items-center justify-between mb-16 md:mb-20"
             >
-              <Link
-                href="/"
-                className="flex items-center gap-1.5 type-label text-foreground/40 hover:text-accent transition-colors"
-              >
-                <ArrowLeft size={11} />
-                Home
-              </Link>
-              <span className="type-label text-foreground/20">/</span>
-              <span className="type-label text-foreground/40">About</span>
+              <div className="flex items-center gap-2.5">
+                <Link
+                  href="/"
+                  className="group flex items-center gap-2 hover:gap-2.5 transition-all"
+                >
+                  <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 group-hover:border-accent flex items-center justify-center shrink-0 transition-colors">
+                    <span className="text-[7px] font-black text-foreground/35 group-hover:text-accent select-none transition-colors leading-none">E</span>
+                  </div>
+                  <span className="type-index text-foreground/35 group-hover:text-accent transition-colors">Evolux</span>
+                </Link>
+                <span className="type-index text-foreground/15">/</span>
+                <span className="type-index text-foreground/40">About</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-2 rounded-full border border-border px-4 py-2">
+                <Star size={9} className="fill-accent text-accent" />
+                <span className="type-index text-foreground/40">5.0 Google</span>
+              </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
               <motion.div
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-8"
+                className="lg:col-span-7"
               >
-                <div className="flex items-center gap-3 mb-7">
-                  <span className="w-6 h-px bg-accent" />
-                  <span className="type-index text-foreground/40">About Evolux</span>
-                </div>
-                <h1 className="type-display-lg font-extrabold tracking-tight text-foreground leading-tight mb-6">
-                  Built differently.
+                <h1 className="type-display-lg font-extrabold tracking-tight leading-tight mb-8">
+                  <span className="text-foreground">Built differently.</span>
                   <br />
-                  <span className="text-foreground/35">On purpose.</span>
+                  <span className="text-foreground/30">On purpose.</span>
                 </h1>
                 <p className="type-body-lg text-foreground/50 leading-relaxed max-w-[52ch]">
                   Evolux is a one-person web design studio based in Sunderland, founded in 2023 on a single principle: a website should generate enquiries, not just exist.
                 </p>
               </motion.div>
 
-              {/* Floating stat — desktop */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="hidden lg:flex lg:col-span-3 lg:col-start-10 items-end pb-2"
+                transition={{ duration: 0.6, delay: 0.35 }}
+                className="hidden lg:block lg:col-span-4 lg:col-start-9"
               >
-                <div className="w-full border border-border rounded-2xl p-6 bg-white">
-                  <div className="flex gap-0.5 mb-3">
-                    {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
-                  </div>
-                  <p className="text-2xl font-extrabold text-foreground tracking-tight leading-none mb-1">5.0</p>
-                  <p className="type-label text-muted-foreground">Google rating</p>
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <p className="type-index text-foreground/30">Founded 2023 · Sunderland, UK</p>
+                <div className="flex flex-col gap-5">
+                  <p className="type-index text-foreground/25 uppercase tracking-[0.2em]">Founded</p>
+                  <p className="text-4xl font-extrabold text-foreground tracking-tight leading-none">2023</p>
+                  <p className="type-body text-foreground/35 leading-relaxed">
+                    Sunderland, Tyne & Wear<br />North East England
+                  </p>
+                  <div className="flex items-center gap-2 pt-4 border-t border-border">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+                    <span className="type-index text-foreground/40">Available for new projects</span>
                   </div>
                 </div>
               </motion.div>

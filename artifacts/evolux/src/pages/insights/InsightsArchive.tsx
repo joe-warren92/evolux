@@ -54,19 +54,30 @@ export default function InsightsArchive() {
 
         {/* ── Page hero ── */}
         <section className="pt-[62px] bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-20 md:pb-24">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-24 md:pb-32">
 
+            {/* Stamp row */}
             <motion.div
-              initial={{ opacity: 0, y: 8 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex items-center gap-3 mb-12"
+              className="flex items-center justify-between mb-16 md:mb-20"
             >
-              <Link href="/" className="flex items-center gap-1.5 type-label text-foreground/40 hover:text-accent transition-colors">
-                <ArrowLeft size={11} /> Home
-              </Link>
-              <span className="type-label text-foreground/20">/</span>
-              <span className="type-label text-foreground/40">Insights</span>
+              <div className="flex items-center gap-2.5">
+                <Link href="/" className="group flex items-center gap-2 hover:gap-2.5 transition-all">
+                  <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 group-hover:border-accent flex items-center justify-center shrink-0 transition-colors">
+                    <span className="text-[7px] font-black text-foreground/35 group-hover:text-accent select-none transition-colors leading-none">E</span>
+                  </div>
+                  <span className="type-index text-foreground/35 group-hover:text-accent transition-colors">Evolux</span>
+                </Link>
+                <span className="type-index text-foreground/15">/</span>
+                <span className="type-index text-foreground/40">Insights</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-2">
+                <AuthorChip />
+                <span className="type-label text-foreground/25">·</span>
+                <span className="type-label text-foreground/35">Monthly</span>
+              </div>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
@@ -76,14 +87,10 @@ export default function InsightsArchive() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:col-span-7"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-6 h-px bg-accent" />
-                  <span className="type-index text-foreground/40">Insights</span>
-                </div>
-                <h1 className="type-display-lg font-extrabold tracking-tight text-foreground leading-tight">
-                  Straight talk about
+                <h1 className="type-display-lg font-extrabold tracking-tight leading-tight">
+                  <span className="text-foreground">Straight talk about</span>
                   <br />
-                  <span className="text-foreground/35">web design & business.</span>
+                  <span className="text-foreground/30">web design & business.</span>
                 </h1>
               </motion.div>
 
@@ -96,11 +103,6 @@ export default function InsightsArchive() {
                 <p className="type-body text-foreground/45 leading-relaxed">
                   We write about the decisions that grow businesses — conversion, strategy, and the honest maths of web investment.
                 </p>
-                <div className="flex items-center gap-2">
-                  <AuthorChip />
-                  <span className="type-label text-foreground/25">·</span>
-                  <span className="type-label text-foreground/35">Published monthly</span>
-                </div>
               </motion.div>
             </div>
           </div>

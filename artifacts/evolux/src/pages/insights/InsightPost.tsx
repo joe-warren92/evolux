@@ -177,23 +177,34 @@ export default function InsightPost() {
 
         {/* ── Article header ── */}
         <header className="pt-[62px] bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-16">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-20 md:pb-28">
 
-            {/* Breadcrumb */}
+            {/* Stamp row */}
             <motion.nav
               aria-label="Breadcrumb"
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
-              className="flex items-center gap-2 mb-10"
+              className="flex items-center justify-between mb-16 md:mb-20"
             >
-              <Link href="/" className="type-label text-foreground/40 hover:text-accent transition-colors">Home</Link>
-              <span className="type-label text-foreground/20">/</span>
-              <Link href="/insights" className="type-label text-foreground/40 hover:text-accent transition-colors flex items-center gap-1">
-                <ArrowLeft size={10} /> Insights
-              </Link>
-              <span className="type-label text-foreground/20">/</span>
-              <span className="type-label text-accent">{post.category}</span>
+              <div className="flex items-center gap-2.5">
+                <Link href="/" className="group flex items-center gap-2 hover:gap-2.5 transition-all">
+                  <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 group-hover:border-accent flex items-center justify-center shrink-0 transition-colors">
+                    <span className="text-[7px] font-black text-foreground/35 group-hover:text-accent select-none transition-colors leading-none">E</span>
+                  </div>
+                  <span className="type-index text-foreground/35 group-hover:text-accent transition-colors">Evolux</span>
+                </Link>
+                <span className="type-index text-foreground/15">/</span>
+                <Link href="/insights" className="type-index text-foreground/35 hover:text-accent transition-colors flex items-center gap-1">
+                  <ArrowLeft size={10} /> Insights
+                </Link>
+                <span className="type-index text-foreground/15">/</span>
+                <span className="type-index text-accent">{post.category}</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-1.5 type-label text-foreground/35">
+                <Clock size={10} />
+                {post.readingTime} min read
+              </div>
             </motion.nav>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -201,23 +212,17 @@ export default function InsightPost() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-8"
+                className="lg:col-span-9"
               >
-                {/* Category badge */}
-                <span className="inline-block type-label text-accent bg-accent/8 border border-accent/20 px-3 py-1.5 rounded-full mb-6">
-                  {post.category}
-                </span>
-
                 {/* H1 */}
-                <h1 className="type-display-md font-extrabold text-foreground tracking-tight leading-tight mb-8">
+                <h1 className="type-display-md font-extrabold text-foreground tracking-tight leading-tight mb-10">
                   {post.title}
                 </h1>
 
-                {/* Meta row */}
+                {/* Author + meta */}
                 <div className="flex flex-wrap items-center gap-5">
-                  {/* Author inline */}
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-foreground flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-foreground flex items-center justify-center shrink-0">
                       <span className="text-[11px] font-extrabold text-white">{JOE_AUTHOR.initials}</span>
                     </div>
                     <div>
@@ -233,19 +238,18 @@ export default function InsightPost() {
                     <time dateTime={post.publishedAt}>{publishedDate}</time>
                   </div>
 
-                  <div className="flex items-center gap-1.5 type-label text-foreground/40">
-                    <Clock size={11} />
-                    {post.readingTime} min read
-                  </div>
+                  <span className="inline-block type-label text-accent bg-accent/8 border border-accent/20 px-3 py-1.5 rounded-full">
+                    {post.category}
+                  </span>
                 </div>
               </motion.div>
             </div>
           </div>
 
-          {/* Accent gradient banner */}
+          {/* Accent rule */}
           <div
-            className="w-full h-2"
-            style={{ background: "linear-gradient(90deg, hsl(22 88% 48%) 0%, hsl(22 88% 48% / 0.3) 60%, transparent 100%)" }}
+            className="w-full h-[3px]"
+            style={{ background: "linear-gradient(90deg, hsl(22 88% 48%) 0%, hsl(22 88% 48% / 0.2) 50%, transparent 100%)" }}
           />
         </header>
 
