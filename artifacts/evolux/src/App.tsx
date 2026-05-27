@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import FreeReview from "@/pages/FreeReview";
 import WebDesign from "@/pages/services/WebDesign";
+import Packages from "@/pages/Packages";
 import Locations from "@/pages/locations/Locations";
 import Sunderland from "@/pages/locations/Sunderland";
 import InsightsArchive from "@/pages/insights/InsightsArchive";
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/free-review" component={FreeReview} />
+      <Route path="/packages" component={Packages} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/locations" component={Locations} />
       <Route path="/locations/sunderland" component={Sunderland} />
