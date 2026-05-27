@@ -7,6 +7,11 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import FreeReview from "@/pages/FreeReview";
 import WebDesign from "@/pages/services/WebDesign";
+import ServicesArchive from "@/pages/services/ServicesArchive";
+import Maintenance from "@/pages/services/Maintenance";
+import CRO from "@/pages/services/CRO";
+import Branding from "@/pages/services/Branding";
+import GraphicDesign from "@/pages/services/GraphicDesign";
 import Packages from "@/pages/Packages";
 import Locations from "@/pages/locations/Locations";
 import Sunderland from "@/pages/locations/Sunderland";
@@ -27,7 +32,12 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/free-review" component={FreeReview} />
       <Route path="/packages" component={Packages} />
+      <Route path="/services" component={ServicesArchive} />
       <Route path="/services/web-design" component={WebDesign} />
+      <Route path="/services/website-maintenance" component={Maintenance} />
+      <Route path="/services/conversion-optimisation" component={CRO} />
+      <Route path="/services/branding" component={Branding} />
+      <Route path="/services/graphic-design" component={GraphicDesign} />
       <Route path="/locations" component={Locations} />
       <Route path="/locations/sunderland" component={Sunderland} />
       <Route path="/insights" component={InsightsArchive} />
