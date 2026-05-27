@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { LeadMagnet } from "@/components/sections/LeadMagnet";
 import { Pricing } from "@/components/sections/Pricing";
+import { Insights } from "@/components/sections/Insights";
 import { Footer } from "@/components/sections/Footer";
 import { Navigation } from "@/components/layout/Navigation";
 
@@ -20,6 +21,7 @@ export default function Home() {
         <Process />
         <LeadMagnet />
         <Pricing />
+        <Insights />
       </main>
       <Footer />
     </div>

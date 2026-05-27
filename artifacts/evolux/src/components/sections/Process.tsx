@@ -5,25 +5,25 @@ const steps = [
     num: "01",
     title: "Discovery call",
     time: "Day 1",
-    desc: "A 45-minute call to understand your goals, your audience, and what's not working. We'll tell you honestly whether we're the right fit before any money changes hands.",
+    desc: "You leave the call with complete clarity — what your site will do for your business, what it costs, and when it goes live. No vague proposals, no waiting a fortnight for a quote.",
   },
   {
     num: "02",
     title: "Design direction",
     time: "Week 2",
-    desc: "A complete design concept — not wireframes or mood boards. You see the real thing: typography, colour, layout, copy. Rapid revisions until it's exactly right.",
+    desc: "You see the finished design before a single line of code is written — real typography, real colour, real layouts. You approve it or we revise it. No surprises further down the line.",
   },
   {
     num: "03",
     title: "Build & test",
     time: "Weeks 3–5",
-    desc: "Fast, clean development. Tested across every device and browser before you see so much as a staging link. Performance baked in, not bolted on.",
+    desc: "You get a site that loads fast, ranks on Google, and works flawlessly on every device — tested across browsers and screen sizes before you're ever asked to review it.",
   },
   {
     num: "04",
     title: "Launch & handover",
     time: "Week 6",
-    desc: "We handle the launch end-to-end, walk you through the CMS, and remain available for 30 days. Your site. Your control. No dependency on us unless you want it.",
+    desc: "You go live with confidence. We handle the technical side entirely, walk you through the CMS, and remain on hand for 30 days. Your business, your site, your control.",
   },
 ];
 
@@ -45,8 +45,8 @@ export function Process() {
               How it works
             </div>
             <h2>
-              <span className="block type-display-md text-muted-foreground font-light">Four steps.</span>
-              <span className="block type-display-md font-extrabold text-foreground">Zero surprises.</span>
+              <span className="block type-display-md text-muted-foreground font-light">Four clear steps.</span>
+              <span className="block type-display-md font-extrabold text-foreground">You're in control throughout.</span>
             </h2>
           </motion.div>
 
@@ -101,9 +101,9 @@ export function Process() {
           className="mt-12 flex flex-wrap items-center justify-between gap-8"
         >
           {[
-            { value: "4–6 wks", label: "Typical timeline" },
+            { value: "4–6 wks", label: "From brief to launch" },
             { value: "100%", label: "On-time delivery" },
-            { value: "30 days", label: "Post-launch support" },
+            { value: "30 days", label: "Support after you go live" },
           ].map(kpi => (
             <div key={kpi.label} className="flex flex-col gap-1">
               <span className="text-2xl font-extrabold tracking-tight text-foreground">{kpi.value}</span>

@@ -12,7 +12,7 @@ const projects = [
     title: "Aura Architecture",
     category: "Web Design & Development",
     result: "+280% enquiries",
-    desc: "A considered, award-level website for a London architecture practice that had outgrown its old identity.",
+    desc: "A considered website for a London architecture practice that had outgrown its identity — built to win the kind of projects they actually wanted.",
     image: project1,
     aspect: "aspect-[3/4]",
   },
@@ -22,7 +22,7 @@ const projects = [
     title: "Lumina Studio",
     category: "Brand Identity + Web",
     result: "3× organic traffic",
-    desc: "End-to-end brand and web for a creative studio entering a competitive new market.",
+    desc: "End-to-end brand and web for a creative studio entering a competitive market. Tripled organic traffic within 60 days of launch.",
     image: project2,
     aspect: "aspect-[4/3]",
   },
@@ -32,7 +32,7 @@ const projects = [
     title: "Chronos Finance",
     category: "Product Design",
     result: "+52% sign-ups",
-    desc: "Simplified a complex financial product into a clean, trustworthy interface that converts.",
+    desc: "A complex financial product turned into a clean, trustworthy interface. Conversion rate improved 52% in the first quarter.",
     image: project3,
     aspect: "aspect-[4/3]",
   },
@@ -42,7 +42,7 @@ const projects = [
     title: "Nexus Platform",
     category: "Full-Stack Development",
     result: "98 Lighthouse score",
-    desc: "High-performance platform rebuilt from scratch — zero compromise on speed or accessibility.",
+    desc: "Platform rebuilt from scratch for speed, accessibility and scale. Perfect performance score, zero legacy debt.",
     image: project4,
     aspect: "aspect-[3/4]",
   },
@@ -62,14 +62,12 @@ function ProjectCard({ project, delay, offsetTop = false }: {
       className={`group cursor-pointer ${offsetTop ? "lg:mt-28" : ""}`}
       data-testid={`card-project-${project.id}`}
     >
-      {/* Image */}
       <div className={`overflow-hidden bg-muted rounded-xl relative mb-5 ${project.aspect}`}>
         <img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.04]"
         />
-        {/* Hover overlay */}
         <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
           <div className="flex items-center justify-between w-full">
             <div>
@@ -83,10 +81,9 @@ function ProjectCard({ project, delay, offsetTop = false }: {
         </div>
       </div>
 
-      {/* Metadata */}
       <div className="flex items-start justify-between gap-3 px-0.5">
         <div className="flex items-baseline gap-3">
-          <span className="type-label text-muted-foreground/50">{project.num}</span>
+          <span className="type-label text-muted-foreground/40">{project.num}</span>
           <div>
             <p className="type-label text-muted-foreground mb-1">{project.category}</p>
             <h3 className="text-sm font-semibold text-foreground leading-tight">{project.title}</h3>
@@ -103,7 +100,7 @@ export function FeaturedWork() {
     <section id="work" className="py-28 px-6 md:px-10 bg-background">
       <div className="max-w-7xl mx-auto">
 
-        {/* Left-aligned editorial header — not the centered cliché */}
+        {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -116,8 +113,8 @@ export function FeaturedWork() {
               Selected work
             </div>
             <h2>
-              <span className="block type-display-lg font-light text-muted-foreground">Work that</span>
-              <span className="block type-display-lg font-extrabold text-foreground">earns results</span>
+              <span className="block type-display-lg font-light text-muted-foreground">Results that</span>
+              <span className="block type-display-lg font-extrabold text-foreground">speak for themselves</span>
             </h2>
           </motion.div>
 
@@ -128,7 +125,7 @@ export function FeaturedWork() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="type-body text-muted-foreground max-w-xs lg:text-right lg:pb-2"
           >
-            Every project we take on has a defined goal. We don't ship until it's met.
+            Every project has a measurable outcome. We don't consider work complete until the numbers prove it.
           </motion.p>
         </div>
 
@@ -146,7 +143,6 @@ export function FeaturedWork() {
           </div>
         </div>
 
-        {/* Footer bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -155,7 +151,7 @@ export function FeaturedWork() {
           className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border-t border-border pt-8"
         >
           <p className="type-label text-muted-foreground">
-            Results measured at 90 days post-launch across all projects
+            All results measured at 90 days post-launch
           </p>
           <button
             className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent transition-colors"

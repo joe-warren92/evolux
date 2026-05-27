@@ -13,10 +13,8 @@ export function Hero() {
     <section className="relative flex flex-col pt-[60px] bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-14 md:pt-20 pb-16">
 
-        {/* Headline + proof card side-by-side on desktop */}
+        {/* Headline + proof card */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 mb-12">
-
-          {/* Headline */}
           <div className="flex-1">
             <h1>
               <span className="block overflow-hidden">
@@ -53,7 +51,7 @@ export function Hero() {
             </h1>
           </div>
 
-          {/* Desktop proof card — fills the dead space */}
+          {/* Desktop proof card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,7 +59,7 @@ export function Hero() {
             className="hidden lg:flex flex-col gap-0 border border-border rounded-2xl overflow-hidden bg-white shrink-0 w-[260px] self-end mb-2"
           >
             <div className="px-5 pt-5 pb-3 border-b border-border">
-              <p className="type-label text-muted-foreground mb-1">Recent results</p>
+              <p className="type-label text-muted-foreground mb-1">Recent client results</p>
               <div className="flex items-center gap-1">
                 {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-accent text-accent" />)}
                 <span className="type-label text-muted-foreground ml-1.5">4.9 avg rating</span>
@@ -74,7 +72,7 @@ export function Hero() {
               >
                 <div>
                   <p className="text-xs font-semibold text-foreground leading-tight">{win.client}</p>
-                  <p className="type-label text-muted-foreground mt-0.5">Recent project</p>
+                  <p className="type-label text-muted-foreground mt-0.5">90-day result</p>
                 </div>
                 <div className="text-right shrink-0">
                   <p className="text-sm font-extrabold text-accent tracking-tight">{win.metric}</p>
@@ -85,9 +83,8 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Below-headline row */}
+        {/* Sub-copy row */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +92,7 @@ export function Hero() {
             className="max-w-md"
           >
             <p className="type-body-lg text-muted-foreground leading-relaxed mb-8">
-              We build websites that close deals while you sleep — combining considered design, fast code, and conversion strategy for UK companies that mean business.
+              You'll get more enquiries, more credibility, and a site you're proud to send to every prospect — built for UK companies that mean business.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mb-10">
@@ -107,15 +104,14 @@ export function Hero() {
                 Book a Free Call
               </button>
               <a
-                href="#audit"
+                href="#review"
                 className="border border-border px-6 py-3.5 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors duration-300 flex items-center gap-2"
-                data-testid="link-free-audit"
+                data-testid="link-free-review"
               >
-                Free website audit <ArrowUpRight size={13} />
+                Free website review <ArrowUpRight size={13} />
               </a>
             </div>
 
-            {/* Testimonial snippet */}
             <div className="flex items-start gap-3">
               <div className="w-px self-stretch bg-accent/40 shrink-0 rounded-full" />
               <div>
@@ -127,14 +123,13 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Client logos — mobile only (desktop shown in proof card above) */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.72 }}
             className="flex flex-col gap-3 lg:hidden"
           >
-            <p className="type-label text-muted-foreground">Trusted by growth-focused brands</p>
+            <p className="type-label text-muted-foreground">Trusted by growth-focused businesses</p>
             <div className="flex flex-wrap items-center gap-5 text-sm font-semibold text-foreground/40 tracking-tight">
               <span>Relink</span><span>Wavemark</span><span>Huxley</span><span>Stratum</span><span>Nexus</span>
             </div>

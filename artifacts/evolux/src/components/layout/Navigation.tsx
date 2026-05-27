@@ -37,6 +37,7 @@ export function Navigation() {
           { label: "About", href: "#about" },
           { label: "Services", href: "#services" },
           { label: "Pricing", href: "#pricing" },
+          { label: "Insights", href: "#insights" },
         ].map(item => (
           <a
             key={item.label}
@@ -51,11 +52,11 @@ export function Navigation() {
 
       <div className="flex items-center gap-3">
         <a
-          href="#audit"
+          href="#review"
           className="hidden sm:flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-2 rounded-full type-label hover:bg-accent/90 transition-colors"
-          data-testid="nav-audit-cta"
+          data-testid="nav-review-cta"
         >
-          Free audit <ArrowUpRight size={11} />
+          Free review <ArrowUpRight size={11} />
         </a>
         <div className="flex items-center gap-2 border border-border bg-background/80 px-3 py-1.5 rounded-full type-label text-foreground/70">
           <span className="relative flex h-1.5 w-1.5">
