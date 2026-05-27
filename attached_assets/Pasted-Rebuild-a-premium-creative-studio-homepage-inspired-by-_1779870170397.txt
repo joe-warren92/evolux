@@ -1,0 +1,72 @@
+Rebuild a premium creative studio homepage inspired by:
+https://primefolio.webflow.io/
+
+This is for Evolux Web Design, but DO NOT use the existing Evolux website design, colours, layout, sections or branding direction apart from the Evolux logo.
+
+IMPORTANT:
+This should feel like a high-end creative studio / portfolio website, not a generic local web design agency template.
+
+The goal of this first phase is ONLY:
+- establish the visual direction
+- recreate the premium structure/style quality
+- build the homepage layout foundation
+- create the overall design system
+
+Do NOT focus heavily on final copy yet.
+Use placeholder copy where needed.
+
+Design direction:
+- Editorial and premium
+- Strong typography hierarchy
+- Large spacing
+- Asymmetrical layouts
+- Minimal but visually rich
+- Modern portfolio aesthetic
+- Sophisticated interactions
+- Smooth subtle animations
+- Clean grids
+- High-end hover effects
+- Refined transitions
+- Premium responsiveness
+
+Avoid:
+- Generic SaaS sections
+- Overused gradients
+- Rounded-card overload
+- Cheap AI-template aesthetics
+- Cartoonish illustrations
+- Bright startup colours
+- Generic “web agency” styling
+
+Tech requirements:
+- Build using Astro
+- Use modular CSS architecture
+- Use CSS variables for typography, colours, spacing and sizing
+- Avoid Tailwind unless already required
+- Semantic HTML
+- Fully responsive
+- Performance-focused structure
+- Organised reusable components
+
+Homepage sections to build:
+1. Hero
+2. Intro/positioning section
+3. Featured work/projects section
+4. Services/capabilities section
+5. Process section
+6. Pricing/packages preview
+7. Final CTA/footer
+
+Visual priorities:
+- Typography should carry the design
+- Layout and spacing should feel intentional
+- Use subtle motion throughout
+- Make it feel premium before adding real content
+
+For now:
+- Use placeholder projects
+- Use placeholder testimonials if needed
+- Use temporary copy
+- Focus on visual quality and UX first
+
+The final result should feel closer to a modern creative design studio than a traditional web design business.

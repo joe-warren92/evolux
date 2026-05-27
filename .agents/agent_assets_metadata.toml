@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "oone4vk9EnzyYKwkAumb3"
+uri = "file://artifacts/evolux/src/assets/images/project-1.png"
+type = "image"
+title = "Abstract glass and light refraction"
+
+[[generated]]
+id = "kK2UILnNG8WNdIwVkGbe6"
+uri = "file://artifacts/evolux/src/assets/images/project-2.png"
+type = "image"
+title = "Minimalist architecture shadow study"
+
+[[generated]]
+id = "a_fXziw_QwJkUhY5rgXol"
+uri = "file://artifacts/evolux/src/assets/images/project-3.png"
+type = "image"
+title = "Dark metallic fluid abstract"
+
+[[generated]]
+id = "U1uCrBzv-XaQOwnTAoD32"
+uri = "file://artifacts/evolux/src/assets/images/project-4.png"
+type = "image"
+title = "Kinetic typography distortion"
