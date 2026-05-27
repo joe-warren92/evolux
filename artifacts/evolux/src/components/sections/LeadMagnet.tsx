@@ -21,8 +21,46 @@ export function LeadMagnet() {
   };
 
   return (
-    <section id="review" className="py-28 px-6 md:px-10 bg-foreground text-primary-foreground">
-      <div className="max-w-7xl mx-auto">
+    <section id="review" className="relative py-28 px-6 md:px-10 bg-foreground text-primary-foreground overflow-hidden">
+
+      {/* ── Decorative ring elements ── */}
+      <svg
+        aria-hidden
+        className="absolute -top-20 -right-20 w-[520px] h-[520px] pointer-events-none select-none opacity-[0.07]"
+        viewBox="0 0 520 520"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="380" cy="140" r="220" stroke="white" strokeWidth="1"/>
+        <circle cx="380" cy="140" r="160" stroke="white" strokeWidth="0.6"/>
+        <circle cx="380" cy="140" r="100" stroke="hsl(22 88% 48%)" strokeWidth="1.2"/>
+        <circle cx="380" cy="140" r="44" stroke="hsl(22 88% 48%)" strokeWidth="1.5"/>
+        {/* Cross-hairs */}
+        <line x1="280" y1="140" x2="480" y2="140" stroke="white" strokeWidth="0.4" strokeDasharray="4 6"/>
+        <line x1="380" y1="40" x2="380" y2="240" stroke="white" strokeWidth="0.4" strokeDasharray="4 6"/>
+      </svg>
+
+      <svg
+        aria-hidden
+        className="absolute -bottom-16 -left-16 w-[320px] h-[320px] pointer-events-none select-none opacity-[0.04]"
+        viewBox="0 0 320 320"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="60" cy="260" r="160" stroke="white" strokeWidth="1"/>
+        <circle cx="60" cy="260" r="100" stroke="hsl(22 88% 48%)" strokeWidth="0.8"/>
+      </svg>
+
+      {/* Subtle diagonal grid lines */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none select-none opacity-[0.025]"
+        style={{
+          backgroundImage: "repeating-linear-gradient(135deg, white 0px, white 1px, transparent 1px, transparent 40px)",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
           {/* Left: hook */}
@@ -64,7 +102,7 @@ export function LeadMagnet() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <p className="type-label text-white/35 mb-4 uppercase tracking-widest">What you'll receive</p>
+              <p className="type-label text-white/30 mb-4">What you'll receive</p>
               <ul className="flex flex-col gap-3">
                 {outcomes.map((item, i) => (
                   <motion.li
@@ -91,7 +129,7 @@ export function LeadMagnet() {
             transition={{ duration: 0.8, delay: 0.15 }}
           >
             {submitted ? (
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center backdrop-blur-sm">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
                   <CheckCircle2 size={22} className="text-white" />
                 </div>
@@ -100,13 +138,13 @@ export function LeadMagnet() {
                   We'll have your personalised website review in your inbox within 48 hours.
                 </p>
                 <p className="type-body text-white/40">
-                  Check your spam folder if you don't hear from us — and feel free to email{" "}
+                  Email{" "}
                   <a href="mailto:hello@evolux.studio" className="text-white/70 underline underline-offset-4">hello@evolux.studio</a>{" "}
-                  if anything.
+                  if you have any questions in the meantime.
                 </p>
               </div>
             ) : (
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10">
+              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-sm">
                 <h3 className="text-xl font-bold text-white mb-2">Get your free website review</h3>
                 <p className="type-body text-white/50 mb-8">
                   Takes 30 seconds to request. Takes us 48 hours to deliver.
@@ -139,7 +177,7 @@ export function LeadMagnet() {
                     />
                   </div>
                   <div>
-                    <label className="type-label text-white/40 mb-2 block">Biggest website frustration <span className="text-white/20">(optional)</span></label>
+                    <label className="type-label text-white/40 mb-2 block">Biggest website frustration <span className="text-white/20 normal-case">(optional)</span></label>
                     <input
                       type="text"
                       placeholder="e.g. we get traffic but no enquiries"

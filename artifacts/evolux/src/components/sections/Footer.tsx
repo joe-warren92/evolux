@@ -72,9 +72,26 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Final CTA */}
-      <div className="py-24 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto flex flex-col">
+      {/* Final CTA — with decorative EVOLUX wordmark */}
+      <div className="relative py-24 px-6 md:px-10 overflow-hidden">
+
+        {/* ── Decorative oversized wordmark ── */}
+        <span
+          aria-hidden
+          className="absolute bottom-0 right-0 font-extrabold leading-none tracking-[-0.05em] text-foreground/[0.028] select-none pointer-events-none whitespace-nowrap"
+          style={{ fontSize: "clamp(7rem, 18vw, 18rem)" }}
+        >
+          EVOLUX
+        </span>
+
+        {/* Faint accent gradient top-left */}
+        <div
+          aria-hidden
+          className="absolute -top-20 -left-20 w-96 h-96 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.05) 0%, transparent 70%)" }}
+        />
+
+        <div className="max-w-7xl mx-auto flex flex-col relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +130,7 @@ export function Footer() {
             <div className="flex items-center gap-8">
               <span className="font-semibold text-sm tracking-[0.2em] uppercase text-foreground">EVOLUX</span>
               <div className="hidden md:flex gap-6">
-                {["Work", "About", "Services", "Pricing", "Contact"].map(link => (
+                {["Work", "About", "Services", "Pricing", "Insights", "Contact"].map(link => (
                   <a
                     key={link}
                     href={`#${link.toLowerCase()}`}

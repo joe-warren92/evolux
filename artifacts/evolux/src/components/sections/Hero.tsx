@@ -10,8 +10,30 @@ const recentWins = [
 
 export function Hero() {
   return (
-    <section className="relative flex flex-col pt-[60px] bg-background">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-14 md:pt-20 pb-16">
+    <section className="relative flex flex-col pt-[60px] bg-background overflow-hidden">
+
+      {/* ── Decorative gradient blobs ── */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* Accent blob — top right */}
+        <div
+          className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
+          style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.07) 0%, transparent 65%)" }}
+        />
+        {/* Neutral blob — bottom left of headline */}
+        <div
+          className="absolute top-60 -left-20 w-[500px] h-[500px] rounded-full"
+          style={{ background: "radial-gradient(circle, hsl(0 0% 50% / 0.04) 0%, transparent 65%)" }}
+        />
+        {/* Decorative watermark text */}
+        <span
+          className="absolute -bottom-4 left-0 text-[clamp(8rem,20vw,18rem)] font-extrabold leading-none tracking-[-0.05em] text-foreground/[0.025] select-none whitespace-nowrap"
+          style={{ fontVariantNumeric: "tabular-nums" }}
+        >
+          WEB DESIGN
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-14 md:pt-20 pb-16 relative z-10">
 
         {/* Headline + proof card */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 mb-12">
@@ -56,7 +78,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:flex flex-col gap-0 border border-border rounded-2xl overflow-hidden bg-white shrink-0 w-[260px] self-end mb-2"
+            className="hidden lg:flex flex-col gap-0 border border-border rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm shrink-0 w-[260px] self-end mb-2 shadow-sm"
           >
             <div className="px-5 pt-5 pb-3 border-b border-border">
               <p className="type-label text-muted-foreground mb-1">Recent client results</p>

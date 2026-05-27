@@ -64,8 +64,15 @@ export function Process() {
           </motion.blockquote>
         </div>
 
-        {/* Step list */}
-        <div className="flex flex-col">
+        {/* Step list with timeline */}
+        <div className="relative">
+
+          {/* Vertical timeline line — runs through the step numbers */}
+          <div
+            aria-hidden
+            className="absolute left-[3px] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-border to-transparent pointer-events-none hidden lg:block"
+          />
+
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
@@ -73,11 +80,22 @@ export function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: i * 0.07 }}
-              className="grid grid-cols-12 gap-4 py-8 border-t border-border group"
+              className="relative grid grid-cols-12 gap-4 py-8 border-t border-border group overflow-hidden"
             >
-              <div className="col-span-1">
-                <span className="type-label text-muted-foreground/35">{step.num}</span>
+              {/* Large faint background number */}
+              <span
+                aria-hidden
+                className="absolute right-0 top-1/2 -translate-y-1/2 text-[9rem] font-extrabold leading-none tracking-[-0.05em] text-foreground/[0.03] select-none pointer-events-none tabular-nums"
+              >
+                {step.num}
+              </span>
+
+              {/* Timeline dot */}
+              <div className="col-span-1 flex flex-col items-start pt-0.5 gap-2">
+                <div className="hidden lg:flex items-center justify-center w-2 h-2 rounded-full bg-accent/60 ring-4 ring-background mt-0.5 shrink-0 group-hover:bg-accent transition-colors" />
+                <span className="type-label text-muted-foreground/40 lg:hidden">{step.num}</span>
               </div>
+
               <div className="col-span-11 lg:col-span-3">
                 <h3 className="text-base font-semibold text-foreground tracking-tight mb-1 group-hover:text-accent transition-colors">
                   {step.title}

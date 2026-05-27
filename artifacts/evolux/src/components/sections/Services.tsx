@@ -26,7 +26,9 @@ const painPoints = [
 
 export function Services() {
   return (
-    <section id="services" className="py-28 px-6 md:px-10 bg-[hsl(0,0%,97.5%)]">
+    <section id="services" className="relative py-28 px-6 md:px-10 bg-[hsl(0,0%,97.5%)] overflow-hidden">
+      {/* Dot grid texture */}
+      <div aria-hidden className="absolute inset-0 bg-dot-grid opacity-[0.18] pointer-events-none select-none" />
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
