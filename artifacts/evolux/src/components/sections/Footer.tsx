@@ -3,22 +3,19 @@ import { Star, ArrowUpRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was an absolute pleasure to work with throughout — always available, quick to respond, and incredibly patient.",
+    quote: "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout.",
     author: "Katie Dutton",
     role: "Manton Executives",
-    result: "5★ Google review",
   },
   {
     quote: "Amazing! This company is so easy to work with. They created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone.",
     author: "Leah Hall",
     role: "Client",
-    result: "5★ Google review",
   },
   {
-    quote: "From start to finish, the process was clear and professional. The site launched on time, looks exactly like my business, and has already started generating enquiries. Brilliant service.",
+    quote: "From start to finish, the process was clear and professional. The site launched on time, looks exactly like my business, and has already started generating enquiries.",
     author: "Daniel O.",
     role: "Client, North East",
-    result: "Enquiries from week one",
   },
 ];
 
@@ -26,45 +23,64 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-background border-t border-border">
 
-      {/* Testimonial grid */}
-      <div className="py-20 px-6 md:px-10 border-b border-border">
+      {/* ── Editorial testimonial section ── */}
+      <div className="py-24 px-6 md:px-10 border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-between mb-12"
-          >
-            <div className="flex items-center gap-2 type-label text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              What clients say
-            </div>
-            <div className="hidden sm:flex items-center gap-1.5">
-              {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
-              <span className="type-label text-muted-foreground ml-1.5">5.0 on Google</span>
-            </div>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Header row */}
+          <div className="flex items-end justify-between mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-6 h-px bg-accent" />
+                <span className="type-index text-foreground/40">What clients say</span>
+              </div>
+              <h2 className="type-display-md font-black text-foreground">
+                Real words.<br />
+                <span className="text-foreground/25 font-light">No agency gloss.</span>
+              </h2>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="hidden md:flex flex-col items-end gap-1.5 pb-1"
+            >
+              <div className="flex items-center gap-0.5">
+                {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
+              </div>
+              <span className="type-index text-foreground/30">5.0 on Google</span>
+            </motion.div>
+          </div>
+
+          {/* Editorial testimonials — no cards, pure type */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.author}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-muted/50 rounded-xl p-6 flex flex-col gap-4"
+                className={`pt-8 pb-10 flex flex-col gap-5 border-t border-border ${i < testimonials.length - 1 ? "md:pr-10 md:border-r" : "md:pl-10"} ${i > 0 && i < testimonials.length - 1 ? "md:pl-10" : ""}`}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
+                <span className="text-4xl font-black text-foreground/10 leading-none select-none">"</span>
+                <p className="type-quote text-foreground/55 leading-relaxed flex-1">
+                  {t.quote}
+                </p>
+                <div className="flex items-center gap-3 mt-auto">
+                  <div className="w-7 h-7 bg-foreground/5 flex items-center justify-center shrink-0 text-[10px] font-black text-foreground/40 tracking-wide">
+                    {t.author.split(' ').map(n => n[0]).join('')}
                   </div>
-                  <span className="type-label text-accent">{t.result}</span>
-                </div>
-                <p className="type-quote text-foreground/70 leading-relaxed flex-1">"{t.quote}"</p>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{t.author}</p>
-                  <p className="type-label text-muted-foreground mt-0.5">{t.role}</p>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground leading-none">{t.author}</p>
+                    <p className="type-index mt-1">{t.role}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -72,91 +88,86 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Final CTA — with decorative EVOLUX wordmark */}
-      <div className="relative py-24 px-6 md:px-10 overflow-hidden">
-
+      {/* ── Final CTA ── */}
+      <div className="relative py-28 px-6 md:px-10 overflow-hidden">
+        {/* Ghost wordmark */}
         <span
           aria-hidden
-          className="absolute bottom-0 right-0 font-extrabold leading-none tracking-[-0.05em] text-foreground/[0.028] select-none pointer-events-none whitespace-nowrap"
-          style={{ fontSize: "clamp(7rem, 18vw, 18rem)" }}
+          className="absolute bottom-0 right-0 font-black leading-none tracking-[-0.06em] text-foreground/[0.025] select-none pointer-events-none whitespace-nowrap"
+          style={{ fontSize: "clamp(6rem, 16vw, 16rem)" }}
         >
           EVOLUX
         </span>
 
         <div
           aria-hidden
-          className="absolute -top-20 -left-20 w-96 h-96 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.05) 0%, transparent 70%)" }}
+          className="absolute -top-20 -left-10 w-80 h-80 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.045) 0%, transparent 70%)" }}
         />
 
-        <div className="max-w-7xl mx-auto flex flex-col relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-14"
+            className="mb-16"
           >
-            <h2 className="mb-4">
-              <span className="block type-display-lg text-muted-foreground font-light">Your next client is</span>
-              <span className="block type-display-lg font-extrabold text-foreground">searching right now.</span>
+            <h2 className="mb-5">
+              <span className="block type-display-lg text-foreground/25 font-light">Your next client is</span>
+              <span className="block type-display-lg font-black text-foreground">searching right now.</span>
             </h2>
-            <p className="type-body-lg text-muted-foreground max-w-lg mb-10">
+            <p className="type-body-lg text-foreground/45 max-w-md mb-10">
               If your website isn't winning them over, someone else's is. Let's change that.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-12">
               <button
-                className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
+                className="bg-foreground text-primary-foreground px-8 py-4 text-sm font-semibold hover:bg-accent transition-colors duration-300 flex items-center gap-2"
                 data-testid="button-start-project"
               >
                 Start a project <ArrowUpRight size={14} />
               </button>
-              <span className="type-body text-muted-foreground">
-                Or email{" "}
-                <a href="mailto:info@evoluxwebdesign.co.uk" className="text-foreground font-medium hover:text-accent transition-colors underline underline-offset-4">
-                  info@evoluxwebdesign.co.uk
-                </a>
-              </span>
+              <a
+                href="mailto:info@evoluxwebdesign.co.uk"
+                className="text-sm font-medium text-foreground/40 hover:text-accent transition-colors border-b border-border hover:border-accent pb-px"
+              >
+                info@evoluxwebdesign.co.uk
+              </a>
             </div>
 
-            {/* Contact details */}
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 text-sm text-muted-foreground">
-              <div>
-                <p className="type-label mb-1">Phone</p>
-                <a href="tel:+447854932203" className="text-foreground hover:text-accent transition-colors font-medium">+44 7854 932203</a>
-              </div>
-              <div>
-                <p className="type-label mb-1">Email</p>
-                <a href="mailto:info@evoluxwebdesign.co.uk" className="text-foreground hover:text-accent transition-colors font-medium">info@evoluxwebdesign.co.uk</a>
-              </div>
-              <div>
-                <p className="type-label mb-1">Based in</p>
-                <span className="text-foreground font-medium">Sunderland, Tyne & Wear</span>
-              </div>
-              <div>
-                <p className="type-label mb-1">Serving</p>
-                <span className="text-foreground font-medium">Clients across the UK</span>
-              </div>
+            {/* Contact strip */}
+            <div className="flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-8">
+              {[
+                { label: "Phone", value: "+44 7854 932203", href: "tel:+447854932203" },
+                { label: "Email", value: "info@evoluxwebdesign.co.uk", href: "mailto:info@evoluxwebdesign.co.uk" },
+                { label: "Based in", value: "Sunderland, Tyne & Wear", href: undefined },
+                { label: "Serving", value: "Clients across the UK", href: undefined },
+              ].map(item => (
+                <div key={item.label}>
+                  <p className="type-index text-foreground/30 mb-1">{item.label}</p>
+                  {item.href ? (
+                    <a href={item.href} className="text-sm font-medium text-foreground hover:text-accent transition-colors">{item.value}</a>
+                  ) : (
+                    <span className="text-sm font-medium text-foreground">{item.value}</span>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
 
           {/* Bar */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-t border-border pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 border-t border-border pt-7">
             <div className="flex items-center gap-8">
-              <span className="font-semibold text-sm tracking-[0.2em] uppercase text-foreground">EVOLUX</span>
+              <span className="font-black text-xs tracking-[0.3em] uppercase text-foreground">EVOLUX</span>
               <div className="hidden md:flex gap-6">
-                {["Work", "About", "Services", "Pricing", "Insights", "Contact"].map(link => (
-                  <a
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="type-body text-muted-foreground hover:text-accent transition-colors"
-                  >
+                {["Work", "About", "Services", "Pricing", "Insights"].map(link => (
+                  <a key={link} href={`#${link.toLowerCase()}`} className="type-body text-foreground/35 hover:text-foreground transition-colors">
                     {link}
                   </a>
                 ))}
               </div>
             </div>
-            <p className="type-label text-muted-foreground">© {new Date().getFullYear()} Evolux Web Design. Sunderland, Tyne & Wear.</p>
+            <p className="type-index text-foreground/25">© {new Date().getFullYear()} Evolux Web Design. Sunderland, Tyne & Wear.</p>
           </div>
         </div>
       </div>

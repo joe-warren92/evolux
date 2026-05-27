@@ -32,84 +32,84 @@ function Counter({ from = 0, to, suffix = "", duration = 2, delay = 0 }: {
 
 export function Intro() {
   return (
-    <section id="about" className="py-28 px-6 md:px-10 bg-background">
+    <section id="about" className="py-32 px-6 md:px-10 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-start">
 
           {/* Portrait */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:sticky lg:top-24"
           >
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
+            {/* Image — sharp corners, full bleed */}
+            <div className="relative aspect-[4/5] overflow-hidden img-frame bg-muted">
               <img
                 src={aboutPortrait}
-                alt="Evolux Studio"
+                alt="Joe, founder of Evolux Web Design"
                 className="w-full h-full object-cover"
               />
-              {/* Floating stat bar */}
-              <div className="absolute bottom-0 left-0 right-0 bg-black/65 backdrop-blur-sm px-6 py-5 flex items-center justify-between gap-4">
-                {[
-                  { value: 20, suffix: "+", label: "projects" },
-                  { value: 5, suffix: "+", label: "years exp" },
-                ].map((stat, i) => (
-                  <div key={stat.label} className="flex flex-col items-center flex-1">
-                    <p className="text-white font-extrabold text-2xl tracking-tight leading-none">
-                      <Counter to={stat.value} suffix={stat.suffix} duration={1.8} delay={i * 0.2} />
-                    </p>
-                    <p className="text-white/50 text-xs mt-1 type-label">{stat.label}</p>
+              {/* Gradient at base for stats */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pt-20 px-6 pb-6">
+                <div className="flex items-end gap-8 border-t border-white/15 pt-5">
+                  {[
+                    { value: 20, suffix: "+", label: "projects delivered" },
+                    { value: 5, suffix: "+", label: "years experience" },
+                  ].map((stat, i) => (
+                    <div key={stat.label} className="flex flex-col gap-1">
+                      <span className="text-white font-black text-2xl tracking-tight leading-none tabular-nums">
+                        <Counter to={stat.value} suffix={stat.suffix} duration={1.8} delay={i * 0.2} />
+                      </span>
+                      <span className="type-index text-white/40">{stat.label}</span>
+                    </div>
+                  ))}
+                  <div className="ml-auto text-right">
+                    <span className="type-index text-white/30 block mb-1">Based in</span>
+                    <span className="text-white/60 text-xs font-medium">Sunderland</span>
                   </div>
-                ))}
-                <div className="w-px h-8 bg-white/15 shrink-0" />
-                <div className="flex flex-col items-center flex-1">
-                  <p className="text-white font-extrabold text-2xl tracking-tight leading-none">4.9</p>
-                  <p className="text-white/50 text-xs mt-1 type-label">avg rating</p>
                 </div>
               </div>
+            </div>
 
-              {/* Available badge */}
-              <div className="absolute top-4 left-4 bg-white/92 backdrop-blur-sm text-foreground px-3.5 py-1.5 rounded-full flex items-center gap-2 type-label">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
-                </span>
-                Available for new projects
-              </div>
+            {/* Studio credential — below image */}
+            <div className="flex items-center justify-between pt-4 border-t border-border mt-0">
+              <span className="type-index text-foreground/30">Founded 2023</span>
+              <span className="type-index text-foreground/30">Certified Bricks Builder Expert</span>
             </div>
           </motion.div>
 
           {/* Content */}
-          <div className="flex flex-col">
+          <div className="flex flex-col pt-2 lg:pt-12">
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2 type-label text-muted-foreground mb-8"
+              className="flex items-center gap-3 mb-8"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              About Evolux
+              <span className="w-6 h-px bg-accent" />
+              <span className="type-index text-foreground/40">About Evolux</span>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.08 }}
-              className="type-display-md font-extrabold text-foreground mb-7 tracking-tight"
+              className="type-display-md font-black text-foreground mb-8"
             >
               Hey, I'm Joe.<br />
-              <span className="text-muted-foreground font-light">Founder of Evolux.</span>
+              <span className="text-foreground/25 font-light">Founder of Evolux.</span>
             </motion.h2>
 
             <motion.div
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="flex flex-col gap-5 type-body-lg text-muted-foreground leading-relaxed mb-10"
+              className="flex flex-col gap-5 type-body-lg text-foreground/50 leading-relaxed mb-12"
             >
               <p>
                 With 5+ years in web design and development, I founded Evolux Web Design in 2023 with a simple idea: that businesses in the North East — and across the UK — deserve websites that actually generate enquiries, not just look the part.
@@ -119,19 +119,22 @@ export function Intro() {
               </p>
             </motion.div>
 
-            {/* Testimonial */}
+            {/* Testimonial — editorial, no box */}
             <motion.blockquote
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="bg-[hsl(0,0%,97.5%)] rounded-xl px-6 py-5"
-              style={{ borderLeft: "3px solid hsl(var(--accent))" }}
+              className="pt-8 border-t border-border"
             >
-              <p className="type-quote text-foreground/70 mb-3">
-                "Amazing! This company is so easy to work with — they created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone."
+              <span className="block text-4xl font-black text-accent/20 leading-none mb-3 select-none">"</span>
+              <p className="type-quote text-foreground/55 mb-4">
+                Amazing! This company is so easy to work with — they created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone.
               </p>
-              <footer className="type-label text-foreground/40">Leah Hall — Client</footer>
+              <footer className="flex items-center gap-3">
+                <span className="w-6 h-px bg-border" />
+                <span className="type-index text-foreground/30">Leah Hall — Client</span>
+              </footer>
             </motion.blockquote>
           </div>
         </div>

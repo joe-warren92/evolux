@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100;0,14..32,200;0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -23,28 +23,28 @@
 
 :root {
   --background: 0 0% 100%;
-  --foreground: 0 0% 6%;
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 6%;
-  --primary: 0 0% 6%;
+  --foreground: 0 0% 5%;
+  --border: 0 0% 91%;
+  --input: 0 0% 91%;
+  --ring: 0 0% 5%;
+  --primary: 0 0% 5%;
   --primary-foreground: 0 0% 98%;
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 48%;
+  --muted: 0 0% 96.5%;
+  --muted-foreground: 0 0% 46%;
 
   /* Accent — deep burnt sienna */
   --accent: 22 88% 48%;
   --accent-foreground: 0 0% 98%;
 
   /* Typography tokens */
-  --tracking-tight: -0.03em;
-  --tracking-display: -0.04em;
-  --leading-display: 1.02;
-  --leading-heading: 1.12;
-  --leading-body: 1.65;
+  --tracking-tight: -0.035em;
+  --tracking-display: -0.055em;
+  --leading-display: 0.95;
+  --leading-heading: 1.1;
+  --leading-body: 1.7;
 }
 
-/* ── Global grain texture — applied as a fixed overlay, does not affect layout ── */
+/* ── Global grain texture ── */
 body::before {
   content: "";
   position: fixed;
@@ -53,16 +53,16 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 99999;
-  opacity: 0.022;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
-  background-size: 256px 256px;
+  opacity: 0.030;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
   background-repeat: repeat;
 }
 
-/* Dot-grid background utility — applied at low opacity on parent */
+/* Dot-grid background utility */
 .bg-dot-grid {
-  background-image: radial-gradient(circle, hsl(0 0% 65%) 1px, transparent 1px);
-  background-size: 26px 26px;
+  background-image: radial-gradient(circle, hsl(0 0% 58%) 0.65px, transparent 0.65px);
+  background-size: 28px 28px;
 }
 
 @layer base {
@@ -85,24 +85,24 @@ body::before {
 
   /* ── Display type ── */
   .type-display-xl {
-    font-size: clamp(3.25rem, 7.5vw, 7rem);
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
     font-weight: 800;
     line-height: var(--leading-display);
     letter-spacing: var(--tracking-display);
   }
 
   .type-display-lg {
-    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
     font-weight: 800;
     line-height: var(--leading-display);
     letter-spacing: var(--tracking-display);
   }
 
   .type-display-md {
-    font-size: clamp(1.875rem, 3.5vw, 3.25rem);
+    font-size: clamp(2rem, 3.75vw, 3.5rem);
     font-weight: 700;
     line-height: var(--leading-heading);
-    letter-spacing: var(--tracking-tight);
+    letter-spacing: var(--tracking-display);
   }
 
   .type-heading {
@@ -124,16 +124,25 @@ body::before {
     font-weight: 400;
   }
 
-  /* Section label: "● RECENT PROJECTS" */
+  /* Section label — use sparingly */
   .type-label {
     font-size: 0.6875rem;
     font-weight: 600;
-    letter-spacing: 0.13em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
+  /* Index — smaller, lighter, more refined */
+  .type-index {
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground) / 0.5);
+  }
+
   .type-stat {
-    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1;
     letter-spacing: var(--tracking-tight);
@@ -141,8 +150,8 @@ body::before {
 
   .type-quote {
     font-size: clamp(0.9375rem, 1.25vw, 1.125rem);
-    font-weight: 400;
-    line-height: 1.65;
+    font-weight: 300;
+    line-height: 1.7;
     font-style: italic;
   }
 
@@ -152,12 +161,23 @@ body::before {
   .border-accent { border-color: hsl(var(--accent)); }
   .ring-accent { --tw-ring-color: hsl(var(--accent)); }
 
-  /* Accent underline decoration */
+  /* Accent underline — editorial, deliberate */
   .accent-underline {
     text-decoration: underline;
     text-decoration-color: hsl(var(--accent));
-    text-decoration-thickness: 3px;
-    text-underline-offset: 6px;
+    text-decoration-thickness: 0.07em;
+    text-underline-offset: 0.15em;
+    text-decoration-skip-ink: none;
+  }
+
+  /* Image frame — adds a very subtle inner border for premium feel */
+  .img-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    z-index: 1;
   }
 
   /* Service list line */
@@ -165,5 +185,5 @@ body::before {
     border-top: 1px solid hsl(var(--border));
     transition: background-color 0.2s ease;
   }
-  .service-line:hover { background-color: hsl(0 0% 98%); }
+  .service-line:hover { background-color: hsl(0 0% 98.5%); }
 }

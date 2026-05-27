@@ -17,21 +17,21 @@ export function Navigation() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 h-[60px] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 h-[60px] transition-all duration-400 ${
         scrolled
-          ? "bg-white/92 backdrop-blur-md border-b border-border/60 shadow-[0_1px_12px_rgba(0,0,0,0.05)]"
-          : "bg-transparent border-b border-border/30"
+          ? "bg-white/95 backdrop-blur-md border-b border-border shadow-[0_1px_0_0_hsl(0_0%_91%)]"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <Link
         href="/"
-        className="font-sans font-semibold text-sm tracking-[0.22em] uppercase text-foreground"
+        className="font-sans font-black text-xs tracking-[0.28em] uppercase text-foreground"
         data-testid="link-logo"
       >
         EVOLUX
       </Link>
 
-      <div className="hidden md:flex items-center gap-7">
+      <div className="hidden md:flex items-center gap-8">
         {[
           { label: "Work", href: "#work" },
           { label: "About", href: "#about" },
@@ -42,7 +42,7 @@ export function Navigation() {
           <a
             key={item.label}
             href={item.href}
-            className="text-sm font-normal text-foreground/60 hover:text-foreground transition-colors duration-200"
+            className="text-sm font-normal text-foreground/50 hover:text-foreground transition-colors duration-200"
             data-testid={`link-${item.label.toLowerCase()}`}
           >
             {item.label}
@@ -50,20 +50,21 @@ export function Navigation() {
         ))}
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         <a
           href="#review"
-          className="hidden sm:flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-2 rounded-full type-label hover:bg-accent/90 transition-colors"
+          className="hidden sm:flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-1.5 type-label hover:bg-accent/90 transition-colors"
+          style={{ clipPath: "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)" }}
           data-testid="nav-review-cta"
         >
           Free review <ArrowUpRight size={11} />
         </a>
-        <div className="flex items-center gap-2 border border-border bg-background/80 px-3 py-1.5 rounded-full type-label text-foreground/70">
+        <div className="flex items-center gap-2 type-index text-foreground/50">
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-70" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
           </span>
-          <span className="hidden lg:inline tracking-[0.1em]">Available</span>
+          <span className="hidden lg:inline">Available</span>
         </div>
       </div>
     </motion.nav>
