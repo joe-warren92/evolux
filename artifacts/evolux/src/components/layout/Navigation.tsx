@@ -25,7 +25,7 @@ const RESOURCES = [
 
 const NAV_LINKS = [
   { label: "Projects",  href: "/#projects" },
-  { label: "Services",  href: "/#services" },
+  { label: "Services",  href: "/services/web-design" },
   { label: "Packages",  href: "/#pricing" },
   { label: "About",     href: "/about" },
 ];
