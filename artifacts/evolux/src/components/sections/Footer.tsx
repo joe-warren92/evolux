@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Star, ArrowUpRight } from "lucide-react";
+import { Link } from "wouter";
+
+/* ─── Data ──────────────────────────────────────────────────── */
 
 const testimonials = [
   {
@@ -22,12 +25,35 @@ const testimonials = [
   },
 ];
 
+const NAV_COMPANY = [
+  { label: "About",    href: "/about"     },
+  { label: "Projects", href: "/#projects" },
+  { label: "Services", href: "/#services" },
+  { label: "Insights", href: "/insights"  },
+  { label: "Pricing",  href: "/#pricing"  },
+  { label: "Contact",  href: "/#review"   },
+];
+
+const NAV_LEGAL = [
+  { label: "Privacy Policy",    href: "#" },
+  { label: "Terms & Conditions",href: "#" },
+  { label: "Cookie Policy",     href: "#" },
+];
+
+const SOCIAL = [
+  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Facebook",  href: "https://facebook.com"  },
+  { label: "LinkedIn",  href: "https://linkedin.com"  },
+];
+
+/* ─── Component ─────────────────────────────────────────────── */
+
 export function Footer() {
   return (
-    <footer id="contact" className="bg-background border-t border-border">
+    <footer id="contact">
 
-      {/* ── Testimonials ── */}
-      <div className="py-24 px-6 md:px-10 border-b border-border">
+      {/* ── Testimonials (light) ── */}
+      <div className="py-24 px-6 md:px-10 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto">
 
           <div className="flex items-end justify-between mb-14">
@@ -61,7 +87,6 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Testimonials — editorial, no boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {testimonials.map((t, i) => (
               <motion.div
@@ -73,9 +98,7 @@ export function Footer() {
                 className={`pt-8 pb-10 flex flex-col gap-5 border-t border-border ${i < testimonials.length - 1 ? "md:pr-10 md:border-r" : "md:pl-10"} ${i > 0 && i < testimonials.length - 1 ? "md:pl-10" : ""}`}
               >
                 <span className="text-4xl font-black text-foreground/10 leading-none select-none">"</span>
-                <p className="type-quote text-foreground/55 leading-relaxed flex-1">
-                  {t.quote}
-                </p>
+                <p className="type-quote text-foreground/55 leading-relaxed flex-1">{t.quote}</p>
                 <div className="flex items-center gap-3 mt-auto">
                   <div className="w-8 h-8 rounded-full bg-foreground/8 flex items-center justify-center shrink-0 text-[10px] font-black text-foreground/40 tracking-wide">
                     {t.initials}
@@ -91,89 +114,166 @@ export function Footer() {
         </div>
       </div>
 
-      {/* ── Final CTA ── */}
-      <div className="relative py-28 px-6 md:px-10 overflow-hidden">
+      {/* ── Dark footer ── */}
+      <div className="bg-foreground relative overflow-hidden">
 
-        {/* Ghost wordmark */}
-        <span
-          aria-hidden
-          className="absolute bottom-0 right-0 font-black leading-none tracking-[-0.06em] text-foreground/[0.025] select-none pointer-events-none whitespace-nowrap"
-          style={{ fontSize: "clamp(6rem, 16vw, 16rem)" }}
-        >
-          EVOLUX
-        </span>
-
+        {/* Accent glow */}
         <div
           aria-hidden
-          className="absolute -top-20 -left-10 w-80 h-80 rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.045) 0%, transparent 70%)" }}
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 5% 30%, hsl(22 88% 48% / 0.1) 0%, transparent 45%)",
+          }}
         />
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <h2 className="mb-5">
-              <span className="block type-display-lg text-foreground/30 font-extrabold">Your next client is</span>
-              <span className="block type-display-lg font-extrabold text-foreground">searching right now.</span>
-            </h2>
-            <p className="type-body-lg text-foreground/45 max-w-md mb-10">
-              If your website isn't winning them over, someone else's is. Let's change that.
-            </p>
+        {/* ── Main content ── */}
+        <div className="max-w-7xl mx-auto px-6 md:px-10 pt-20 pb-10 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 pb-16 border-b border-white/10">
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
-              <button
-                className="bg-foreground text-primary-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent transition-colors duration-300 flex items-center gap-2"
-                data-testid="button-start-project"
-              >
-                Start a project <ArrowUpRight size={14} />
-              </button>
-              <a
-                href="mailto:info@evoluxwebdesign.co.uk"
-                className="text-sm font-medium text-foreground/40 hover:text-accent transition-colors border-b border-border hover:border-accent pb-px"
-              >
-                info@evoluxwebdesign.co.uk
-              </a>
-            </div>
+            {/* Left — CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 flex flex-col justify-between gap-10"
+            >
+              <div>
+                <h2
+                  className="font-extrabold tracking-tight leading-tight mb-8"
+                  style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
+                >
+                  <span className="block text-white/30">Let's build something</span>
+                  <span className="block text-white">incredible together.</span>
+                </h2>
 
-            {/* Contact strip */}
-            <div className="flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-8">
-              {[
-                { label: "Phone", value: "+44 7854 932203", href: "tel:+447854932203" },
-                { label: "Email", value: "info@evoluxwebdesign.co.uk", href: "mailto:info@evoluxwebdesign.co.uk" },
-                { label: "Based in", value: "Sunderland, Tyne & Wear", href: undefined },
-                { label: "Serving", value: "Clients across the UK", href: undefined },
-              ].map(item => (
-                <div key={item.label}>
-                  <p className="type-index text-foreground/30 mb-1">{item.label}</p>
-                  {item.href ? (
-                    <a href={item.href} className="text-sm font-medium text-foreground hover:text-accent transition-colors">{item.value}</a>
-                  ) : (
-                    <span className="text-sm font-medium text-foreground">{item.value}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Footer bar */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 border-t border-border pt-7">
-            <div className="flex items-center gap-8">
-              <span className="font-black text-xs tracking-[0.3em] uppercase text-foreground">EVOLUX</span>
-              <div className="hidden md:flex gap-6">
-                {["Work", "About", "Services", "Pricing", "Insights"].map(link => (
-                  <a key={link} href={`#${link.toLowerCase()}`} className="type-body text-foreground/35 hover:text-foreground transition-colors">
-                    {link}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href="/#review"
+                    className="inline-flex items-center gap-2 bg-accent text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
+                  >
+                    Start a project <ArrowUpRight size={13} />
+                  </Link>
+                  <a
+                    href="mailto:info@evoluxwebdesign.co.uk"
+                    className="inline-flex items-center gap-2 border border-white/15 text-white/60 px-7 py-3.5 rounded-full text-sm font-semibold hover:border-white/30 hover:text-white transition-colors"
+                  >
+                    Send an email
                   </a>
-                ))}
+                </div>
               </div>
-            </div>
-            <p className="type-index text-foreground/25">© {new Date().getFullYear()} Evolux Web Design. Sunderland, Tyne & Wear.</p>
+
+              {/* Location */}
+              <div className="border-t border-white/10 pt-8">
+                <p className="type-index text-white/25 mb-1.5">Based in</p>
+                <p className="text-sm font-medium text-white/50 leading-relaxed">
+                  Sunderland, Tyne & Wear<br />
+                  North East England
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right — info grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+              className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12"
+            >
+              {/* Social */}
+              <div>
+                <p className="type-index text-white/25 mb-4 tracking-widest uppercase">Social</p>
+                <div className="flex flex-col gap-2.5">
+                  {SOCIAL.map(s => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-white/60 hover:text-white transition-colors"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <p className="type-index text-white/25 mb-4 tracking-widest uppercase">Contact</p>
+                <div className="flex flex-col gap-2.5">
+                  <a
+                    href="mailto:info@evoluxwebdesign.co.uk"
+                    className="text-sm font-semibold text-white/60 hover:text-white transition-colors break-all"
+                  >
+                    info@evoluxwebdesign.co.uk
+                  </a>
+                  <a
+                    href="tel:+447854932203"
+                    className="text-sm font-semibold text-white/60 hover:text-white transition-colors"
+                  >
+                    +44 7854 932203
+                  </a>
+                </div>
+              </div>
+
+              {/* Company nav */}
+              <div>
+                <p className="type-index text-white/25 mb-4 tracking-widest uppercase">Company</p>
+                <div className="flex flex-col gap-2.5">
+                  {NAV_COMPANY.map(item => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="text-sm font-semibold text-white/60 hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Legal */}
+              <div className="col-span-2 md:col-span-3 md:col-start-1 border-t border-white/[0.07] pt-8">
+                <p className="type-index text-white/25 mb-4 tracking-widest uppercase">Legal</p>
+                <div className="flex flex-wrap gap-x-8 gap-y-2.5">
+                  {NAV_LEGAL.map(item => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="text-sm font-semibold text-white/40 hover:text-white/70 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── Bottom bar ── */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8">
+            <p className="type-index text-white/20">
+              © {new Date().getFullYear()} Evolux Web Design Ltd. All rights reserved.
+            </p>
+            <p className="type-index text-white/15">
+              Web Design & Development · Sunderland, UK
+            </p>
           </div>
         </div>
+
+        {/* ── Giant wordmark ── */}
+        <div aria-hidden className="relative overflow-hidden h-[clamp(5rem,12vw,11rem)] select-none pointer-events-none">
+          <span
+            className="absolute bottom-[-0.18em] left-1/2 -translate-x-1/2 font-black leading-none tracking-[-0.06em] whitespace-nowrap text-white/[0.045]"
+            style={{ fontSize: "clamp(7rem, 18vw, 18rem)" }}
+          >
+            EVOLUX
+          </span>
+        </div>
+
       </div>
     </footer>
   );
