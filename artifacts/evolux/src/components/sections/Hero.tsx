@@ -40,14 +40,14 @@ export function Hero() {
         style={{ background: "linear-gradient(90deg, transparent 0%, hsl(22 88% 48% / 0.5) 30%, hsl(22 88% 48% / 0.35) 65%, transparent 100%)" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-16 md:pt-24 pb-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-14 md:pt-20 pb-16 relative z-10">
 
         {/* ── Stamp row ── */}
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="flex items-center justify-between mb-20 md:mb-24"
+          className="flex items-center justify-between mb-10 md:mb-12"
         >
           <div className="flex items-center gap-2.5">
             <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 flex items-center justify-center shrink-0 select-none">
@@ -69,7 +69,7 @@ export function Hero() {
         </motion.div>
 
         {/* ── H1 ── */}
-        <h1 className="mb-16 md:mb-20">
+        <h1 className="mb-10 md:mb-12">
           <span className="block overflow-hidden">
             <motion.span
               className="block type-display-lg font-extrabold text-foreground tracking-tight"
