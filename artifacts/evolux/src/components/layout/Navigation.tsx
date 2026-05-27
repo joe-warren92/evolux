@@ -4,12 +4,12 @@ import { Link } from "wouter";
 import { ArrowUpRight } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Process",  href: "#process" },
-  { label: "Pricing",  href: "#pricing" },
-  { label: "Insights", href: "#insights" },
-  { label: "About",    href: "#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Services", href: "/#services" },
+  { label: "Process",  href: "/#process" },
+  { label: "Pricing",  href: "/#pricing" },
+  { label: "Insights", href: "/#insights" },
+  { label: "About",    href: "/about" },
 ];
 
 export function Navigation() {
