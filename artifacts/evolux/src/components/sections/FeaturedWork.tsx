@@ -63,7 +63,7 @@ function ProjectCard({ project, delay, offsetTop = false }: {
       data-testid={`card-project-${project.id}`}
     >
       {/* Image */}
-      <div className={`relative overflow-hidden img-frame ${project.aspect}`} style={{ borderRadius: 0 }}>
+      <div className={`relative overflow-hidden img-frame rounded-xl ${project.aspect}`}>
         <img
           src={project.image}
           alt={project.title}

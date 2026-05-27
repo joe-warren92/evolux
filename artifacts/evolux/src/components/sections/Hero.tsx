@@ -76,8 +76,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.7 }}
-            className="hidden lg:flex flex-col shrink-0 w-[248px] self-end mb-1"
-            style={{ borderLeft: "2px solid hsl(var(--accent))", borderTop: "1px solid hsl(var(--border))" }}
+            className="hidden lg:flex flex-col shrink-0 w-[248px] self-end mb-1 rounded-2xl overflow-hidden border border-border bg-white/80 backdrop-blur-sm shadow-sm"
           >
             {/* Stars header */}
             <div className="px-5 pt-4 pb-3.5 border-b border-border flex items-center gap-2">
@@ -119,17 +118,18 @@ export function Hero() {
 
             <div className="flex flex-wrap items-center gap-3 mb-10">
               <button
-                className="bg-foreground text-primary-foreground px-7 py-3.5 text-sm font-semibold hover:bg-accent transition-colors duration-300"
+                className="bg-primary text-primary-foreground px-6 py-3.5 rounded-full flex items-center gap-2.5 text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
                 data-testid="button-book-call"
               >
+                <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60" />
                 Book a Strategy Call
               </button>
               <a
                 href="#review"
-                className="flex items-center gap-2 text-sm font-medium text-foreground/50 hover:text-accent transition-colors duration-300 border-b border-transparent hover:border-accent pb-px"
+                className="border border-border px-6 py-3.5 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors duration-300 flex items-center gap-2"
                 data-testid="link-free-review"
               >
-                Free website review <ArrowUpRight size={12} />
+                Free website review <ArrowUpRight size={13} />
               </a>
             </div>
 
@@ -164,8 +164,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.05, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full bg-foreground text-primary-foreground relative overflow-hidden"
-        style={{ borderRadius: "1rem 1rem 0 0" }}
+        className="w-full bg-foreground text-primary-foreground relative overflow-hidden rounded-t-[2rem]"
       >
         {/* Showcase image */}
         <div className="absolute inset-0 z-0">
