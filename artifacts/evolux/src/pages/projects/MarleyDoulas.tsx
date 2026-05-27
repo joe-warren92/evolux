@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowLeft, Star } from "lucide-react";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/sections/Footer";
-import heroMockup from "@assets/mockup3-1_1779878754712.webp";
-import screen1 from "@assets/Screenshot_2026-05-27_092951_1779870750832.png";
-import screen2 from "@assets/Screenshot_2026-05-27_093006_1779870750834.png";
-import screen3 from "@assets/Screenshot_2026-05-27_093017_1779870750835.png";
-import screen4 from "@assets/Screenshot_2026-05-27_093030_1779870750836.png";
+import { useSEO } from "@/lib/seo";
+import heroMockup from "@assets/4K-Mockup-1-1_1779878754714.webp";
+import laptopMockup from "@assets/Mockup-laptop-Marley_1779878754713.webp";
+import iphoneMockup from "@assets/Mockup-iphone-marley_1779878754712.webp";
 
 const deliverables = [
   "Custom WordPress build with Bricks Builder",
-  "Full visual identity integration",
-  "Trade enquiry funnel & lead capture",
-  "Case study portfolio showcase",
+  "Brand identity integration",
+  "Trust-led homepage design",
+  "Services & packages page",
+  "Contact & enquiry flow",
   "Mobile-first responsive design",
-  "Core SEO & meta optimisation",
-  "CMS for self-managed content",
+  "Core on-page SEO",
   "30-day post-launch support",
 ];
 
-const outcomes = [
-  { metric: "200+", label: "fashion brands served" },
-  { metric: "5.0★", label: "Google rating" },
-];
+export default function MarleyDoulas() {
+  useSEO({
+    title: "Marley Doulas — Case Study | Evolux Web Design",
+    description:
+      "How Evolux built a warm, trust-led website for Marley Doulas — a birth doula practice serving Surrey Hills and South London. Brand identity, conversion design, and mobile-first build.",
+    canonicalPath: "/projects/marley-doulas",
+  });
 
-export default function CircularBranding() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -51,7 +52,7 @@ export default function CircularBranding() {
                 Projects
               </Link>
               <span className="type-label text-foreground/20">/</span>
-              <span className="type-label text-foreground/40">Circular Branding Group</span>
+              <span className="type-label text-foreground/40">Marley Doulas</span>
             </motion.div>
 
             {/* Title block */}
@@ -64,13 +65,13 @@ export default function CircularBranding() {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  <span className="type-label text-muted-foreground">Web Design & Development</span>
+                  <span className="type-label text-muted-foreground">Brand Identity + Web</span>
                 </div>
                 <h1 className="type-display-lg font-extrabold text-foreground tracking-tight mb-5 leading-tight">
-                  Circular Branding Group
+                  Marley Doulas
                 </h1>
                 <p className="type-body-lg text-foreground/50 leading-relaxed max-w-[52ch]">
-                  A premium B2B trade website for a labels, trims and packaging supplier — built to win brand partnerships and showcase their portfolio to fashion's biggest names.
+                  A warm, trust-led website for a birth doula practice serving Surrey Hills and South London — built to reassure expectant parents and convert visitors into enquiries.
                 </p>
               </motion.div>
 
@@ -83,11 +84,11 @@ export default function CircularBranding() {
               >
                 <div className="flex flex-col gap-0 border border-border rounded-2xl overflow-hidden bg-white">
                   {[
-                    { label: "Client",   value: "Circular Branding Group" },
-                    { label: "Industry", value: "Labels & Packaging" },
-                    { label: "Services", value: "Web Design, Development" },
+                    { label: "Client",   value: "Marley Doulas" },
+                    { label: "Industry", value: "Healthcare & Wellness" },
+                    { label: "Services", value: "Web Design, Brand Identity" },
+                    { label: "Location", value: "Surrey Hills & South London" },
                     { label: "Year",     value: "2024" },
-                    { label: "Result",   value: "200+ brands worldwide" },
                   ].map((item, i, arr) => (
                     <div key={item.label} className={`flex items-baseline justify-between gap-4 px-5 py-3.5 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
                       <span className="type-label text-muted-foreground shrink-0">{item.label}</span>
@@ -108,7 +109,7 @@ export default function CircularBranding() {
           >
             <img
               src={heroMockup}
-              alt="Circular Branding Group website on laptop"
+              alt="Marley Doulas website on desktop"
               className="w-full max-h-[70vh] object-cover object-center"
             />
           </motion.div>
@@ -132,14 +133,14 @@ export default function CircularBranding() {
                     <span className="type-index text-foreground/40">The brief</span>
                   </div>
                   <h2 className="type-display-md font-extrabold text-foreground tracking-tight mb-8">
-                    A supplier that needed to look like a partner.
+                    A practice that needed to feel as reassuring online as it does in person.
                   </h2>
                   <div className="flex flex-col gap-5 type-body-lg text-foreground/50 leading-relaxed">
                     <p>
-                      Circular Branding Group supply labels, trims and packaging to some of the UK and Europe's leading fashion brands. Their product quality was exceptional — but their digital presence didn't reflect it. The old website looked like a catalogue, not a premium supplier.
+                      Marley Doulas provides birth doula support to families across Surrey Hills and South London. For expectant parents — especially first-timers — choosing a doula is one of the most personal decisions they'll make. The website needed to reflect that: warm, trustworthy, and immediately reassuring.
                     </p>
                     <p>
-                      The brief was clear: build something that would immediately signal credibility and quality to a brand buyer visiting for the first time. Something that positioned Circular not as a vendor, but as a creative partner in brand packaging.
+                      The brief was to build a site that communicated care and professionalism without feeling clinical. One that would answer a nervous parent's questions before they'd even thought to ask them — and make it easy to get in touch.
                     </p>
                   </div>
                 </motion.div>
@@ -185,13 +186,13 @@ export default function CircularBranding() {
               >
                 <span className="type-label text-accent/70">01 — The challenge</span>
                 <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-snug">
-                  Buyers arriving and leaving without making contact.
+                  A personal service that felt impersonal online.
                 </h3>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The original site had no clear call-to-action, no trust signals, and no way for a brand buyer to quickly understand the scope of Circular's capabilities. Traffic was arriving from trade shows and referrals — but the site wasn't converting it.
+                  The previous website felt clinical and generic — the kind of design that works for a GP's surgery, not a birth doula whose entire value proposition is warmth, presence, and trust. Visitors were arriving, reading little, and leaving without making contact.
                 </p>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The product photography was strong. The client relationships were even stronger. The site just wasn't communicating any of that.
+                  For a service built entirely on personal connection, the digital first impression was doing serious damage. The gap between how the practice felt in person and how it appeared online was costing enquiries every week.
                 </p>
               </motion.div>
 
@@ -204,13 +205,13 @@ export default function CircularBranding() {
               >
                 <span className="type-label text-accent/70">02 — The solution</span>
                 <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-snug">
-                  Built to win trade partnerships, not just display products.
+                  Designed around the emotional journey of expectant parents.
                 </h3>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  We rebuilt from scratch around a single goal: give a brand buyer everything they need to feel confident making contact. That meant a clear product capability overview, a portfolio that showed the calibre of existing clients, and a frictionless enquiry path.
+                  We rebuilt the site around the psychology of an anxious expectant parent — what they need to feel safe, what questions they'll ask before making contact, and what stops them from reaching out. Warm typography, considered whitespace, and gentle brand colours replaced the functional-but-cold template.
                 </p>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The design direction was deliberately editorial — reflecting the visual language of the fashion brands Circular supplies, rather than a generic supplier template.
+                  Every page was structured to answer unspoken questions: what does a doula actually do? Is this right for me? What happens if I get in touch? The enquiry path was simplified to a single, low-friction step.
                 </p>
               </motion.div>
             </div>
@@ -232,7 +233,6 @@ export default function CircularBranding() {
               <span className="type-index text-foreground/40">Selected screens</span>
             </motion.div>
 
-            {/* Large + small grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -241,36 +241,22 @@ export default function CircularBranding() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
               >
-                <img src={screen1} alt="Circular Branding — homepage" className="w-full h-full object-cover object-top" />
+                <img src={laptopMockup} alt="Marley Doulas — laptop view" className="w-full h-full object-cover object-top" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
+                className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3] flex items-center justify-center p-8"
               >
-                <img src={screen2} alt="Circular Branding — portfolio" className="w-full h-full object-cover object-top" />
+                <img src={iphoneMockup} alt="Marley Doulas — mobile view" className="h-full object-contain" />
               </motion.div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[screen3, screen4, heroMockup].map((src, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.08 }}
-                  className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
-                >
-                  <img src={src} alt={`Circular Branding screen ${i + 3}`} className="w-full h-full object-cover object-top" />
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
 
-        {/* ── Results ── */}
+        {/* ── CTA dark ── */}
         <section className="py-24 px-6 md:px-10 bg-foreground text-primary-foreground overflow-hidden relative">
           <div
             aria-hidden
@@ -278,65 +264,6 @@ export default function CircularBranding() {
             style={{ background: "radial-gradient(ellipse at 80% 20%, hsl(22 88% 48% / 0.12) 0%, transparent 55%)" }}
           />
           <div className="max-w-7xl mx-auto relative z-10">
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="mb-16"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-6 h-px bg-accent" />
-                <span className="type-index text-white/30">Outcomes</span>
-              </div>
-              <h2 className="type-display-md font-extrabold text-white tracking-tight">
-                The numbers 90 days<br />after launch.
-              </h2>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden mb-16">
-              {outcomes.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white/[0.04] px-10 py-10"
-                >
-                  <p className="text-accent font-extrabold tracking-tight leading-none mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
-                    {item.metric}
-                  </p>
-                  <p className="type-label text-white/40">{item.label}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="border-l-2 border-accent/40 pl-8 max-w-2xl"
-            >
-              <p className="type-quote text-white/65 mb-5">
-                Want a website built with the same thinking? Start with a free review and we'll show you exactly what's possible.
-              </p>
-              <Link
-                href="/free-review"
-                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
-              >
-                Get a free website review <ArrowUpRight size={13} />
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ── Next project + CTA ── */}
-        <section className="py-24 px-6 md:px-10 bg-background border-t border-border">
-          <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
 
               <motion.div
@@ -345,12 +272,12 @@ export default function CircularBranding() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.65 }}
               >
-                <p className="type-label text-muted-foreground mb-4">Ready to start?</p>
-                <h2 className="type-display-md font-extrabold text-foreground tracking-tight mb-4">
+                <p className="type-label text-white/30 mb-4">Ready to start?</p>
+                <h2 className="type-display-md font-extrabold text-white tracking-tight mb-4">
                   Let's build something<br />
-                  <span className="text-foreground/35">that performs.</span>
+                  <span className="text-white/30">that performs.</span>
                 </h2>
-                <p className="type-body text-foreground/45 max-w-md leading-relaxed">
+                <p className="type-body text-white/45 max-w-md leading-relaxed">
                   Every Evolux project starts with a free website review — an honest assessment of what's working and what's costing you enquiries.
                 </p>
               </motion.div>
@@ -363,14 +290,14 @@ export default function CircularBranding() {
                 className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0"
               >
                 <Link
-                  href="/#review"
+                  href="/free-review"
                   className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   Get a free website review <ArrowUpRight size={14} />
                 </Link>
                 <Link
                   href="/projects"
-                  className="border border-border px-8 py-4 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+                  className="border border-white/20 px-8 py-4 rounded-full text-sm font-semibold text-white hover:border-accent hover:text-accent transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   ← Back to all projects
                 </Link>

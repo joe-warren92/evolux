@@ -108,6 +108,53 @@ export default function InsightsArchive() {
           </div>
         </section>
 
+        {/* ── Topics we cover ── */}
+        <section className="py-16 px-6 md:px-10 border-t border-border bg-[hsl(0,0%,97.5%)]">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-10"
+            >
+              <span className="w-6 h-px bg-accent" />
+              <span className="type-index text-foreground/40">What we write about</span>
+            </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                {
+                  topic: "Conversion strategy",
+                  desc: "Why most websites don't convert — and the layout, copy, and UX decisions that change that.",
+                },
+                {
+                  topic: "Web design for small business",
+                  desc: "Practical advice on briefs, timelines, budgets, and choosing the right builder for your needs.",
+                },
+                {
+                  topic: "Local SEO & visibility",
+                  desc: "How to rank for the searches your customers are actually making — without paying for ads.",
+                },
+                {
+                  topic: "The business case for investment",
+                  desc: "The honest maths of web design ROI: when a new site pays for itself, and when it doesn't.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.topic}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, delay: i * 0.07 }}
+                  className="bg-white border border-border rounded-2xl p-6"
+                >
+                  <p className="text-sm font-bold text-foreground mb-2 leading-snug">{item.topic}</p>
+                  <p className="type-body text-foreground/45 leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Category filter ── */}
         <section className="bg-background sticky top-[62px] z-30 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 md:px-10">

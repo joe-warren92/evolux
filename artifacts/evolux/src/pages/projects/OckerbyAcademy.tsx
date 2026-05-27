@@ -3,29 +3,30 @@ import { ArrowUpRight, ArrowLeft, Star } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/sections/Footer";
-import heroMockup from "@assets/mockup3-1_1779878754712.webp";
-import screen1 from "@assets/Screenshot_2026-05-27_092951_1779870750832.png";
-import screen2 from "@assets/Screenshot_2026-05-27_093006_1779870750834.png";
-import screen3 from "@assets/Screenshot_2026-05-27_093017_1779870750835.png";
-import screen4 from "@assets/Screenshot_2026-05-27_093030_1779870750836.png";
+import { useSEO } from "@/lib/seo";
+import heroMockup from "@assets/Macbook-Air-Light-Background-2_1779878754715.png";
+import screen1 from "@assets/Screenshot_2026-05-27_125506_1779882927176.png";
+import screen2 from "@assets/Screenshot_2026-05-27_125833_1779883127781.png";
 
 const deliverables = [
   "Custom WordPress build with Bricks Builder",
-  "Full visual identity integration",
-  "Trade enquiry funnel & lead capture",
-  "Case study portfolio showcase",
+  "Class discovery & booking flow",
+  "Timetable & schedule pages",
   "Mobile-first responsive design",
-  "Core SEO & meta optimisation",
-  "CMS for self-managed content",
+  "Online enquiry & registration forms",
+  "Brand identity integration",
+  "Core on-page SEO",
   "30-day post-launch support",
 ];
 
-const outcomes = [
-  { metric: "200+", label: "fashion brands served" },
-  { metric: "5.0★", label: "Google rating" },
-];
+export default function OckerbyAcademy() {
+  useSEO({
+    title: "Ockerby Academy — Case Study | Evolux Web Design",
+    description:
+      "How Evolux built a vibrant, functional website for Ockerby Academy — a dance and musical theatre academy in West Yorkshire. Built around class sign-ups and reducing admin.",
+    canonicalPath: "/projects/ockerby-academy",
+  });
 
-export default function CircularBranding() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -51,7 +52,7 @@ export default function CircularBranding() {
                 Projects
               </Link>
               <span className="type-label text-foreground/20">/</span>
-              <span className="type-label text-foreground/40">Circular Branding Group</span>
+              <span className="type-label text-foreground/40">Ockerby Academy</span>
             </motion.div>
 
             {/* Title block */}
@@ -64,13 +65,13 @@ export default function CircularBranding() {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  <span className="type-label text-muted-foreground">Web Design & Development</span>
+                  <span className="type-label text-muted-foreground">Web Design & Booking</span>
                 </div>
                 <h1 className="type-display-lg font-extrabold text-foreground tracking-tight mb-5 leading-tight">
-                  Circular Branding Group
+                  Ockerby Academy
                 </h1>
                 <p className="type-body-lg text-foreground/50 leading-relaxed max-w-[52ch]">
-                  A premium B2B trade website for a labels, trims and packaging supplier — built to win brand partnerships and showcase their portfolio to fashion's biggest names.
+                  A vibrant, functional website for a dance and musical theatre academy in West Yorkshire — built to make finding and booking classes effortless.
                 </p>
               </motion.div>
 
@@ -83,11 +84,12 @@ export default function CircularBranding() {
               >
                 <div className="flex flex-col gap-0 border border-border rounded-2xl overflow-hidden bg-white">
                   {[
-                    { label: "Client",   value: "Circular Branding Group" },
-                    { label: "Industry", value: "Labels & Packaging" },
-                    { label: "Services", value: "Web Design, Development" },
+                    { label: "Client",   value: "Ockerby Academy" },
+                    { label: "Industry", value: "Education & Performing Arts" },
+                    { label: "Services", value: "Web Design, Online Booking" },
+                    { label: "Location", value: "West Yorkshire" },
                     { label: "Year",     value: "2024" },
-                    { label: "Result",   value: "200+ brands worldwide" },
+                    { label: "Rating",   value: "5.0★ Google" },
                   ].map((item, i, arr) => (
                     <div key={item.label} className={`flex items-baseline justify-between gap-4 px-5 py-3.5 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
                       <span className="type-label text-muted-foreground shrink-0">{item.label}</span>
@@ -108,7 +110,7 @@ export default function CircularBranding() {
           >
             <img
               src={heroMockup}
-              alt="Circular Branding Group website on laptop"
+              alt="Ockerby Academy website on MacBook"
               className="w-full max-h-[70vh] object-cover object-center"
             />
           </motion.div>
@@ -132,14 +134,14 @@ export default function CircularBranding() {
                     <span className="type-index text-foreground/40">The brief</span>
                   </div>
                   <h2 className="type-display-md font-extrabold text-foreground tracking-tight mb-8">
-                    A supplier that needed to look like a partner.
+                    A growing academy whose website was creating more admin, not less.
                   </h2>
                   <div className="flex flex-col gap-5 type-body-lg text-foreground/50 leading-relaxed">
                     <p>
-                      Circular Branding Group supply labels, trims and packaging to some of the UK and Europe's leading fashion brands. Their product quality was exceptional — but their digital presence didn't reflect it. The old website looked like a catalogue, not a premium supplier.
+                      Ockerby Academy runs dance and musical theatre classes for children and young adults across multiple age groups and disciplines. As the academy grew, so did the complexity — and the old website couldn't keep up. Parents were calling to ask basic questions that a well-built site should have answered automatically.
                     </p>
                     <p>
-                      The brief was clear: build something that would immediately signal credibility and quality to a brand buyer visiting for the first time. Something that positioned Circular not as a vendor, but as a creative partner in brand packaging.
+                      The brief was to build something that matched the energy of the academy: vibrant, welcoming, and easy to navigate. But equally important was function — a class structure that parents could understand at a glance, and a booking or enquiry path that didn't require a phone call.
                     </p>
                   </div>
                 </motion.div>
@@ -185,13 +187,13 @@ export default function CircularBranding() {
               >
                 <span className="type-label text-accent/70">01 — The challenge</span>
                 <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-snug">
-                  Buyers arriving and leaving without making contact.
+                  Parents couldn't find what they needed without picking up the phone.
                 </h3>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The original site had no clear call-to-action, no trust signals, and no way for a brand buyer to quickly understand the scope of Circular's capabilities. Traffic was arriving from trade shows and referrals — but the site wasn't converting it.
+                  With multiple class types, age groups, and term schedules, the old website made finding the right class harder than it should have been. Parents resorted to calling — adding administrative overhead and slowing down sign-ups.
                 </p>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The product photography was strong. The client relationships were even stronger. The site just wasn't communicating any of that.
+                  The design also didn't reflect the fun, energetic environment that made Ockerby special. It was functional, but it wasn't compelling. New families searching online weren't getting a sense of why they should choose Ockerby over a competing academy.
                 </p>
               </motion.div>
 
@@ -204,13 +206,13 @@ export default function CircularBranding() {
               >
                 <span className="type-label text-accent/70">02 — The solution</span>
                 <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-snug">
-                  Built to win trade partnerships, not just display products.
+                  Built around the way parents actually look for classes.
                 </h3>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  We rebuilt from scratch around a single goal: give a brand buyer everything they need to feel confident making contact. That meant a clear product capability overview, a portfolio that showed the calibre of existing clients, and a frictionless enquiry path.
+                  We structured the site around discovery — making it easy to filter by age group and discipline, understand what each class involves, and get in touch or register with minimal steps. Timetables and term dates were presented clearly so parents could answer their own questions.
                 </p>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The design direction was deliberately editorial — reflecting the visual language of the fashion brands Circular supplies, rather than a generic supplier template.
+                  Visually, the site was built to capture the energy of the academy — bold, confident, and welcoming — while maintaining the clean UX needed for parents making practical decisions about their children's activities.
                 </p>
               </motion.div>
             </div>
@@ -232,7 +234,6 @@ export default function CircularBranding() {
               <span className="type-index text-foreground/40">Selected screens</span>
             </motion.div>
 
-            {/* Large + small grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -241,7 +242,7 @@ export default function CircularBranding() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
               >
-                <img src={screen1} alt="Circular Branding — homepage" className="w-full h-full object-cover object-top" />
+                <img src={screen1} alt="Ockerby Academy — homepage" className="w-full h-full object-cover object-top" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -250,22 +251,8 @@ export default function CircularBranding() {
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
               >
-                <img src={screen2} alt="Circular Branding — portfolio" className="w-full h-full object-cover object-top" />
+                <img src={screen2} alt="Ockerby Academy — classes page" className="w-full h-full object-cover object-top" />
               </motion.div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[screen3, screen4, heroMockup].map((src, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.08 }}
-                  className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
-                >
-                  <img src={src} alt={`Circular Branding screen ${i + 3}`} className="w-full h-full object-cover object-top" />
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
@@ -288,29 +275,26 @@ export default function CircularBranding() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-6 h-px bg-accent" />
-                <span className="type-index text-white/30">Outcomes</span>
+                <span className="type-index text-white/30">Recognition</span>
               </div>
               <h2 className="type-display-md font-extrabold text-white tracking-tight">
-                The numbers 90 days<br />after launch.
+                A 5-star rating on Google.
               </h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden mb-16">
-              {outcomes.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white/[0.04] px-10 py-10"
-                >
-                  <p className="text-accent font-extrabold tracking-tight leading-none mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
-                    {item.metric}
-                  </p>
-                  <p className="type-label text-white/40">{item.label}</p>
-                </motion.div>
-              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white/[0.04] px-10 py-10"
+              >
+                <p className="text-accent font-extrabold tracking-tight leading-none mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
+                  5.0★
+                </p>
+                <p className="type-label text-white/40">Google rating</p>
+              </motion.div>
             </div>
 
             {/* CTA */}
@@ -363,7 +347,7 @@ export default function CircularBranding() {
                 className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0"
               >
                 <Link
-                  href="/#review"
+                  href="/free-review"
                   className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   Get a free website review <ArrowUpRight size={14} />

@@ -14,6 +14,9 @@ import InsightsArchive from "@/pages/insights/InsightsArchive";
 import InsightPost from "@/pages/insights/InsightPost";
 import Projects from "@/pages/projects/Projects";
 import CircularBranding from "@/pages/projects/CircularBranding";
+import MarleyDoulas from "@/pages/projects/MarleyDoulas";
+import OckerbyAcademy from "@/pages/projects/OckerbyAcademy";
+import MantonExecutives from "@/pages/projects/MantonExecutives";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +34,9 @@ function Router() {
       <Route path="/insights/:slug" component={InsightPost} />
       <Route path="/projects" component={Projects} />
       <Route path="/projects/circular-branding" component={CircularBranding} />
+      <Route path="/projects/marley-doulas" component={MarleyDoulas} />
+      <Route path="/projects/ockerby-academy" component={OckerbyAcademy} />
+      <Route path="/projects/manton-executives" component={MantonExecutives} />
       <Route component={NotFound} />
     </Switch>
   );

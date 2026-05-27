@@ -38,7 +38,7 @@ const PROJECTS = [
     resultLabel: "",
     desc: "Website for a birth doula in Surrey Hills and South London. Built around trust and enquiry conversion.",
     image: marleyMockup,
-    href: null,
+    href: "/projects/marley-doulas",
   },
   {
     id: "ockerby-academy",
@@ -51,7 +51,7 @@ const PROJECTS = [
     resultLabel: "Google rating",
     desc: "Website for a dance and musical theatre academy in West Yorkshire. Built around class sign-ups.",
     image: ockerbyMockup,
-    href: null,
+    href: "/projects/ockerby-academy",
   },
   {
     id: "manton-executives",
@@ -64,7 +64,7 @@ const PROJECTS = [
     resultLabel: "",
     desc: "Website for an executive recruitment agency in Sunderland. Built to reflect a growing team.",
     image: vaMockup,
-    href: null,
+    href: "/projects/manton-executives",
   },
 ];
 
@@ -236,14 +236,8 @@ export default function Projects() {
           <div className="max-w-7xl mx-auto">
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {rest.map((project, i) => (
-                <motion.article
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                >
+              {rest.map((project, i) => {
+                const CardInner = (
                   <div className="group">
                     {/* Image */}
                     <div className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-[hsl(0,0%,96%)] mb-4">
@@ -263,24 +257,45 @@ export default function Projects() {
                       <div className="absolute top-3.5 left-3.5 bg-white/90 backdrop-blur-sm type-label text-foreground px-3 py-1.5 rounded-full">
                         {project.num}
                       </div>
-                      {/* Coming soon */}
-                      <div className="absolute top-3.5 right-3.5 border border-white/20 bg-black/30 backdrop-blur-sm text-white/70 type-label px-3 py-1.5 rounded-full">
-                        Case study coming soon
-                      </div>
+                      {/* Case study badge */}
+                      {project.href ? (
+                        <div className="absolute top-3.5 right-3.5 bg-accent text-white type-label px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+                          View case study <ArrowUpRight size={10} />
+                        </div>
+                      ) : (
+                        <div className="absolute top-3.5 right-3.5 border border-white/20 bg-black/30 backdrop-blur-sm text-white/70 type-label px-3 py-1.5 rounded-full">
+                          Coming soon
+                        </div>
+                      )}
                     </div>
 
                     {/* Meta */}
                     <div className="border-t border-border pt-4">
                       <div className="flex items-start justify-between gap-3 mb-1.5">
-                        <p className="text-sm font-bold text-foreground leading-tight">{project.title}</p>
+                        <p className={`text-sm font-bold leading-tight ${project.href ? "group-hover:text-accent transition-colors" : ""} text-foreground`}>{project.title}</p>
                         <p className="text-sm font-extrabold text-accent shrink-0 tracking-tight">{project.result}</p>
                       </div>
                       <p className="type-index text-foreground/35 mb-2">{project.category} · {project.year}</p>
                       <p className="type-body text-foreground/45 leading-snug">{project.desc}</p>
                     </div>
                   </div>
-                </motion.article>
-              ))}
+                );
+                return (
+                  <motion.article
+                    key={project.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {project.href ? (
+                      <Link href={project.href}>{CardInner}</Link>
+                    ) : (
+                      CardInner
+                    )}
+                  </motion.article>
+                );
+              })}
             </div>
           </div>
         </section>

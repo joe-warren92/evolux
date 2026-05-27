@@ -3,29 +3,30 @@ import { ArrowUpRight, ArrowLeft, Star } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/sections/Footer";
-import heroMockup from "@assets/mockup3-1_1779878754712.webp";
-import screen1 from "@assets/Screenshot_2026-05-27_092951_1779870750832.png";
-import screen2 from "@assets/Screenshot_2026-05-27_093006_1779870750834.png";
-import screen3 from "@assets/Screenshot_2026-05-27_093017_1779870750835.png";
-import screen4 from "@assets/Screenshot_2026-05-27_093030_1779870750836.png";
+import { useSEO } from "@/lib/seo";
+import heroMockup from "@assets/iMac-M4-Purple-1_1779878754716.jpg";
+import mobileMockup from "@assets/Free-iPhone-16-Pro-in-Hand-Mockup-2_1779878754716.jpg";
+import mobileMockup2 from "@assets/mockup-mobile-copy-2_1779878754713.webp";
 
 const deliverables = [
   "Custom WordPress build with Bricks Builder",
-  "Full visual identity integration",
-  "Trade enquiry funnel & lead capture",
-  "Case study portfolio showcase",
+  "Executive brand identity integration",
+  "Services & specialisms overview",
+  "Candidate & client registration flows",
+  "Team and about pages",
   "Mobile-first responsive design",
-  "Core SEO & meta optimisation",
-  "CMS for self-managed content",
+  "Core on-page SEO",
   "30-day post-launch support",
 ];
 
-const outcomes = [
-  { metric: "200+", label: "fashion brands served" },
-  { metric: "5.0★", label: "Google rating" },
-];
+export default function MantonExecutives() {
+  useSEO({
+    title: "Manton Executives — Case Study | Evolux Web Design",
+    description:
+      "How Evolux built a professional, conversion-focused website for Manton Executives — an executive recruitment agency in Sunderland. Brand identity, clean design, real enquiry flow.",
+    canonicalPath: "/projects/manton-executives",
+  });
 
-export default function CircularBranding() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -51,7 +52,7 @@ export default function CircularBranding() {
                 Projects
               </Link>
               <span className="type-label text-foreground/20">/</span>
-              <span className="type-label text-foreground/40">Circular Branding Group</span>
+              <span className="type-label text-foreground/40">Manton Executives</span>
             </motion.div>
 
             {/* Title block */}
@@ -64,13 +65,13 @@ export default function CircularBranding() {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  <span className="type-label text-muted-foreground">Web Design & Development</span>
+                  <span className="type-label text-muted-foreground">Brand Identity + Web</span>
                 </div>
                 <h1 className="type-display-lg font-extrabold text-foreground tracking-tight mb-5 leading-tight">
-                  Circular Branding Group
+                  Manton Executives
                 </h1>
                 <p className="type-body-lg text-foreground/50 leading-relaxed max-w-[52ch]">
-                  A premium B2B trade website for a labels, trims and packaging supplier — built to win brand partnerships and showcase their portfolio to fashion's biggest names.
+                  A professional, conversion-focused website for an executive recruitment agency in Sunderland — built to reflect a growing team and attract higher-value clients and candidates.
                 </p>
               </motion.div>
 
@@ -83,11 +84,11 @@ export default function CircularBranding() {
               >
                 <div className="flex flex-col gap-0 border border-border rounded-2xl overflow-hidden bg-white">
                   {[
-                    { label: "Client",   value: "Circular Branding Group" },
-                    { label: "Industry", value: "Labels & Packaging" },
-                    { label: "Services", value: "Web Design, Development" },
+                    { label: "Client",   value: "Manton Executives" },
+                    { label: "Industry", value: "Executive Recruitment" },
+                    { label: "Services", value: "Web Design, Brand Identity" },
+                    { label: "Location", value: "Sunderland, Tyne & Wear" },
                     { label: "Year",     value: "2024" },
-                    { label: "Result",   value: "200+ brands worldwide" },
                   ].map((item, i, arr) => (
                     <div key={item.label} className={`flex items-baseline justify-between gap-4 px-5 py-3.5 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
                       <span className="type-label text-muted-foreground shrink-0">{item.label}</span>
@@ -108,7 +109,7 @@ export default function CircularBranding() {
           >
             <img
               src={heroMockup}
-              alt="Circular Branding Group website on laptop"
+              alt="Manton Executives website on iMac"
               className="w-full max-h-[70vh] object-cover object-center"
             />
           </motion.div>
@@ -132,14 +133,14 @@ export default function CircularBranding() {
                     <span className="type-index text-foreground/40">The brief</span>
                   </div>
                   <h2 className="type-display-md font-extrabold text-foreground tracking-tight mb-8">
-                    A supplier that needed to look like a partner.
+                    An agency that had outgrown its digital presence.
                   </h2>
                   <div className="flex flex-col gap-5 type-body-lg text-foreground/50 leading-relaxed">
                     <p>
-                      Circular Branding Group supply labels, trims and packaging to some of the UK and Europe's leading fashion brands. Their product quality was exceptional — but their digital presence didn't reflect it. The old website looked like a catalogue, not a premium supplier.
+                      Manton Executives is an executive recruitment agency based in Sunderland, placing senior-level candidates across the North East and beyond. As the business grew, the gap between the agency's real-world reputation and its online presence widened.
                     </p>
                     <p>
-                      The brief was clear: build something that would immediately signal credibility and quality to a brand buyer visiting for the first time. Something that positioned Circular not as a vendor, but as a creative partner in brand packaging.
+                      The brief was to build a website that reflected the quality of the agency's work — professional, clean, and immediately credible to both the clients hiring senior staff and the executives considering their next move. The site needed to work hard for both audiences simultaneously.
                     </p>
                   </div>
                 </motion.div>
@@ -185,13 +186,13 @@ export default function CircularBranding() {
               >
                 <span className="type-label text-accent/70">01 — The challenge</span>
                 <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-snug">
-                  Buyers arriving and leaving without making contact.
+                  A website that undersold an agency doing excellent work.
                 </h3>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The original site had no clear call-to-action, no trust signals, and no way for a brand buyer to quickly understand the scope of Circular's capabilities. Traffic was arriving from trade shows and referrals — but the site wasn't converting it.
+                  The existing website had the hallmarks of a template site from an earlier era of the business — functional, but not credible at the senior end of the recruitment market. For clients considering the agency for C-suite or director-level placements, the digital first impression wasn't matching the quality of the conversations that followed.
                 </p>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The product photography was strong. The client relationships were even stronger. The site just wasn't communicating any of that.
+                  Executive candidates, too, were making quick judgements. In a market where talent has options, a dated website sends a signal — and not the right one.
                 </p>
               </motion.div>
 
@@ -204,13 +205,13 @@ export default function CircularBranding() {
               >
                 <span className="type-label text-accent/70">02 — The solution</span>
                 <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-snug">
-                  Built to win trade partnerships, not just display products.
+                  Executive-grade design built for two audiences at once.
                 </h3>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  We rebuilt from scratch around a single goal: give a brand buyer everything they need to feel confident making contact. That meant a clear product capability overview, a portfolio that showed the calibre of existing clients, and a frictionless enquiry path.
+                  We designed around two distinct user journeys — the client looking to fill a senior role, and the candidate exploring their next move. Clean typographic hierarchy, restrained colour palette, and professional photography direction gave the site the credibility its work deserved.
                 </p>
                 <p className="type-body text-muted-foreground leading-relaxed">
-                  The design direction was deliberately editorial — reflecting the visual language of the fashion brands Circular supplies, rather than a generic supplier template.
+                  Clear service definitions, a team presence, and straightforward contact paths meant neither audience had to work to understand what Manton offers or how to begin a conversation.
                 </p>
               </motion.div>
             </div>
@@ -232,45 +233,30 @@ export default function CircularBranding() {
               <span className="type-index text-foreground/40">Selected screens</span>
             </motion.div>
 
-            {/* Large + small grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
+                className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3] flex items-center justify-center p-8"
               >
-                <img src={screen1} alt="Circular Branding — homepage" className="w-full h-full object-cover object-top" />
+                <img src={mobileMockup} alt="Manton Executives — mobile view" className="h-full object-contain" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
+                className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3] flex items-center justify-center p-8"
               >
-                <img src={screen2} alt="Circular Branding — portfolio" className="w-full h-full object-cover object-top" />
+                <img src={mobileMockup2} alt="Manton Executives — mobile mockup" className="h-full object-contain" />
               </motion.div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[screen3, screen4, heroMockup].map((src, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.08 }}
-                  className="overflow-hidden rounded-2xl bg-[hsl(0,0%,97%)] aspect-[4/3]"
-                >
-                  <img src={src} alt={`Circular Branding screen ${i + 3}`} className="w-full h-full object-cover object-top" />
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
 
-        {/* ── Results ── */}
+        {/* ── Testimonial / CTA ── */}
         <section className="py-24 px-6 md:px-10 bg-foreground text-primary-foreground overflow-hidden relative">
           <div
             aria-hidden
@@ -288,33 +274,14 @@ export default function CircularBranding() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-6 h-px bg-accent" />
-                <span className="type-index text-white/30">Outcomes</span>
+                <span className="type-index text-white/30">What the client said</span>
               </div>
               <h2 className="type-display-md font-extrabold text-white tracking-tight">
-                The numbers 90 days<br />after launch.
+                In their own words.
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden mb-16">
-              {outcomes.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="bg-white/[0.04] px-10 py-10"
-                >
-                  <p className="text-accent font-extrabold tracking-tight leading-none mb-3" style={{ fontSize: "clamp(2.5rem, 5vw, 3.5rem)" }}>
-                    {item.metric}
-                  </p>
-                  <p className="type-label text-white/40">{item.label}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <motion.div
+            <motion.blockquote
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -322,15 +289,15 @@ export default function CircularBranding() {
               className="border-l-2 border-accent/40 pl-8 max-w-2xl"
             >
               <p className="type-quote text-white/65 mb-5">
-                Want a website built with the same thinking? Start with a free review and we'll show you exactly what's possible.
+                "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
               </p>
-              <Link
-                href="/free-review"
-                className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
-              >
-                Get a free website review <ArrowUpRight size={13} />
-              </Link>
-            </motion.div>
+              <footer className="flex items-center gap-3">
+                <div className="flex gap-0.5">
+                  {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-accent text-accent" />)}
+                </div>
+                <span className="type-label text-white/35">Katie Dutton — Manton Executives</span>
+              </footer>
+            </motion.blockquote>
           </div>
         </section>
 
@@ -363,7 +330,7 @@ export default function CircularBranding() {
                 className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0"
               >
                 <Link
-                  href="/#review"
+                  href="/free-review"
                   className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   Get a free website review <ArrowUpRight size={14} />

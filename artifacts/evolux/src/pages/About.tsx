@@ -1,10 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { ArrowUpRight, ArrowLeft, Star, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, Star, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/sections/Footer";
 import { YoutubeEmbed } from "@/components/ui/youtube-embed";
+import { useSEO } from "@/lib/seo";
 import marleyLaptop from "@assets/Mockup-laptop-Marley_1779878754713.webp";
 
 const VIDEO_ID = "dWjJn7rQjNQ";
@@ -92,6 +93,29 @@ function FounderCard() {
 /* ─────────────────────────────────────────────────────────── */
 
 export default function About() {
+  useSEO({
+    title: "About — Joe, Founder of Evolux Web Design",
+    description:
+      "Evolux is a one-person web design studio based in Sunderland, founded by Joe in 2023. We build conversion-focused websites for UK small businesses that actually generate enquiries.",
+    canonicalPath: "/about",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Joe",
+      jobTitle: "Web Designer & Developer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Evolux Web Design",
+        url: "https://evoluxwebdesign.co.uk",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Sunderland",
+        addressRegion: "Tyne & Wear",
+        addressCountry: "GB",
+      },
+    },
+  });
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
@@ -239,23 +263,27 @@ export default function About() {
                   ))}
                 </motion.div>
 
-                {/* Testimonial */}
-                <motion.blockquote
+                {/* CTA strip */}
+                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.15 }}
-                  className="pt-7 border-t border-border"
+                  className="pt-7 border-t border-border flex flex-col sm:flex-row items-start sm:items-center gap-4"
                 >
-                  <span className="block text-4xl font-black text-accent/20 leading-none mb-3 select-none">"</span>
-                  <p className="type-quote text-foreground/55 mb-4">
-                    Amazing! This company is so easy to work with — they created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone.
-                  </p>
-                  <footer className="flex items-center gap-3">
-                    <span className="w-6 h-px bg-border" />
-                    <span className="type-index text-foreground/30">Leah Hall — Client</span>
-                  </footer>
-                </motion.blockquote>
+                  <Link
+                    href="/projects"
+                    className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent transition-colors border-b border-foreground/20 hover:border-accent pb-px"
+                  >
+                    See the work <ArrowUpRight size={13} />
+                  </Link>
+                  <Link
+                    href="/free-review"
+                    className="flex items-center gap-2.5 bg-foreground text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent transition-colors"
+                  >
+                    Get a free website review <ArrowUpRight size={13} />
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </div>
