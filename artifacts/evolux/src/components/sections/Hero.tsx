@@ -40,12 +40,12 @@ export function Hero() {
             <h1 className="mb-8">
               <span className="block overflow-hidden">
                 <motion.span
-                  className="block type-display-lg font-extrabold text-foreground"
+                  className="block type-display-lg font-extrabold text-foreground/38"
                   initial={{ y: "110%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  Your website should be
+                  Websites built to win
                 </motion.span>
               </span>
               <span className="block overflow-hidden">
@@ -55,7 +55,7 @@ export function Hero() {
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  your <span className="accent-underline">best salesperson.</span>
+                  <span className="accent-underline">enquiries,</span> not just traffic.
                 </motion.span>
               </span>
             </h1>
