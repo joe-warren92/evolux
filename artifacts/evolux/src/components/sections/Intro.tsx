@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { Star } from "lucide-react";
+import { Star, CheckCircle2 } from "lucide-react";
 import aboutPortrait from "@/assets/images/about-portrait.png";
 
 function Counter({ from = 0, to, suffix = "", duration = 2, delay = 0 }: {
@@ -14,7 +14,6 @@ function Counter({ from = 0, to, suffix = "", duration = 2, delay = 0 }: {
     if (!isInView) return;
     let startTime: number | null = null;
     let raf: number;
-
     const animate = (ts: number) => {
       if (startTime === null) startTime = ts + delay * 1000;
       const elapsed = ts - startTime;
@@ -25,7 +24,6 @@ function Counter({ from = 0, to, suffix = "", duration = 2, delay = 0 }: {
       if (pct < 1) raf = requestAnimationFrame(animate);
       else setCount(to);
     };
-
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
   }, [isInView, from, to, duration, delay]);
@@ -33,110 +31,129 @@ function Counter({ from = 0, to, suffix = "", duration = 2, delay = 0 }: {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-const stats = [
-  { value: 49, divisor: 10, label: "Average Rating", format: (v: number) => (v / 10).toFixed(1) },
-  { value: 50, suffix: "+", label: "Projects Completed" },
-  { value: 8, suffix: "+", label: "Years Experience" },
+const differentiators = [
+  "You deal directly with the person doing the work — not an account manager",
+  "No project starts without a strategy session. Every decision has a reason.",
+  "We've never missed a launch deadline",
+  "30-day post-launch support is included on every project",
 ];
 
 export function Intro() {
   return (
-    <section id="about" className="py-32 px-6 md:px-10 bg-background">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section id="about" className="py-28 px-6 md:px-10 bg-background">
+      <div className="max-w-7xl mx-auto">
 
-        {/* Portrait */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-muted"
-        >
-          <img
-            src={aboutPortrait}
-            alt="Evolux Creative Director"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-5 left-5 bg-white/92 backdrop-blur-sm text-foreground px-4 py-2 rounded-full flex items-center gap-2 type-label">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
-            </span>
-            Available for new projects
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
-        {/* Content */}
-        <div className="flex flex-col">
-
+          {/* Portrait — sticky on large screens */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-2 type-label text-muted-foreground mb-8"
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:sticky lg:top-24 self-start"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-            About the Studio
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
+              <img
+                src={aboutPortrait}
+                alt="Evolux Studio"
+                className="w-full h-full object-cover"
+              />
+              {/* Stats overlay bar */}
+              <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm px-6 py-5 flex items-center justify-between">
+                <div>
+                  <div className="flex gap-0.5 mb-1">
+                    {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-white text-white" />)}
+                  </div>
+                  <p className="text-white text-xs font-medium">4.9 average rating</p>
+                </div>
+                <div className="w-px h-8 bg-white/20" />
+                <div>
+                  <p className="text-white font-extrabold text-xl tracking-tight"><Counter to={50} duration={2} />+</p>
+                  <p className="text-white/60 text-xs">projects delivered</p>
+                </div>
+                <div className="w-px h-8 bg-white/20" />
+                <div>
+                  <p className="text-white font-extrabold text-xl tracking-tight"><Counter to={8} duration={1.5} />+</p>
+                  <p className="text-white/60 text-xs">years in business</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-2xl md:text-3xl font-bold leading-[1.35] tracking-tight text-foreground mb-10"
-          >
-            Evolux is built for brands that refuse to be ordinary. We deliver websites and identities that don't just look the part — they perform, convert, and grow with you.
-          </motion.p>
+          {/* Content */}
+          <div className="flex flex-col">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-2 type-label text-muted-foreground mb-8"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              About the studio
+            </motion.div>
 
-          {/* Testimonial */}
-          <motion.blockquote
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="border-l-2 border-foreground/15 pl-5 mb-10"
-          >
-            <p className="type-quote text-muted-foreground">
-              "Working with Evolux was the smoothest design process we've ever experienced. They understood our brand immediately."
-            </p>
-            <footer className="type-label text-foreground/45 mt-2.5">James Webb — Managing Director, Huxley</footer>
-          </motion.blockquote>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.08 }}
+              className="type-display-md font-extrabold text-foreground mb-8 tracking-tight"
+            >
+              We build websites that work as hard as you do.
+            </motion.h2>
 
-          <div className="w-full h-px bg-border mb-10" />
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="type-body-lg text-muted-foreground leading-relaxed mb-10"
+            >
+              Evolux is a small studio with a deliberate focus: we take on a limited number of projects at a time so every client gets our full attention. No juggling fifty accounts. No handing you off to a junior six weeks in.
+            </motion.p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4">
-            {[
-              { label: "Average Rating", display: "4.9", to: 49, decimal: true },
-              { label: "Completed Projects", display: "50+", to: 50, suffix: "+" },
-              { label: "Years Experience", display: "8+", to: 8, suffix: "+" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.1 }}
-                className="flex flex-col gap-1.5"
-              >
-                <div className="type-stat font-extrabold text-foreground">
-                  {stat.decimal
-                    ? <><Counter to={4} duration={1.5} /><span>.</span><Counter to={9} duration={1.5} /></>
-                    : <Counter to={stat.to} duration={2} suffix={stat.suffix ?? ""} />
-                  }
-                </div>
-                <div className="flex items-center gap-1 mb-0.5">
-                  {i === 0 && [1,2,3,4,5].map(s => (
-                    <Star key={s} size={10} className="fill-foreground text-foreground" />
-                  ))}
-                </div>
-                <span className="type-label text-muted-foreground">{stat.label}</span>
-              </motion.div>
-            ))}
+            {/* Differentiators */}
+            <motion.ul
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col gap-3 mb-12"
+            >
+              {differentiators.map((d, i) => (
+                <motion.li
+                  key={d}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: 0.25 + i * 0.07 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
+                  <span className="type-body text-foreground/75">{d}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
+
+            {/* Testimonial */}
+            <motion.blockquote
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-muted/60 rounded-xl p-6 border-l-3 border-accent"
+              style={{ borderLeftWidth: "3px", borderLeftColor: "hsl(var(--accent))" }}
+            >
+              <p className="type-quote text-foreground/70">
+                "Working with Evolux was the clearest, calmest project process we've had. They understood the brief immediately and delivered something we genuinely love."
+              </p>
+              <footer className="type-label text-foreground/40 mt-3">James Webb — Managing Director, Huxley</footer>
+            </motion.blockquote>
           </div>
         </div>
+
       </div>
     </section>
   );

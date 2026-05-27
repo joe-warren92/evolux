@@ -3,114 +3,129 @@ import { motion } from "framer-motion";
 const steps = [
   {
     num: "01",
-    title: "Discovery & Strategy",
-    desc: "We start with a structured discovery session to understand your brand, audience and goals. No project begins without a clear brief.",
+    title: "Discovery call",
+    time: "Day 1",
+    desc: "A 45-minute call to understand your goals, your audience, and what's not working. No obligation. We'll tell you honestly if we're the right fit.",
   },
   {
     num: "02",
-    title: "Design & Iteration",
-    desc: "We present a full design direction — not wireframes. Rapid feedback cycles mean you see real progress every week.",
+    title: "Strategy & proposal",
+    time: "Days 2–5",
+    desc: "We send a detailed proposal: scope, timeline, investment. No vague quotes — you know exactly what you're getting before any money changes hands.",
   },
   {
     num: "03",
-    title: "Build & Optimise",
-    desc: "Clean, performant code with accessibility and SEO built in from the first commit. We test on every device before you ever see it.",
+    title: "Design direction",
+    time: "Week 2",
+    desc: "A complete design concept, not wireframes. You see the real thing — typography, colour, layout — before we write a single line of code.",
   },
   {
     num: "04",
-    title: "Launch & Support",
-    desc: "We handle the launch and stick around for 30 days to make sure everything beds in. Most clients stay with us long after that.",
+    title: "Build & test",
+    time: "Weeks 3–6",
+    desc: "Fast, clean development with weekly check-ins. Tested on every device and browser before it gets anywhere near your domain.",
+  },
+  {
+    num: "05",
+    title: "Launch & handover",
+    time: "Week 6–7",
+    desc: "We handle the launch, run you through everything, and stay available for 30 days post-launch. Most clients stay with us long after that.",
   },
 ];
 
 export function Process() {
   return (
-    <section id="process" className="py-32 px-6 md:px-10 bg-background">
+    <section id="process" className="py-28 px-6 md:px-10 bg-background">
       <div className="max-w-7xl mx-auto">
 
-        {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-24">
-          <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-2 type-label text-muted-foreground mb-8"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-              How We Work
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="block type-display-md text-muted-foreground font-light">A considered approach,</span>
-              <span className="block type-display-md font-extrabold text-foreground">built for results.</span>
-            </motion.h2>
-          </div>
-
-          {/* Testimonial alongside header */}
+        {/* Header row */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-6 lg:col-start-7 flex flex-col justify-end"
+            transition={{ duration: 0.7 }}
           >
-            <blockquote className="border-l-2 border-foreground/15 pl-5">
-              <p className="type-quote text-muted-foreground">
-                "From our first call to launch day, every step was clear and on schedule. We knew exactly what was happening and why."
-              </p>
-              <footer className="type-label text-foreground/45 mt-3">
-                Rachel Moore — Head of Marketing, Wavemark
-              </footer>
-            </blockquote>
+            <div className="flex items-center gap-2 type-label text-muted-foreground mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              How it works
+            </div>
+            <h2>
+              <span className="block type-display-md text-muted-foreground font-light">No surprises.</span>
+              <span className="block type-display-md font-extrabold text-foreground">No handoffs. No drama.</span>
+            </h2>
           </motion.div>
+
+          <motion.blockquote
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-xs border-l-2 border-accent/40 pl-5 lg:pb-1"
+          >
+            <p className="type-quote text-muted-foreground">
+              "Every step was clear and on schedule. We knew what was happening and why."
+            </p>
+            <footer className="type-label text-foreground/40 mt-2.5">
+              Rachel Moore — Head of Marketing, Wavemark
+            </footer>
+          </motion.blockquote>
         </div>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden">
+        {/* Vertical step list — more editorial than equal columns */}
+        <div className="flex flex-col">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: i * 0.08 }}
-              className="bg-background p-8 flex flex-col"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.55, delay: i * 0.07 }}
+              className="grid grid-cols-12 gap-4 py-8 border-t border-border group"
             >
-              <span className="type-label text-muted-foreground mb-6">{step.num}</span>
-              <h3 className="text-base font-semibold tracking-tight text-foreground mb-3 leading-snug">{step.title}</h3>
-              <p className="type-body text-muted-foreground leading-relaxed flex-1">{step.desc}</p>
+              <div className="col-span-2 lg:col-span-1 flex items-start pt-0.5">
+                <span className="type-label text-muted-foreground/40">{step.num}</span>
+              </div>
+              <div className="col-span-10 lg:col-span-3 flex items-start gap-3">
+                <div>
+                  <h3 className="text-base font-semibold text-foreground tracking-tight mb-1 group-hover:text-accent transition-colors">
+                    {step.title}
+                  </h3>
+                  <span className="type-label text-accent/70">{step.time}</span>
+                </div>
+              </div>
+              <div className="col-span-12 lg:col-span-7 lg:col-start-5">
+                <p className="type-body text-muted-foreground leading-relaxed">{step.desc}</p>
+              </div>
             </motion.div>
           ))}
+          <div className="border-t border-border" />
         </div>
 
-        {/* Proof bar */}
+        {/* KPI proof bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16 flex flex-wrap items-center justify-between gap-8 border-t border-border pt-10"
+          className="mt-12 flex flex-wrap items-center justify-between gap-8"
         >
           {[
-            { value: "4–6 wks", label: "Average project turnaround" },
-            { value: "100%", label: "On-time delivery rate" },
-            { value: "30 days", label: "Post-launch support included" },
-          ].map((kpi) => (
+            { value: "4–6 wks", label: "Typical project length" },
+            { value: "100%", label: "On-time delivery" },
+            { value: "30 days", label: "Post-launch support" },
+            { value: "8+", label: "Years running" },
+          ].map((kpi, i) => (
             <div key={kpi.label} className="flex flex-col gap-1">
               <span className="text-2xl font-extrabold tracking-tight text-foreground">{kpi.value}</span>
               <span className="type-label text-muted-foreground">{kpi.label}</span>
             </div>
           ))}
           <button
-            className="bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary/85 transition-colors"
+            className="bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
             data-testid="button-start-process"
           >
-            Start a project →
+            Start the process →
           </button>
         </motion.div>
 

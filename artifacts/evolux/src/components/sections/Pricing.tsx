@@ -5,146 +5,137 @@ const packages = [
   {
     id: "launch",
     name: "Launch",
-    tagline: "For businesses entering the market with intent.",
+    tagline: "For businesses that need a high-quality first impression, fast.",
     price: "£1,800",
-    priceNote: "Starting from",
+    note: "Starting from",
     features: [
-      "5-page custom website",
-      "Brand strategy session",
-      "Mobile-first design",
-      "Basic SEO setup",
-      "CMS integration",
+      "5-page custom design & build",
+      "Mobile-first, fully responsive",
+      "Brand alignment session",
+      "CMS so you can edit copy yourself",
+      "Core SEO setup",
       "14-day post-launch support",
     ],
-    cta: "Get Started",
+    cta: "Start with Launch",
     highlight: false,
   },
   {
     id: "studio",
     name: "Studio",
-    tagline: "For ambitious brands that compete at the top.",
+    tagline: "Our most complete offering — for brands serious about growth.",
     price: "£3,500",
-    priceNote: "Starting from",
+    note: "Starting from",
     features: [
-      "Full custom website (up to 12 pages)",
-      "Complete brand identity",
-      "Responsive design system",
-      "Advanced SEO & performance",
-      "Headless CMS setup",
-      "Analytics & conversion tracking",
+      "Up to 12 custom pages",
+      "Full visual identity system",
+      "Conversion-optimised layouts",
+      "Advanced SEO & Core Web Vitals",
+      "Headless CMS integration",
+      "Analytics & goal tracking",
       "30-day post-launch support",
       "Monthly strategy review",
     ],
-    cta: "Most popular",
+    cta: "Start with Studio",
     highlight: true,
   },
   {
     id: "retainer",
-    name: "Retainer",
-    tagline: "A dedicated creative partner, every month.",
+    name: "Growth Retainer",
+    tagline: "A dedicated creative partner for companies treating design as an ongoing asset.",
     price: "£1,200",
-    priceNote: "Per month",
+    note: "Per month",
     features: [
       "Ongoing design & development",
-      "Unlimited revision requests",
-      "Priority turnaround",
+      "CRO testing & improvements",
+      "Priority support & turnaround",
       "Monthly strategy call",
       "Performance reporting",
-      "Full source file access",
+      "Full source file ownership",
     ],
-    cta: "Let's Talk",
+    cta: "Talk retainer",
     highlight: false,
   },
 ];
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-32 px-6 md:px-10 bg-[hsl(0,0%,97%)]">
+    <section id="pricing" className="py-28 px-6 md:px-10 bg-[hsl(0,0%,97.5%)]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 flex flex-col items-center text-center"
-        >
-          <div className="flex items-center gap-2 type-label text-muted-foreground mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
-            Packages
-          </div>
-          <h2 className="type-display-md font-extrabold text-foreground mb-4 tracking-tight">
-            Simple, transparent pricing
-          </h2>
-          <p className="type-body-lg text-muted-foreground max-w-xl">
-            No hidden fees, no scope creep. Choose the package that fits where you are — or talk to us and we'll tailor one.
-          </p>
-        </motion.div>
-
-        {/* Testimonial above cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 flex justify-center"
-        >
-          <div className="flex items-start gap-4 bg-white border border-border rounded-2xl px-8 py-5 max-w-2xl w-full">
-            <div className="text-2xl leading-none text-foreground/20 font-serif mt-0.5">"</div>
-            <div>
-              <p className="type-body text-muted-foreground italic">
-                Best ROI of any supplier we've worked with. The Studio package paid for itself in the first quarter.
-              </p>
-              <p className="type-label text-foreground/45 mt-2">Alex Donovan — Founder, Relink</p>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="flex items-center gap-2 type-label text-muted-foreground mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              Packages
             </div>
-          </div>
-        </motion.div>
+            <h2>
+              <span className="block type-display-md text-muted-foreground font-light">Invest once.</span>
+              <span className="block type-display-md font-extrabold text-foreground">Grow indefinitely.</span>
+            </h2>
+          </motion.div>
 
-        {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="type-body text-muted-foreground max-w-sm lg:text-right lg:pb-2"
+          >
+            No sliding scales based on your budget. No hidden extras. What you see is what you pay.
+          </motion.p>
+        </div>
+
+        {/* Cards — featured one is accent-bordered not just dark */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {packages.map((pkg, i) => (
             <motion.div
               key={pkg.id}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`rounded-2xl p-8 flex flex-col relative overflow-hidden ${
+              transition={{ duration: 0.65, delay: i * 0.1 }}
+              className={`rounded-2xl p-7 flex flex-col relative ${
                 pkg.highlight
-                  ? "bg-foreground text-primary-foreground ring-2 ring-foreground"
+                  ? "bg-foreground text-primary-foreground ring-2 ring-accent"
                   : "bg-white border border-border"
               }`}
               data-testid={`card-pricing-${pkg.id}`}
             >
               {pkg.highlight && (
-                <div className="absolute top-5 right-5 bg-white/15 text-white type-label px-3 py-1 rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white type-label px-4 py-1 rounded-full whitespace-nowrap">
                   Most popular
                 </div>
               )}
 
-              <div className="mb-8">
-                <p className={`type-label mb-2 ${pkg.highlight ? "text-white/50" : "text-muted-foreground"}`}>
+              <div className="mb-6 pt-2">
+                <p className={`type-label mb-3 ${pkg.highlight ? "text-white/50" : "text-muted-foreground"}`}>
                   {pkg.name}
                 </p>
-                <p className={`type-body mb-6 leading-snug ${pkg.highlight ? "text-white/70" : "text-muted-foreground"}`}>
+                <p className={`text-sm leading-snug mb-6 ${pkg.highlight ? "text-white/65" : "text-muted-foreground"}`}>
                   {pkg.tagline}
                 </p>
-                <div className={`type-label mb-1 ${pkg.highlight ? "text-white/50" : "text-muted-foreground"}`}>
-                  {pkg.priceNote}
-                </div>
-                <div className={`text-4xl font-extrabold tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>
+                <p className={`type-label mb-1 ${pkg.highlight ? "text-white/40" : "text-muted-foreground"}`}>
+                  {pkg.note}
+                </p>
+                <p className={`text-4xl font-extrabold tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>
                   {pkg.price}
-                </div>
+                </p>
               </div>
 
-              <ul className="flex flex-col gap-3 mb-10 flex-1">
-                {pkg.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
+              <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+                {pkg.features.map(f => (
+                  <li key={f} className="flex items-start gap-2.5">
                     <Check
-                      size={15}
-                      className={`shrink-0 mt-0.5 ${pkg.highlight ? "text-white/70" : "text-foreground"}`}
+                      size={14}
+                      className={`shrink-0 mt-0.5 ${pkg.highlight ? "text-accent" : "text-accent"}`}
                     />
-                    <span className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/80" : "text-foreground/80"}`}>
+                    <span className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/75" : "text-foreground/75"}`}>
                       {f}
                     </span>
                   </li>
@@ -152,43 +143,51 @@ export function Pricing() {
               </ul>
 
               <button
-                className={`w-full py-3.5 rounded-full text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${
+                className={`w-full py-3.5 rounded-full text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors ${
                   pkg.highlight
-                    ? "bg-white text-foreground hover:bg-white/90"
-                    : "bg-foreground text-primary-foreground hover:bg-foreground/85"
+                    ? "bg-accent text-accent-foreground hover:bg-accent/90"
+                    : "border border-foreground/20 text-foreground hover:bg-muted"
                 }`}
                 data-testid={`button-pricing-${pkg.id}`}
               >
-                Get Started <ArrowUpRight size={15} />
+                {pkg.cta} <ArrowUpRight size={13} />
               </button>
             </motion.div>
           ))}
         </div>
 
-        {/* Trust signals */}
+        {/* Testimonial */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-white border border-border rounded-2xl px-8 py-6 mb-8"
+        >
+          <p className="text-2xl text-accent/30 font-serif leading-none shrink-0 hidden sm:block">"</p>
+          <div className="flex-1">
+            <p className="type-body text-foreground italic mb-1.5">
+              The Studio package paid for itself within the first quarter. I wish we'd done it two years earlier.
+            </p>
+            <p className="type-label text-foreground/40">Alex Donovan — Founder, Relink</p>
+          </div>
+        </motion.div>
+
+        {/* Trust strip */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-border border border-border rounded-2xl bg-white overflow-hidden"
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border border border-border rounded-2xl bg-white overflow-hidden"
         >
           {[
-            {
-              title: "No hidden costs",
-              desc: "We scope every project thoroughly. What we quote is what you pay — full stop.",
-            },
-            {
-              title: "Senior-only work",
-              desc: "You deal directly with the designer doing the work. No account managers, no juniors.",
-            },
-            {
-              title: "30-day guarantee",
-              desc: "If you're not happy in the first 30 days, we'll fix it. Simple as that.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="p-8">
-              <h4 className="text-sm font-semibold text-foreground mb-2">{item.title}</h4>
+            { title: "No hidden costs", desc: "Fully scoped before we start. What we quote is what you pay." },
+            { title: "Direct access", desc: "You deal with the designer and developer, not a project manager." },
+            { title: "30-day guarantee", desc: "Not happy in the first 30 days after launch? We fix it, full stop." },
+          ].map(item => (
+            <div key={item.title} className="p-7">
+              <h4 className="text-sm font-semibold text-foreground mb-1.5">{item.title}</h4>
               <p className="type-body text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
           ))}
