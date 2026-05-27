@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { Link } from "wouter";
-import { ArrowUpRight, ChevronDown, FileSearch, BookOpen } from "lucide-react";
+import { ArrowUpRight, ChevronDown, FileSearch, BookOpen, MapPin } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────
    Data
@@ -19,6 +19,13 @@ const RESOURCES = [
     label: "Insights",
     desc: "Strategy, design & hiring guides",
     href: "/insights",
+    accent: false,
+  },
+  {
+    icon: MapPin,
+    label: "Locations",
+    desc: "Sunderland & across the North East",
+    href: "/locations",
     accent: false,
   },
 ];
