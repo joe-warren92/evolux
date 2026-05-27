@@ -8,121 +8,118 @@ const proofRows = [
   { client: "Marley Doulas",      tag: "Birth doula",         metric: "Booked", unit: "out within weeks" },
 ];
 
-const clientNames = ["Circular", "Marley Doulas", "Ockerby Academy", "Manton Executives"];
-
 export function Hero() {
   return (
     <section className="relative flex flex-col pt-[62px] bg-background overflow-hidden">
 
-      {/* Subtle accent wash — top right */}
+      {/* Subtle accent wash */}
       <div
         aria-hidden
-        className="absolute top-0 right-0 w-[50vw] h-[60vh] pointer-events-none select-none"
-        style={{ background: "radial-gradient(ellipse at 80% 10%, hsl(22 88% 48% / 0.05) 0%, transparent 55%)" }}
+        className="absolute top-0 right-0 w-[55vw] h-[70vh] pointer-events-none select-none"
+        style={{ background: "radial-gradient(ellipse at 85% 5%, hsl(22 88% 48% / 0.06) 0%, transparent 55%)" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-10 md:pt-14 pb-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-10 md:pt-14 pb-14 relative z-10">
 
-        {/* ── Two-column: headline+copy left, proof card right ── */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 lg:gap-14">
+        {/* ── Top row: location + Google chip ── */}
+        <div className="flex items-center justify-between mb-9 md:mb-11">
+          <div className="flex items-center gap-3">
+            <span className="type-index text-foreground/35">Sunderland, North East England</span>
+            <span className="w-8 h-px bg-border shrink-0" />
+            <span className="type-index text-foreground/35">Est. 2023</span>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="hidden sm:flex items-center gap-2 border border-border rounded-full px-4 py-2"
+          >
+            <div className="flex gap-0.5">
+              {[1,2,3,4,5].map(s => <Star key={s} size={9} className="fill-accent text-accent" />)}
+            </div>
+            <span className="type-index text-foreground/50">5.0 on Google</span>
+          </motion.div>
+        </div>
 
-          {/* Left column — headline, sub-copy, CTAs, social proof */}
-          <div className="flex-1 min-w-0 flex flex-col">
+        {/* ── H1 — full width, no sidebar competing for space ── */}
+        <h1 className="mb-12 lg:mb-16">
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block type-display-lg font-extrabold text-foreground tracking-tight"
+              initial={{ y: "108%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Websites built to win
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block type-display-lg font-extrabold text-foreground tracking-tight"
+              initial={{ y: "108%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="accent-underline">enquiries,</span> not just traffic.
+            </motion.span>
+          </span>
+        </h1>
 
-            {/* Location / year index */}
-            <div className="flex items-center gap-3 mb-5">
-              <span className="type-index text-foreground/35">Sunderland, North East England</span>
-              <span className="w-8 h-px bg-border shrink-0" />
-              <span className="type-index text-foreground/35">Est. 2023</span>
+        {/* ── Sub-row: copy + CTAs left · proof card right ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12"
+        >
+          {/* Left: sub-copy + CTAs + testimonial */}
+          <div className="lg:col-span-6 xl:col-span-5 flex flex-col gap-7">
+            <p className="type-body-lg text-foreground/50 leading-relaxed max-w-[46ch]">
+              If your website isn't consistently generating enquiries, there's usually a reason. We find it, fix it, and build you something that works as hard as you do.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                className="bg-primary text-primary-foreground px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
+                data-testid="button-book-call"
+              >
+                Book a Strategy Call
+              </button>
+              <a
+                href="#review"
+                className="border border-border px-6 py-3.5 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors duration-300 flex items-center gap-2"
+                data-testid="link-free-review"
+              >
+                Free website review <ArrowUpRight size={13} />
+              </a>
             </div>
 
-            {/* H1 */}
-            <h1 className="mb-8">
-              <span className="block overflow-hidden">
-                <motion.span
-                  className="block type-display-lg font-extrabold text-foreground/38"
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  Websites built to win
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden">
-                <motion.span
-                  className="block type-display-lg font-extrabold text-foreground"
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <span className="accent-underline">enquiries,</span> not just traffic.
-                </motion.span>
-              </span>
-            </h1>
-
-            {/* Sub-copy + CTAs + social proof */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="max-w-[500px]"
-            >
-              <p className="type-body-lg text-foreground/50 leading-relaxed mb-7">
-                If your website isn't consistently generating enquiries, there's usually a reason. We find it, fix it, and build you something that works as hard as you do.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-3 mb-8">
-                <button
-                  className="bg-primary text-primary-foreground px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
-                  data-testid="button-book-call"
-                >
-                  Book a Strategy Call
-                </button>
-                <a
-                  href="#review"
-                  className="border border-border px-6 py-3.5 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors duration-300 flex items-center gap-2"
-                  data-testid="link-free-review"
-                >
-                  Free website review <ArrowUpRight size={13} />
-                </a>
-              </div>
-
-              {/* Social proof bar — stars + quote + attribution */}
-              <div className="flex items-start gap-4 pt-6 border-t border-border">
-                <div className="flex flex-col items-center gap-1.5 shrink-0 pt-0.5">
-                  <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
-                  </div>
-                  <span className="type-index text-foreground/30 whitespace-nowrap">5.0 Google</span>
+            {/* Testimonial */}
+            <div className="flex items-start gap-4 pt-6 border-t border-border">
+              <div className="flex flex-col items-center gap-1.5 shrink-0 pt-0.5">
+                <div className="flex gap-0.5">
+                  {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
                 </div>
-                <div className="w-px self-stretch bg-border shrink-0" />
-                <div>
-                  <p className="type-body text-foreground/50 leading-relaxed italic">
-                    "We couldn't be happier with the new website Joe created for us. It truly captures who we are."
-                  </p>
-                  <p className="type-index text-foreground/30 mt-2">Katie Dutton — Manton Executives</p>
-                </div>
+                <span className="type-index text-foreground/30 whitespace-nowrap">5.0 Google</span>
               </div>
-
-              {/* Mobile: client name strip */}
-              <div className="flex lg:hidden flex-wrap items-center gap-x-5 gap-y-2 mt-6">
-                {clientNames.map(c => (
-                  <span key={c} className="type-index text-foreground/25">{c}</span>
-                ))}
+              <div className="w-px self-stretch bg-border shrink-0" />
+              <div>
+                <p className="type-body text-foreground/50 leading-relaxed italic">
+                  "We couldn't be happier with the new website Joe created for us. It truly captures who we are."
+                </p>
+                <p className="type-index text-foreground/30 mt-2">Katie Dutton — Manton Executives</p>
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Right column — proof card (desktop only) */}
+          {/* Right: proof card — desktop only */}
           <motion.aside
             aria-label="Recent client results"
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.65 }}
-            className="hidden lg:flex flex-col shrink-0 w-[268px] rounded-2xl overflow-hidden border border-border bg-white shadow-sm self-start mt-[calc(theme(spacing.5)+1lh+theme(spacing.5))]"
+            className="hidden lg:flex flex-col lg:col-span-4 xl:col-span-4 lg:col-start-9 xl:col-start-9 rounded-2xl overflow-hidden border border-border bg-white shadow-sm self-start"
           >
-            {/* Google rating header */}
             <div className="px-5 pt-4 pb-3 border-b border-border flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-accent text-accent" />)}
@@ -130,8 +127,6 @@ export function Hero() {
               </div>
               <span className="type-index text-foreground/30">Recent work</span>
             </div>
-
-            {/* Client rows */}
             {proofRows.map((row, i) => (
               <div
                 key={row.client}
@@ -148,7 +143,7 @@ export function Hero() {
               </div>
             ))}
           </motion.aside>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── Dark showcase panel ── */}
@@ -166,9 +161,7 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/5" />
         </div>
-
         <div className="absolute inset-0 z-10 pointer-events-none" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)" }} />
-
         <div className="relative z-20 px-6 md:px-10 pt-10 pb-8 min-h-[44vh] md:min-h-[48vh] flex flex-col justify-end">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 border-t border-white/10 pt-6">
             <div className="flex items-center gap-5 sm:gap-7">
