@@ -1,4 +1,5 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { useEffect } from "react";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,31 +27,42 @@ import MantonExecutives from "@/pages/projects/MantonExecutives";
 
 const queryClient = new QueryClient();
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location]);
+  return null;
+}
+
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/free-review" component={FreeReview} />
-      <Route path="/packages" component={Packages} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/services" component={ServicesArchive} />
-      <Route path="/services/web-design" component={WebDesign} />
-      <Route path="/services/website-maintenance" component={Maintenance} />
-      <Route path="/services/conversion-optimisation" component={CRO} />
-      <Route path="/services/branding" component={Branding} />
-      <Route path="/services/graphic-design" component={GraphicDesign} />
-      <Route path="/locations" component={Locations} />
-      <Route path="/locations/sunderland" component={Sunderland} />
-      <Route path="/insights" component={InsightsArchive} />
-      <Route path="/insights/:slug" component={InsightPost} />
-      <Route path="/projects" component={Projects} />
-      <Route path="/projects/circular-branding" component={CircularBranding} />
-      <Route path="/projects/marley-doulas" component={MarleyDoulas} />
-      <Route path="/projects/ockerby-academy" component={OckerbyAcademy} />
-      <Route path="/projects/manton-executives" component={MantonExecutives} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/free-review" component={FreeReview} />
+        <Route path="/packages" component={Packages} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/services" component={ServicesArchive} />
+        <Route path="/services/web-design" component={WebDesign} />
+        <Route path="/services/website-maintenance" component={Maintenance} />
+        <Route path="/services/conversion-optimisation" component={CRO} />
+        <Route path="/services/branding" component={Branding} />
+        <Route path="/services/graphic-design" component={GraphicDesign} />
+        <Route path="/locations" component={Locations} />
+        <Route path="/locations/sunderland" component={Sunderland} />
+        <Route path="/insights" component={InsightsArchive} />
+        <Route path="/insights/:slug" component={InsightPost} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/projects/circular-branding" component={CircularBranding} />
+        <Route path="/projects/marley-doulas" component={MarleyDoulas} />
+        <Route path="/projects/ockerby-academy" component={OckerbyAcademy} />
+        <Route path="/projects/manton-executives" component={MantonExecutives} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
