@@ -15,7 +15,7 @@ const PACKAGES = [
     name: "Launch",
     price: "£1,800",
     note: "Starting from",
-    tagline: "A credible, conversion-ready website, delivered fast.",
+    tagline: "Get online with a professional site that wins you new business from day one.",
     highlight: false,
     cta: "Start with Launch",
   },
@@ -24,7 +24,7 @@ const PACKAGES = [
     name: "Studio",
     price: "£3,500",
     note: "Starting from",
-    tagline: "The full package for brands serious about growth.",
+    tagline: "The complete package — brand, website, and everything needed to grow.",
     highlight: true,
     cta: "Start with Studio",
   },
@@ -33,7 +33,7 @@ const PACKAGES = [
     name: "Growth Retainer",
     price: "£1,200",
     note: "Per month",
-    tagline: "A dedicated creative partner, month to month.",
+    tagline: "A dedicated web partner who keeps improving your site every single month.",
     highlight: false,
     cta: "Talk retainer",
   },
@@ -51,66 +51,62 @@ interface CompareRow {
 }
 
 const COMPARE: CompareRow[] = [
-  // ── DESIGN ──────────────────────────────
-  { category: "Design & Build" },
-  { feature: "Custom design (no templates)",         launch: true,     studio: true,       retainer: true },
-  { feature: "Number of pages",                      launch: "Up to 5",  studio: "Up to 12", retainer: "Ongoing" },
-  { feature: "Mobile-first build",                   launch: true,     studio: true,       retainer: true },
-  { feature: "Responsive across all devices",        launch: true,     studio: true,       retainer: true },
-  { feature: "Full visual identity system",          launch: false,    studio: true,       retainer: true },
-  { feature: "Brand alignment session",              launch: true,     studio: true,       retainer: true },
+  // ── YOUR WEBSITE ────────────────────────
+  { category: "Your website" },
+  { feature: "Designed for your business — not a template",   launch: true,        studio: true,        retainer: true },
+  { feature: "Number of pages",                               launch: "Up to 5",   studio: "Up to 12",  retainer: "Ongoing" },
+  { feature: "Looks great on phones, tablets & desktop",      launch: true,        studio: true,        retainer: true },
+  { feature: "A planning session before we start designing",  launch: true,        studio: true,        retainer: true },
+  { feature: "Full brand identity — logo, colours & fonts",   launch: false,       studio: true,        retainer: true },
 
-  // ── CONVERSION ──────────────────────────
-  { category: "Conversion & Performance" },
-  { feature: "Conversion-optimised page layouts",    launch: false,    studio: true,       retainer: true },
-  { feature: "CRO testing & iterative improvements", launch: false,    studio: false,      retainer: true },
-  { feature: "Core Web Vitals optimisation",         launch: "Basic",  studio: true,       retainer: true },
-  { feature: "Performance & image optimisation",     launch: true,     studio: true,       retainer: true },
+  // ── WINNING ENQUIRIES ───────────────────
+  { category: "Winning more enquiries" },
+  { feature: "Every page written & laid out to turn visitors into leads", launch: false, studio: true,   retainer: true },
+  { feature: "We continuously test and improve to get you more calls", launch: false, studio: false,     retainer: true },
+  { feature: "Loads fast so visitors don't leave before reading a word", launch: "Good", studio: "Fast", retainer: "Fast" },
+  { feature: "Built to rank on Google from the moment it goes live",    launch: "Essentials", studio: true, retainer: true },
 
-  // ── CMS & CONTENT ───────────────────────
-  { category: "CMS & Content" },
-  { feature: "CMS — edit copy yourself",             launch: true,     studio: true,       retainer: true },
-  { feature: "Headless CMS integration",             launch: false,    studio: true,       retainer: true },
-  { feature: "Blog / news setup",                    launch: false,    studio: true,       retainer: true },
+  // ── RUNNING YOUR SITE ───────────────────
+  { category: "Running your site yourself" },
+  { feature: "Update your own text and images — no developer needed",   launch: true,  studio: true,     retainer: true },
+  { feature: "Add news, blog posts or case studies yourself",           launch: false, studio: true,     retainer: true },
+  { feature: "Training session so you feel confident using it",         launch: true,  studio: true,     retainer: true },
 
-  // ── SEO ─────────────────────────────────
-  { category: "SEO & Analytics" },
-  { feature: "On-page SEO (titles, meta, schema)",   launch: "Core",   studio: true,       retainer: true },
-  { feature: "Google Analytics 4 setup",             launch: true,     studio: true,       retainer: true },
-  { feature: "Conversion goal tracking",             launch: false,    studio: true,       retainer: true },
-  { feature: "Monthly performance reporting",        launch: false,    studio: false,      retainer: true },
-  { feature: "XML sitemap & robots.txt",             launch: true,     studio: true,       retainer: true },
+  // ── KNOWING IT'S WORKING ────────────────
+  { category: "Knowing it's working" },
+  { feature: "See who's visiting your site and where they came from",   launch: true,  studio: true,     retainer: true },
+  { feature: "Know which pages are generating your enquiries",          launch: false, studio: true,     retainer: true },
+  { feature: "Plain-English monthly report — what's working, what's not", launch: false, studio: false,  retainer: true },
 
-  // ── SUPPORT ─────────────────────────────
-  { category: "Support & Delivery" },
-  { feature: "Post-launch support window",           launch: "14 days", studio: "30 days", retainer: "Ongoing" },
-  { feature: "30-day post-launch guarantee",         launch: false,    studio: true,       retainer: true },
-  { feature: "Priority response time",               launch: false,    studio: false,      retainer: true },
-  { feature: "Monthly strategy call",                launch: false,    studio: true,       retainer: true },
-  { feature: "Full source file ownership",           launch: false,    studio: false,      retainer: true },
-  { feature: "CMS training session",                 launch: true,     studio: true,       retainer: true },
+  // ── AFTER WE LAUNCH ─────────────────────
+  { category: "After we launch" },
+  { feature: "Fixes and tweaks included after go-live",                 launch: "14 days", studio: "30 days", retainer: "Ongoing" },
+  { feature: "If something's wrong post-launch, we fix it free",        launch: false, studio: true,     retainer: true },
+  { feature: "Same or next-day response when you need us",              launch: false, studio: false,    retainer: true },
+  { feature: "Monthly call to plan what to work on next",               launch: false, studio: true,     retainer: true },
+  { feature: "You own every design file and line of code",              launch: false, studio: false,    retainer: true },
 ];
 
 const FAQS = [
   {
-    q: "Can I upgrade from Launch to Studio later?",
-    a: "Yes — if your business outgrows the Launch package, we can scope an upgrade. Because we built the original site, the process is significantly faster and less disruptive than starting from scratch.",
+    q: "I'm not sure which package is right for me — how do I decide?",
+    a: "The simplest way is to start with a free website review. We'll look at your current site, understand what you're trying to achieve, and tell you honestly which package makes sense. No hard sell — just a straight answer.",
   },
   {
-    q: "Are these fixed prices or estimates?",
-    a: "The prices shown are starting points. Every project is scoped individually before we commit to a number — what we quote is what you pay. No extras added halfway through.",
+    q: "Are the prices fixed or will they change once we start?",
+    a: "Everything is agreed in writing before we touch a thing. What we quote is what you pay. We never add costs halfway through a project — and if your requirements grow during the work, we'll tell you upfront what that means financially.",
   },
   {
-    q: "What's included in the 'brand alignment session'?",
-    a: "A focused 45-minute session before design begins where we align on tone, visual direction, target audience, and competitive positioning. It ensures the design reflects your business from day one.",
+    q: "What happens in the planning session before you start designing?",
+    a: "It's a focused 45-minute call where we get into the detail of your business — who your customers are, what makes you different, what you want people to do when they land on your site. It means the design actually reflects your business rather than being generic.",
   },
   {
-    q: "How does the Growth Retainer work?",
-    a: "You get a set number of hours per month dedicated to your business — design, development, CRO improvements, and strategy. It's billed monthly with a 3-month minimum. You can increase or decrease the scope with notice.",
+    q: "What does the Growth Retainer actually include month to month?",
+    a: "A set number of hours dedicated entirely to your website each month. That could be new pages, design improvements, testing what's generating the most enquiries, or strategy. You get a call at the start of each month to agree what to focus on. Minimum 3 months.",
   },
   {
-    q: "Do I need to choose a package before we talk?",
-    a: "No. A free website review or a strategy call will help us understand what you actually need — and the right package becomes obvious from there.",
+    q: "Can I start with Launch and move up later?",
+    a: "Yes. If your business grows and you want to expand the site or add brand work, we can build on what we've already created. Starting from scratch with someone new takes far longer and costs more — we already know how your site works.",
   },
 ];
 
@@ -216,9 +212,9 @@ export default function Packages() {
                 className="lg:col-span-5 lg:col-start-8 flex flex-col gap-3"
               >
                 {[
-                  { label: "No hidden extras", desc: "Everything is scoped and agreed upfront." },
-                  { label: "30-day post-launch guarantee", desc: "On Studio and Retainer packages." },
-                  { label: "You deal with the designer", desc: "No account managers. Direct access to Joe." },
+                  { label: "What you see is what you pay", desc: "Everything agreed in writing before we start." },
+                  { label: "If it's wrong after launch, we fix it free", desc: "On Studio and Retainer packages." },
+                  { label: "You talk to Joe, not an account manager", desc: "The person building your site answers your calls." },
                 ].map(item => (
                   <div key={item.label} className="flex items-start gap-3">
                     <div className="w-4 h-4 rounded-full bg-accent/15 flex items-center justify-center shrink-0 mt-0.5">
@@ -289,7 +285,7 @@ export default function Packages() {
                 <ShieldCheck size={16} className="text-accent" />
               </div>
               <p className="type-body text-foreground/55 flex-1">
-                <strong className="text-foreground font-semibold">30-day post-launch guarantee</strong> on Studio and Retainer packages — if something isn't right after go-live, we fix it at no charge.
+                <strong className="text-foreground font-semibold">Something wrong after launch?</strong> On Studio and Retainer, we fix it free — no questions asked, for the first 30 days.
               </p>
               <Link
                 href="/free-review"
