@@ -11,23 +11,11 @@ const testimonials = [
     role: "Manton Executives",
     initials: "KD",
   },
-  {
-    quote: "Amazing! This company is so easy to work with. They created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone.",
-    author: "Leah Hall",
-    role: "Client",
-    initials: "LH",
-  },
-  {
-    quote: "From start to finish, the process was clear and professional. The site launched on time, looks exactly like my business, and has already started generating enquiries.",
-    author: "Daniel O.",
-    role: "Client, North East",
-    initials: "DO",
-  },
 ];
 
 const NAV_COMPANY = [
   { label: "About",    href: "/about"     },
-  { label: "Projects", href: "/#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "Services", href: "/#services" },
   { label: "Insights", href: "/insights"  },
   { label: "Pricing",  href: "/#pricing"  },

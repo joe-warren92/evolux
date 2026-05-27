@@ -21,9 +21,8 @@ const deliverables = [
 ];
 
 const outcomes = [
-  { metric: "200+", label: "fashion brands reached" },
+  { metric: "200+", label: "fashion brands served" },
   { metric: "5.0★", label: "Google rating" },
-  { metric: "3×",   label: "trade enquiry increase" },
 ];
 
 export default function CircularBranding() {

@@ -7,7 +7,6 @@ const CLIENTS = [
   "Manton Executives",
   "Ockerby Academy",
   "Marley Doulas",
-  "MA Virtuals",
 ];
 
 export function Hero() {

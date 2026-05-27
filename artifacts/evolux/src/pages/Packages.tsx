@@ -453,37 +453,29 @@ export default function Packages() {
         ══════════════════════════════════════════════════ */}
         <section className="py-20 px-5 md:px-8 lg:px-10 border-t border-border bg-[hsl(0,0%,97.5%)]">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[
-                { quote: "We couldn't be happier with the new website Joe created for us. It truly captures who we are.", name: "Katie Dutton", company: "Manton Executives", initials: "KD" },
-                { quote: "Joe was always available, quick to respond, and incredibly patient throughout the whole process.", name: "Client", company: "Ockerby Academy", initials: "OA" },
-                { quote: "The site looks incredible and has already started generating enquiries within the first week of launch.", name: "Client", company: "Marley Doulas", initials: "MD" },
-              ].map((t, i) => (
-                <motion.div
-                  key={t.company}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.55, delay: i * 0.1 }}
-                  className="bg-white border border-border rounded-2xl p-7 flex flex-col gap-5"
-                >
-                  <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
+            <div className="max-w-2xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white border border-border rounded-2xl p-8 flex flex-col gap-6"
+              >
+                <div className="flex gap-0.5">
+                  {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-accent text-accent" />)}
+                </div>
+                <blockquote className="text-lg text-foreground/70 leading-relaxed italic">
+                  "We couldn't be happier with the new website Joe created for us. It truly captures who we are as a business and presents us in exactly the way we wanted."
+                </blockquote>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-9 h-9 rounded-full bg-foreground/8 flex items-center justify-center shrink-0">
+                    <span className="text-[11px] font-black text-foreground/50">KD</span>
                   </div>
-                  <blockquote className="flex-1 text-[15px] text-foreground/65 leading-relaxed italic">
-                    "{t.quote}"
-                  </blockquote>
-                  <div className="flex items-center gap-3 pt-4 border-t border-border">
-                    <div className="w-8 h-8 rounded-full bg-foreground/8 flex items-center justify-center shrink-0">
-                      <span className="text-[10px] font-black text-foreground/50">{t.initials}</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground leading-none">{t.name}</p>
-                      <p className="type-index text-foreground/40 mt-0.5">{t.company}</p>
-                    </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground leading-none">Katie Dutton</p>
+                    <p className="type-index text-foreground/40 mt-0.5">Manton Executives, Sunderland</p>
                   </div>
-                </motion.div>
-              ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>

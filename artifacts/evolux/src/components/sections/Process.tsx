@@ -118,7 +118,6 @@ export function Process() {
           <div className="flex flex-wrap items-center gap-8">
             {[
               { value: "4–6 wks", label: "From brief to launch" },
-              { value: "100%", label: "On-time delivery" },
               { value: "30 days", label: "Post-launch support" },
             ].map(kpi => (
               <div key={kpi.label} className="flex flex-col gap-0.5">
