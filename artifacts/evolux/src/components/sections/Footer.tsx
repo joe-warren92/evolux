@@ -3,22 +3,22 @@ import { Star, ArrowUpRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Genuinely one of the best business decisions we made this year. The site they built outperforms everything we had before.",
-    author: "Priya Mehta",
-    role: "Brand Director, Nexus",
-    result: "2× lead volume",
+    quote: "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was an absolute pleasure to work with throughout — always available, quick to respond, and incredibly patient.",
+    author: "Katie Dutton",
+    role: "Manton Executives",
+    result: "5★ Google review",
   },
   {
-    quote: "They nailed the brief first time. On time, on budget, and the results have been exceptional from week one.",
-    author: "Daniel Park",
-    role: "COO, Wavemark",
-    result: "+180% organic traffic",
+    quote: "Amazing! This company is so easy to work with. They created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone.",
+    author: "Leah Hall",
+    role: "Client",
+    result: "5★ Google review",
   },
   {
-    quote: "Bounce rate dropped 40%. Average session time more than doubled. The Evolux approach genuinely works.",
-    author: "Clara Hughes",
-    role: "Head of Digital, Stratum",
-    result: "−40% bounce rate",
+    quote: "From start to finish, the process was clear and professional. The site launched on time, looks exactly like my business, and has already started generating enquiries. Brilliant service.",
+    author: "Daniel O.",
+    role: "Client, North East",
+    result: "Enquiries from week one",
   },
 ];
 
@@ -37,11 +37,11 @@ export function Footer() {
           >
             <div className="flex items-center gap-2 type-label text-muted-foreground">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              Client results
+              What clients say
             </div>
             <div className="hidden sm:flex items-center gap-1.5">
               {[1,2,3,4,5].map(s => <Star key={s} size={11} className="fill-accent text-accent" />)}
-              <span className="type-label text-muted-foreground ml-1.5">4.9 average across all projects</span>
+              <span className="type-label text-muted-foreground ml-1.5">5.0 on Google</span>
             </div>
           </motion.div>
 
@@ -61,7 +61,7 @@ export function Footer() {
                   </div>
                   <span className="type-label text-accent">{t.result}</span>
                 </div>
-                <p className="type-quote text-foreground/70 leading-relaxed flex-1">{t.quote}</p>
+                <p className="type-quote text-foreground/70 leading-relaxed flex-1">"{t.quote}"</p>
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t.author}</p>
                   <p className="type-label text-muted-foreground mt-0.5">{t.role}</p>
@@ -75,7 +75,6 @@ export function Footer() {
       {/* Final CTA — with decorative EVOLUX wordmark */}
       <div className="relative py-24 px-6 md:px-10 overflow-hidden">
 
-        {/* ── Decorative oversized wordmark ── */}
         <span
           aria-hidden
           className="absolute bottom-0 right-0 font-extrabold leading-none tracking-[-0.05em] text-foreground/[0.028] select-none pointer-events-none whitespace-nowrap"
@@ -84,7 +83,6 @@ export function Footer() {
           EVOLUX
         </span>
 
-        {/* Faint accent gradient top-left */}
         <div
           aria-hidden
           className="absolute -top-20 -left-20 w-96 h-96 rounded-full pointer-events-none"
@@ -106,7 +104,7 @@ export function Footer() {
               If your website isn't winning them over, someone else's is. Let's change that.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
               <button
                 className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
                 data-testid="button-start-project"
@@ -115,13 +113,30 @@ export function Footer() {
               </button>
               <span className="type-body text-muted-foreground">
                 Or email{" "}
-                <a href="mailto:hello@evolux.studio" className="text-foreground font-medium hover:text-accent transition-colors underline underline-offset-4">
-                  hello@evolux.studio
+                <a href="mailto:info@evoluxwebdesign.co.uk" className="text-foreground font-medium hover:text-accent transition-colors underline underline-offset-4">
+                  info@evoluxwebdesign.co.uk
                 </a>
               </span>
-              <span className="type-label text-muted-foreground/60 sm:ml-2">
-                ↳ We reply within 24 hours
-              </span>
+            </div>
+
+            {/* Contact details */}
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 text-sm text-muted-foreground">
+              <div>
+                <p className="type-label mb-1">Phone</p>
+                <a href="tel:+447854932203" className="text-foreground hover:text-accent transition-colors font-medium">+44 7854 932203</a>
+              </div>
+              <div>
+                <p className="type-label mb-1">Email</p>
+                <a href="mailto:info@evoluxwebdesign.co.uk" className="text-foreground hover:text-accent transition-colors font-medium">info@evoluxwebdesign.co.uk</a>
+              </div>
+              <div>
+                <p className="type-label mb-1">Based in</p>
+                <span className="text-foreground font-medium">Sunderland, Tyne & Wear</span>
+              </div>
+              <div>
+                <p className="type-label mb-1">Serving</p>
+                <span className="text-foreground font-medium">Clients across the UK</span>
+              </div>
             </div>
           </motion.div>
 
@@ -141,7 +156,7 @@ export function Footer() {
                 ))}
               </div>
             </div>
-            <p className="type-label text-muted-foreground">© {new Date().getFullYear()} Evolux Studio. All rights reserved.</p>
+            <p className="type-label text-muted-foreground">© {new Date().getFullYear()} Evolux Web Design. Sunderland, Tyne & Wear.</p>
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import heroShowcase from "@/assets/images/hero-showcase.png";
+import heroShowcase from "@assets/Screenshot-2025-02-14-at-20.27.41_(3)_1779878754711.webp";
 import { Star, ArrowUpRight } from "lucide-react";
 
 const recentWins = [
-  { client: "Aura Architecture", metric: "+280%", label: "enquiries" },
-  { client: "Chronos Finance", metric: "+52%", label: "sign-up rate" },
-  { client: "Lumina Studio", metric: "3×", label: "organic traffic" },
+  { client: "Circular Branding", metric: "200+", label: "brands served" },
+  { client: "Ockerby Academy", metric: "5.0", label: "Google rating" },
+  { client: "Marley Doulas", metric: "Fully", label: "booked at launch" },
 ];
 
 export function Hero() {
@@ -14,17 +14,14 @@ export function Hero() {
 
       {/* ── Decorative gradient blobs ── */}
       <div aria-hidden className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        {/* Accent blob — top right */}
         <div
           className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
           style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.07) 0%, transparent 65%)" }}
         />
-        {/* Neutral blob — bottom left of headline */}
         <div
           className="absolute top-60 -left-20 w-[500px] h-[500px] rounded-full"
           style={{ background: "radial-gradient(circle, hsl(0 0% 50% / 0.04) 0%, transparent 65%)" }}
         />
-        {/* Decorative watermark text */}
         <span
           className="absolute -bottom-4 left-0 text-[clamp(8rem,20vw,18rem)] font-extrabold leading-none tracking-[-0.05em] text-foreground/[0.025] select-none whitespace-nowrap"
           style={{ fontVariantNumeric: "tabular-nums" }}
@@ -84,7 +81,7 @@ export function Hero() {
               <p className="type-label text-muted-foreground mb-1">Recent client results</p>
               <div className="flex items-center gap-1">
                 {[1,2,3,4,5].map(s => <Star key={s} size={10} className="fill-accent text-accent" />)}
-                <span className="type-label text-muted-foreground ml-1.5">4.9 avg rating</span>
+                <span className="type-label text-muted-foreground ml-1.5">5.0 on Google</span>
               </div>
             </div>
             {recentWins.map((win, i) => (
@@ -94,7 +91,7 @@ export function Hero() {
               >
                 <div>
                   <p className="text-xs font-semibold text-foreground leading-tight">{win.client}</p>
-                  <p className="type-label text-muted-foreground mt-0.5">90-day result</p>
+                  <p className="type-label text-muted-foreground mt-0.5">result</p>
                 </div>
                 <div className="text-right shrink-0">
                   <p className="text-sm font-extrabold text-accent tracking-tight">{win.metric}</p>
@@ -114,7 +111,7 @@ export function Hero() {
             className="max-w-md"
           >
             <p className="type-body-lg text-muted-foreground leading-relaxed mb-8">
-              You'll get more enquiries, more credibility, and a site you're proud to send to every prospect — built for UK companies that mean business.
+              If your website isn't consistently generating enquiries, there's usually a reason. We find it, fix it, and build you something that works as hard as you do.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 mb-10">
@@ -123,7 +120,7 @@ export function Hero() {
                 data-testid="button-book-call"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60" />
-                Book a Free Call
+                Book a Strategy Call
               </button>
               <a
                 href="#review"
@@ -138,9 +135,9 @@ export function Hero() {
               <div className="w-px self-stretch bg-accent/40 shrink-0 rounded-full" />
               <div>
                 <p className="text-sm text-muted-foreground leading-relaxed italic">
-                  "Our enquiry rate jumped 340% in the first month. Evolux is the best investment we've made."
+                  "We couldn't be happier with the new website Joe created for us. It truly captures who we are and what we stand for."
                 </p>
-                <p className="type-label text-foreground/45 mt-2">Tom Archer — CEO, Stratum</p>
+                <p className="type-label text-foreground/45 mt-2">Katie Dutton — Manton Executives</p>
               </div>
             </div>
           </motion.div>
@@ -151,9 +148,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.72 }}
             className="flex flex-col gap-3 lg:hidden"
           >
-            <p className="type-label text-muted-foreground">Trusted by growth-focused businesses</p>
+            <p className="type-label text-muted-foreground">Trusted by businesses across the UK</p>
             <div className="flex flex-wrap items-center gap-5 text-sm font-semibold text-foreground/40 tracking-tight">
-              <span>Relink</span><span>Wavemark</span><span>Huxley</span><span>Stratum</span><span>Nexus</span>
+              <span>Circular</span><span>Marley Doulas</span><span>Ockerby Academy</span><span>Manton</span>
             </div>
           </motion.div>
         </div>
@@ -169,8 +166,8 @@ export function Hero() {
         <div className="absolute inset-0 z-0">
           <img
             src={heroShowcase}
-            alt="Studio showcase"
-            className="w-full h-full object-cover opacity-45 mix-blend-overlay"
+            alt="Evolux client work showcase"
+            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
         </div>
@@ -179,11 +176,11 @@ export function Hero() {
           <div className="flex flex-col gap-3">
             <div className="flex -space-x-2">
               {[
-                { i: "SC", c: "bg-blue-500" },
-                { i: "JW", c: "bg-orange-500" },
-                { i: "MK", c: "bg-emerald-500" },
-                { i: "TA", c: "bg-violet-500" },
-                { i: "PM", c: "bg-rose-500" },
+                { i: "KD", c: "bg-blue-500" },
+                { i: "LH", c: "bg-orange-500" },
+                { i: "MJ", c: "bg-emerald-500" },
+                { i: "DO", c: "bg-violet-500" },
+                { i: "CB", c: "bg-rose-500" },
               ].map(a => (
                 <div key={a.i} className={`w-8 h-8 rounded-full ${a.c} border-2 border-black flex items-center justify-center text-[10px] font-bold text-white`}>
                   {a.i}
@@ -192,13 +189,13 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-1">
               {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-white text-white" />)}
-              <span className="text-white/70 text-xs font-medium ml-1.5">4.9 from 50+ projects</span>
+              <span className="text-white/70 text-xs font-medium ml-1.5">5.0 on Google · 20+ projects delivered</span>
             </div>
           </div>
 
           <div className="hidden md:flex flex-col items-end gap-1">
-            <span className="type-label text-white/30">Next project start</span>
-            <span className="text-white text-sm font-semibold">February 2026</span>
+            <span className="type-label text-white/30">Based in</span>
+            <span className="text-white text-sm font-semibold">Sunderland, North East England</span>
           </div>
         </div>
       </motion.div>

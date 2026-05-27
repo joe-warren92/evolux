@@ -1,49 +1,49 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import project1 from "@/assets/images/project-1.png";
-import project2 from "@/assets/images/project-2.png";
-import project3 from "@/assets/images/project-3.png";
-import project4 from "@/assets/images/project-4.png";
+import circularMockup from "@assets/mockup3-1_1779878754712.webp";
+import marleyMockup from "@assets/4K-Mockup-1-1_1779878754714.webp";
+import ockerbyMockup from "@assets/Macbook-Air-Light-Background-2_1779878754715.png";
+import vaMockup from "@assets/iMac-M4-Purple-1_1779878754716.jpg";
 
 const projects = [
   {
     id: 1,
     num: "01",
-    title: "Aura Architecture",
+    title: "Circular Branding Group",
     category: "Web Design & Development",
-    result: "+280% enquiries",
-    desc: "A considered website for a London architecture practice that had outgrown its identity — built to win the kind of projects they actually wanted.",
-    image: project1,
-    aspect: "aspect-[3/4]",
+    result: "Trusted by 200+ brands",
+    desc: "A premium trade website for a labels, trims and packaging supplier — built to win brand partnerships and showcase their portfolio to fashion's biggest names worldwide.",
+    image: circularMockup,
+    aspect: "aspect-[4/3]",
   },
   {
     id: 2,
     num: "02",
-    title: "Lumina Studio",
+    title: "Marley Doulas",
     category: "Brand Identity + Web",
-    result: "3× organic traffic",
-    desc: "End-to-end brand and web for a creative studio entering a competitive market. Tripled organic traffic within 60 days of launch.",
-    image: project2,
-    aspect: "aspect-[4/3]",
+    result: "Fully booked within weeks",
+    desc: "A warm, trust-led website for a birth doula serving Surrey Hills and South London — turning anxious first-time parents into booked clients before they've even made contact.",
+    image: marleyMockup,
+    aspect: "aspect-[3/4]",
   },
   {
     id: 3,
     num: "03",
-    title: "Chronos Finance",
-    category: "Product Design",
-    result: "+52% sign-ups",
-    desc: "A complex financial product turned into a clean, trustworthy interface. Conversion rate improved 52% in the first quarter.",
-    image: project3,
+    title: "Ockerby Academy",
+    category: "Web Design & Booking",
+    result: "5.0 Google rating",
+    desc: "A vibrant, conversion-focused website for a dance and musical theatre academy in Eldwick, West Yorkshire — built around driving class sign-ups and cutting admin overhead.",
+    image: ockerbyMockup,
     aspect: "aspect-[4/3]",
   },
   {
     id: 4,
     num: "04",
-    title: "Nexus Platform",
-    category: "Full-Stack Development",
-    result: "98 Lighthouse score",
-    desc: "Platform rebuilt from scratch for speed, accessibility and scale. Perfect performance score, zero legacy debt.",
-    image: project4,
+    title: "MA Virtuals",
+    category: "Brand Identity + Web",
+    result: "10× growth since launch",
+    desc: "A modern, credible website for a virtual assistant agency that had grown beyond its old identity — designed to attract the right clients and reflect the scale of a growing team.",
+    image: vaMockup,
     aspect: "aspect-[3/4]",
   },
 ];

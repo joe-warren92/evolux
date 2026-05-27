@@ -3,11 +3,11 @@ import { useState } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 const outcomes = [
-  "See exactly where you're losing potential customers",
-  "Understand why visitors leave without contacting you",
-  "Find out what's stopping Google from ranking your pages",
-  "Know how your site performs on mobile (60% of your traffic)",
-  "Walk away with 3 specific improvements that could increase enquiries this month",
+  "Your website scored against 20 credibility factors",
+  "A personalised video breakdown — screen-recorded walkthrough of exactly what's working and what's not",
+  "Priority recommendations — the 3–5 changes that will have the biggest impact on your enquiry rate",
+  "Know how your site performs on mobile, where 60%+ of your traffic arrives",
+  "A straight answer on whether your website is winning or losing you business right now",
 ];
 
 export function LeadMagnet() {
@@ -35,7 +35,6 @@ export function LeadMagnet() {
         <circle cx="380" cy="140" r="160" stroke="white" strokeWidth="0.6"/>
         <circle cx="380" cy="140" r="100" stroke="hsl(22 88% 48%)" strokeWidth="1.2"/>
         <circle cx="380" cy="140" r="44" stroke="hsl(22 88% 48%)" strokeWidth="1.5"/>
-        {/* Cross-hairs */}
         <line x1="280" y1="140" x2="480" y2="140" stroke="white" strokeWidth="0.4" strokeDasharray="4 6"/>
         <line x1="380" y1="40" x2="380" y2="240" stroke="white" strokeWidth="0.4" strokeDasharray="4 6"/>
       </svg>
@@ -51,7 +50,6 @@ export function LeadMagnet() {
         <circle cx="60" cy="260" r="100" stroke="hsl(22 88% 48%)" strokeWidth="0.8"/>
       </svg>
 
-      {/* Subtle diagonal grid lines */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none select-none opacity-[0.025]"
@@ -72,7 +70,7 @@ export function LeadMagnet() {
               className="flex items-center gap-2 type-label text-white/40 mb-8"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              Free website review
+              Free website credibility assessment
             </motion.div>
 
             <motion.h2
@@ -82,8 +80,8 @@ export function LeadMagnet() {
               transition={{ duration: 0.8 }}
               className="type-display-md font-extrabold text-white mb-6 tracking-tight"
             >
-              Find out what your website is{" "}
-              <span className="text-accent">costing your business.</span>
+              Find out why people leave your website{" "}
+              <span className="text-accent">without contacting you.</span>
             </motion.h2>
 
             <motion.p
@@ -93,7 +91,7 @@ export function LeadMagnet() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="type-body-lg text-white/60 leading-relaxed mb-10"
             >
-              Most businesses are losing enquiries every single day because of 3–5 fixable issues on their website. Our review identifies exactly what they are — delivered to your inbox within 48 hours, with no obligation.
+              Most professional services websites have 3–5 credibility gaps that stop visitors from making contact. We'll identify yours — scored against 20 factors — with a personalised video breakdown delivered within 48 hours. No obligation.
             </motion.p>
 
             <motion.div
@@ -133,21 +131,21 @@ export function LeadMagnet() {
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-5">
                   <CheckCircle2 size={22} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Review request received.</h3>
+                <h3 className="text-xl font-bold text-white mb-3">Assessment request received.</h3>
                 <p className="type-body text-white/60 mb-2">
-                  We'll have your personalised website review in your inbox within 48 hours.
+                  Joe will have your personalised website assessment in your inbox within 48 hours.
                 </p>
                 <p className="type-body text-white/40">
                   Email{" "}
-                  <a href="mailto:hello@evolux.studio" className="text-white/70 underline underline-offset-4">hello@evolux.studio</a>{" "}
-                  if you have any questions in the meantime.
+                  <a href="mailto:info@evoluxwebdesign.co.uk" className="text-white/70 underline underline-offset-4">info@evoluxwebdesign.co.uk</a>{" "}
+                  if you have questions in the meantime.
                 </p>
               </div>
             ) : (
               <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-sm">
-                <h3 className="text-xl font-bold text-white mb-2">Get your free website review</h3>
+                <h3 className="text-xl font-bold text-white mb-2">Get your free website assessment</h3>
                 <p className="type-body text-white/50 mb-8">
-                  Takes 30 seconds to request. Takes us 48 hours to deliver.
+                  Takes 30 seconds to request. A personalised video in your inbox within 48 hours.
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -177,10 +175,10 @@ export function LeadMagnet() {
                     />
                   </div>
                   <div>
-                    <label className="type-label text-white/40 mb-2 block">Biggest website frustration <span className="text-white/20 normal-case">(optional)</span></label>
+                    <label className="type-label text-white/40 mb-2 block">What's your biggest website challenge? <span className="text-white/20 normal-case">(optional)</span></label>
                     <input
                       type="text"
-                      placeholder="e.g. we get traffic but no enquiries"
+                      placeholder="e.g. we get visitors but no enquiries"
                       className="w-full border border-white/15 rounded-xl px-4 py-3.5 text-white placeholder:text-white/25 text-sm focus:outline-none focus:border-accent transition-colors"
                       style={{ backgroundColor: "rgba(255,255,255,0.06)" }}
                       data-testid="input-review-frustration"
@@ -191,12 +189,12 @@ export function LeadMagnet() {
                     className="bg-accent text-accent-foreground py-4 rounded-xl text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 mt-2"
                     data-testid="button-review-submit"
                   >
-                    Send me my website review <ArrowUpRight size={15} />
+                    Get my free assessment <ArrowUpRight size={15} />
                   </button>
                 </form>
 
                 <p className="type-label text-white/20 mt-5 text-center">
-                  No sales pitch. No obligation. Just an honest review.
+                  No sales pitch. No obligation. Just an honest assessment from Joe.
                 </p>
               </div>
             )}

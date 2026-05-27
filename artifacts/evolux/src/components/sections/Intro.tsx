@@ -52,8 +52,8 @@ export function Intro() {
               {/* Floating stat bar */}
               <div className="absolute bottom-0 left-0 right-0 bg-black/65 backdrop-blur-sm px-6 py-5 flex items-center justify-between gap-4">
                 {[
-                  { value: 50, suffix: "+", label: "projects" },
-                  { value: 8, suffix: "+", label: "years" },
+                  { value: 20, suffix: "+", label: "projects" },
+                  { value: 5, suffix: "+", label: "years exp" },
                 ].map((stat, i) => (
                   <div key={stat.label} className="flex flex-col items-center flex-1">
                     <p className="text-white font-extrabold text-2xl tracking-tight leading-none">
@@ -90,7 +90,7 @@ export function Intro() {
               className="flex items-center gap-2 type-label text-muted-foreground mb-8"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              About the studio
+              About Evolux
             </motion.div>
 
             <motion.h2
@@ -100,8 +100,8 @@ export function Intro() {
               transition={{ duration: 0.8, delay: 0.08 }}
               className="type-display-md font-extrabold text-foreground mb-7 tracking-tight"
             >
-              Small studio.<br />
-              <span className="text-muted-foreground font-light">Outsized results.</span>
+              Hey, I'm Joe.<br />
+              <span className="text-muted-foreground font-light">Founder of Evolux.</span>
             </motion.h2>
 
             <motion.div
@@ -112,10 +112,10 @@ export function Intro() {
               className="flex flex-col gap-5 type-body-lg text-muted-foreground leading-relaxed mb-10"
             >
               <p>
-                Evolux is a deliberately small studio based in the UK. We take on a limited number of projects each quarter so every client gets our full attention — not a junior designer six weeks in.
+                With 5+ years in web design and development, I founded Evolux Web Design in 2023 with a simple idea: that businesses in the North East — and across the UK — deserve websites that actually generate enquiries, not just look the part.
               </p>
               <p>
-                Every project starts with strategy. We won't touch a pixel until we know who you're trying to reach, what you want them to do, and why they should choose you. Then we design and build to meet that brief exactly.
+                I combine technical expertise, creativity, and a genuine obsession with conversion to build WordPress websites that deliver measurable results. Based in Sunderland, working with clients across the country.
               </p>
             </motion.div>
 
@@ -129,9 +129,9 @@ export function Intro() {
               style={{ borderLeft: "3px solid hsl(var(--accent))" }}
             >
               <p className="type-quote text-foreground/70 mb-3">
-                "Working with Evolux was the clearest, calmest project process we've had. They understood our brand from the first call."
+                "Amazing! This company is so easy to work with — they created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone."
               </p>
-              <footer className="type-label text-foreground/40">James Webb — Managing Director, Huxley</footer>
+              <footer className="type-label text-foreground/40">Leah Hall — Client</footer>
             </motion.blockquote>
           </div>
         </div>

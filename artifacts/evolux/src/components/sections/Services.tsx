@@ -4,23 +4,23 @@ import { ArrowUpRight } from "lucide-react";
 const painPoints = [
   {
     num: "01",
-    problem: "You're getting visitors but barely any enquiries.",
-    benefit: "You'll have a clear, deliberate path from visitor to enquiry — so your website generates business whether you're in the office or not.",
+    problem: "Your site doesn't reflect the quality of your business within the first 10 seconds.",
+    benefit: "You'll have a website that makes exactly the right first impression — one that immediately signals credibility to the type of client you want to attract.",
   },
   {
     num: "02",
-    problem: "You're embarrassed to share your own website.",
-    benefit: "You'll have a site you're proud to send to every prospect — one that does the selling before you've even picked up the phone.",
+    problem: "Prospects can't quickly work out whether you're the right fit for them.",
+    benefit: "You'll have clear, direct positioning that lets the right people self-qualify fast — so every enquiry that comes in is already pre-sold on working with you.",
   },
   {
     num: "03",
-    problem: "Your competitors look more credible than you online.",
-    benefit: "You'll be the credible, professional choice — and clients will choose you based on first impressions alone.",
+    problem: "You make claims on your site, but don't back them up with evidence.",
+    benefit: "You'll have the proof in the right places — testimonials, results, case studies — so prospects build trust before they've even contacted you.",
   },
   {
     num: "04",
-    problem: "You're locked out of your own website.",
-    benefit: "You'll own your site completely and update it yourself — no agency dependency, no developer call for every text change.",
+    problem: "There's no obvious next step — so people leave without getting in touch.",
+    benefit: "You'll have a clear, low-friction path from visitor to enquiry on every page — so more of your traffic becomes business.",
   },
 ];
 
@@ -29,7 +29,7 @@ export function Services() {
     <section id="services" className="relative py-28 px-6 md:px-10 bg-[hsl(0,0%,97.5%)] overflow-hidden">
       {/* Dot grid texture */}
       <div aria-hidden className="absolute inset-0 bg-dot-grid opacity-[0.18] pointer-events-none select-none" />
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
@@ -41,7 +41,7 @@ export function Services() {
               className="flex items-center gap-2 type-label text-muted-foreground mb-5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              Sound familiar?
+              The four credibility gaps
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export function Services() {
               transition={{ duration: 0.7 }}
               className="type-display-md font-extrabold text-foreground tracking-tight"
             >
-              We've heard it all before.
+              Sound familiar?
             </motion.h2>
           </div>
           <div className="lg:col-span-6 lg:col-start-7 flex items-end">
@@ -61,7 +61,7 @@ export function Services() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="type-body-lg text-muted-foreground leading-relaxed"
             >
-              These are the conversations we have every week. If any sound like you, there's a straightforward fix — and a clear business outcome on the other side.
+              Most professional services websites fail for the same reason: they look credible enough at first glance, but don't build the trust a prospect needs to actually make contact. These are the four gaps we fix.
             </motion.p>
           </div>
         </div>
@@ -104,7 +104,7 @@ export function Services() {
         >
           <div>
             <p className="text-sm font-bold text-foreground mb-1">Not sure which applies to your business?</p>
-            <p className="type-body text-muted-foreground">A free website review will tell you exactly what's holding your site back — and what it's costing you.</p>
+            <p className="type-body text-muted-foreground">A free website review will identify your specific credibility gaps — and tell you exactly what's costing you enquiries.</p>
           </div>
           <a
             href="#review"
