@@ -14,21 +14,40 @@ export function Hero() {
   return (
     <section className="relative flex flex-col pt-[62px] bg-background overflow-hidden">
 
-      {/* Subtle accent wash */}
+      {/* ── Background layers ── */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none select-none">
+        {/* Primary warm bloom — top right */}
+        <div
+          className="absolute -top-32 -right-32 w-[720px] h-[720px] rounded-full"
+          style={{ background: "radial-gradient(circle, hsl(22 88% 48% / 0.11) 0%, transparent 65%)" }}
+        />
+        {/* Secondary smaller bloom — upper centre */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/3 w-[500px] h-[380px]"
+          style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(22 88% 48% / 0.055) 0%, transparent 70%)" }}
+        />
+        {/* Tertiary soft bloom — bottom left */}
+        <div
+          className="absolute bottom-0 -left-24 w-[420px] h-[340px]"
+          style={{ background: "radial-gradient(ellipse at 0% 100%, hsl(22 88% 48% / 0.04) 0%, transparent 65%)" }}
+        />
+      </div>
+
+      {/* Thin accent rule at top edge */}
       <div
         aria-hidden
-        className="absolute top-0 right-0 w-[55vw] h-[70vh] pointer-events-none select-none"
-        style={{ background: "radial-gradient(ellipse at 85% 5%, hsl(22 88% 48% / 0.06) 0%, transparent 55%)" }}
+        className="absolute top-[62px] left-0 right-0 h-[2px] pointer-events-none"
+        style={{ background: "linear-gradient(90deg, transparent 0%, hsl(22 88% 48% / 0.5) 30%, hsl(22 88% 48% / 0.35) 65%, transparent 100%)" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-12 md:pt-16 pb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full pt-16 md:pt-24 pb-20 relative z-10">
 
         {/* ── Stamp row ── */}
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="flex items-center justify-between mb-14 md:mb-16"
+          className="flex items-center justify-between mb-20 md:mb-24"
         >
           <div className="flex items-center gap-2.5">
             <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 flex items-center justify-center shrink-0 select-none">
@@ -50,7 +69,7 @@ export function Hero() {
         </motion.div>
 
         {/* ── H1 ── */}
-        <h1 className="mb-12 md:mb-14">
+        <h1 className="mb-16 md:mb-20">
           <span className="block overflow-hidden">
             <motion.span
               className="block type-display-lg font-extrabold text-foreground tracking-tight"
@@ -122,16 +141,16 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.65 }}
             className="hidden lg:flex lg:col-span-5 lg:col-start-8 items-end pb-3"
           >
-            <figure className="flex flex-col gap-4">
-              <div className="flex gap-0.5 mb-1">
+            <figure className="flex flex-col gap-4 pl-6 border-l-2 border-accent/25">
+              <div className="flex gap-0.5">
                 {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-accent text-accent" />)}
               </div>
               <blockquote>
-                <p className="text-[1.05rem] font-semibold text-foreground/50 leading-relaxed italic max-w-[30ch]">
+                <p className="text-[1.05rem] font-semibold text-foreground/55 leading-relaxed italic max-w-[30ch]">
                   "We couldn't be happier with the new website Joe created for us. It truly captures who we are."
                 </p>
               </blockquote>
-              <figcaption className="flex items-center gap-3">
+              <figcaption className="flex items-center gap-3 mt-1">
                 <div className="w-7 h-7 rounded-full bg-foreground/8 flex items-center justify-center shrink-0">
                   <span className="text-[9px] font-black text-foreground/35">KD</span>
                 </div>
