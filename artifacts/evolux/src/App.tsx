@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
+import FreeReview from "@/pages/FreeReview";
 import InsightsArchive from "@/pages/insights/InsightsArchive";
 import InsightPost from "@/pages/insights/InsightPost";
 import CircularBranding from "@/pages/projects/CircularBranding";
@@ -16,6 +17,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
+      <Route path="/free-review" component={FreeReview} />
       <Route path="/insights" component={InsightsArchive} />
       <Route path="/insights/:slug" component={InsightPost} />
       <Route path="/projects/circular-branding" component={CircularBranding} />
