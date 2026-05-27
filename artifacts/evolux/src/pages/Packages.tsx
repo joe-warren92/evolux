@@ -29,13 +29,13 @@ const PACKAGES = [
     cta: "Start with Studio",
   },
   {
-    id: "retainer",
-    name: "Growth Retainer",
-    price: "£1,200",
-    note: "Per month",
-    tagline: "A dedicated web partner who keeps improving your site every single month.",
+    id: "elite",
+    name: "Elite",
+    price: "£6,500",
+    note: "Starting from",
+    tagline: "Our most ambitious work — for businesses that want to dominate their market.",
     highlight: false,
-    cta: "Talk retainer",
+    cta: "Talk to us about Elite",
   },
 ];
 
@@ -46,45 +46,45 @@ interface CompareRow {
   feature?: string;
   launch?: CellValue;
   studio?: CellValue;
-  retainer?: CellValue;
+  elite?: CellValue;
   tooltip?: string;
 }
 
 const COMPARE: CompareRow[] = [
   // ── YOUR WEBSITE ────────────────────────
   { category: "Your website" },
-  { feature: "Designed for your business — not a template",   launch: true,        studio: true,        retainer: true },
-  { feature: "Number of pages",                               launch: "Up to 5",   studio: "Up to 12",  retainer: "Ongoing" },
-  { feature: "Looks great on phones, tablets & desktop",      launch: true,        studio: true,        retainer: true },
-  { feature: "A planning session before we start designing",  launch: true,        studio: true,        retainer: true },
-  { feature: "Full brand identity — logo, colours & fonts",   launch: false,       studio: true,        retainer: true },
+  { feature: "Designed for your business — not a template",             launch: true,         studio: true,        elite: true },
+  { feature: "Number of pages",                                         launch: "Up to 5",    studio: "Up to 12",  elite: "Up to 25" },
+  { feature: "Looks great on phones, tablets & desktop",                launch: true,         studio: true,        elite: true },
+  { feature: "A planning session before we start designing",            launch: true,         studio: true,        elite: true },
+  { feature: "Full brand identity — logo, colours & fonts",             launch: false,        studio: true,        elite: true },
+  { feature: "Custom animations & interactive elements",                launch: false,        studio: false,       elite: true },
 
   // ── WINNING ENQUIRIES ───────────────────
   { category: "Winning more enquiries" },
-  { feature: "Every page written & laid out to turn visitors into leads", launch: false, studio: true,   retainer: true },
-  { feature: "We continuously test and improve to get you more calls", launch: false, studio: false,     retainer: true },
-  { feature: "Loads fast so visitors don't leave before reading a word", launch: "Good", studio: "Fast", retainer: "Fast" },
-  { feature: "Built to rank on Google from the moment it goes live",    launch: "Essentials", studio: true, retainer: true },
+  { feature: "Every page laid out to turn visitors into leads",         launch: false,        studio: true,        elite: true },
+  { feature: "Professionally written copy for every page",             launch: false,        studio: false,       elite: true },
+  { feature: "Loads fast so visitors don't leave before reading a word", launch: "Good",     studio: "Fast",      elite: "Elite" },
+  { feature: "Built to rank on Google from the moment it goes live",   launch: "Essentials", studio: true,        elite: true },
 
   // ── RUNNING YOUR SITE ───────────────────
   { category: "Running your site yourself" },
-  { feature: "Update your own text and images — no developer needed",   launch: true,  studio: true,     retainer: true },
-  { feature: "Add news, blog posts or case studies yourself",           launch: false, studio: true,     retainer: true },
-  { feature: "Training session so you feel confident using it",         launch: true,  studio: true,     retainer: true },
+  { feature: "Update your own text and images — no developer needed",  launch: true,         studio: true,        elite: true },
+  { feature: "Add news, blog posts or case studies yourself",          launch: false,        studio: true,        elite: true },
+  { feature: "Training session so you feel confident using it",        launch: true,         studio: true,        elite: true },
 
   // ── KNOWING IT'S WORKING ────────────────
   { category: "Knowing it's working" },
-  { feature: "See who's visiting your site and where they came from",   launch: true,  studio: true,     retainer: true },
-  { feature: "Know which pages are generating your enquiries",          launch: false, studio: true,     retainer: true },
-  { feature: "Plain-English monthly report — what's working, what's not", launch: false, studio: false,  retainer: true },
+  { feature: "See who's visiting your site and where they came from",  launch: true,         studio: true,        elite: true },
+  { feature: "Know which pages are generating your enquiries",         launch: false,        studio: true,        elite: true },
+  { feature: "Quarterly strategy sessions to plan what's next",        launch: false,        studio: false,       elite: true },
 
   // ── AFTER WE LAUNCH ─────────────────────
   { category: "After we launch" },
-  { feature: "Fixes and tweaks included after go-live",                 launch: "14 days", studio: "30 days", retainer: "Ongoing" },
-  { feature: "If something's wrong post-launch, we fix it free",        launch: false, studio: true,     retainer: true },
-  { feature: "Same or next-day response when you need us",              launch: false, studio: false,    retainer: true },
-  { feature: "Monthly call to plan what to work on next",               launch: false, studio: true,     retainer: true },
-  { feature: "You own every design file and line of code",              launch: false, studio: false,    retainer: true },
+  { feature: "Fixes and tweaks included after go-live",                launch: "14 days",    studio: "30 days",   elite: "90 days" },
+  { feature: "If something's wrong post-launch, we fix it free",       launch: false,        studio: true,        elite: true },
+  { feature: "Same or next-day response when you need us",             launch: false,        studio: false,       elite: true },
+  { feature: "You own every design file and line of code",             launch: false,        studio: false,       elite: true },
 ];
 
 const FAQS = [
@@ -101,8 +101,8 @@ const FAQS = [
     a: "It's a focused 45-minute call where we get into the detail of your business — who your customers are, what makes you different, what you want people to do when they land on your site. It means the design actually reflects your business rather than being generic.",
   },
   {
-    q: "What does the Growth Retainer actually include month to month?",
-    a: "A set number of hours dedicated entirely to your website each month. That could be new pages, design improvements, testing what's generating the most enquiries, or strategy. You get a call at the start of each month to agree what to focus on. Minimum 3 months.",
+    q: "What makes Elite different from Studio?",
+    a: "Elite is for businesses that want everything — more pages, custom animations, professionally written copy for every page, and 90 days of priority support after launch. You also own every file and line of code we produce. It's our most complete, most ambitious project type.",
   },
   {
     q: "Can I start with Launch and move up later?",
@@ -146,7 +146,7 @@ export default function Packages() {
   useSEO({
     title: "Packages & Pricing — Evolux Web Design",
     description:
-      "Transparent web design packages for UK businesses. Launch from £1,800, Studio from £3,500, or a monthly Growth Retainer. Compare features side-by-side.",
+      "Transparent web design packages for UK businesses. Launch from £1,800, Studio from £3,500, Elite from £6,500. Compare all three side-by-side and find the right fit.",
     canonicalPath: "/packages",
   });
 
@@ -213,7 +213,7 @@ export default function Packages() {
               >
                 {[
                   { label: "What you see is what you pay", desc: "Everything agreed in writing before we start." },
-                  { label: "If it's wrong after launch, we fix it free", desc: "On Studio and Retainer packages." },
+                  { label: "If it's wrong after launch, we fix it free", desc: "On Studio and Elite packages." },
                   { label: "You talk to Joe, not an account manager", desc: "The person building your site answers your calls." },
                 ].map(item => (
                   <div key={item.label} className="flex items-start gap-3">
@@ -285,7 +285,7 @@ export default function Packages() {
                 <ShieldCheck size={16} className="text-accent" />
               </div>
               <p className="type-body text-foreground/55 flex-1">
-                <strong className="text-foreground font-semibold">Something wrong after launch?</strong> On Studio and Retainer, we fix it free — no questions asked, for the first 30 days.
+                <strong className="text-foreground font-semibold">Something wrong after launch?</strong> On Studio and Elite, we fix it free — no questions asked. 30 days on Studio, 90 days on Elite.
               </p>
               <Link
                 href="/free-review"
@@ -374,7 +374,7 @@ export default function Packages() {
                       <Cell value={row.studio!} highlight={true} />
                     </div>
                     <div className="px-4 py-4 flex items-center justify-center border-l border-border">
-                      <Cell value={row.retainer!} highlight={false} />
+                      <Cell value={row.elite!} highlight={false} />
                     </div>
                   </div>
                 );
@@ -420,7 +420,7 @@ export default function Packages() {
                   {/* Features */}
                   <div className="bg-white divide-y divide-border">
                     {COMPARE.filter(r => !r.category).map(row => {
-                      const val = pkg.id === "launch" ? row.launch : pkg.id === "studio" ? row.studio : row.retainer;
+                      const val = pkg.id === "launch" ? row.launch : pkg.id === "studio" ? row.studio : row.elite;
                       if (val === false) return null;
                       return (
                         <div key={row.feature} className="flex items-center gap-3 px-6 py-3">
