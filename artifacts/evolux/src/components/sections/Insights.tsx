@@ -1,32 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
+import { Link } from "wouter";
+import { INSIGHT_POSTS, JOE_AUTHOR } from "@/data/insights";
 
-const articles = [
-  {
-    id: 1,
-    category: "Strategy",
-    readTime: "4 min",
-    title: "Why most websites don't generate business — and what yours should do instead",
-    excerpt:
-      "Most sites are built to look presentable. The ones that generate revenue are engineered around a single question: what do we want the visitor to do? Here's the difference in practice.",
-  },
-  {
-    id: 2,
-    category: "Business case",
-    readTime: "3 min",
-    title: "The real cost of a cheap website",
-    excerpt:
-      "A £500 build feels like a saving. But if it's losing you 3 enquiries a month at an average deal value of £2,000, the maths fall apart quickly. We've done the calculation.",
-  },
-  {
-    id: 3,
-    category: "Hiring guide",
-    readTime: "5 min",
-    title: "5 questions to ask a web design agency before you sign anything",
-    excerpt:
-      "Every agency will tell you what you want to hear. Ask these five questions instead — the answers will tell you immediately whether they can actually deliver.",
-  },
-];
+const FEATURED = INSIGHT_POSTS.slice(0, 3);
 
 export function Insights() {
   return (
@@ -64,43 +41,52 @@ export function Insights() {
 
         {/* Articles */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {articles.map((article, i) => (
+          {FEATURED.map((post, i) => (
             <motion.article
-              key={article.id}
+              key={post.slug}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.65, delay: i * 0.1 }}
-              className="group rounded-2xl border border-border bg-[hsl(0,0%,97.5%)] p-8 flex flex-col cursor-pointer hover:border-foreground/20 transition-colors"
-              data-testid={`card-insight-${article.id}`}
+              data-testid={`card-insight-${i + 1}`}
             >
-              {/* Meta */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="type-label text-accent">{article.category}</span>
-                <div className="flex items-center gap-1.5 type-label text-muted-foreground">
-                  <Clock size={11} />
-                  {article.readTime}
+              <Link
+                href={`/insights/${post.slug}`}
+                className="group rounded-2xl border border-border bg-[hsl(0,0%,97.5%)] p-8 flex flex-col h-full hover:border-foreground/20 transition-colors"
+              >
+                {/* Meta */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="type-label text-accent">{post.category}</span>
+                  <div className="flex items-center gap-1.5 type-label text-muted-foreground">
+                    <Clock size={11} />
+                    {post.readingTime} min
+                  </div>
                 </div>
-              </div>
 
-              {/* Title */}
-              <h3 className="text-lg font-bold text-foreground leading-snug tracking-tight mb-4 flex-1 group-hover:text-accent transition-colors duration-200">
-                {article.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-lg font-bold text-foreground leading-snug tracking-tight mb-4 flex-1 group-hover:text-accent transition-colors duration-200">
+                  {post.title}
+                </h3>
 
-              {/* Excerpt */}
-              <p className="type-body text-muted-foreground leading-relaxed mb-7">
-                {article.excerpt}
-              </p>
+                {/* Excerpt */}
+                <p className="type-body text-muted-foreground leading-relaxed mb-6">
+                  {post.excerpt}
+                </p>
 
-              {/* Read more */}
-              <div className="flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
-                Read article
-                <ArrowUpRight
-                  size={14}
-                  className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </div>
+                {/* Author + CTA */}
+                <div className="flex items-center justify-between pt-5 border-t border-border/60">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full bg-foreground flex items-center justify-center shrink-0">
+                      <span className="text-[8px] font-extrabold text-white">{JOE_AUTHOR.initials}</span>
+                    </div>
+                    <span className="type-label text-foreground/45">{JOE_AUTHOR.name}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
+                    Read
+                    <ArrowUpRight size={13} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </div>
+              </Link>
             </motion.article>
           ))}
         </div>
@@ -113,15 +99,14 @@ export function Insights() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-10 flex items-center justify-between border-t border-border pt-8"
         >
-          <p className="type-label text-muted-foreground">
-            New articles published monthly
-          </p>
-          <button
+          <p className="type-label text-muted-foreground">New articles published monthly</p>
+          <Link
+            href="/insights"
             className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-accent transition-colors"
             data-testid="button-all-insights"
           >
             View all articles <ArrowUpRight size={14} />
-          </button>
+          </Link>
         </motion.div>
 
       </div>
