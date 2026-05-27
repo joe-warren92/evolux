@@ -31,6 +31,7 @@ export interface InsightPost {
   metaTitle?: string;
   metaDescription: string;
   excerpt: string;
+  coverQuote: string;
   category: string;
   tags: string[];
   publishedAt: string;
@@ -50,6 +51,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
       "High traffic, low enquiries? Discover the five conversion mistakes most UK business websites make — and the straightforward fixes that generate results.",
     excerpt:
       "Most sites are built to look presentable. The ones that generate revenue are engineered around a single question: what do we want the visitor to do? Here's the difference in practice.",
+    coverQuote: "Traffic and conversion are different problems. Most businesses are solving the wrong one.",
     category: "Strategy",
     tags: ["conversion", "website strategy", "lead generation", "web design"],
     publishedAt: "2025-03-12",
@@ -138,6 +140,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
       "A cheap website might cost £500 upfront — but if it's losing you three enquiries a month, the real cost is much higher. Here's how to calculate whether your website is an asset or a liability.",
     excerpt:
       "A £500 build feels like a saving. But if it's losing you 3 enquiries a month at an average deal value of £2,000, the maths fall apart quickly. Here's how to calculate what your website is actually costing you.",
+    coverQuote: "A £500 site losing 3 enquiries a month costs you £72,000 a year. Do the maths.",
     category: "Business Case",
     tags: ["roi", "web design cost", "small business", "website investment"],
     publishedAt: "2025-04-08",
@@ -204,6 +207,7 @@ export const INSIGHT_POSTS: InsightPost[] = [
       "Not all web design agencies deliver on their promises. Before you hire anyone, ask these five questions — the answers will immediately tell you whether they can actually deliver results.",
     excerpt:
       "Every agency will tell you what you want to hear. Ask these five questions instead — the answers will tell you immediately whether they can actually deliver what your business needs.",
+    coverQuote: "Every agency says the right things. These five questions separate the ones that deliver.",
     category: "Hiring Guide",
     tags: ["hiring", "web design agency", "questions to ask", "due diligence"],
     publishedAt: "2025-05-02",

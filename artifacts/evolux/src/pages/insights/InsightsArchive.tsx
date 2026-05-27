@@ -134,60 +134,76 @@ export default function InsightsArchive() {
         <section className="py-16 md:py-20 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((post, i) => (
-                <motion.article
-                  key={post.slug}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <Link
-                    href={`/insights/${post.slug}`}
-                    className="group flex flex-col h-full rounded-2xl border border-border bg-white hover:border-foreground/20 transition-colors overflow-hidden"
+              {filtered.map((post, i) => {
+                const blobPositions = [
+                  "radial-gradient(ellipse 70% 80% at 110% -10%, hsl(22 88% 48% / 0.35) 0%, transparent 70%)",
+                  "radial-gradient(ellipse 65% 70% at -10% 110%, hsl(22 88% 48% / 0.30) 0%, transparent 70%)",
+                  "radial-gradient(ellipse 80% 60% at 50% -20%,  hsl(22 88% 48% / 0.28) 0%, transparent 65%)",
+                ];
+                const blobStyle = blobPositions[i % blobPositions.length];
+                return (
+                  <motion.article
+                    key={post.slug}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    {/* Accent header strip */}
-                    <div className="h-1.5 bg-gradient-to-r from-accent/60 to-accent/20" />
-
-                    <div className="flex flex-col flex-1 p-7">
-                      {/* Category + reading time */}
-                      <div className="flex items-center justify-between mb-5">
-                        <span className="type-label text-accent">{post.category}</span>
-                        <div className="flex items-center gap-1.5 type-label text-foreground/35">
-                          <Clock size={10} />
-                          {post.readingTime} min read
-                        </div>
-                      </div>
-
-                      {/* Title */}
-                      <h2 className="text-base font-bold text-foreground leading-snug tracking-tight mb-3 flex-1 group-hover:text-accent transition-colors duration-200">
-                        {post.title}
-                      </h2>
-
-                      {/* Excerpt */}
-                      <p className="type-body text-foreground/45 leading-relaxed mb-6 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-
-                      {/* Footer */}
-                      <div className="flex items-center justify-between pt-5 border-t border-border">
-                        <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded-full bg-foreground flex items-center justify-center shrink-0">
-                            <span className="text-[9px] font-extrabold text-white">{JOE_AUTHOR.initials}</span>
-                          </div>
-                          <div>
-                            <p className="text-[11px] font-semibold text-foreground leading-none">{JOE_AUTHOR.name}</p>
-                            <p className="type-index text-foreground/35 mt-0.5">{new Date(post.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</p>
+                    <Link
+                      href={`/insights/${post.slug}`}
+                      className="group flex flex-col h-full rounded-2xl overflow-hidden border border-border hover:border-foreground/25 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                    >
+                      {/* ── Dark cover tile ── */}
+                      <div className="relative h-52 bg-foreground overflow-hidden flex flex-col justify-between p-6">
+                        <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ background: blobStyle }} />
+                        <span
+                          aria-hidden
+                          className="absolute bottom-2 right-4 font-black leading-none text-white/[0.06] select-none"
+                          style={{ fontSize: "clamp(5rem, 8vw, 7rem)" }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="flex items-center justify-between relative z-10">
+                          <span className="type-label text-accent bg-accent/15 border border-accent/25 px-3 py-1 rounded-full">
+                            {post.category}
+                          </span>
+                          <div className="flex items-center gap-1.5 type-label text-white/40">
+                            <Clock size={10} />
+                            {post.readingTime} min read
                           </div>
                         </div>
-                        <ArrowUpRight
-                          size={15}
-                          className="text-foreground/25 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                        />
+                        <p className="relative z-10 text-sm font-semibold text-white/70 leading-snug max-w-[26ch]">
+                          "{post.coverQuote}"
+                        </p>
                       </div>
-                    </div>
-                  </Link>
-                </motion.article>
-              ))}
+
+                      {/* ── Content area ── */}
+                      <div className="flex flex-col flex-1 p-6 bg-white">
+                        <h2 className="text-base font-bold text-foreground leading-snug tracking-tight mb-3 flex-1 group-hover:text-accent transition-colors duration-200">
+                          {post.title}
+                        </h2>
+                        <p className="type-body text-foreground/45 leading-relaxed mb-5 line-clamp-2">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between pt-4 border-t border-border">
+                          <div className="flex items-center gap-2">
+                            <div className="w-6 h-6 rounded-full bg-foreground flex items-center justify-center shrink-0">
+                              <span className="text-[9px] font-extrabold text-white">{JOE_AUTHOR.initials}</span>
+                            </div>
+                            <div>
+                              <p className="text-[11px] font-semibold text-foreground leading-none">{JOE_AUTHOR.name}</p>
+                              <p className="type-index text-foreground/35 mt-0.5">{new Date(post.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</p>
+                            </div>
+                          </div>
+                          <ArrowUpRight
+                            size={15}
+                            className="text-foreground/25 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.article>
+                );
+              })}
             </div>
           </div>
         </section>
