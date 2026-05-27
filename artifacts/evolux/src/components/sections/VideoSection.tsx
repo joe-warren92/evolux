@@ -84,7 +84,7 @@ export function VideoSection() {
         >
           <span className="type-index text-white/20">Evolux Web Design · Sunderland, UK</span>
           <Link
-            href="/#review"
+            href="/free-review"
             className="flex items-center gap-2 text-sm font-semibold text-white/40 hover:text-accent transition-colors"
           >
             Start your project <ArrowUpRight size={12} />

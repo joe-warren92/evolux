@@ -363,7 +363,7 @@ export default function CircularBranding() {
                 className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0"
               >
                 <Link
-                  href="/#review"
+                  href="/contact"
                   className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   Get a free website review <ArrowUpRight size={14} />

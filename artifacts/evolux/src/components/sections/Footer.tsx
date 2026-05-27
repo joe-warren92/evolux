@@ -14,12 +14,14 @@ const testimonials = [
 ];
 
 const NAV_COMPANY = [
-  { label: "About",    href: "/about"     },
-  { label: "Projects", href: "/projects" },
-  { label: "Services", href: "/services"  },
-  { label: "Insights", href: "/insights"  },
-  { label: "Pricing",  href: "/packages"  },
-  { label: "Contact",  href: "/contact"   },
+  { label: "About",        href: "/about"        },
+  { label: "Projects",     href: "/projects"     },
+  { label: "Services",     href: "/services"     },
+  { label: "Packages",     href: "/packages"     },
+  { label: "Insights",     href: "/insights"     },
+  { label: "Locations",    href: "/locations"    },
+  { label: "Free Review",  href: "/free-review"  },
+  { label: "Contact",      href: "/contact"      },
 ];
 
 const NAV_LEGAL = [
@@ -138,7 +140,7 @@ export function Footer() {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
-                    href="/#review"
+                    href="/contact"
                     className="inline-flex items-center gap-2 bg-accent text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
                   >
                     Start a project <ArrowUpRight size={13} />

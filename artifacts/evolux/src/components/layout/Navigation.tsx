@@ -322,7 +322,7 @@ export function Navigation() {
             <div className="hidden xl:block w-px h-4 bg-foreground/10" />
 
             <a
-              href="#review"
+              href="/free-review"
               aria-label="Get a free website review"
               data-testid="nav-review-cta"
               className="hidden lg:inline-flex items-center gap-1.5 bg-foreground text-white px-4 py-2 rounded-full text-[11.5px] font-semibold tracking-[0.04em] hover:bg-accent transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 whitespace-nowrap"
@@ -481,7 +481,7 @@ export function Navigation() {
               className="px-5 md:px-8 pb-8 pt-5 border-t border-foreground/6 flex flex-col gap-3"
             >
               <a
-                href="#review"
+                href="/free-review"
                 onClick={close}
                 className="w-full bg-foreground text-white py-4 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-accent transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >

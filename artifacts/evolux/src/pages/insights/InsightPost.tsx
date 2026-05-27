@@ -315,7 +315,7 @@ export default function InsightPost() {
                       Get an honest, no-obligation assessment of what's stopping your site from converting visitors into enquiries.
                     </p>
                     <Link
-                      href="/#review"
+                      href="/free-review"
                       className="flex items-center justify-center gap-2 bg-accent text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors w-full"
                     >
                       Get a free review <ArrowUpRight size={13} />

@@ -650,13 +650,13 @@ export default function About() {
                 className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0"
               >
                 <Link
-                  href="/#review"
+                  href="/free-review"
                   className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   Get a free website review <ArrowUpRight size={14} />
                 </Link>
                 <Link
-                  href="/#projects"
+                  href="/projects"
                   className="border border-border px-8 py-4 rounded-full text-sm font-semibold text-foreground hover:border-accent hover:text-accent transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   View our work
