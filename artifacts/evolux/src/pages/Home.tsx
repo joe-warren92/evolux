@@ -6,6 +6,7 @@ import { Process } from "@/components/sections/Process";
 import { LeadMagnet } from "@/components/sections/LeadMagnet";
 import { Pricing } from "@/components/sections/Pricing";
 import { Insights } from "@/components/sections/Insights";
+import { VideoSection } from "@/components/sections/VideoSection";
 import { Footer } from "@/components/sections/Footer";
 import { Navigation } from "@/components/layout/Navigation";
 
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <FeaturedWork />
         <Intro />
+        <VideoSection />
         <Services />
         <Process />
         <LeadMagnet />

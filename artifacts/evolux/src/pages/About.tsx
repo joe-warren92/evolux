@@ -4,7 +4,10 @@ import { ArrowUpRight, ArrowLeft, Star, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { YoutubeEmbed } from "@/components/ui/youtube-embed";
 import marleyLaptop from "@assets/Mockup-laptop-Marley_1779878754713.webp";
+
+const VIDEO_ID = "dWjJn7rQjNQ";
 
 /* ── Animated counter ── */
 function Counter({ to, suffix = "", duration = 2, delay = 0 }: {
@@ -251,6 +254,52 @@ export default function About() {
                 </motion.blockquote>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── Video ── */}
+        <section className="py-24 px-6 md:px-10 bg-background border-t border-border">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.65 }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-6 h-px bg-accent" />
+                  <span className="type-index text-foreground/40">Watch</span>
+                </div>
+                <h2 className="type-display-md font-extrabold tracking-tight leading-tight">
+                  <span className="text-foreground/35">Two minutes on</span>
+                  <br />
+                  how Evolux works.
+                </h2>
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="type-body text-foreground/45 max-w-xs lg:pb-1 leading-relaxed"
+              >
+                The thinking behind why we build websites differently — and what that means for your business.
+              </motion.p>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="ring-1 ring-border rounded-2xl overflow-hidden shadow-sm"
+            >
+              <YoutubeEmbed
+                videoId={VIDEO_ID}
+                title="Evolux Web Design — How we build websites that generate enquiries"
+                className="rounded-none"
+              />
+            </motion.div>
           </div>
         </section>
 
