@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "wouter";
 import {
   ArrowUpRight, ChevronDown,
-  FileSearch, BookOpen, MapPin,
+  FileSearch, BookOpen, MapPin, MessageSquare,
   Globe, Shield, TrendingUp, Layers, PenTool,
 } from "lucide-react";
 
@@ -50,6 +50,13 @@ const RESOURCES = [
     desc: "Personalised video in your inbox in 48 hours",
     href: "/free-review",
     accent: true,
+  },
+  {
+    icon: MessageSquare,
+    label: "Contact",
+    desc: "Send a message — reply within one business day",
+    href: "/contact",
+    accent: false,
   },
   {
     icon: BookOpen,

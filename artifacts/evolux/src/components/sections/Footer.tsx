@@ -16,10 +16,10 @@ const testimonials = [
 const NAV_COMPANY = [
   { label: "About",    href: "/about"     },
   { label: "Projects", href: "/projects" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services"  },
   { label: "Insights", href: "/insights"  },
-  { label: "Pricing",  href: "/#pricing"  },
-  { label: "Contact",  href: "/#review"   },
+  { label: "Pricing",  href: "/packages"  },
+  { label: "Contact",  href: "/contact"   },
 ];
 
 const NAV_LEGAL = [

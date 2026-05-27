@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import FreeReview from "@/pages/FreeReview";
+import Contact from "@/pages/Contact";
 import WebDesign from "@/pages/services/WebDesign";
 import ServicesArchive from "@/pages/services/ServicesArchive";
 import Maintenance from "@/pages/services/Maintenance";
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/free-review" component={FreeReview} />
       <Route path="/packages" component={Packages} />
+      <Route path="/contact" component={Contact} />
       <Route path="/services" component={ServicesArchive} />
       <Route path="/services/web-design" component={WebDesign} />
       <Route path="/services/website-maintenance" component={Maintenance} />
