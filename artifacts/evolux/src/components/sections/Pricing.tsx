@@ -5,14 +5,14 @@ const packages = [
   {
     id: "launch",
     name: "Launch",
-    tagline: "For businesses that need a high-quality first impression, fast.",
+    tagline: "For businesses that need a credible first impression, delivered quickly.",
     price: "£1,800",
     note: "Starting from",
     features: [
       "5-page custom design & build",
       "Mobile-first, fully responsive",
       "Brand alignment session",
-      "CMS so you can edit copy yourself",
+      "CMS — edit copy yourself",
       "Core SEO setup",
       "14-day post-launch support",
     ],
@@ -22,7 +22,7 @@ const packages = [
   {
     id: "studio",
     name: "Studio",
-    tagline: "Our most complete offering — for brands serious about growth.",
+    tagline: "The full package for brands serious about growth.",
     price: "£3,500",
     note: "Starting from",
     features: [
@@ -41,7 +41,7 @@ const packages = [
   {
     id: "retainer",
     name: "Growth Retainer",
-    tagline: "A dedicated creative partner for companies treating design as an ongoing asset.",
+    tagline: "A dedicated creative partner for companies treating design as an asset.",
     price: "£1,200",
     note: "Per month",
     features: [
@@ -75,23 +75,22 @@ export function Pricing() {
               Packages
             </div>
             <h2>
-              <span className="block type-display-md text-muted-foreground font-light">Invest once.</span>
-              <span className="block type-display-md font-extrabold text-foreground">Grow indefinitely.</span>
+              <span className="block type-display-md font-light text-muted-foreground">Transparent pricing.</span>
+              <span className="block type-display-md font-extrabold text-foreground">No surprises.</span>
             </h2>
           </motion.div>
-
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="type-body text-muted-foreground max-w-sm lg:text-right lg:pb-2"
+            className="type-body text-muted-foreground max-w-sm lg:pb-2"
           >
-            No sliding scales based on your budget. No hidden extras. What you see is what you pay.
+            Every project is fully scoped before we start. What we quote is what you pay — no extras, no surprises halfway through.
           </motion.p>
         </div>
 
-        {/* Cards — featured one is accent-bordered not just dark */}
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {packages.map((pkg, i) => (
             <motion.div
@@ -108,16 +107,16 @@ export function Pricing() {
               data-testid={`card-pricing-${pkg.id}`}
             >
               {pkg.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white type-label px-4 py-1 rounded-full whitespace-nowrap">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent text-white type-label px-4 py-1.5 rounded-full whitespace-nowrap">
                   Most popular
                 </div>
               )}
 
-              <div className="mb-6 pt-2">
+              <div className="mb-6 pt-3">
                 <p className={`type-label mb-3 ${pkg.highlight ? "text-white/50" : "text-muted-foreground"}`}>
                   {pkg.name}
                 </p>
-                <p className={`text-sm leading-snug mb-6 ${pkg.highlight ? "text-white/65" : "text-muted-foreground"}`}>
+                <p className={`text-sm leading-snug mb-6 ${pkg.highlight ? "text-white/60" : "text-muted-foreground"}`}>
                   {pkg.tagline}
                 </p>
                 <p className={`type-label mb-1 ${pkg.highlight ? "text-white/40" : "text-muted-foreground"}`}>
@@ -128,13 +127,10 @@ export function Pricing() {
                 </p>
               </div>
 
-              <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+              <ul className="flex flex-col gap-3 mb-8 flex-1">
                 {pkg.features.map(f => (
                   <li key={f} className="flex items-start gap-2.5">
-                    <Check
-                      size={14}
-                      className={`shrink-0 mt-0.5 ${pkg.highlight ? "text-accent" : "text-accent"}`}
-                    />
+                    <Check size={14} className="shrink-0 mt-0.5 text-accent" />
                     <span className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/75" : "text-foreground/75"}`}>
                       {f}
                     </span>
@@ -146,7 +142,7 @@ export function Pricing() {
                 className={`w-full py-3.5 rounded-full text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors ${
                   pkg.highlight
                     ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                    : "border border-foreground/20 text-foreground hover:bg-muted"
+                    : "border border-foreground/15 text-foreground hover:border-accent hover:text-accent"
                 }`}
                 data-testid={`button-pricing-${pkg.id}`}
               >
@@ -161,13 +157,13 @@ export function Pricing() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col sm:flex-row items-start sm:items-center gap-6 bg-white border border-border rounded-2xl px-8 py-6 mb-8"
+          transition={{ duration: 0.5 }}
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-white border border-border rounded-2xl px-8 py-6 mb-6"
         >
-          <p className="text-2xl text-accent/30 font-serif leading-none shrink-0 hidden sm:block">"</p>
+          <p className="text-2xl text-accent/25 font-serif leading-none shrink-0 hidden sm:block">"</p>
           <div className="flex-1">
             <p className="type-body text-foreground italic mb-1.5">
-              The Studio package paid for itself within the first quarter. I wish we'd done it two years earlier.
+              The Studio package paid for itself in the first quarter. I wish we'd done it two years earlier.
             </p>
             <p className="type-label text-foreground/40">Alex Donovan — Founder, Relink</p>
           </div>
@@ -178,13 +174,13 @@ export function Pricing() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
+          transition={{ duration: 0.5 }}
           className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border border border-border rounded-2xl bg-white overflow-hidden"
         >
           {[
             { title: "No hidden costs", desc: "Fully scoped before we start. What we quote is what you pay." },
-            { title: "Direct access", desc: "You deal with the designer and developer, not a project manager." },
-            { title: "30-day guarantee", desc: "Not happy in the first 30 days after launch? We fix it, full stop." },
+            { title: "You deal with the designer", desc: "No account managers. The person building your site is the person you talk to." },
+            { title: "30-day guarantee", desc: "Not happy with something in the first 30 days after launch? We fix it." },
           ].map(item => (
             <div key={item.title} className="p-7">
               <h4 className="text-sm font-semibold text-foreground mb-1.5">{item.title}</h4>

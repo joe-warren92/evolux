@@ -1,36 +1,26 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-const services = [
+const painPoints = [
   {
     num: "01",
-    title: "Website Design & Build",
-    detail: "Strategy-first, then design, then code. We deliver a complete website — not a template with your logo swapped in.",
-    tags: ["Custom design", "Responsive build", "CMS integration"],
+    problem: "You're getting visitors but barely any enquiries.",
+    fix: "Your site looks fine but there's no clear path from 'interested' to 'contacted'. We restructure the layout, copy, and calls-to-action until the phone starts ringing.",
   },
   {
     num: "02",
-    title: "Brand Identity",
-    detail: "Logo, typography, colour system, brand guidelines. The visual language your company deserves.",
-    tags: ["Logo design", "Visual identity", "Brand guidelines"],
+    problem: "You're embarrassed to share your own website.",
+    fix: "If you hesitate before giving someone your URL, that's a problem. A site you're proud of is a site that wins clients — before you've even spoken to them.",
   },
   {
     num: "03",
-    title: "Conversion Rate Optimisation",
-    detail: "We analyse where your visitors drop off and fix it — through copy, layout, and UX decisions backed by data.",
-    tags: ["UX audit", "A/B testing", "Landing pages"],
+    problem: "Your competitors look more credible than you online.",
+    fix: "Perception is reality. If their site looks more polished, clients choose them — even if your work is genuinely better. We close that gap.",
   },
   {
     num: "04",
-    title: "SEO & Performance",
-    detail: "Technical SEO, Core Web Vitals, structured data. Built in from day one — never bolted on.",
-    tags: ["Technical SEO", "Core Web Vitals", "Schema markup"],
-  },
-  {
-    num: "05",
-    title: "Ongoing Retainer",
-    detail: "A dedicated creative team for companies that treat their website as a living product, not a one-off job.",
-    tags: ["Monthly updates", "Priority support", "Strategy calls"],
+    problem: "You're locked out of your own website.",
+    fix: "Dependent on a developer for every text change. We hand you a site you actually own and can edit yourself — without a single line of code.",
   },
 ];
 
@@ -40,101 +30,87 @@ export function Services() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 lg:mb-20">
-          <div className="lg:col-span-3 flex flex-col justify-between">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+          <div className="lg:col-span-4">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="flex items-center gap-2 type-label text-muted-foreground mb-4"
+              className="flex items-center gap-2 type-label text-muted-foreground mb-5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              Services
+              Sound familiar?
             </motion.div>
-          </div>
-          <div className="lg:col-span-8">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-[1.18] tracking-tight text-foreground"
+              transition={{ duration: 0.7 }}
+              className="type-display-md font-extrabold text-foreground tracking-tight"
             >
-              We don't do generic. Every engagement is tailored to where you{" "}
-              <span className="text-muted-foreground font-normal italic">actually</span>{" "}
-              are — and where you want to go.
+              We've heard it all before.
             </motion.h2>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7 flex items-end">
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="type-body-lg text-muted-foreground leading-relaxed"
+            >
+              These are the conversations we have every week. If any of them sound like you, there's a straightforward fix — and we know exactly what it is.
+            </motion.p>
           </div>
         </div>
 
-        {/* Editorial list — nothing like a card grid */}
-        <div className="border-t border-border">
-          {services.map((svc, i) => (
+        {/* Pain points — 2×2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden">
+          {painPoints.map((point, i) => (
             <motion.div
-              key={svc.num}
-              initial={{ opacity: 0, y: 16 }}
+              key={point.num}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.55, delay: i * 0.06 }}
-              className="service-line group"
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              className="bg-white p-8 md:p-10 flex flex-col gap-5 group hover:bg-[hsl(0,0%,99%)] transition-colors"
             >
-              <div className="py-7 grid grid-cols-12 gap-4 items-center">
-                <div className="col-span-1">
-                  <span className="type-label text-muted-foreground/40">{svc.num}</span>
+              <div className="flex items-start justify-between">
+                <span className="type-label text-accent/60">{point.num}</span>
+                <div className="w-7 h-7 rounded-full border border-border flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ArrowUpRight size={12} className="text-foreground" />
                 </div>
-                <div className="col-span-11 lg:col-span-4">
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground group-hover:text-accent transition-colors duration-200">
-                    {svc.title}
-                  </h3>
-                </div>
-                <div className="col-span-11 lg:col-span-5 lg:col-start-6">
-                  <p className="type-body text-muted-foreground leading-relaxed">{svc.detail}</p>
-                </div>
-                <div className="col-span-11 lg:col-span-2 flex lg:justify-end">
-                  <div className="flex flex-wrap gap-1.5">
-                    {svc.tags.map(t => (
-                      <span key={t} className="type-label text-muted-foreground/60 border border-border px-2 py-0.5 rounded-full">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground leading-snug tracking-tight">
+                "{point.problem}"
+              </h3>
+              <div className="pt-2 border-t border-border">
+                <p className="type-label text-accent mb-2">The fix</p>
+                <p className="type-body text-muted-foreground leading-relaxed">{point.fix}</p>
               </div>
             </motion.div>
           ))}
-          <div className="border-t border-border" />
         </div>
 
-        {/* Proof strip */}
+        {/* Bottom CTA bar */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-14 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-white border border-border rounded-2xl px-8 py-6"
+          transition={{ duration: 0.55, delay: 0.15 }}
+          className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-white border border-border rounded-2xl px-8 py-6"
         >
           <div>
-            <p className="text-base font-bold text-foreground mb-1">
-              "Best ROI of any agency we've worked with."
-            </p>
-            <p className="type-body text-muted-foreground italic">
-              "The Studio package paid for itself in the first quarter."
-            </p>
-            <p className="type-label text-foreground/40 mt-2">Alex Donovan — Founder, Relink</p>
+            <p className="text-sm font-bold text-foreground mb-1">Not sure which problem applies to you?</p>
+            <p className="type-body text-muted-foreground">Get a free website audit — we'll tell you exactly what's holding your site back.</p>
           </div>
-          <div className="flex items-center gap-5 shrink-0">
-            <div className="text-center">
-              <p className="text-2xl font-extrabold tracking-tight text-foreground">200+</p>
-              <p className="type-label text-muted-foreground">Projects</p>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <button
-              className="bg-foreground text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent transition-colors duration-300 flex items-center gap-2"
-              data-testid="button-learn-services"
-            >
-              All services <ArrowUpRight size={13} />
-            </button>
-          </div>
+          <a
+            href="#audit"
+            className="bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors whitespace-nowrap flex items-center gap-2"
+            data-testid="button-get-audit"
+          >
+            Get free audit <ArrowUpRight size={13} />
+          </a>
         </motion.div>
 
       </div>

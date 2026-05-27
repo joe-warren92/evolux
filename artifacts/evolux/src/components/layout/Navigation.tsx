@@ -1,6 +1,7 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { ArrowUpRight } from "lucide-react";
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +19,7 @@ export function Navigation() {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 h-[60px] transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-border/60 shadow-[0_1px_12px_rgba(0,0,0,0.05)]"
+          ? "bg-white/92 backdrop-blur-md border-b border-border/60 shadow-[0_1px_12px_rgba(0,0,0,0.05)]"
           : "bg-transparent border-b border-border/30"
       }`}
     >
@@ -35,12 +36,12 @@ export function Navigation() {
           { label: "Work", href: "#work" },
           { label: "About", href: "#about" },
           { label: "Services", href: "#services" },
-          { label: "Contact", href: "#contact" },
-        ].map((item) => (
+          { label: "Pricing", href: "#pricing" },
+        ].map(item => (
           <a
             key={item.label}
             href={item.href}
-            className="text-sm font-normal text-foreground/70 hover:text-foreground transition-colors duration-200"
+            className="text-sm font-normal text-foreground/60 hover:text-foreground transition-colors duration-200"
             data-testid={`link-${item.label.toLowerCase()}`}
           >
             {item.label}
@@ -48,12 +49,21 @@ export function Navigation() {
         ))}
       </div>
 
-      <div className="flex items-center gap-2 border border-border bg-background/80 px-3.5 py-1.5 rounded-full type-label text-foreground/80">
-        <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-70" />
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
-        </span>
-        <span className="hidden sm:inline tracking-[0.1em]">Available for new projects</span>
+      <div className="flex items-center gap-3">
+        <a
+          href="#audit"
+          className="hidden sm:flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-2 rounded-full type-label hover:bg-accent/90 transition-colors"
+          data-testid="nav-audit-cta"
+        >
+          Free audit <ArrowUpRight size={11} />
+        </a>
+        <div className="flex items-center gap-2 border border-border bg-background/80 px-3 py-1.5 rounded-full type-label text-foreground/70">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-70" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+          </span>
+          <span className="hidden lg:inline tracking-[0.1em]">Available</span>
+        </div>
       </div>
     </motion.nav>
   );
