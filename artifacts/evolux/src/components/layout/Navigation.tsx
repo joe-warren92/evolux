@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { ArrowUpRight } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Work",     href: "#work" },
+  { label: "Projects", href: "#projects" },
   { label: "Services", href: "#services" },
   { label: "Process",  href: "#process" },
   { label: "Pricing",  href: "#pricing" },

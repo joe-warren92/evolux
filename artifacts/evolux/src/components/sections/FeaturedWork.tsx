@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "wouter";
 import circularMockup from "@assets/mockup3-1_1779878754712.webp";
 import marleyMockup from "@assets/4K-Mockup-1-1_1779878754714.webp";
 import ockerbyMockup from "@assets/Macbook-Air-Light-Background-2_1779878754715.png";
@@ -15,6 +16,7 @@ const projects = [
     desc: "A premium trade website for a labels, trims and packaging supplier — built to win brand partnerships and showcase their portfolio to fashion's biggest names.",
     image: circularMockup,
     aspect: "aspect-[4/3]",
+    href: "/projects/circular-branding",
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ const projects = [
     desc: "A warm, trust-led website for a birth doula serving Surrey Hills and South London — built to convert anxious first-time parents before they've even made contact.",
     image: marleyMockup,
     aspect: "aspect-[3/4]",
+    href: null,
   },
   {
     id: 3,
@@ -35,6 +38,7 @@ const projects = [
     desc: "A vibrant, functional website for a dance and musical theatre academy in West Yorkshire — built around class sign-ups and cutting admin overhead.",
     image: ockerbyMockup,
     aspect: "aspect-[4/3]",
+    href: null,
   },
   {
     id: 4,
@@ -45,6 +49,7 @@ const projects = [
     desc: "A conversion-focused website for a VA agency that had grown beyond its old identity — designed to reflect the scale of a growing team.",
     image: vaMockup,
     aspect: "aspect-[3/4]",
+    href: null,
   },
 ];
 
@@ -53,15 +58,8 @@ function ProjectCard({ project, delay, offsetTop = false }: {
   delay: number;
   offsetTop?: boolean;
 }) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 52 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={`group cursor-pointer ${offsetTop ? "lg:mt-32" : ""}`}
-      data-testid={`card-project-${project.id}`}
-    >
+  const inner = (
+    <>
       {/* Image */}
       <div className={`relative overflow-hidden rounded-2xl ${project.aspect}`}>
         <img
@@ -69,7 +67,6 @@ function ProjectCard({ project, delay, offsetTop = false }: {
           alt={project.title}
           className="w-full h-full object-cover transition-all duration-700 ease-out will-change-transform group-hover:scale-[1.03] group-hover:brightness-[0.88]"
         />
-
         {/* Gradient reveal — slides up on hover */}
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 pb-4">
           <div className="flex items-end justify-between gap-3">
@@ -82,6 +79,12 @@ function ProjectCard({ project, delay, offsetTop = false }: {
             </div>
           </div>
         </div>
+        {/* "Case study" badge — only on linked projects */}
+        {project.href && (
+          <div className="absolute top-3.5 right-3.5 bg-white/90 backdrop-blur-sm type-label text-foreground px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            View case study
+          </div>
+        )}
       </div>
 
       {/* Meta row */}
@@ -95,13 +98,34 @@ function ProjectCard({ project, delay, offsetTop = false }: {
         </div>
         <p className="type-body text-foreground/40 leading-snug pl-[calc(1ch+0.75rem)]">{project.desc}</p>
       </div>
+    </>
+  );
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 52 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={`${offsetTop ? "lg:mt-32" : ""}`}
+      data-testid={`card-project-${project.id}`}
+    >
+      {project.href ? (
+        <Link href={project.href} className="group cursor-pointer block">
+          {inner}
+        </Link>
+      ) : (
+        <div className="group cursor-default">
+          {inner}
+        </div>
+      )}
     </motion.article>
   );
 }
 
 export function FeaturedWork() {
   return (
-    <section id="work" className="py-28 px-6 md:px-10 bg-background">
+    <section id="projects" className="py-28 px-6 md:px-10 bg-background">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -115,7 +139,7 @@ export function FeaturedWork() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="w-6 h-px bg-accent" />
-              <span className="type-index text-foreground/40">Selected work</span>
+              <span className="type-index text-foreground/40">Selected projects</span>
             </div>
             <h2>
               <span className="block type-display-lg font-extrabold text-foreground/35">Results that</span>
@@ -162,7 +186,7 @@ export function FeaturedWork() {
             className="flex items-center gap-2 text-xs font-bold text-foreground tracking-[0.1em] uppercase hover:text-accent transition-colors"
             data-testid="button-all-projects"
           >
-            See all case studies <ArrowUpRight size={12} />
+            See all projects <ArrowUpRight size={12} />
           </button>
         </motion.div>
 
