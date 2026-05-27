@@ -182,12 +182,13 @@ export function FeaturedWork() {
           className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 border-t border-border pt-7"
         >
           <p className="type-index text-foreground/30">All results measured at 90 days post-launch</p>
-          <button
+          <Link
+            href="/projects"
             className="flex items-center gap-2 text-xs font-bold text-foreground tracking-[0.1em] uppercase hover:text-accent transition-colors"
             data-testid="button-all-projects"
           >
             See all projects <ArrowUpRight size={12} />
-          </button>
+          </Link>
         </motion.div>
 
       </div>

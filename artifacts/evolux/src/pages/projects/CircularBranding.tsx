@@ -45,7 +45,7 @@ export default function CircularBranding() {
               className="flex items-center gap-3 mb-10"
             >
               <Link
-                href="/#projects"
+                href="/projects"
                 className="flex items-center gap-1.5 type-label text-foreground/40 hover:text-accent transition-colors"
               >
                 <ArrowLeft size={11} />

@@ -31,7 +31,7 @@ const RESOURCES = [
 ];
 
 const NAV_LINKS = [
-  { label: "Projects",  href: "/#projects" },
+  { label: "Projects",  href: "/projects" },
   { label: "Services",  href: "/services/web-design" },
   { label: "Packages",  href: "/packages" },
   { label: "About",     href: "/about" },

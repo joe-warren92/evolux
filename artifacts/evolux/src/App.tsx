@@ -12,6 +12,7 @@ import Locations from "@/pages/locations/Locations";
 import Sunderland from "@/pages/locations/Sunderland";
 import InsightsArchive from "@/pages/insights/InsightsArchive";
 import InsightPost from "@/pages/insights/InsightPost";
+import Projects from "@/pages/projects/Projects";
 import CircularBranding from "@/pages/projects/CircularBranding";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/locations/sunderland" component={Sunderland} />
       <Route path="/insights" component={InsightsArchive} />
       <Route path="/insights/:slug" component={InsightPost} />
+      <Route path="/projects" component={Projects} />
       <Route path="/projects/circular-branding" component={CircularBranding} />
       <Route component={NotFound} />
     </Switch>
