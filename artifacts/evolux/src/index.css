@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -18,24 +18,37 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
 
   --font-sans: 'Inter', sans-serif;
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Inter', sans-serif;
 }
 
 :root {
-  /* Dark dominant by default */
-  --background: 0 0% 4%;
-  --foreground: 0 0% 98%;
-  --border: 0 0% 15%;
-  --input: 0 0% 15%;
-  --ring: 0 0% 98%;
+  /* PrimeFolio White Theme */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 5%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 0 0% 5%;
 
-  --primary: 0 0% 98%;
-  --primary-foreground: 0 0% 4%;
+  --primary: 0 0% 5%;
+  --primary-foreground: 0 0% 98%;
   
-  --muted: 0 0% 10%;
-  --muted-foreground: 0 0% 65%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
 
-  --accent: 30 100% 50%; /* Subtle warm accent */
+  --accent: 0 0% 5%; 
+}
+
+.dark {
+  /* No dark mode specified in requirements, but keep valid */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 5%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 0 0% 5%;
+  --primary: 0 0% 5%;
+  --primary-foreground: 0 0% 98%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
 }
 
 @layer base {
@@ -47,5 +60,6 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 }

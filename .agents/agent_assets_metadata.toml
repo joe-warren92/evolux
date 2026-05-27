@@ -24,3 +24,15 @@ id = "U1uCrBzv-XaQOwnTAoD32"
 uri = "file://artifacts/evolux/src/assets/images/project-4.png"
 type = "image"
 title = "Kinetic typography distortion"
+
+[[generated]]
+id = "qDUvvTAzr3IYWNV5p4ZMm"
+uri = "file://artifacts/evolux/src/assets/images/hero-showcase.png"
+type = "image"
+title = "Moody abstract creative studio showcase"
+
+[[generated]]
+id = "pieX7YCI5W7xUY2kOSwhZ"
+uri = "file://artifacts/evolux/src/assets/images/about-portrait.png"
+type = "image"
+title = "Professional creative studio portrait"
