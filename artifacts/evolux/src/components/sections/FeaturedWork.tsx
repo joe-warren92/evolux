@@ -63,21 +63,21 @@ function ProjectCard({ project, delay, offsetTop = false }: {
       data-testid={`card-project-${project.id}`}
     >
       {/* Image */}
-      <div className={`relative overflow-hidden img-frame rounded-xl ${project.aspect}`}>
+      <div className={`relative overflow-hidden rounded-2xl ${project.aspect}`}>
         <img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-all duration-700 ease-out will-change-transform group-hover:scale-[1.03] group-hover:brightness-[0.88]"
         />
 
-        {/* Gradient reveal from bottom — slides up on hover */}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 pb-4">
+        {/* Gradient reveal — slides up on hover */}
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out p-5 pb-4">
           <div className="flex items-end justify-between gap-3">
             <div>
               <p className="type-index text-white/50 mb-1.5">{project.category}</p>
               <p className="text-white text-base font-bold tracking-tight leading-tight">{project.title}</p>
             </div>
-            <div className="shrink-0 w-7 h-7 bg-accent flex items-center justify-center">
+            <div className="shrink-0 w-7 h-7 rounded-full bg-accent flex items-center justify-center">
               <ArrowUpRight size={13} className="text-white" />
             </div>
           </div>
@@ -85,15 +85,15 @@ function ProjectCard({ project, delay, offsetTop = false }: {
       </div>
 
       {/* Meta row */}
-      <div className="flex items-baseline justify-between gap-4 pt-4 border-t border-border mt-0">
-        <div className="flex items-baseline gap-4">
-          <span className="type-index">{project.num}</span>
-          <div>
+      <div className="pt-4 mt-0 border-t border-border">
+        <div className="flex items-start justify-between gap-4 mb-2">
+          <div className="flex items-baseline gap-3">
+            <span className="type-index shrink-0">{project.num}</span>
             <p className="text-xs font-semibold text-foreground leading-tight">{project.title}</p>
-            <p className="type-index mt-1">{project.category}</p>
           </div>
+          <span className="text-xs font-black text-accent whitespace-nowrap shrink-0 tracking-tight">{project.result}</span>
         </div>
-        <span className="text-xs font-black text-accent whitespace-nowrap shrink-0 tracking-tight">{project.result}</span>
+        <p className="type-body text-foreground/40 leading-snug pl-[calc(1ch+0.75rem)]">{project.desc}</p>
       </div>
     </motion.article>
   );
@@ -101,10 +101,10 @@ function ProjectCard({ project, delay, offsetTop = false }: {
 
 export function FeaturedWork() {
   return (
-    <section id="work" className="py-32 px-6 md:px-10 bg-background">
+    <section id="work" className="py-28 px-6 md:px-10 bg-background">
       <div className="max-w-7xl mx-auto">
 
-        {/* Header — asymmetric stagger */}
+        {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-20">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -118,8 +118,8 @@ export function FeaturedWork() {
               <span className="type-index text-foreground/40">Selected work</span>
             </div>
             <h2>
-              <span className="block type-display-lg font-light text-foreground/25">Results that</span>
-              <span className="block type-display-lg font-black text-foreground">speak for themselves.</span>
+              <span className="block type-display-lg font-extrabold text-foreground/35">Results that</span>
+              <span className="block type-display-lg font-extrabold text-foreground">speak for themselves.</span>
             </h2>
           </motion.div>
           <motion.div

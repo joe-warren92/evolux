@@ -9,7 +9,6 @@ const articles = [
     title: "Why most websites don't generate business — and what yours should do instead",
     excerpt:
       "Most sites are built to look presentable. The ones that generate revenue are engineered around a single question: what do we want the visitor to do? Here's the difference in practice.",
-    accent: "bg-[hsl(0,0%,97%)]",
   },
   {
     id: 2,
@@ -18,7 +17,6 @@ const articles = [
     title: "The real cost of a cheap website",
     excerpt:
       "A £500 build feels like a saving. But if it's losing you 3 enquiries a month at an average deal value of £2,000, the maths fall apart quickly. We've done the calculation.",
-    accent: "bg-[hsl(0,0%,98%)]",
   },
   {
     id: 3,
@@ -27,7 +25,6 @@ const articles = [
     title: "5 questions to ask a web design agency before you sign anything",
     excerpt:
       "Every agency will tell you what you want to hear. Ask these five questions instead — the answers will tell you immediately whether they can actually deliver.",
-    accent: "bg-[hsl(0,0%,97%)]",
   },
 ];
 
@@ -49,7 +46,7 @@ export function Insights() {
               Insights
             </div>
             <h2>
-              <span className="block type-display-md text-muted-foreground font-light">Straight talk about</span>
+              <span className="block type-display-md font-extrabold text-foreground/35">Straight talk about</span>
               <span className="block type-display-md font-extrabold text-foreground">web design & business.</span>
             </h2>
           </motion.div>
@@ -74,7 +71,7 @@ export function Insights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.65, delay: i * 0.1 }}
-              className={`group rounded-2xl border border-border ${article.accent} p-8 flex flex-col cursor-pointer hover:border-foreground/20 transition-colors`}
+              className="group rounded-2xl border border-border bg-[hsl(0,0%,97.5%)] p-8 flex flex-col cursor-pointer hover:border-foreground/20 transition-colors"
               data-testid={`card-insight-${article.id}`}
             >
               {/* Meta */}

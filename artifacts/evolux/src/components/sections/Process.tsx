@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const steps = [
   {
@@ -45,7 +46,7 @@ export function Process() {
               How it works
             </div>
             <h2>
-              <span className="block type-display-md text-muted-foreground font-light">Four clear steps.</span>
+              <span className="block type-display-md font-extrabold text-foreground/35">Four clear steps.</span>
               <span className="block type-display-md font-extrabold text-foreground">You're in control throughout.</span>
             </h2>
           </motion.div>
@@ -64,7 +65,7 @@ export function Process() {
           </motion.blockquote>
         </div>
 
-        {/* Step list with timeline */}
+        {/* Step list */}
         <div className="relative">
           <div
             aria-hidden
@@ -106,30 +107,33 @@ export function Process() {
           <div className="border-t border-border" />
         </div>
 
-        {/* KPI bar */}
+        {/* KPI + CTA bar */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-12 flex flex-wrap items-center justify-between gap-8"
+          className="mt-10 bg-[hsl(0,0%,97.5%)] border border-border rounded-2xl px-8 py-6 flex flex-wrap items-center justify-between gap-6"
         >
-          {[
-            { value: "4–6 wks", label: "From brief to launch" },
-            { value: "100%", label: "On-time delivery" },
-            { value: "30 days", label: "Post-launch support" },
-          ].map(kpi => (
-            <div key={kpi.label} className="flex flex-col gap-1">
-              <span className="text-2xl font-extrabold tracking-tight text-foreground">{kpi.value}</span>
-              <span className="type-label text-muted-foreground">{kpi.label}</span>
-            </div>
-          ))}
-          <button
-            className="bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors"
+          <div className="flex flex-wrap items-center gap-8">
+            {[
+              { value: "4–6 wks", label: "From brief to launch" },
+              { value: "100%", label: "On-time delivery" },
+              { value: "30 days", label: "Post-launch support" },
+            ].map(kpi => (
+              <div key={kpi.label} className="flex flex-col gap-0.5">
+                <span className="text-xl font-extrabold tracking-tight text-foreground">{kpi.value}</span>
+                <span className="type-label text-muted-foreground">{kpi.label}</span>
+              </div>
+            ))}
+          </div>
+          <a
+            href="#review"
+            className="bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2 whitespace-nowrap"
             data-testid="button-start-process"
           >
-            Start a project →
-          </button>
+            Start a project <ArrowUpRight size={13} />
+          </a>
         </motion.div>
 
       </div>

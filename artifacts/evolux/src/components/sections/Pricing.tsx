@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, ArrowUpRight } from "lucide-react";
+import { Check, ArrowUpRight, ShieldCheck } from "lucide-react";
 
 const packages = [
   {
@@ -75,7 +75,7 @@ export function Pricing() {
               Packages
             </div>
             <h2>
-              <span className="block type-display-md font-light text-muted-foreground">Transparent pricing.</span>
+              <span className="block type-display-md font-extrabold text-foreground/35">Transparent pricing.</span>
               <span className="block type-display-md font-extrabold text-foreground">No surprises.</span>
             </h2>
           </motion.div>
@@ -152,21 +152,31 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Testimonial */}
+        {/* Guarantee bar */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-white border border-border rounded-2xl px-8 py-6 mb-6"
+          className="flex flex-col sm:flex-row items-start sm:items-center gap-5 bg-white border border-border rounded-2xl px-8 py-6 mb-5"
         >
-          <p className="text-2xl text-accent/25 font-serif leading-none shrink-0 hidden sm:block">"</p>
-          <div className="flex-1">
-            <p className="type-body text-foreground italic mb-1.5">
-              The Studio package paid for itself in the first quarter. I wish we'd done it two years earlier.
-            </p>
-            <p className="type-label text-foreground/40">Alex Donovan — Founder, Relink</p>
+          <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <ShieldCheck size={18} className="text-accent" />
           </div>
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-foreground mb-1">
+              30-day post-launch guarantee, on every package.
+            </p>
+            <p className="type-body text-muted-foreground">
+              If something isn't right in the 30 days after you go live, we fix it. No quibble, no extra charge.
+            </p>
+          </div>
+          <a
+            href="#review"
+            className="shrink-0 border border-border text-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:border-accent hover:text-accent transition-colors flex items-center gap-1.5 whitespace-nowrap"
+          >
+            Not sure? Get a free review <ArrowUpRight size={12} />
+          </a>
         </motion.div>
 
         {/* Trust strip */}

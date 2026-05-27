@@ -6,16 +6,19 @@ const testimonials = [
     quote: "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout.",
     author: "Katie Dutton",
     role: "Manton Executives",
+    initials: "KD",
   },
   {
     quote: "Amazing! This company is so easy to work with. They created my website exactly how I'd imagined with no faff or hassle. I would highly recommend to anyone.",
     author: "Leah Hall",
     role: "Client",
+    initials: "LH",
   },
   {
     quote: "From start to finish, the process was clear and professional. The site launched on time, looks exactly like my business, and has already started generating enquiries.",
     author: "Daniel O.",
     role: "Client, North East",
+    initials: "DO",
   },
 ];
 
@@ -23,11 +26,10 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-background border-t border-border">
 
-      {/* ── Editorial testimonial section ── */}
+      {/* ── Testimonials ── */}
       <div className="py-24 px-6 md:px-10 border-b border-border">
         <div className="max-w-7xl mx-auto">
 
-          {/* Header row */}
           <div className="flex items-end justify-between mb-14">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -39,9 +41,10 @@ export function Footer() {
                 <span className="w-6 h-px bg-accent" />
                 <span className="type-index text-foreground/40">What clients say</span>
               </div>
-              <h2 className="type-display-md font-black text-foreground">
-                Real words.<br />
-                <span className="text-foreground/25 font-light">No agency gloss.</span>
+              <h2 className="type-display-md font-extrabold text-foreground">
+                Real words.
+                <br />
+                <span className="text-foreground/35">No agency gloss.</span>
               </h2>
             </motion.div>
 
@@ -58,7 +61,7 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Editorial testimonials — no cards, pure type */}
+          {/* Testimonials — editorial, no boxes */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {testimonials.map((t, i) => (
               <motion.div
@@ -74,8 +77,8 @@ export function Footer() {
                   {t.quote}
                 </p>
                 <div className="flex items-center gap-3 mt-auto">
-                  <div className="w-7 h-7 bg-foreground/5 flex items-center justify-center shrink-0 text-[10px] font-black text-foreground/40 tracking-wide">
-                    {t.author.split(' ').map(n => n[0]).join('')}
+                  <div className="w-8 h-8 rounded-full bg-foreground/8 flex items-center justify-center shrink-0 text-[10px] font-black text-foreground/40 tracking-wide">
+                    {t.initials}
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-foreground leading-none">{t.author}</p>
@@ -90,6 +93,7 @@ export function Footer() {
 
       {/* ── Final CTA ── */}
       <div className="relative py-28 px-6 md:px-10 overflow-hidden">
+
         {/* Ghost wordmark */}
         <span
           aria-hidden
@@ -113,16 +117,16 @@ export function Footer() {
             className="mb-16"
           >
             <h2 className="mb-5">
-              <span className="block type-display-lg text-foreground/25 font-light">Your next client is</span>
-              <span className="block type-display-lg font-black text-foreground">searching right now.</span>
+              <span className="block type-display-lg text-foreground/30 font-extrabold">Your next client is</span>
+              <span className="block type-display-lg font-extrabold text-foreground">searching right now.</span>
             </h2>
             <p className="type-body-lg text-foreground/45 max-w-md mb-10">
               If your website isn't winning them over, someone else's is. Let's change that.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-12">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
               <button
-                className="bg-foreground text-primary-foreground px-8 py-4 text-sm font-semibold hover:bg-accent transition-colors duration-300 flex items-center gap-2"
+                className="bg-foreground text-primary-foreground px-8 py-4 rounded-full text-sm font-semibold hover:bg-accent transition-colors duration-300 flex items-center gap-2"
                 data-testid="button-start-project"
               >
                 Start a project <ArrowUpRight size={14} />
@@ -155,7 +159,7 @@ export function Footer() {
             </div>
           </motion.div>
 
-          {/* Bar */}
+          {/* Footer bar */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 border-t border-border pt-7">
             <div className="flex items-center gap-8">
               <span className="font-black text-xs tracking-[0.3em] uppercase text-foreground">EVOLUX</span>

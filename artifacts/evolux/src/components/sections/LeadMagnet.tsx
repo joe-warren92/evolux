@@ -186,7 +186,7 @@ export function LeadMagnet() {
                   </div>
                   <button
                     type="submit"
-                    className="bg-accent text-accent-foreground py-4 rounded-xl text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 mt-2"
+                    className="bg-accent text-accent-foreground py-4 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 mt-2"
                     data-testid="button-review-submit"
                   >
                     Get my free assessment <ArrowUpRight size={15} />
