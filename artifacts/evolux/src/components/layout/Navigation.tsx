@@ -106,8 +106,7 @@ export function Navigation() {
               href="#review"
               aria-label="Get a free website review"
               data-testid="nav-review-cta"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-[7px] text-[11px] font-semibold tracking-[0.1em] uppercase hover:bg-accent/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
-              style={{ borderRadius: "3px" }}
+              className="hidden sm:inline-flex items-center gap-1.5 bg-accent text-accent-foreground px-4 py-[7px] rounded-full text-[11px] font-semibold tracking-[0.08em] uppercase hover:bg-accent/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
               Free Website Review
               <ArrowUpRight size={10} strokeWidth={2.5} />
@@ -209,8 +208,7 @@ export function Navigation() {
               <a
                 href="#review"
                 onClick={close}
-                style={{ borderRadius: "3px" }}
-                className="w-full bg-accent text-accent-foreground py-4 text-sm font-semibold flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="w-full bg-accent text-accent-foreground py-4 rounded-full text-sm font-semibold flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 Free Website Review
                 <ArrowUpRight size={14} />
