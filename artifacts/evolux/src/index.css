@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -11,55 +11,130 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Inter', sans-serif;
 }
 
 :root {
-  /* PrimeFolio White Theme */
   --background: 0 0% 100%;
-  --foreground: 0 0% 5%;
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 0 0% 5%;
-
-  --primary: 0 0% 5%;
+  --foreground: 0 0% 6%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 0 0% 6%;
+  --primary: 0 0% 6%;
   --primary-foreground: 0 0% 98%;
-  
   --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 45%;
+  --muted-foreground: 0 0% 48%;
+  --accent: 0 0% 6%;
 
-  --accent: 0 0% 5%; 
+  /* ── Typography scale ── */
+  --tracking-tight: -0.03em;
+  --tracking-display: -0.04em;
+  --leading-display: 1.02;
+  --leading-heading: 1.12;
+  --leading-body: 1.65;
 }
 
 .dark {
-  /* No dark mode specified in requirements, but keep valid */
   --background: 0 0% 100%;
-  --foreground: 0 0% 5%;
-  --border: 0 0% 88%;
-  --input: 0 0% 88%;
-  --ring: 0 0% 5%;
-  --primary: 0 0% 5%;
+  --foreground: 0 0% 6%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 0 0% 6%;
+  --primary: 0 0% 6%;
   --primary-foreground: 0 0% 98%;
   --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 45%;
+  --muted-foreground: 0 0% 48%;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-  body {
-    @apply font-sans antialiased bg-background text-foreground;
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 1rem;
+    line-height: var(--leading-body);
+  }
+
+  /* Display headings — large editorial type */
+  .type-display-xl {
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 800;
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .type-display-lg {
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .type-display-md {
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    font-weight: 700;
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  /* Section headings */
+  .type-heading {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: var(--leading-heading);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  /* Body text */
+  .type-body-lg {
+    font-size: 1.125rem;
+    line-height: var(--leading-body);
+    font-weight: 400;
+  }
+
+  .type-body {
+    font-size: 1rem;
+    line-height: var(--leading-body);
+    font-weight: 400;
+  }
+
+  /* Section label — "● RECENT PROJECTS" */
+  .type-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Stat numbers */
+  .type-stat {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  /* Quote / testimonial */
+  .type-quote {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    font-style: italic;
   }
 }

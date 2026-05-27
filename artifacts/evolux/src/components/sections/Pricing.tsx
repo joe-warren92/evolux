@@ -1,119 +1,198 @@
 import { motion } from "framer-motion";
-import { Lock, Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
+
+const packages = [
+  {
+    id: "launch",
+    name: "Launch",
+    tagline: "For businesses entering the market with intent.",
+    price: "£1,800",
+    priceNote: "Starting from",
+    features: [
+      "5-page custom website",
+      "Brand strategy session",
+      "Mobile-first design",
+      "Basic SEO setup",
+      "CMS integration",
+      "14-day post-launch support",
+    ],
+    cta: "Get Started",
+    highlight: false,
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    tagline: "For ambitious brands that compete at the top.",
+    price: "£3,500",
+    priceNote: "Starting from",
+    features: [
+      "Full custom website (up to 12 pages)",
+      "Complete brand identity",
+      "Responsive design system",
+      "Advanced SEO & performance",
+      "Headless CMS setup",
+      "Analytics & conversion tracking",
+      "30-day post-launch support",
+      "Monthly strategy review",
+    ],
+    cta: "Most popular",
+    highlight: true,
+  },
+  {
+    id: "retainer",
+    name: "Retainer",
+    tagline: "A dedicated creative partner, every month.",
+    price: "£1,200",
+    priceNote: "Per month",
+    features: [
+      "Ongoing design & development",
+      "Unlimited revision requests",
+      "Priority turnaround",
+      "Monthly strategy call",
+      "Performance reporting",
+      "Full source file access",
+    ],
+    cta: "Let's Talk",
+    highlight: false,
+  },
+];
 
 export function Pricing() {
   return (
-    <section className="py-32 px-6 md:px-12 bg-background">
+    <section id="pricing" className="py-32 px-6 md:px-10 bg-[hsl(0,0%,97%)]">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+
+        {/* Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-20 text-center flex flex-col items-center"
+          className="mb-16 flex flex-col items-center text-center"
         >
-          <div className="flex items-center gap-2 text-sm font-medium uppercase tracking-widest mb-6">
-            <span className="text-xl leading-none -mt-1">●</span> Packages
+          <div className="flex items-center gap-2 type-label text-muted-foreground mb-5">
+            <span className="w-1.5 h-1.5 rounded-full bg-foreground" />
+            Packages
           </div>
-          <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
-            Simple pricing
+          <h2 className="type-display-md font-extrabold text-foreground mb-4 tracking-tight">
+            Simple, transparent pricing
           </h2>
-          <p className="text-muted-foreground text-xl max-w-2xl">
-            Transparent pricing for studios and brands who want quality without guesswork.
+          <p className="type-body-lg text-muted-foreground max-w-xl">
+            No hidden fees, no scope creep. Choose the package that fits where you are — or talk to us and we'll tailor one.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2 bg-primary text-primary-foreground rounded-[2rem] p-10 flex flex-col justify-between"
-          >
+        {/* Testimonial above cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 flex justify-center"
+        >
+          <div className="flex items-start gap-4 bg-white border border-border rounded-2xl px-8 py-5 max-w-2xl w-full">
+            <div className="text-2xl leading-none text-foreground/20 font-serif mt-0.5">"</div>
             <div>
-              <h3 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
-                Let's build<br/>something great
-              </h3>
-              <p className="text-primary-foreground/70 text-lg mb-12">
-                Bring your vision to life with focused design and clear strategy.
+              <p className="type-body text-muted-foreground italic">
+                Best ROI of any supplier we've worked with. The Studio package paid for itself in the first quarter.
               </p>
+              <p className="type-label text-foreground/45 mt-2">Alex Donovan — Founder, Relink</p>
             </div>
-            <button className="bg-white text-black px-8 py-4 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-white/90 transition-colors w-fit" data-testid="button-get-in-touch">
-              Get in Touch &rarr;
-            </button>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-3 bg-background border border-border rounded-[2rem] p-10 flex flex-col"
-          >
-            <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center mb-8">
-              <Lock size={20} className="text-foreground" />
-            </div>
-            
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-10 border-b border-border">
-              <div>
-                <h3 className="font-display text-3xl font-bold mb-2">Studio</h3>
-                <p className="text-muted-foreground">Perfect for ambitious brands and growing businesses</p>
-              </div>
-              <div className="flex flex-col items-start md:items-end">
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-1">Starting from</span>
-                <div className="text-4xl font-display font-bold">£2,500</div>
-              </div>
-            </div>
+        {/* Pricing cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+          {packages.map((pkg, i) => (
+            <motion.div
+              key={pkg.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className={`rounded-2xl p-8 flex flex-col relative overflow-hidden ${
+                pkg.highlight
+                  ? "bg-foreground text-primary-foreground ring-2 ring-foreground"
+                  : "bg-white border border-border"
+              }`}
+              data-testid={`card-pricing-${pkg.id}`}
+            >
+              {pkg.highlight && (
+                <div className="absolute top-5 right-5 bg-white/15 text-white type-label px-3 py-1 rounded-full">
+                  Most popular
+                </div>
+              )}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-              <ul className="flex flex-col gap-4">
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>Custom website design</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>Brand strategy session</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>Responsive development</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>SEO foundations</span></li>
+              <div className="mb-8">
+                <p className={`type-label mb-2 ${pkg.highlight ? "text-white/50" : "text-muted-foreground"}`}>
+                  {pkg.name}
+                </p>
+                <p className={`type-body mb-6 leading-snug ${pkg.highlight ? "text-white/70" : "text-muted-foreground"}`}>
+                  {pkg.tagline}
+                </p>
+                <div className={`type-label mb-1 ${pkg.highlight ? "text-white/50" : "text-muted-foreground"}`}>
+                  {pkg.priceNote}
+                </div>
+                <div className={`text-4xl font-extrabold tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>
+                  {pkg.price}
+                </div>
+              </div>
+
+              <ul className="flex flex-col gap-3 mb-10 flex-1">
+                {pkg.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <Check
+                      size={15}
+                      className={`shrink-0 mt-0.5 ${pkg.highlight ? "text-white/70" : "text-foreground"}`}
+                    />
+                    <span className={`text-sm leading-relaxed ${pkg.highlight ? "text-white/80" : "text-foreground/80"}`}>
+                      {f}
+                    </span>
+                  </li>
+                ))}
               </ul>
-              <ul className="flex flex-col gap-4">
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>Design system creation</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>Content management setup</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>30-day post-launch support</span></li>
-                <li className="flex items-start gap-3"><Check size={20} className="text-foreground shrink-0 mt-0.5" /> <span>Performance optimisation</span></li>
-              </ul>
-            </div>
-          </motion.div>
+
+              <button
+                className={`w-full py-3.5 rounded-full text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${
+                  pkg.highlight
+                    ? "bg-white text-foreground hover:bg-white/90"
+                    : "bg-foreground text-primary-foreground hover:bg-foreground/85"
+                }`}
+                data-testid={`button-pricing-${pkg.id}`}
+              >
+                Get Started <ArrowUpRight size={15} />
+              </button>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col border-t border-border pt-6"
-          >
-            <h4 className="font-bold mb-2">Transparent Process</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">No hidden fees or surprise invoices. We scope thoroughly and stick to the agreement.</p>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col border-t border-border pt-6"
-          >
-            <h4 className="font-bold mb-2">Dedicated Team</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">You work directly with the seniors doing the work, no account managers acting as messengers.</p>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col border-t border-border pt-6"
-          >
-            <h4 className="font-bold mb-2">Ongoing Support</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">We don't disappear after launch. Our packages include training and grace periods.</p>
-          </motion.div>
-        </div>
+        {/* Trust signals */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-border border border-border rounded-2xl bg-white overflow-hidden"
+        >
+          {[
+            {
+              title: "No hidden costs",
+              desc: "We scope every project thoroughly. What we quote is what you pay — full stop.",
+            },
+            {
+              title: "Senior-only work",
+              desc: "You deal directly with the designer doing the work. No account managers, no juniors.",
+            },
+            {
+              title: "30-day guarantee",
+              desc: "If you're not happy in the first 30 days, we'll fix it. Simple as that.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="p-8">
+              <h4 className="text-sm font-semibold text-foreground mb-2">{item.title}</h4>
+              <p className="type-body text-muted-foreground leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </motion.div>
 
       </div>
     </section>
