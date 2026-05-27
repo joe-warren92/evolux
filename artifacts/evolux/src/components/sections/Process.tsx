@@ -127,7 +127,7 @@ export function Process() {
             ))}
           </div>
           <a
-            href="#review"
+            href="/contact"
             className="bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2 whitespace-nowrap"
             data-testid="button-start-process"
           >

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import heroShowcase from "@assets/Screenshot-2025-02-14-at-20.27.41_(3)_1779878754711.webp";
 import { Star, ArrowUpRight } from "lucide-react";
 
@@ -60,7 +61,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="flex items-center gap-2 rounded-full border border-border px-4 py-2"
+            className="hidden sm:flex items-center gap-2 rounded-full border border-border px-4 py-2"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
             <span className="type-index text-foreground/45">Available for new projects</span>
@@ -68,7 +69,7 @@ export function Hero() {
         </motion.div>
 
         {/* ── H1 ── */}
-        <h1 className="mb-10 md:mb-12">
+        <h1 className="mb-8 md:mb-12">
           <span className="block overflow-hidden">
             <motion.span
               className="block type-display-lg font-extrabold text-foreground tracking-tight"
@@ -105,16 +106,17 @@ export function Hero() {
               If your website isn't consistently generating enquiries, there's usually a reason. We find it, fix it, and build you something that works as hard as you do.
             </p>
 
-            <div className="flex flex-wrap items-center gap-5 mb-12 md:mb-14">
-              <button
+            <div className="flex flex-wrap items-center gap-5 mb-10 md:mb-14">
+              <Link
+                href="/contact"
                 className="flex items-center gap-2.5 bg-foreground text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-accent transition-colors duration-300"
                 data-testid="button-book-call"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-white/50 shrink-0" />
                 Book a Strategy Call
-              </button>
+              </Link>
               <a
-                href="#review"
+                href="/free-review"
                 className="text-sm font-medium text-foreground/40 hover:text-accent border-b border-transparent hover:border-accent pb-px transition-colors flex items-center gap-1.5"
                 data-testid="link-free-review"
               >
@@ -140,12 +142,12 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.65 }}
             className="hidden lg:flex lg:col-span-5 lg:col-start-8 items-end pb-3"
           >
-            <figure className="flex flex-col gap-4 pl-6 border-l-2 border-accent/25">
+            <figure className="flex flex-col gap-4 pl-6 border-l-2 border-accent/40">
               <div className="flex gap-0.5">
                 {[1,2,3,4,5].map(s => <Star key={s} size={12} className="fill-accent text-accent" />)}
               </div>
               <blockquote>
-                <p className="text-[1.05rem] font-semibold text-foreground/55 leading-relaxed italic max-w-[30ch]">
+                <p className="text-[1.05rem] font-semibold text-foreground/65 leading-relaxed italic max-w-[30ch]">
                   "We couldn't be happier with the new website Joe created for us. It truly captures who we are."
                 </p>
               </blockquote>

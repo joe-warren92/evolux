@@ -39,8 +39,8 @@
   /* Typography tokens */
   --tracking-tight: -0.035em;
   --tracking-display: -0.055em;
-  --leading-display: 0.95;
-  --leading-heading: 1.1;
+  --leading-display: 0.96;
+  --leading-heading: 1.08;
   --leading-body: 1.7;
 }
 
@@ -70,6 +70,7 @@ body::before {
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 72px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -100,7 +101,7 @@ body::before {
 
   .type-display-md {
     font-size: clamp(2rem, 3.75vw, 3.5rem);
-    font-weight: 700;
+    font-weight: 800;
     line-height: var(--leading-heading);
     letter-spacing: var(--tracking-display);
   }
@@ -128,15 +129,15 @@ body::before {
   .type-label {
     font-size: 0.6875rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
   /* Index — smaller, lighter, more refined */
   .type-index {
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: hsl(var(--muted-foreground) / 0.5);
   }
@@ -183,7 +184,7 @@ body::before {
   /* Service list line */
   .service-line {
     border-top: 1px solid hsl(var(--border));
-    transition: background-color 0.2s ease;
+    transition: background-color 0.18s ease;
   }
-  .service-line:hover { background-color: hsl(0 0% 98.5%); }
+  .service-line:hover { background-color: hsl(22 30% 98.5%); }
 }

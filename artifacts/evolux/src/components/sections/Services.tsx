@@ -106,7 +106,7 @@ export function Services() {
             <p className="type-body text-muted-foreground">A free website review will identify your specific credibility gaps — and tell you exactly what's costing you enquiries.</p>
           </div>
           <a
-            href="#review"
+            href="/free-review"
             className="bg-accent text-accent-foreground px-6 py-3 rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors whitespace-nowrap flex items-center gap-2"
             data-testid="button-get-review"
           >

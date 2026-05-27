@@ -258,7 +258,7 @@ export default function Packages() {
                     <p className={`type-label mb-2 ${pkg.highlight ? "text-white/45" : "text-foreground/45"}`}>{pkg.name}</p>
                     <p className={`text-sm mb-5 ${pkg.highlight ? "text-white/50" : "text-foreground/50"}`}>{pkg.tagline}</p>
                     <p className={`type-label mb-1 ${pkg.highlight ? "text-white/30" : "text-foreground/35"}`}>{pkg.note}</p>
-                    <p className={`text-4xl font-extrabold tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>{pkg.price}</p>
+                    <p className={`text-3xl md:text-4xl font-extrabold tracking-tight ${pkg.highlight ? "text-white" : "text-foreground"}`}>{pkg.price}</p>
                   </div>
                   <a
                     href="#comparison"

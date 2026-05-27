@@ -174,7 +174,7 @@ export function Pricing() {
             </p>
           </div>
           <a
-            href="#review"
+            href="/free-review"
             className="shrink-0 border border-border text-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:border-accent hover:text-accent transition-colors flex items-center gap-1.5 whitespace-nowrap"
           >
             Not sure? Get a free review <ArrowUpRight size={12} />

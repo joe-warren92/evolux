@@ -204,7 +204,7 @@ export function Intro() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <a
-                href="#review"
+                href="/free-review"
                 className="inline-flex items-center gap-2 bg-foreground text-primary-foreground px-6 py-3.5 rounded-full text-sm font-semibold hover:bg-accent transition-colors duration-300"
               >
                 Get a free website review <ArrowUpRight size={14} />

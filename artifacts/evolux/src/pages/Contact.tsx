@@ -115,7 +115,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex items-center gap-2.5 pt-12 mb-16"
+              className="flex items-center gap-2.5 pt-12 mb-10 md:mb-12"
             >
               <Link href="/" className="group flex items-center gap-2">
                 <div className="w-[18px] h-[18px] rounded-full border border-foreground/20 group-hover:border-accent flex items-center justify-center shrink-0 transition-colors">
