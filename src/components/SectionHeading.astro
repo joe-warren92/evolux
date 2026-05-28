@@ -1,0 +1,17 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  muted?: string;
+  text?: string;
+}
+
+const { eyebrow, title, muted, text } = Astro.props;
+---
+
+<div class="section-heading">
+  <div class="section-heading__rule"></div>
+  <p class="section-heading__eyebrow">{eyebrow}</p>
+  <h2 class="section-heading__title">{title}{muted && <span> {muted}</span>}</h2>
+  {text && <p class="section-heading__text">{text}</p>}
+</div>

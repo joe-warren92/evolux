@@ -1,0 +1,24 @@
+---
+interface Props {
+  project: {
+    slug: string;
+    title: string;
+    category: string;
+    image: string;
+    description: string;
+  };
+}
+
+const { project } = Astro.props;
+---
+
+<a class="project-card" href={`/projects/${project.slug}`}>
+  <figure class="project-card__media">
+    <img src={project.image} alt={`${project.title} project mockup`} loading="lazy" />
+  </figure>
+  <div class="project-card__body">
+    <p class="project-card__eyebrow">{project.category}</p>
+    <h3 class="project-card__title">{project.title}</h3>
+    <p class="project-card__text">{project.description}</p>
+  </div>
+</a>

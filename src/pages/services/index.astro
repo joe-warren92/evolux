@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SERVICES } from "../../data/services";
+import Icon from "../../components/Icon.astro";
+
+const serviceIcons: Record<string, string> = {
+  "web-design": "code",
+  "website-maintenance": "maintenance",
+  "conversion-optimisation": "conversion",
+  branding: "brand",
+  "graphic-design": "palette"
+};
+---
+
+<BaseLayout title="Services - Web Design, Branding & CRO | Evolux">
+  <section class="services-archive-hero">
+    <div class="services-archive-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>Services</strong>
+        </div>
+      </div>
+      <div class="services-archive-hero__grid">
+        <div>
+          <h1><span>Every service</span><br />your business needs online.</h1>
+          <p>From a first website to a complete brand identity, Evolux provides the full range of digital services for UK small businesses - all delivered personally by Joe.</p>
+        </div>
+        <aside>
+          <p class="type-index">One studio</p>
+          <p>All services are delivered by the same person who takes your initial call - no hand-offs, no account managers, no briefing chains.</p>
+          <span><i></i>Available for new projects</span>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="services-archive-grid-section">
+    <div class="services-archive-grid-section__inner">
+      <div class="services-archive-grid">
+        {SERVICES.map((service, index) => (
+          <article class:list={["service-archive-card", index === 0 && "service-archive-card--featured"]}>
+            <a href={`/services/${service.slug}`}>
+              <div class="service-archive-card__icon"><Icon name={serviceIcons[service.slug] ?? "star"} /></div>
+              <div class="service-archive-card__content">
+                <div>
+                  <h2>{service.title}</h2>
+                  <span aria-hidden="true">&#8599;</span>
+                </div>
+                <p>{service.description}</p>
+              </div>
+              <div class="service-archive-card__meta">
+                <div>
+                  {service.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <p><em>From</em> <strong>{service.from}</strong></p>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-steps">
+    <div class="service-steps__inner">
+      {[
+        ["01", "Tell me about your business", "A short call or email - you explain what you need and what's not working. No obligation, no hard sell."],
+        ["02", "Receive a clear proposal", "A scoped proposal with timeline, deliverables and fixed price. No ambiguity, no surprises when the invoice arrives."],
+        ["03", "We get to work", "Every project is delivered by Joe personally. You'll have direct access throughout - no delays waiting on a third party."]
+      ].map(([num, title, body]) => (
+        <article>
+          <span class="type-index">{num}</span>
+          <h2>{title}</h2>
+          <p>{body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="service-dark-cta">
+    <div>
+      <div class="section-kicker"><span></span><p class="type-index">Not sure where to start?</p></div>
+      <h2>Get a free website review<br /><span>and we'll tell you exactly what you need.</span></h2>
+      <p>A personalised video review delivered to your inbox within 48 hours - no obligation, no sales pitch.</p>
+      <div>
+        <a class="button button--accent" href="/free-review">Get your free review <span aria-hidden="true">&#8599;</span></a>
+        <a href="mailto:info@evoluxwebdesign.co.uk">Email directly <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

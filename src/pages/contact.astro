@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+
+const serviceOptions = ["Web Design & Development", "Website Maintenance", "Conversion Rate Optimisation", "Brand Identity", "Graphic Design", "Not sure yet - I'd like some advice", "Something else"];
+const budgetOptions = ["Under £500", "£500 - £1,000", "£1,000 - £3,000", "£3,000 - £6,000", "£6,000+", "Not sure yet"];
+---
+
+<BaseLayout title="Contact Evolux Web Design - Sunderland">
+  <section class="contact-page">
+    <div class="contact-page__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>Contact</strong>
+        </div>
+      </div>
+
+      <div class="contact-page__grid">
+        <aside class="contact-page__info">
+          <div class="mini-label"><span></span>Get in touch</div>
+          <h1><span>Let's talk</span><br />about your project.</h1>
+          <p>Whether you have a clear brief or just an idea of what you need, get in touch and we'll figure out the best path forward together.</p>
+
+          <div class="contact-detail-list">
+            <a href="mailto:info@evoluxwebdesign.co.uk"><i><Icon name="email" /></i><div><span class="type-index">Email</span><strong>info@evoluxwebdesign.co.uk</strong></div><em>&#8599;</em></a>
+            <article><i><Icon name="location" /></i><div><span class="type-index">Based in</span><strong>Sunderland, Tyne & Wear</strong><p class="type-index">Working with UK businesses nationwide</p></div></article>
+            <article><i><Icon name="clock" /></i><div><span class="type-index">Response time</span><strong>Within one business day</strong></div><p class="type-index"><b></b>Available</p></article>
+          </div>
+
+          <div class="contact-review-card">
+            <h2>Not sure where to start?</h2>
+            <p>Submit your website for a free video review and Joe will tell you exactly what needs fixing - no obligation.</p>
+            <a href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </aside>
+
+        <form class="contact-page-form" action="mailto:info@evoluxwebdesign.co.uk" method="post" enctype="text/plain">
+          <div class="contact-page-form__rule"></div>
+          <div class="contact-page-form__inner">
+            <h2>Send a message</h2>
+            <p>Typically replied to within a few hours on weekdays.</p>
+            <div class="contact-page-form__row">
+              <label>Full name <span>*</span><input name="name" placeholder="Joe Smith" required /></label>
+              <label>Email address <span>*</span><input type="email" name="email" placeholder="joe@business.co.uk" required /></label>
+            </div>
+            <label>Company or website <em>(optional)</em><input name="company" placeholder="My Business Ltd / mybusiness.co.uk" /></label>
+            <label>What do you need? <em>(optional)</em><select name="service"><option value="">Select a service...</option>{serviceOptions.map((option) => <option>{option}</option>)}</select></label>
+            <label>Budget <em>(optional)</em><select name="budget"><option value="">Select a budget range...</option>{budgetOptions.map((option) => <option>{option}</option>)}</select></label>
+            <label>Tell us about your project <span>*</span><textarea name="message" rows="5" placeholder="What's the challenge or opportunity you want help with?" required></textarea></label>
+            <button type="submit">Send message <span aria-hidden="true">&#8599;</span></button>
+            <p class="type-index">Your details are used only to respond to your enquiry.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-next">
+    <div class="contact-next__inner">
+      <div class="section-kicker"><span></span><p class="type-index">What happens next</p></div>
+      <h2><span>From first message</span><br />to clear proposal.</h2>
+      <div>
+        {[
+          ["01", "You'll hear back within one business day", "Joe reads every message personally. You'll get a real reply, not an automated acknowledgement."],
+          ["02", "A short call to understand your project", "A 20-30 minute call to understand what you need, what's not working, and what success looks like."],
+          ["03", "A clear, scoped proposal", "A fixed-price proposal with a defined scope, timeline, and deliverables."]
+        ].map(([step, title, body]) => <article><span class="type-index">{step}</span><h3>{title}</h3><p>{body}</p></article>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

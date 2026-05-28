@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+
+const whatYouGet = [
+  ["01", "Conversion score", "Your site assessed against 20 factors that determine whether visitors make contact or leave."],
+  ["02", "Personalised video walkthrough", "A screen-recorded review delivered to your inbox within 48 hours. Specific, actionable, honest."],
+  ["03", "Priority action list", "The 3-5 changes that will have the biggest impact on your enquiry rate."]
+];
+
+const whoFor = [
+  "You get traffic but not enough enquiries",
+  "You're not sure why visitors aren't making contact",
+  "Your website was built a few years ago and hasn't been reviewed since",
+  "You're considering a redesign and want an honest baseline first",
+  "You want to understand what a conversion-focused site actually means"
+];
+---
+
+<BaseLayout title="Free Website Review - Evolux Web Design">
+  <section class="review-hero" id="top">
+    <div class="review-hero__glow review-hero__glow--one"></div>
+    <div class="review-hero__glow review-hero__glow--two"></div>
+    <div class="review-hero__rule"></div>
+    <div class="review-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>Free Review</strong>
+        </div>
+        <div class="standard-pill">Delivered in 48 hours</div>
+      </div>
+
+      <div class="review-hero__grid">
+        <div>
+          <h1><span>Find out what's stopping</span><br />your website converting.</h1>
+          <p>Joe reviews your site against 20 conversion factors and sends back a personalised screen-recorded video within 48 hours. Completely free. No pitch.</p>
+          <div class="review-proof">
+            <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="type-index">5.0 Google rating</span></div>
+            <i></i>
+            <div><strong>20+</strong><span class="type-index">sites reviewed</span></div>
+            <i></i>
+            <div><strong>48h</strong><span class="type-index">turnaround</span></div>
+          </div>
+        </div>
+
+        <form class="review-form-card" action="mailto:info@evoluxwebdesign.co.uk" method="post" enctype="text/plain">
+          <h2>Request your free review</h2>
+          <p>30 seconds to submit. Video in your inbox within 48 hours.</p>
+          <label>Website URL<input type="url" name="website" placeholder="https://yourwebsite.com" /></label>
+          <label>Business email<input type="email" name="email" placeholder="you@company.com" required /></label>
+          <label>Biggest website challenge? <em>(optional)</em><input name="challenge" placeholder="e.g. visitors but no enquiries" /></label>
+          <button type="submit"><span></span>Get my free review</button>
+          <p class="type-label">No sales pitch. No obligation. Just an honest review from Joe.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="review-included">
+    <div class="review-included__inner">
+      <div class="section-kicker"><span></span><p class="type-index">What's included</p></div>
+      <h2><span>Everything you need</span><br />to understand your site.</h2>
+      <div>
+        {whatYouGet.map(([num, title, desc]) => <article><em>{num}</em><span>{num}</span><h3>{title}</h3><p>{desc}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="review-fit">
+    <div class="review-fit__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">Who it's for</p></div>
+        <h2>This is for you if...</h2>
+        <ul>{whoFor.map((item) => <li><span><Icon name="check" /></span>{item}</li>)}</ul>
+      </div>
+      <blockquote>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Joe was always available, quick to respond, and incredibly patient throughout. The site looks amazing and truly captures who we are."</p>
+        <footer><span>KD</span><div><strong>Katie Dutton</strong><em>Manton Executives</em></div></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="review-faq">
+    <div class="review-faq__inner">
+      <h2><span>Common</span> questions</h2>
+      {[
+        ["Is the website review really free?", "Yes. The free website review is genuinely free and designed to give UK businesses a clear starting point before they commit to a redesign, CRO audit or web design project. Joe reviews your website against practical conversion, SEO, trust and user experience factors, then sends a personalised video with the main issues and opportunities."],
+        ["How long does the free review take?", "Submitting the form takes less than a minute. Your personalised video review is normally delivered within 48 business hours, depending on current availability. The review focuses on the changes most likely to improve enquiries, such as messaging clarity, page structure, mobile usability, trust signals, calls to action and obvious SEO gaps."],
+        ["What do I need to provide for the review?", "You only need to provide your website URL and business email address. If there is a specific challenge, such as traffic but no leads, poor local SEO visibility, low mobile conversions or an outdated design, you can include that too. The more context you share, the more useful and specific the review can be."],
+        ["Will I get a sales pitch afterwards?", "No. The review stands on its own as useful advice. If your website needs deeper conversion optimisation, SEO work, maintenance or a full redesign, Joe may explain what that could look like, but there is no pressure call or obligation. You can use the recommendations yourself, with your existing developer or with Evolux."],
+        ["What kind of businesses is the free review best for?", "It is best for service-based businesses, local companies and growing UK brands that rely on their website to generate enquiries. If your website looks fine but does not convert enough visitors, ranks poorly in local search or feels weaker than your competitors, the review will help identify the most important fixes."]
+      ].map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </div>
+  </section>
+
+  <section class="review-bottom-cta">
+    <div>
+      <h2><span>Ready to find out</span><br />what your site is missing?</h2>
+      <p>Free. Honest. In your inbox in 48 hours.</p>
+      <a class="button button--dark" href="#top"><span></span>Get my free review</a>
+    </div>
+  </section>
+</BaseLayout>

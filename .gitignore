@@ -2,11 +2,10 @@
 
 # compiled output
 dist
+.astro
 tmp
 out-tsc
 *.tsbuildinfo
-.expo
-.expo-shared
 
 # dependencies
 node_modules
@@ -40,10 +39,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
-
-# Replit
-.cache/
-.local/

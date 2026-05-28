@@ -1,0 +1,199 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+
+const packages = [
+  {
+    id: "launch",
+    name: "Launch",
+    price: "£1,800",
+    note: "Starting from",
+    tagline: "Get online with a professional site that wins you new business from day one.",
+    cta: "Start with Launch"
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    price: "£3,500",
+    note: "Starting from",
+    tagline: "The complete package - brand, website, and everything needed to grow.",
+    cta: "Start with Studio",
+    highlight: true
+  },
+  {
+    id: "elite",
+    name: "Elite",
+    price: "£6,500",
+    note: "Starting from",
+    tagline: "Our most ambitious work - for businesses that want to dominate their market.",
+    cta: "Talk to us about Elite"
+  }
+];
+
+const rows = [
+  { category: "Your website" },
+  { feature: "Designed for your business - not a template", launch: true, studio: true, elite: true },
+  { feature: "Number of pages", launch: "Up to 5", studio: "Up to 12", elite: "Up to 25" },
+  { feature: "Looks great on phones, tablets & desktop", launch: true, studio: true, elite: true },
+  { feature: "A planning session before we start designing", launch: true, studio: true, elite: true },
+  { feature: "Full brand identity - logo, colours & fonts", launch: false, studio: true, elite: true },
+  { feature: "Custom animations & interactive elements", launch: false, studio: false, elite: true },
+  { category: "Winning more enquiries" },
+  { feature: "Every page laid out to turn visitors into leads", launch: false, studio: true, elite: true },
+  { feature: "Professionally written copy for every page", launch: false, studio: false, elite: true },
+  { feature: "Loads fast so visitors don't leave before reading a word", launch: "Good", studio: "Fast", elite: "Elite" },
+  { feature: "Built to rank on Google from the moment it goes live", launch: "Essentials", studio: true, elite: true },
+  { category: "Running your site yourself" },
+  { feature: "Update your own text and images - no developer needed", launch: true, studio: true, elite: true },
+  { feature: "Add news, blog posts or case studies yourself", launch: false, studio: true, elite: true },
+  { feature: "Training session so you feel confident using it", launch: true, studio: true, elite: true },
+  { category: "Knowing it's working" },
+  { feature: "See who's visiting your site and where they came from", launch: true, studio: true, elite: true },
+  { feature: "Know which pages are generating your enquiries", launch: false, studio: true, elite: true },
+  { feature: "Quarterly strategy sessions to plan what's next", launch: false, studio: false, elite: true },
+  { category: "After we launch" },
+  { feature: "Fixes and tweaks included after go-live", launch: "14 days", studio: "30 days", elite: "90 days" },
+  { feature: "If something's wrong post-launch, we fix it free", launch: false, studio: true, elite: true },
+  { feature: "Same or next-day response when you need us", launch: false, studio: false, elite: true },
+  { feature: "You own every design file and line of code", launch: false, studio: false, elite: true }
+];
+
+const faqs = [
+  ["I'm not sure which website package is right for me. How do I decide?", "Start with a free website review or a short discovery call. Evolux will look at your current website, business goals, competition, local SEO needs and how much content you need before recommending Launch, Studio or Elite. The aim is to choose the level of web design investment that matches your commercial goals, not to push you into a larger package."],
+  ["Are the package prices fixed?", "The package prices are starting points for clearly defined scopes. Before work begins, you receive a written proposal that confirms pages, deliverables, timeline, support period and any optional extras such as copywriting, branding, SEO landing pages or advanced functionality. Once the scope is agreed, what is quoted is what you pay."],
+  ["What happens in the planning session?", "The planning session covers your business, audience, competitors, services, tone of voice, current website performance and what visitors need to do when they land on the site. This creates the strategy behind the design, page structure, calls to action and SEO foundations, so the website is built to generate enquiries rather than just look polished."],
+  ["What makes Elite different from Studio?", "Studio is ideal for businesses that need a strong brand-led website with conversion-focused layouts and a professional identity system. Elite goes further with more pages, deeper copy and content planning, custom interaction details, more advanced SEO structure and a longer post-launch support window. It is designed for businesses that want to make a stronger market statement."],
+  ["Can I start with Launch and upgrade later?", "Yes. Launch is designed as a credible foundation for businesses that need a professional site quickly. If your business grows, Evolux can build on the existing structure with extra pages, stronger SEO content, case studies, conversion improvements, branding work or a more advanced redesign. You are not locked into one stage forever."]
+];
+
+const renderCell = (value: boolean | string | undefined) => {
+  if (value === true) return "✓";
+  if (value === false) return "-";
+  return value;
+};
+---
+
+<BaseLayout title="Packages & Pricing - Evolux Web Design">
+  <section class="packages-hero">
+    <div class="packages-hero__glow packages-hero__glow--one"></div>
+    <div class="packages-hero__glow packages-hero__glow--two"></div>
+    <div class="packages-hero__rule"></div>
+    <div class="packages-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>Packages</strong>
+        </div>
+      </div>
+
+      <div class="packages-hero__grid">
+        <div>
+          <h1><span>Transparent pricing.</span><br />No surprises.</h1>
+          <p>Every project is fully scoped before we start. What we quote is what you pay. Choose the package that matches where your business is right now - and where you want it to go.</p>
+        </div>
+        <aside class="package-promise-list">
+          <p><span><Icon name="check" /></span><strong>What you see is what you pay</strong> Everything agreed in writing before we start.</p>
+          <p><span><Icon name="shield" /></span><strong>If it's wrong after launch, we fix it free</strong> On Studio and Elite packages.</p>
+          <p><span><Icon name="user" /></span><strong>You talk to Joe</strong> The person building your site answers your calls.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="packages-cards-section">
+    <div class="packages-cards-section__inner">
+      <div class="packages-card-grid">
+        {packages.map((pkg) => (
+          <article class:list={["packages-card", pkg.highlight && "packages-card--featured"]}>
+            {pkg.highlight && <em>Most popular</em>}
+            <p class="type-label">{pkg.name}</p>
+            <p>{pkg.tagline}</p>
+            <span class="type-label">{pkg.note}</span>
+            <h2>{pkg.price}</h2>
+            <a href="#comparison">See what's included <span aria-hidden="true">&#8599;</span></a>
+          </article>
+        ))}
+      </div>
+
+      <div class="packages-guarantee">
+        <span><Icon name="shield" /></span>
+        <p><strong>Something wrong after launch?</strong> On Studio and Elite, we fix it free - no questions asked. 30 days on Studio, 90 days on Elite.</p>
+        <a href="/free-review">Not sure which? Free review <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="comparison-section" id="comparison">
+    <div class="comparison-section__inner">
+      <div class="section-kicker"><span></span><p class="type-index">Full comparison</p></div>
+      <h2><span>What's included</span><br />in each package.</h2>
+
+      <div class="comparison-table" aria-label="Package comparison table">
+        <div class="comparison-table__head">
+          <span>Feature</span>
+          {packages.map((pkg) => <strong>{pkg.name}<br /><em>{pkg.price}</em></strong>)}
+        </div>
+        {rows.map((row) => (
+          "category" in row
+            ? <div class="comparison-table__category"><span>{row.category}</span></div>
+            : <div class="comparison-table__row">
+                <p>{row.feature}</p>
+                <span class:list={[row.launch === true && "comparison-table__check", row.launch === false && "comparison-table__dash"]}>{renderCell(row.launch)}</span>
+                <span class:list={["comparison-table__studio", row.studio === true && "comparison-table__check", row.studio === false && "comparison-table__dash"]}>{renderCell(row.studio)}</span>
+                <span class:list={[row.elite === true && "comparison-table__check", row.elite === false && "comparison-table__dash"]}>{renderCell(row.elite)}</span>
+              </div>
+        ))}
+      </div>
+
+      <div class="comparison-mobile">
+        {packages.map((pkg) => (
+          <article class:list={["comparison-mobile-card", pkg.highlight && "comparison-mobile-card--featured"]}>
+            <header>
+              <p class="type-label">{pkg.name}</p>
+              <h3>{pkg.price}</h3>
+              <span class="type-index">{pkg.note}</span>
+            </header>
+            <div>
+              {rows.filter((row) => !("category" in row)).map((row) => {
+                const value = row[pkg.id as "launch" | "studio" | "elite"];
+                return value !== false && (
+                  <p><span><Icon name="check" /></span>{row.feature}{typeof value === "string" ? ` - ${value}` : ""}</p>
+                );
+              })}
+            </div>
+            <a href="mailto:info@evoluxwebdesign.co.uk">{pkg.cta} <span aria-hidden="true">&#8599;</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="packages-testimonial">
+    <article>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"We couldn't be happier with the new website Joe created for us. It truly captures who we are as a business and presents us in exactly the way we wanted."</blockquote>
+      <footer><span>KD</span><div><strong>Katie Dutton</strong><em>Manton Executives, Sunderland</em></div></footer>
+    </article>
+  </section>
+
+  <section class="review-faq packages-faq">
+    <div class="review-faq__inner">
+      <div class="section-kicker"><span></span><p class="type-index">FAQ</p></div>
+      <h2><span>Pricing</span> questions.</h2>
+      {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </div>
+  </section>
+
+  <section class="service-dark-cta packages-cta">
+    <div>
+      <p class="type-index"><span></span>Currently available for new projects</p>
+      <h2>Not sure which package is right for you?</h2>
+      <p>A free website review will show you exactly what your current site is missing - and make the right package obvious.</p>
+      <div>
+        <a class="button button--accent" href="/free-review">Get a free website review</a>
+        <a href="mailto:info@evoluxwebdesign.co.uk">Email Joe directly <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

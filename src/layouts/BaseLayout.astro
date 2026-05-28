@@ -1,0 +1,68 @@
+---
+import "../styles/main.css";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Evolux Web Design | Websites That Generate Enquiries",
+  description = "A premium web design studio building conversion-focused websites for ambitious UK businesses."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navigation />
+    <main id="content">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      (() => {
+        const header = document.querySelector("[data-site-header]");
+        const mobileNav = document.querySelector("[data-mobile-nav]");
+        const menu = document.querySelector("[data-mobile-menu]");
+
+        if (!header || !mobileNav || !menu) return;
+
+        const setHeaderState = () => {
+          header.classList.toggle("site-header--scrolled", window.scrollY > 16 || mobileNav.open);
+        };
+
+        const setMenuOpen = (open) => {
+          mobileNav.open = open;
+          document.body.classList.toggle("is-menu-open", open);
+          setHeaderState();
+        };
+
+        setHeaderState();
+        window.addEventListener("scroll", setHeaderState, { passive: true });
+        mobileNav.addEventListener("toggle", () => {
+          setMenuOpen(mobileNav.open);
+        });
+        menu.addEventListener("click", (event) => {
+          if (event.target.closest("a")) setMenuOpen(false);
+        });
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") setMenuOpen(false);
+        });
+        window.addEventListener("resize", () => {
+          if (window.matchMedia("(min-width: 1025px)").matches) setMenuOpen(false);
+        });
+      })();
+    </script>
+  </body>
+</html>

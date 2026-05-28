@@ -1,0 +1,107 @@
+---
+const currentYear = new Date().getFullYear();
+
+const companyLinks = [
+  ["About", "/about"],
+  ["Projects", "/projects"],
+  ["Services", "/services"],
+  ["Packages", "/packages"],
+  ["Insights", "/insights"],
+  ["Locations", "/locations"],
+  ["Free Review", "/free-review"],
+  ["Contact", "/contact"]
+];
+
+const legalLinks = [
+  ["Privacy Policy", "/privacy-policy"],
+  ["Terms & Conditions", "/terms-and-conditions"],
+  ["Cookie Policy", "/cookie-policy"]
+];
+
+const socialLinks = [
+  ["Instagram", "https://www.instagram.com/evoluxwebdesign/"],
+  ["Facebook", "https://www.facebook.com/evoluxwebdesign"],
+  ["LinkedIn", "https://www.linkedin.com/company/evolux-web-design/"]
+];
+---
+
+<footer id="contact">
+  <section class="footer-testimonials">
+    <div class="footer-testimonials__inner">
+      <div class="footer-testimonials__head">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">What clients say</p></div>
+          <h2 class="display-heading"><span>Real words.</span><br />No agency gloss.</h2>
+        </div>
+        <div class="footer-testimonials__rating">
+          <div class="stars" aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>5.0 on Google</p>
+        </div>
+      </div>
+
+      <div class="testimonial-grid">
+        <article class="testimonial-card">
+          <div class="stars" aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>
+            "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
+          </blockquote>
+          <footer>
+            <span>KD</span>
+            <div>
+              <strong>Katie Dutton</strong>
+              <p>Manton Executives</p>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="evolux-footer">
+    <div class="evolux-footer__glow"></div>
+    <div class="evolux-footer__inner">
+      <div class="evolux-footer__grid">
+        <div class="evolux-footer__cta">
+          <h2><span>Let's build something</span> incredible together.</h2>
+          <div class="evolux-footer__actions">
+            <a class="button button--accent" href="/contact">Start a project <span aria-hidden="true">&#8599;</span></a>
+            <a class="button button--outline-light" href="mailto:info@evoluxwebdesign.co.uk">Send an email</a>
+          </div>
+          <div class="evolux-footer__location">
+            <p class="type-index">Based in</p>
+            <strong>Sunderland, Tyne &amp; Wear</strong>
+            <p>North East England</p>
+          </div>
+        </div>
+
+        <nav class="evolux-footer__links" aria-label="Footer navigation">
+          <div>
+            <h3>Social</h3>
+            {socialLinks.map(([label, href]) => (
+              <a href={href} target="_blank" rel="noreferrer">{label} <span aria-hidden="true">&#8599;</span></a>
+            ))}
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a>
+            <a href="tel:+447854932203">+44 7854 932203</a>
+          </div>
+          <div>
+            <h3>Company</h3>
+            {companyLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+          </div>
+          <div>
+            <h3>Legal</h3>
+            {legalLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+          </div>
+        </nav>
+      </div>
+
+      <div class="evolux-footer__bottom">
+        <p>&copy; {currentYear} Evolux Web Design Ltd. All rights reserved.</p>
+        <p>Web Design &amp; Development · Sunderland, UK</p>
+      </div>
+      <div class="evolux-footer__wordmark">EVOLUX</div>
+    </div>
+  </section>
+</footer>

@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { PROJECTS } from "../../data/projects";
+
+export function getStaticPaths() {
+  return PROJECTS.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.title} - Case Study | Evolux Web Design`}>
+  <section class="case-study-hero">
+    <div class="case-study-hero__inner">
+      <nav class="case-study-crumbs" aria-label="Breadcrumb">
+        <a href="/projects">&#8592; Projects</a>
+        <span>/</span>
+        <strong>{project.title}</strong>
+      </nav>
+      <div class="case-study-hero__grid">
+        <div>
+          <div class="mini-label"><span></span>{project.category}</div>
+          <h1>{project.title}</h1>
+          <p>{project.description}</p>
+        </div>
+        <dl class="case-meta">
+          {project.meta.map(([label, value]) => (
+            <div><dt>{label}</dt><dd>{value}</dd></div>
+          ))}
+        </dl>
+      </div>
+    </div>
+    <figure class="case-study-hero__image">
+      <img src={project.hero} alt={`${project.title} website mockup`} />
+    </figure>
+  </section>
+
+  <section class="case-overview">
+    <div class="case-overview__inner">
+      <div class="case-overview__copy">
+        <div class="section-kicker"><span></span><p class="type-index">The brief</p></div>
+        <h2>{project.briefTitle}</h2>
+        {project.brief.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <aside class="case-deliverables">
+        <p class="type-label">What was delivered</p>
+        <ul>
+          {project.deliverables.map((item) => <li><span><Icon name="check" /></span>{item}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="case-split-section">
+    <div class="case-split-section__inner">
+      <article>
+        <span class="type-label">01 - The challenge</span>
+        <h2>{project.challengeTitle}</h2>
+        <p>{project.challenge}</p>
+      </article>
+      <article>
+        <span class="type-label">02 - The solution</span>
+        <h2>{project.solutionTitle}</h2>
+        <p>{project.solution}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="case-screens">
+    <div class="case-screens__inner">
+      <div class="section-kicker"><span></span><p class="type-index">Selected screens</p></div>
+      <div class="case-screens__grid">
+        {project.screens.map((screen) => (
+          <figure>
+            <img src={screen} alt={`${project.title} screen`} />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-results">
+    <div class="case-results__glow"></div>
+    <div class="case-results__inner">
+      <div class="section-kicker"><span></span><p class="type-index">Outcomes</p></div>
+      <h2>{project.outcomeTitle}</h2>
+      {project.testimonial ? (
+        <blockquote>
+          <p>"{project.testimonial}"</p>
+          <footer>Katie Dutton - Manton Executives</footer>
+        </blockquote>
+      ) : (
+        <div class="case-results__grid">
+          {project.outcomes.map((item) => (
+            <article><strong>{item.metric}</strong><span class="type-label">{item.label}</span></article>
+          ))}
+        </div>
+      )}
+      <div class="case-results__quote">
+        <p>Want a website built with the same thinking? Start with a free review and we'll show you exactly what's possible.</p>
+        <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-next">
+    <div>
+      <p class="type-label">Ready to start?</p>
+      <h2>Let's build something<br /><span>that performs.</span></h2>
+      <p>Every Evolux project starts with a free website review - an honest assessment of what's working and what's costing you enquiries.</p>
+    </div>
+    <div>
+      <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      <a class="button" href="/projects">&#8592; Back to all projects</a>
+    </div>
+  </section>
+</BaseLayout>

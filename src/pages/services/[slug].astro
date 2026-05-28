@@ -1,0 +1,239 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SERVICES } from "../../data/services";
+import Icon from "../../components/Icon.astro";
+
+export function getStaticPaths() {
+  return SERVICES.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+
+const serviceIcons: Record<string, string[]> = {
+  "web-design": ["brand", "mobile", "target", "speed", "seo", "analytics"],
+  "website-maintenance": ["maintenance", "shield", "clock", "search", "direct", "analytics"],
+  "conversion-optimisation": ["target", "analytics", "mobile", "design", "briefcase", "launch"],
+  branding: ["target", "brand", "palette", "layers", "briefcase", "design"],
+  "graphic-design": ["design", "package", "layers", "email", "briefcase", "palette"]
+};
+
+const processIcons = ["search", "design", "code", "launch"];
+---
+
+<BaseLayout title={`${service.title} | Evolux Web Design`}>
+  <section class:list={["service-page-hero", service.slug !== "web-design" && "service-page-hero--simple"]}>
+    {service.slug === "web-design" && (
+      <>
+        <div class="service-page-hero__glow service-page-hero__glow--one"></div>
+        <div class="service-page-hero__glow service-page-hero__glow--two"></div>
+        <div class="service-page-hero__rule"></div>
+      </>
+    )}
+    <div class="service-page-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <a href="/services">Services</a>
+          <span>/</span>
+          <strong>{service.crumb}</strong>
+        </div>
+        {service.slug === "web-design" && <div class="service-page-hero__location"><span></span>Sunderland, UK - working nationally</div>}
+      </div>
+
+      <div class="service-page-hero__grid">
+        <div>
+          <div class="mini-label"><span></span>{service.shortTitle}</div>
+          <h1><span>{service.heroLineOne}</span><br />{service.heroLineTwo}</h1>
+          <p>{service.intro}</p>
+          {service.slug === "web-design" && (
+            <div class="service-page-hero__actions">
+              <a class="button button--dark" href="#packages"><span></span>View packages & pricing</a>
+              <a class="text-button" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          )}
+        </div>
+        <dl class="service-page-meta">
+          {service.meta.map(([label, value]) => (
+            <div><dt>{label}</dt><dd>{value}</dd></div>
+          ))}
+        </dl>
+      </div>
+
+      {service.slug === "web-design" && (
+      <div class="service-proof-strip">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p class="type-index">5.0 on Google</p>
+        <i></i>
+        <p class="type-index">Est. 2023, Sunderland</p>
+        <i></i>
+        <p class="type-index">WordPress · Bricks Builder</p>
+        <i></i>
+        <p class="type-index">30-day post-launch guarantee</p>
+      </div>
+      )}
+    </div>
+  </section>
+
+  {service.whyTitle && (
+    <section class="service-problem">
+      <div class="service-problem__inner">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Why it matters</p></div>
+          <h2><span>{service.whyTitleMuted}</span><br />{service.whyTitle}</h2>
+        </div>
+        <p>{service.whyCopy}</p>
+      </div>
+      {service.stats && (
+        <div class="service-stat-grid">
+          {service.stats.map(([stat, label, note]) => (
+            <article>
+              <strong>{stat}</strong>
+              <h3>{label}</h3>
+              <p>{note}</p>
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
+  )}
+
+  <section class="service-deliverables">
+    <div class="service-deliverables__inner">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">What's included</p></div>
+          <h2><span>{service.deliverablesTitleMuted}</span><br />{service.deliverablesTitle}</h2>
+        </div>
+      </div>
+      <div class="service-deliverables__grid">
+        {service.deliverables.map(([title, desc], index) => (
+          <article>
+            <div><Icon name={serviceIcons[service.slug]?.[index] ?? "star"} /></div>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {service.slug === "web-design" && (
+    <section class="service-process-dark">
+      <svg aria-hidden="true" viewBox="0 0 460 460">
+        <circle cx="340" cy="120" r="200"></circle>
+        <circle cx="340" cy="120" r="130"></circle>
+        <circle cx="340" cy="120" r="60"></circle>
+      </svg>
+      <div class="service-process-dark__inner">
+        <div class="section-kicker"><span></span><p class="type-index">How it works</p></div>
+        <div class="section-heading-row section-heading-row--dark">
+          <h2>A process built around clarity, not chaos.</h2>
+          <p>You'll always know where your project is, what's happening next, and who to contact. No chasing, no radio silence.</p>
+        </div>
+        <div class="service-process-dark__grid">
+          {[
+            ["01", "Discovery", "A focused strategy session to understand your business, competitors, and exact goals.", "Week 1"],
+            ["02", "Design", "Full design in Figma - desktop and mobile. You review and approve before build.", "Weeks 1-2"],
+            ["03", "Build", "Your approved design is built to pixel precision with CMS integration.", "Weeks 2-4"],
+            ["04", "Launch & handover", "We handle go-live, training and post-launch support.", "Week 4-5"]
+          ].map(([step, title, desc, duration], index) => (
+            <article>
+              <div><span>{step}</span><i><Icon name={processIcons[index] ?? "star"} /></i></div>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+              <strong>{duration}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="service-packages" id="packages">
+    <div class="service-packages__inner">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Packages</p></div>
+          <h2><span>{service.packagesTitleMuted}</span><br />{service.packagesTitle}</h2>
+        </div>
+        <p>Every project is fully scoped before we start. What we quote is what you pay.</p>
+      </div>
+      <div class:list={["service-package-grid", service.packages.length === 2 && "service-package-grid--two"]}>
+        {service.packages.map(([name, price, note, tagline, features, highlight]) => (
+          <article class:list={["service-package-card", highlight && "service-package-card--featured"]}>
+            {highlight && <span class="service-package-card__badge">Most popular</span>}
+            <p class="type-label">{name}</p>
+            <h3>{price}<small>{note?.startsWith("/") ? note : ""}</small></h3>
+            {!note?.startsWith("/") && <span class="type-index">{note}</span>}
+            <p>{tagline}</p>
+            <ul>{features.map((feature) => <li>{feature}</li>)}</ul>
+            <a href="/free-review">Get started <span aria-hidden="true">&#8599;</span></a>
+          </article>
+        ))}
+      </div>
+      {service.trust && (
+        <div class="service-trust-strip">
+          {service.trust.map(([title, desc]) => (
+            <article>
+              <span></span>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  {service.testimonial && (
+    <section class="service-testimonial">
+      <div class="service-testimonial__inner">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Client results</p></div>
+          <h2><span>Trusted by</span><br />growing businesses.</h2>
+        </div>
+        <blockquote>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"{service.testimonial.quote}"</p>
+          <footer>
+            <span>{service.testimonial.initials}</span>
+            <div>
+              <strong>{service.testimonial.name}</strong>
+              <em>{service.testimonial.company}</em>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+  )}
+
+  <section class="service-faq-section">
+    <div class="service-faq-section__inner">
+      <div class="section-kicker"><span></span><p class="type-index">FAQ</p></div>
+      <h2><span>Questions</span><br />answered.</h2>
+      <div class="service-faq-list">
+        {(service.faqs ?? []).map(([question, answer], index) => (
+          <details open={index === 0}>
+            <summary>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{question}</strong>
+            </summary>
+            <p>{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-dark-cta">
+    <div>
+      <h2>{service.ctaTitle}<br /><span>{service.heroLineTwo}</span></h2>
+      <p>{service.ctaMuted}</p>
+      <div>
+        <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        <a href="mailto:info@evoluxwebdesign.co.uk">Or email Joe directly <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getRelatedPosts, INSIGHT_POSTS, JOE_AUTHOR } from "../../data/insights";
+
+export function getStaticPaths() {
+  return INSIGHT_POSTS.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const related = getRelatedPosts(post.slug);
+const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
+---
+
+<BaseLayout title={`${post.title} | Evolux Web Design`} description={post.metaDescription}>
+  <header class="article-hero">
+    <div class="article-hero__inner">
+      <nav class="blog-stamp" aria-label="Breadcrumb">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <a href="/insights">Insights</a>
+          <span>/</span>
+          <strong>{post.category}</strong>
+        </div>
+        <div class="article-hero__read-time">{post.readingTime} min read</div>
+      </nav>
+
+      <div class="article-hero__grid">
+        <div>
+          <h1>{post.title}</h1>
+          <div class="article-meta">
+            <div class="article-meta__author">
+              <span>{JOE_AUTHOR.initials}</span>
+              <div>
+                <strong>{JOE_AUTHOR.name}</strong>
+                <p>{JOE_AUTHOR.role}</p>
+              </div>
+            </div>
+            <span class="article-meta__divider"></span>
+            <time datetime={post.publishedAt}>{publishedDate}</time>
+            <span class="article-meta__category">{post.category}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="article-hero__rule"></div>
+  </header>
+
+  <div class="article-layout">
+    <article class="article-content" itemscope itemtype="https://schema.org/BlogPosting">
+      <meta itemprop="datePublished" content={post.publishedAt} />
+      <meta itemprop="author" content={JOE_AUTHOR.name} />
+
+      {post.content.map((block) => (
+        <>
+          {block.type === "paragraph" && <p>{block.text}</p>}
+          {block.type === "h2" && <h2>{block.text}</h2>}
+          {block.type === "h3" && <h3>{block.text}</h3>}
+          {block.type === "list" && (
+            <ul>
+              {block.items.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+          {block.type === "numbered-list" && (
+            <ol>
+              {block.items.map((item) => <li>{item}</li>)}
+            </ol>
+          )}
+          {block.type === "quote" && (
+            <blockquote>
+              <p>{block.text}</p>
+              {block.attribution && <footer>{block.attribution}</footer>}
+            </blockquote>
+          )}
+          {block.type === "callout" && (
+            <aside class="article-callout">
+              {block.label && <strong>{block.label}</strong>}
+              <p>{block.text}</p>
+            </aside>
+          )}
+        </>
+      ))}
+
+      <div class="article-tags">
+        <span>Tags</span>
+        {post.tags.map((tag) => <em>{tag}</em>)}
+      </div>
+
+      <section class="article-author-card">
+        <div class="article-author-card__avatar">{JOE_AUTHOR.initials}</div>
+        <div>
+          <div class="article-author-card__head">
+            <h2>{JOE_AUTHOR.name}</h2>
+            <span>{JOE_AUTHOR.role}</span>
+          </div>
+          <p>{JOE_AUTHOR.bio}</p>
+          <div class="article-author-card__expertise">
+            {JOE_AUTHOR.expertise.map((item) => <span>{item}</span>)}
+          </div>
+          <a href="/about">More about Joe <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </section>
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="article-sidebar__inner">
+        <section class="article-cta-card">
+          <div class="article-cta-card__glow"></div>
+          <div>
+            <p class="type-label">Free review</p>
+            <h2>Want us to review your website?</h2>
+            <p>Get an honest, no-obligation assessment of what's stopping your site from converting visitors into enquiries.</p>
+            <a class="button button--accent" href="/free-review">Get a free review <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </section>
+
+        {related.length > 0 && (
+          <section class="related-posts">
+            <p class="type-label">More from Insights</p>
+            <div>
+              {related.map((relatedPost) => (
+                <a href={`/insights/${relatedPost.slug}`}>
+                  <span>{relatedPost.category}</span>
+                  <strong>{relatedPost.title}</strong>
+                  <em>{relatedPost.readingTime} min read</em>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <a class="article-back-link" href="/insights">All articles</a>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

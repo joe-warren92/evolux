@@ -1,0 +1,170 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<BaseLayout title="About - Joe, Founder of Evolux Web Design">
+  <section class="standard-hero">
+    <div class="standard-hero__glow"></div>
+    <div class="standard-hero__rule"></div>
+    <div class="standard-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>About</strong>
+        </div>
+        <div class="standard-pill">&#9733; 5.0 Google</div>
+      </div>
+      <div class="standard-hero__grid">
+        <div>
+          <h1><span>Built differently.</span><br />On purpose.</h1>
+          <p>Evolux is a one-person web design studio based in Sunderland, founded in 2023 on a single principle: a website should generate enquiries, not just exist.</p>
+        </div>
+        <aside>
+          <p class="type-index">Founded</p>
+          <strong>2023</strong>
+          <p>Sunderland, Tyne & Wear<br />North East England</p>
+          <span><i></i>Available for new projects</span>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-story">
+    <div class="about-story__inner">
+      <aside class="founder-card">
+        <div class="founder-card__wash"></div>
+        <span class="founder-card__watermark">JOE</span>
+        <div class="founder-card__top">
+          <span>EVOLUX</span>
+          <div><p class="type-index">Certified expert</p><p>Bricks Builder</p></div>
+        </div>
+        <div class="founder-card__body">
+          <p class="type-index">Web designer & developer</p>
+          <h2>Joe Evolux</h2>
+          <p>5+ years turning underperforming websites into lead-generation machines. Based in Sunderland. Working across the UK.</p>
+        </div>
+        <div class="founder-card__stats">
+          <div><strong>20+</strong><span class="type-index">projects delivered</span></div>
+          <div><strong>5+</strong><span class="type-index">years experience</span></div>
+          <div><span class="type-index">Based in</span><p>Sunderland, UK</p></div>
+        </div>
+      </aside>
+
+      <div class="about-story__content">
+        <div class="section-kicker"><span></span><p class="type-index">The story</p></div>
+        <h2>Hey, I'm Joe.<br /><span>Founder of Evolux.</span></h2>
+        <p>Evolux started in 2023 because I kept seeing the same problem: small businesses with genuinely great products and services losing enquiries to websites that looked fine but converted nobody.</p>
+        <p>I'd been working in web design and development for 5 years before founding Evolux. What that time taught me is that most agencies are optimising for the wrong thing. They build sites that impress other designers, not sites that generate business for their clients.</p>
+        <p>Evolux is different because conversion is the starting point, not an afterthought. Every layout decision, every heading, every call-to-action exists because it moves a visitor closer to making contact.</p>
+
+        <div class="about-principles">
+          <article><span><Icon name="direct" /></span><div><h3>Direct access</h3><p>You work with me throughout. No account managers, no briefing documents passed down a chain.</p></div></article>
+          <article><span><Icon name="target" /></span><div><h3>Conversion first</h3><p>Every design decision is tied to one question: does this move a visitor closer to making contact?</p></div></article>
+          <article><span><Icon name="analytics" /></span><div><h3>Measured results</h3><p>I review performance after launch. The job isn't done when the site goes live.</p></div></article>
+        </div>
+
+        <div class="about-story__actions">
+          <a href="/projects">See the work <span aria-hidden="true">&#8599;</span></a>
+          <a class="button button--dark" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-video">
+    <div class="about-video__inner">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Watch</p></div>
+          <h2><span>Two minutes on</span><br />how Evolux works.</h2>
+        </div>
+        <p>The thinking behind why we build websites differently, and what that means for your business.</p>
+      </div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1" title="Evolux Web Design - How we build websites that generate enquiries" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-process-strip">
+    <div class="about-process-strip__inner">
+      <div class="section-kicker"><span></span><p class="type-index">How I work</p></div>
+      <h2><span>Conversion first,</span><br />everything else second.</h2>
+      <div>
+        {[
+          ["01", "Discovery before design", "Every project starts with a deep-dive into your business, your customers, and what's stopping them from making contact."],
+          ["02", "Built around your buyer", "The layout, copy hierarchy and calls-to-action are designed around your specific target customer."],
+          ["03", "Launched and reviewed", "Go-live is the start, not the finish. Performance is reviewed after launch with adjustments based on behaviour."]
+        ].map(([num, title, body]) => (
+          <article><span class="type-index">{num}</span><h3>{title}</h3><p>{body}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-stack">
+    <div class="about-stack__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">The toolkit</p></div>
+        <h2><span>The tools that</span><br />do the work.</h2>
+        <p>Every platform and tool is chosen because it gives clients maximum flexibility and performance.</p>
+      </div>
+      <div class="about-stack__list">
+        {[
+          ["WordPress", "Core platform", "The world's most flexible CMS, giving clients full content control."],
+          ["Bricks Builder", "Visual builder", "Clean, semantic markup and performance that page builders typically sacrifice."],
+          ["Custom CSS", "Styling & animation", "No bloated frameworks. Every interaction is purposeful."],
+          ["WooCommerce", "E-commerce", "For clients selling online, a full WooCommerce build with payments and shipping."],
+          ["SEO Fundamentals", "Search visibility", "Schema markup, meta structure, performance scores and clean URLs."]
+        ].map(([tool, role, desc]) => (
+          <article><span>✓</span><div><h3>{tool}<em>{role}</em></h3><p>{desc}</p></div></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-numbers">
+    <div class="about-numbers__inner">
+      <div class="section-kicker"><span></span><p class="type-index">By the numbers</p></div>
+      <h2>Work that speaks<br /><span>for itself.</span></h2>
+      <div>
+        <article><strong>20+</strong><span class="type-label">projects delivered</span></article>
+        <article><strong>5+</strong><span class="type-label">years experience</span></article>
+        <article><strong>200+</strong><span class="type-label">brands reached</span></article>
+        <article><strong>100%</strong><span class="type-label">5-star Google reviews</span></article>
+      </div>
+      <img src="/assets/Mockup-laptop-Marley_1779878754713.webp" alt="Marley Doulas website by Evolux" />
+    </div>
+  </section>
+
+  <section class="about-testimonials">
+    <div class="about-testimonials__inner">
+      <div class="section-kicker"><span></span><p class="type-index">Client feedback</p></div>
+      <h2><span>In their</span><br />own words.</h2>
+      <div>
+        {[
+          ["We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for.", "Katie Dutton", "Manton Executives"],
+          ["Amazing! This company is so easy to work with - they created my website exactly how I'd imagined with no faff or hassle.", "Leah Hall", "Client"],
+          ["Joe completely transformed our online presence. From the first conversation to launch day, the process was smooth and professional.", "Sarah M.", "Evolux Client"],
+          ["Incredible attention to detail and a genuine understanding of what we needed. Our enquiry rate has gone up noticeably.", "David K.", "Evolux Client"]
+        ].map(([quote, name, company]) => (
+          <article><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"{quote}"</p><footer><span>{name[0]}</span><div><strong>{name}</strong><em>{company}</em></div></footer></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="standard-light-cta">
+    <div>
+      <p class="type-label">Ready to start?</p>
+      <h2>Let's build something<br /><span>that actually works.</span></h2>
+      <p>Every project starts with a free website review - an honest assessment of what's working, what's not, and what it would take to fix it.</p>
+    </div>
+    <div>
+      <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      <a class="button" href="/projects">View our work</a>
+    </div>
+  </section>
+</BaseLayout>

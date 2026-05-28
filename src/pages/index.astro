@@ -1,0 +1,471 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../data/site";
+import Icon from "../components/Icon.astro";
+
+const packages = [
+  {
+    id: "launch",
+    name: "Launch",
+    tagline: "For businesses that need a credible first impression, delivered quickly.",
+    price: "&pound;1,800",
+    features: [
+      "5-page custom design & build",
+      "Mobile-first, fully responsive",
+      "Brand alignment session",
+      "CMS - edit copy yourself",
+      "Core SEO setup",
+      "14-day post-launch support"
+    ],
+    cta: "Start with Launch"
+  },
+  {
+    id: "studio",
+    name: "Studio",
+    tagline: "The full package for brands serious about growth.",
+    price: "&pound;3,500",
+    features: [
+      "Up to 12 custom pages",
+      "Full visual identity system",
+      "Conversion-optimised layouts",
+      "Advanced SEO & Core Web Vitals",
+      "Headless CMS integration",
+      "Analytics & goal tracking",
+      "30-day post-launch support",
+      "Monthly strategy review"
+    ],
+    cta: "Start with Studio",
+    highlight: true
+  },
+  {
+    id: "elite",
+    name: "Elite",
+    tagline: "For businesses that want the very best - no compromises, no limits.",
+    price: "&pound;6,500",
+    features: [
+      "Up to 25 fully custom pages",
+      "Complete brand identity system",
+      "Custom animations & interactions",
+      "Conversion-led copywriting",
+      "Advanced SEO & analytics setup",
+      "90-day post-launch support",
+      "Quarterly strategy sessions",
+      "You own every file and line of code"
+    ],
+    cta: "Talk to us about Elite"
+  }
+];
+
+const insightCards = [
+  {
+    slug: "why-websites-dont-generate-business",
+    title: "Why Your Website Gets Traffic But No Enquiries",
+    category: "Strategy",
+    readingTime: "6 min read",
+    date: "Jan 2026",
+    quote: "Traffic is only useful when the page earns trust quickly.",
+    excerpt: "Traffic and conversion are different problems. Most businesses are solving the wrong one."
+  },
+  {
+    slug: "real-cost-of-cheap-website",
+    title: "The Real Cost of a Cheap Website",
+    category: "Business Case",
+    readingTime: "4 min read",
+    date: "Dec 2025",
+    quote: "The cheapest site is often the one quietly losing enquiries.",
+    excerpt: "A cheap build can become expensive when the site quietly loses qualified enquiries every month."
+  },
+  {
+    slug: "questions-to-ask-web-design-agency",
+    title: "5 Questions to Ask a Web Design Agency",
+    category: "Hiring Guide",
+    readingTime: "5 min read",
+    date: "Nov 2025",
+    quote: "The right questions reveal whether strategy exists behind the visuals.",
+    excerpt: "The answers will tell you whether an agency can deliver more than a good-looking homepage."
+  }
+];
+---
+
+<BaseLayout title="Web Design Sunderland - Websites That Generate Enquiries">
+  <section class="home-hero">
+    <div class="home-hero__glow home-hero__glow--one"></div>
+    <div class="home-hero__glow home-hero__glow--two"></div>
+    <div class="home-hero__rule"></div>
+
+    <div class="home-hero__inner">
+      <div class="home-hero__stamp">
+        <div class="home-hero__identity">
+          <span class="home-hero__mark">E</span>
+          <span class="type-index">Evolux Web Design</span>
+          <span class="home-hero__dot"></span>
+          <span class="type-index home-hero__location">Sunderland, UK · Est. 2023</span>
+        </div>
+        <div class="availability-pill">
+          <span></span>
+          <span>Available for new projects</span>
+        </div>
+      </div>
+
+      <h1 class="home-hero__title">
+        <span>Websites built to win</span>
+        <span><em>enquiries,</em> <strong>not just traffic.</strong></span>
+      </h1>
+
+      <div class="home-hero__grid">
+        <div>
+          <p class="home-hero__text">
+            If your website isn't consistently generating enquiries, there's usually a reason.
+            We find it, fix it, and build you something that works as hard as you do.
+          </p>
+          <div class="home-hero__actions">
+            <a class="button button--dark" href="/contact"><span></span>Book a Strategy Call</a>
+            <a class="text-button" href="/free-review">Free website review <span aria-hidden="true">&#8599;</span></a>
+          </div>
+          <div class="home-hero__clients">
+            <p class="type-index">Trusted by</p>
+            <div>
+              <span>Circular Branding</span>
+              <span>Manton Executives</span>
+              <span>Ockerby Academy</span>
+              <span>Marley Doulas</span>
+            </div>
+          </div>
+        </div>
+
+        <figure class="home-hero__quote">
+          <div class="stars" aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"We couldn't be happier with the new website Joe created for us. It truly captures who we are."</blockquote>
+          <figcaption>
+            <span>KD</span>
+            <p>Katie Dutton - Manton Executives</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="hero-showcase">
+      <img src="/assets/Screenshot-2025-02-14-at-20.27.41_(3)_1779878754711.webp" alt="Selection of Evolux client websites" />
+      <div class="hero-showcase__shade"></div>
+      <div class="hero-showcase__content">
+        <div>
+          <div class="avatar-row">
+            <span>CB</span><span>ME</span><span>OA</span>
+          </div>
+          <div>
+            <div class="stars stars--light">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="type-index">20+ clients served</p>
+          </div>
+        </div>
+        <div class="hero-showcase__region">
+          <strong>UK-wide</strong>
+          <p class="type-index">clients served</p>
+        </div>
+        <p class="type-index">Evolux Web Design</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-work" id="work">
+    <div class="section-split">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">Selected projects</p></div>
+        <h2 class="display-heading"><span>Results that</span><br />speak for themselves.</h2>
+      </div>
+      <p>Every project has a measurable outcome. We don't consider work complete until the numbers prove it.</p>
+    </div>
+
+    <div class="work-grid">
+      {projects.map((project, index) => (
+        <article class:list={["work-card", index % 2 === 1 && "work-card--lower"]}>
+          <a href={`/projects/${project.slug}`} class="work-card__link">
+            <figure class:list={["work-card__media", index % 2 === 1 && "work-card__media--portrait"]}>
+              <img src={project.image} alt={project.title} />
+              <figcaption>
+                <div>
+                  <p class="type-index">{project.category}</p>
+                  <strong>{project.title}</strong>
+                </div>
+                <span>&#8599;</span>
+              </figcaption>
+            </figure>
+            <div class="work-card__meta">
+              <div>
+                <span class="type-index">{String(index + 1).padStart(2, "0")}</span>
+                <h3>{project.title}</h3>
+              </div>
+              <strong>{project.stats[0]}</strong>
+            </div>
+            <p>{project.description}</p>
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="section-footer-row">
+      <p class="type-index">All results measured at 90 days post-launch</p>
+      <a href="/projects">See all projects <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </section>
+
+  <section class="studio-intro" id="about">
+    <div class="studio-intro__inner">
+      <aside class="founder-card">
+        <div class="founder-card__wash"></div>
+        <span class="founder-card__watermark">JOE</span>
+        <div class="founder-card__top">
+          <span>EVOLUX</span>
+          <div>
+            <p class="type-index">Certified expert</p>
+            <p>Bricks Builder</p>
+          </div>
+        </div>
+        <div class="founder-card__body">
+          <p class="type-index">Web designer & developer</p>
+          <h2>Joe Evolux</h2>
+          <p>5+ years turning underperforming websites into lead-generation machines. Based in Sunderland. Working across the UK.</p>
+        </div>
+        <div class="founder-card__stats">
+          <div><strong>20+</strong><span class="type-index">projects delivered</span></div>
+          <div><strong>5+</strong><span class="type-index">years experience</span></div>
+          <div><span class="type-index">Based in</span><p>Sunderland, UK</p></div>
+        </div>
+      </aside>
+
+      <div class="studio-intro__content">
+        <div class="section-kicker"><span></span><p class="type-index">About Evolux</p></div>
+        <h2 class="display-heading">Hey, I'm Joe.<br /><span>Founder of Evolux.</span></h2>
+        <div class="copy-stack">
+          <p>With 5+ years in web design and development, I founded Evolux in 2023 with a simple idea: businesses across the UK deserve websites that actually generate enquiries - not just look the part.</p>
+          <p>I combine technical expertise, brand thinking, and a genuine obsession with conversion to build WordPress websites that deliver measurable results. You'll always deal directly with me - no account managers, no handoffs.</p>
+        </div>
+        <div class="differentiator-list">
+          <article><span><Icon name="direct" /></span><div><h3>Direct access</h3><p>You work with me, not an account manager.</p></div></article>
+          <article><span><Icon name="target" /></span><div><h3>Conversion focus</h3><p>Every design decision is tied to a business outcome.</p></div></article>
+          <article><span><Icon name="launch" /></span><div><h3>Fast delivery</h3><p>From brief to live site in 4-6 weeks, consistently.</p></div></article>
+        </div>
+        <blockquote class="studio-intro__testimonial">
+          <span>"</span>
+          <p>Amazing! This company is so easy to work with - they created my website exactly how I'd imagined with no faff or hassle.</p>
+          <footer>Leah Hall - Client</footer>
+        </blockquote>
+        <a class="button button--dark" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="video-section__glow video-section__glow--one"></div>
+    <div class="video-section__glow video-section__glow--two"></div>
+    <div class="video-section__inner">
+      <div class="video-section__head">
+        <div>
+          <div class="mini-label"><span></span>Evolux in action</div>
+          <h2 class="display-heading"><span>See what conversion-focused</span><br />web design looks like.</h2>
+        </div>
+        <div>
+          <p>Watch how strategy, design, and development come together to create websites that feel premium and perform commercially.</p>
+          <a href="/about">More about Evolux <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1"
+          title="Evolux in action"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="video-section__caption">
+        <p class="type-index">Evolux Web Design · Sunderland, UK</p>
+        <a href="/contact">Start your project <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="credibility-section">
+    <div class="section-split">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">The four credibility gaps</p></div>
+        <h2 class="display-heading">Sound familiar?</h2>
+      </div>
+      <p>Most professional services websites fail for the same reason: they look credible enough at first glance, but don't build the trust a prospect needs to actually make contact.</p>
+    </div>
+    <div class="gap-grid">
+      {[
+        ["01", "Your site doesn't reflect the quality of your business within the first 10 seconds.", "You'll have a website that immediately signals credibility to the type of client you want to attract."],
+        ["02", "Prospects can't quickly work out whether you're the right fit for them.", "Clear, direct positioning lets the right people self-qualify fast."],
+        ["03", "You make claims on your site, but don't back them up with evidence.", "Proof in the right places helps prospects build trust before they've contacted you."],
+        ["04", "There's no obvious next step - so people leave without getting in touch.", "A clear, low-friction path from visitor to enquiry on every page."]
+      ].map(([num, problem, benefit]) => (
+        <article class="gap-card">
+          <div><span>{num}</span><span>&#8599;</span></div>
+          <h3>"{problem}"</h3>
+          <p class="type-index">What you gain</p>
+          <p>{benefit}</p>
+        </article>
+      ))}
+    </div>
+    <div class="review-bar">
+      <div>
+        <h3>Not sure which applies to your business?</h3>
+        <p>A free website review will identify your specific credibility gaps and tell you exactly what's costing you enquiries.</p>
+      </div>
+      <a class="button button--accent" href="/free-review">Get free review <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </section>
+
+  <section class="process-section" id="process">
+    <div class="process-section__head">
+      <div>
+        <div class="mini-label"><span></span>How it works</div>
+        <h2 class="display-heading"><span>Four clear steps.</span><br />You're in control throughout.</h2>
+      </div>
+      <blockquote>
+        <p>"Joe was an absolute pleasure to work with. He was always available, quick to respond, and incredibly patient."</p>
+        <footer>Katie Dutton - Manton Executives</footer>
+      </blockquote>
+    </div>
+    <div class="timeline">
+      {[
+        ["01", "Discovery", "Day 1", "You leave with complete clarity - a sitemap, a content plan, and a clear picture of what your site needs to do for your business."],
+        ["02", "Design", "Week 2", "You see the finished user experience and interface in prototype form before a single line of code is written."],
+        ["03", "Development", "Weeks 3-5", "You get a fast-loading, fully responsive WordPress website built with Bricks Builder."],
+        ["04", "Deployment", "Week 6", "You go live with confidence. Final testing, launch, and a full handover."]
+      ].map(([num, title, time, desc]) => (
+        <article class="timeline__item">
+          <span class="timeline__ghost">{num}</span>
+          <div class="timeline__dot"></div>
+          <div><h3>{title}</h3><p class="type-index">{time}</p></div>
+          <p>{desc}</p>
+        </article>
+      ))}
+    </div>
+    <div class="kpi-bar">
+      <div><strong>4-6 wks</strong><span class="type-index">From brief to launch</span></div>
+      <div><strong>30 days</strong><span class="type-index">Post-launch support</span></div>
+      <a class="button button--accent" href="/contact">Start a project <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </section>
+
+  <section class="lead-section" id="review">
+    <svg class="lead-section__rings lead-section__rings--top" viewBox="0 0 300 300" aria-hidden="true">
+      <circle cx="150" cy="150" r="80"></circle>
+      <circle cx="150" cy="150" r="120"></circle>
+      <circle cx="150" cy="150" r="160"></circle>
+    </svg>
+    <svg class="lead-section__rings lead-section__rings--bottom" viewBox="0 0 300 300" aria-hidden="true">
+      <circle cx="150" cy="150" r="80"></circle>
+      <circle cx="150" cy="150" r="120"></circle>
+      <circle cx="150" cy="150" r="160"></circle>
+    </svg>
+
+    <div class="lead-section__inner">
+      <div class="lead-section__copy">
+        <div class="mini-label"><span></span>Free website review</div>
+        <h2 class="display-heading"><span>Is your website winning or losing you business</span> right now?</h2>
+        <p>If your website isn't producing the enquiries it should, we'll show you why. You'll receive a personal video review breaking down where trust, clarity, and conversion are being lost.</p>
+        <ul>
+          <li>Scored against 20 conversion factors</li>
+          <li>Personalised video breakdown - in your inbox within 48 hours</li>
+          <li>No sales pitch. No obligation.</li>
+        </ul>
+        <a href="/free-review">Learn more about the review <span aria-hidden="true">&#8599;</span></a>
+      </div>
+
+      <form class="lead-form-card" action="/free-review">
+        <label>
+          <span>Your website URL</span>
+          <input type="url" name="website" placeholder="https://yourwebsite.co.uk" />
+        </label>
+        <label>
+          <span>Business email</span>
+          <input type="email" name="email" placeholder="you@company.co.uk" />
+        </label>
+        <label>
+          <span>Biggest website challenge? <em>(optional)</em></span>
+          <textarea name="challenge" rows="4" placeholder="Tell us what's not working right now"></textarea>
+        </label>
+        <button class="button button--accent" type="submit">Get my free review <span aria-hidden="true">&#8599;</span></button>
+        <p>No sales pitch. No obligation. Just an honest review from Joe.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="section-split">
+      <div>
+        <div class="mini-label"><span></span>Packages</div>
+        <h2 class="display-heading"><span>Transparent pricing.</span><br />No surprises.</h2>
+      </div>
+      <p>Every project is fully scoped before we start. What we quote is what you pay - no extras, no surprises halfway through.</p>
+    </div>
+    <div class="package-grid">
+      {packages.map((pkg) => (
+        <article class:list={["package-card", pkg.highlight && "package-card--featured"]} data-package={pkg.id}>
+          {pkg.highlight && <span class="package-card__badge">Most popular</span>}
+          <div class="package-card__head">
+            <p class="type-index">{pkg.name}</p>
+            <p>{pkg.tagline}</p>
+            <span class="type-index">Starting from</span>
+            <h3 set:html={pkg.price}></h3>
+          </div>
+          <ul>
+            {pkg.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+          <a href="/contact">{pkg.cta} <span aria-hidden="true">&#8599;</span></a>
+        </article>
+      ))}
+    </div>
+
+    <div class="guarantee-bar">
+      <div class="guarantee-bar__icon">✓</div>
+      <div>
+        <h3>30-day post-launch guarantee, on every package.</h3>
+        <p>If something isn't right in the 30 days after you go live, we fix it. No quibble, no extra charge.</p>
+      </div>
+      <a href="/free-review">Not sure? Get a free review <span aria-hidden="true">&#8599;</span></a>
+    </div>
+
+    <div class="trust-grid">
+      <article><h3>No hidden costs</h3><p>Fully scoped before we start. What we quote is what you pay.</p></article>
+      <article><h3>You deal with the designer</h3><p>No account managers. The person building your site is the person you talk to.</p></article>
+      <article><h3>30-day guarantee</h3><p>Not happy with something in the first 30 days after launch? We fix it.</p></article>
+    </div>
+  </section>
+
+  <section class="insights-section">
+    <div class="section-split">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">Insights</p></div>
+        <h2 class="display-heading"><span>Straight talk about</span><br />web design & business.</h2>
+      </div>
+      <p>We write about the decisions that grow businesses - not the tools we use to get there.</p>
+    </div>
+    <div class="insight-card-grid">
+      {insightCards.map((post, index) => (
+        <a href={`/insights/${post.slug}`} class="insight-card">
+          <div class="insight-card__cover">
+            <div class="insight-card__bloom"></div>
+            <div class="insight-card__top">
+              <span>{post.category}</span>
+              <span>{post.readingTime}</span>
+            </div>
+            <span class="insight-card__number">{String(index + 1).padStart(2, "0")}</span>
+            <blockquote>{post.quote}</blockquote>
+          </div>
+          <div class="insight-card__body">
+            <div class="insight-card__meta"><span>J</span><p>{post.date}</p></div>
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+            <strong>Read article <span aria-hidden="true">&#8599;</span></strong>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="section-footer-row">
+      <p class="type-index">New articles published monthly</p>
+      <a href="/insights">View all articles <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const locations = [
+  ["Sunderland", "Tyne & Wear", "/locations/sunderland", "Home base", "Our home city. We know the Sunderland business landscape and have worked with local companies across professional services, trades, and retail.", true],
+  ["Newcastle upon Tyne", "Tyne & Wear", "", "Serving", "Supporting Newcastle businesses with conversion-focused web design across Quayside, Jesmond, and the city centre."],
+  ["Durham", "County Durham", "", "Serving", "Working with professional services, tourism, and retail businesses across the city and county."],
+  ["Gateshead", "Tyne & Wear", "", "Serving", "From the Quays to Team Valley, supporting Gateshead businesses that want websites that work harder."],
+  ["Middlesbrough", "Teesside", "", "Serving", "Web design and development for Teesside businesses ready to turn their site into a lead-generating asset."],
+  ["Nationwide", "United Kingdom", "", "UK-wide", "We work with clients across the UK via video call. Location has never been a barrier to great work."]
+];
+---
+
+<BaseLayout title="Locations - Evolux Web Design | Sunderland & the North East">
+  <section class="standard-hero">
+    <div class="standard-hero__glow"></div>
+    <div class="standard-hero__rule"></div>
+    <div class="standard-hero__inner">
+      <div class="blog-stamp"><div class="blog-stamp__crumbs"><a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a><span>/</span><strong>Locations</strong></div></div>
+      <div class="standard-hero__single">
+        <h1><span>Based in Sunderland.</span><br />Working across the UK.</h1>
+        <p>Evolux was founded in Sunderland in 2023 and has grown to serve businesses across the North East and beyond. Every client gets the same level of attention whether they're in Sunderland or Southampton.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="locations-grid-section">
+    <div class="locations-grid-section__inner">
+      <div class="section-kicker"><span></span><p class="type-index">Areas we serve</p></div>
+      <div class="locations-grid">
+        {locations.map(([city, region, href, highlight, desc, active]) => (
+          <article class:list={["location-card", active && "location-card--active"]}>
+            <a href={href || "#"}>
+              <div><span>{highlight}</span>{active && <em>&#8599;</em>}</div>
+              <h2>{city}</h2>
+              <p class="type-index">{region}</p>
+              <p>{desc}</p>
+              {active && <strong>View Sunderland page <span aria-hidden="true">&#8599;</span></strong>}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="location-workflow">
+    <div class="location-workflow__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">How we work</p></div>
+        <h2><span>Location doesn't</span><br />limit great work.</h2>
+        <p>All discovery, design review, and handover sessions are run via video call. We've delivered projects for clients we've never met in person, and the results speak for themselves.</p>
+      </div>
+      <div>
+        {[
+          ["Discovery call", "Your first session is a 45-minute strategy call via Zoom or Google Meet."],
+          ["Design review", "Figma prototypes are shared via link so you can comment directly."],
+          ["Regular check-ins", "You'll get weekly progress updates and can reach Joe directly."],
+          ["Launch & handover", "Full CMS training via screenshare."]
+        ].map(([heading, body]) => <article><h3>{heading}</h3><p>{body}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="review-bottom-cta">
+    <div>
+      <h2><span>Not sure if we cover</span><br />your area?</h2>
+      <p>Get in touch - we almost certainly do. Or start with a free website review and we'll take it from there.</p>
+      <a class="button button--dark" href="/free-review"><span></span>Get a free website review</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { PROJECT_ARCHIVE_STATS, PROJECTS } from "../../data/projects";
+
+const [featured, ...rest] = PROJECTS;
+const statIcons = ["briefcase", "star", "location", "launch"];
+---
+
+<BaseLayout title="Projects - Evolux Web Design">
+  <section class="portfolio-hero">
+    <div class="portfolio-hero__glow"></div>
+    <div class="portfolio-hero__rule"></div>
+    <div class="portfolio-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>Projects</strong>
+        </div>
+      </div>
+      <div class="portfolio-hero__grid">
+        <div>
+          <h1><span>Results that</span><br />speak for themselves.</h1>
+          <p>Every project at Evolux starts with a question: what does success actually look like for this business? The work below is our answer.</p>
+        </div>
+        <div class="portfolio-stats">
+          {PROJECT_ARCHIVE_STATS.map((stat, index) => (
+            <article><i><Icon name={statIcons[index] ?? "star"} /></i><strong>{stat.value}</strong><span class="type-index">{stat.label}</span></article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio-featured">
+    <div class="portfolio-featured__inner">
+      <a class="portfolio-featured-card" href={`/projects/${featured.slug}`}>
+        <figure>
+          <img src={featured.hero} alt={featured.title} />
+          <figcaption>
+            <div>
+              <p class="type-index">{featured.category}</p>
+              <strong>{featured.title}</strong>
+            </div>
+            <span>&#8599;</span>
+          </figcaption>
+          <em>{featured.num} - Featured project</em>
+        </figure>
+        <div class="portfolio-featured-card__meta">
+          <div>
+            <p class="type-label">{featured.category}</p>
+            <h2>{featured.title}</h2>
+            <p>{featured.description}</p>
+          </div>
+          <dl>
+            <div><dt>Industry</dt><dd>{featured.industry}</dd></div>
+            <div><dt>Year</dt><dd>{featured.year}</dd></div>
+          </dl>
+          <div class="portfolio-featured-card__result">
+            <strong>{featured.result}</strong>
+            <span class="type-index">{featured.resultLabel}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="portfolio-grid-section">
+    <div class="portfolio-grid-section__inner">
+      <div class="portfolio-grid">
+        {rest.map((project) => (
+          <article class="portfolio-card">
+            <a href={`/projects/${project.slug}`}>
+              <figure>
+                <img src={project.hero} alt={project.title} />
+                <figcaption>
+                  <p class="type-index">{project.category}</p>
+                  <strong>{project.title}</strong>
+                </figcaption>
+                <em>{project.num}</em>
+              </figure>
+              <div>
+                <div>
+                  <h2>{project.title}</h2>
+                  <strong>{project.result}</strong>
+                </div>
+                <p class="type-index">{project.category} · {project.year}</p>
+                <p>{project.description}</p>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="portfolio-footnote">
+        <p class="type-index">All results measured at 90 days post-launch</p>
+        <p class="type-index">Sunderland, Tyne & Wear - est. 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="archive-cta">
+    <svg aria-hidden="true" viewBox="0 0 380 380">
+      <circle cx="320" cy="320" r="200"></circle>
+      <circle cx="320" cy="320" r="110"></circle>
+    </svg>
+    <div>
+      <p class="type-index"><span></span>Currently available for new projects</p>
+      <h2>Want results like these?</h2>
+      <p>Start with a free website review - we'll show you exactly what's holding your current site back.</p>
+      <div>
+        <a class="button button--accent" href="/free-review">Get a free website review</a>
+        <a href="/packages">See packages & pricing <span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
