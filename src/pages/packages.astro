@@ -6,27 +6,30 @@ const packages = [
   {
     id: "launch",
     name: "Launch",
-    price: "£1,800",
+    price: "\u00A31,800",
     note: "Starting from",
     tagline: "Get online with a professional site that wins you new business from day one.",
-    cta: "Start with Launch"
+    cta: "Start with Launch",
+    summary: "A focused website foundation for businesses ready to look credible and convert visitors."
   },
   {
     id: "studio",
     name: "Studio",
-    price: "£3,500",
+    price: "\u00A33,500",
     note: "Starting from",
     tagline: "The complete package - brand, website, and everything needed to grow.",
     cta: "Start with Studio",
+    summary: "A fuller brand-led website for businesses that need stronger positioning and more content.",
     highlight: true
   },
   {
     id: "elite",
     name: "Elite",
-    price: "£6,500",
+    price: "\u00A36,500",
     note: "Starting from",
     tagline: "Our most ambitious work - for businesses that want to dominate their market.",
-    cta: "Talk to us about Elite"
+    cta: "Talk to us about Elite",
+    summary: "A deeper custom build for ambitious teams with more pages, strategy and interaction detail."
   }
 ];
 
@@ -67,7 +70,7 @@ const faqs = [
 ];
 
 const renderCell = (value: boolean | string | undefined) => {
-  if (value === true) return "✓";
+  if (value === true) return "\u2713";
   if (value === false) return "-";
   return value;
 };
@@ -92,10 +95,20 @@ const renderCell = (value: boolean | string | undefined) => {
           <h1><span>Transparent pricing.</span><br />No surprises.</h1>
           <p>Every project is fully scoped before we start. What we quote is what you pay. Choose the package that matches where your business is right now - and where you want it to go.</p>
         </div>
-        <aside class="package-promise-list">
-          <p><span><Icon name="check" /></span><strong>What you see is what you pay</strong> Everything agreed in writing before we start.</p>
-          <p><span><Icon name="shield" /></span><strong>If it's wrong after launch, we fix it free</strong> On Studio and Elite packages.</p>
-          <p><span><Icon name="user" /></span><strong>You talk to Joe</strong> The person building your site answers your calls.</p>
+        <aside class="package-pricing-note" aria-label="How Evolux pricing works">
+          <p class="type-label">How pricing works</p>
+          <h2>Scoped properly before anything starts.</h2>
+          <p>Every package is a starting point. Before you commit, Joe maps the pages, content, functionality and support you need, then confirms the full scope in writing.</p>
+          <div>
+            <span><Icon name="check" /></span>
+            <strong>Clear proposal</strong>
+            <small>Deliverables, timeline and investment agreed upfront.</small>
+          </div>
+          <div>
+            <span><Icon name="user" /></span>
+            <strong>Direct process</strong>
+            <small>You speak with the person designing and building the site.</small>
+          </div>
         </aside>
       </div>
     </div>
@@ -107,11 +120,14 @@ const renderCell = (value: boolean | string | undefined) => {
         {packages.map((pkg) => (
           <article class:list={["packages-card", pkg.highlight && "packages-card--featured"]}>
             {pkg.highlight && <em>Most popular</em>}
-            <p class="type-label">{pkg.name}</p>
-            <p>{pkg.tagline}</p>
-            <span class="type-label">{pkg.note}</span>
-            <h2>{pkg.price}</h2>
-            <a href="#comparison">See what's included <span aria-hidden="true">&#8599;</span></a>
+            <div class="packages-card__content">
+              <p class="type-label">{pkg.name}</p>
+              <h2>{pkg.price}</h2>
+              <span class="type-label">{pkg.note}</span>
+              <p>{pkg.tagline}</p>
+              <small>{pkg.summary}</small>
+            </div>
+            <a href="#comparison">Compare {pkg.name} package features <span aria-hidden="true">&#8599;</span></a>
           </article>
         ))}
       </div>
@@ -119,7 +135,7 @@ const renderCell = (value: boolean | string | undefined) => {
       <div class="packages-guarantee">
         <span><Icon name="shield" /></span>
         <p><strong>Something wrong after launch?</strong> On Studio and Elite, we fix it free - no questions asked. 30 days on Studio, 90 days on Elite.</p>
-        <a href="/free-review">Not sure which? Free review <span aria-hidden="true">&#8599;</span></a>
+        <a href="/free-review">Get a free website review before choosing a package <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>
@@ -179,9 +195,19 @@ const renderCell = (value: boolean | string | undefined) => {
 
   <section class="review-faq packages-faq">
     <div class="review-faq__inner">
-      <div class="section-kicker"><span></span><p class="type-index">FAQ</p></div>
-      <h2><span>Pricing</span> questions.</h2>
-      {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      <div class="faq-support-card">
+        <p class="type-index">Choosing a package</p>
+        <h2>Scope, pricing and fit.</h2>
+        <div class="faq-support-card__person">
+          <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
+          <div><strong>Want a steer first?</strong><span>Joe can recommend the sensible starting point.</span></div>
+        </div>
+        <a class="button button--dark" href="/free-review">Get a free review</a>
+        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
+      </div>
+      <div class="faq-accordion-list">
+        {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
     </div>
   </section>
 

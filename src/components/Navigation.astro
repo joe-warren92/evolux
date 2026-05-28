@@ -9,11 +9,46 @@ const services = [
   ["Graphic Design", "Print, social media and marketing design", "/services/graphic-design", "palette"]
 ];
 
+const serviceGroups = [
+  {
+    label: "Create",
+    items: [
+      ["Web Design", "Premium websites built to convert", "/services/web-design", "code"],
+      ["Brand Identity", "Logo, colours, typography and guidelines", "/services/branding", "brand"],
+      ["Graphic Design", "Print, social media and marketing design", "/services/graphic-design", "palette"]
+    ]
+  },
+  {
+    label: "Improve",
+    items: [
+      ["Conversion Optimisation", "More enquiries from existing traffic", "/services/conversion-optimisation", "conversion"],
+      ["Website Maintenance", "Security, backups and monthly updates", "/services/website-maintenance", "maintenance"]
+    ]
+  }
+];
+
 const resources = [
   ["Free Website Review", "Personalised video in your inbox in 48 hours", "/free-review", "target"],
   ["Contact", "Send a message and get a reply within one business day", "/contact", "email"],
   ["Insights", "Strategy, design and hiring guides", "/insights", "search"],
   ["Locations", "Sunderland and across the North East", "/locations", "location"]
+];
+
+const resourceGroups = [
+  {
+    label: "Helpful",
+    items: [
+      ["Free Website Review", "Find the fastest wins on your site", "/free-review", "target"],
+      ["Insights", "Strategy, design and hiring guides", "/insights", "search"]
+    ]
+  },
+  {
+    label: "Connect",
+    items: [
+      ["Locations", "Sunderland and across the North East", "/locations", "location"],
+      ["Contact", "Send a message and get a reply within one business day", "/contact", "email"]
+    ]
+  }
 ];
 ---
 
@@ -27,13 +62,22 @@ const resources = [
       <div class="site-header__dropdown">
         <button type="button" class="site-header__link site-header__dropdown-button">Services <span>&#8964;</span></button>
         <div class="nav-panel">
-          {services.map(([label, desc, href, icon]) => (
-            <a class="nav-panel__item" href={href}>
-              <span class="nav-panel__icon"><Icon name={icon} /></span>
-              <span><strong>{label}</strong><small>{desc}</small></span>
-            </a>
-          ))}
-          <a class="nav-panel__all" href="/services">All services <span>&#8599;</span></a>
+          <div class="nav-panel__grid">
+            {serviceGroups.map((group) => (
+              <section class="nav-panel__column" aria-label={group.label}>
+                <p class="nav-panel__heading">{group.label}</p>
+                <div class="nav-panel__list">
+                  {group.items.map(([label, desc, href, icon]) => (
+                    <a class="nav-panel__item" href={href}>
+                      <span class="nav-panel__icon"><Icon name={icon} /></span>
+                      <span><strong>{label}</strong><small>{desc}</small></span>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+          <a class="nav-panel__all" href="/services">Explore all services <span>&#8599;</span></a>
         </div>
       </div>
       <a class="site-header__link" href="/packages">Packages</a>
@@ -41,19 +85,27 @@ const resources = [
       <div class="site-header__dropdown">
         <button type="button" class="site-header__link site-header__dropdown-button">Resources <span>&#8964;</span></button>
         <div class="nav-panel nav-panel--narrow">
-          {resources.map(([label, desc, href, icon], index) => (
-            <a class="nav-panel__item" href={href}>
-              <span class:list={["nav-panel__icon", index === 0 && "nav-panel__icon--accent"]}><Icon name={icon} /></span>
-              <span><strong>{label}</strong><small>{desc}</small></span>
-            </a>
-          ))}
+          <div class="nav-panel__grid">
+            {resourceGroups.map((group) => (
+              <section class="nav-panel__column" aria-label={group.label}>
+                <p class="nav-panel__heading">{group.label}</p>
+                <div class="nav-panel__list">
+                  {group.items.map(([label, desc, href, icon], index) => (
+                    <a class="nav-panel__item" href={href}>
+                      <span class:list={["nav-panel__icon", group.label === "Plan" && index === 1 && "nav-panel__icon--accent"]}><Icon name={icon} /></span>
+                      <span><strong>{label}</strong><small>{desc}</small></span>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
 
     <div class="site-header__actions">
-      <span class="availability"><span></span>Available</span>
-      <a class="site-header__cta" href="/free-review">Free Review <span>&#8599;</span></a>
+      <a class="site-header__cta" href="/free-review">Free website review <span>&#8599;</span></a>
       <details class="mobile-nav" data-mobile-nav>
         <summary class="site-header__toggle" aria-label="Toggle menu" data-menu-button>
           <span></span><span></span><span></span>
@@ -64,7 +116,7 @@ const resources = [
             <span class="mobile-menu__status"><i></i>Available for new projects</span>
           </div>
 
-          <a class="mobile-menu__link" href="/projects">Projects <span>&#8599;</span></a>
+          <a class="mobile-menu__link" href="/projects">View web design projects <span>&#8599;</span></a>
 
           <details class="mobile-menu__section">
             <summary>
@@ -73,12 +125,12 @@ const resources = [
             </summary>
             <div class="mobile-menu__group">
               {services.map(([label, desc, href, icon]) => <a href={href}><Icon name={icon} /><span><strong>{label}</strong><small>{desc}</small></span></a>)}
-              <a href="/services"><Icon name="layers" /><span><strong>All services</strong><small>View the complete service list</small></span></a>
+              <a href="/services"><Icon name="layers" /><span><strong>Explore all web design services</strong><small>View the complete service list</small></span></a>
             </div>
           </details>
 
-          <a class="mobile-menu__link" href="/packages">Packages <span>&#8599;</span></a>
-          <a class="mobile-menu__link" href="/about">About <span>&#8599;</span></a>
+          <a class="mobile-menu__link" href="/packages">See web design packages <span>&#8599;</span></a>
+          <a class="mobile-menu__link" href="/about">Meet Joe and Evolux <span>&#8599;</span></a>
 
           <details class="mobile-menu__section">
             <summary>
@@ -91,8 +143,8 @@ const resources = [
           </details>
 
           <div class="mobile-menu__cta">
-            <a class="button button--dark" href="/free-review">Free Website Review <span>&#8599;</span></a>
-            <a href="/contact">Contact Joe <span>&#8599;</span></a>
+            <a class="button button--dark" href="/free-review">Get a free website review <span>&#8599;</span></a>
+            <a href="/contact">Contact Joe about your website <span>&#8599;</span></a>
           </div>
         </nav>
       </details>

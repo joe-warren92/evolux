@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/site";
+import { JOE_AUTHOR } from "../data/insights";
 import Icon from "../components/Icon.astro";
 
 const packages = [
@@ -64,7 +65,8 @@ const insightCards = [
     readingTime: "6 min read",
     date: "Jan 2026",
     quote: "Traffic is only useful when the page earns trust quickly.",
-    excerpt: "Traffic and conversion are different problems. Most businesses are solving the wrong one."
+    excerpt: "Traffic and conversion are different problems. Most businesses are solving the wrong one.",
+    image: "/assets/articles/6-things-that-kill-website-conversion-rate-00-img-2487-1-1.webp"
   },
   {
     slug: "real-cost-of-cheap-website",
@@ -73,7 +75,8 @@ const insightCards = [
     readingTime: "4 min read",
     date: "Dec 2025",
     quote: "The cheapest site is often the one quietly losing enquiries.",
-    excerpt: "A cheap build can become expensive when the site quietly loses qualified enquiries every month."
+    excerpt: "A cheap build can become expensive when the site quietly loses qualified enquiries every month.",
+    image: "/assets/articles/why-a-cheap-website-could-cost-you-more-than-you-think-00-pexels-pixabay-39284-1-1.jpg"
   },
   {
     slug: "questions-to-ask-web-design-agency",
@@ -82,12 +85,80 @@ const insightCards = [
     readingTime: "5 min read",
     date: "Nov 2025",
     quote: "The right questions reveal whether strategy exists behind the visuals.",
-    excerpt: "The answers will tell you whether an agency can deliver more than a good-looking homepage."
+    excerpt: "The answers will tell you whether an agency can deliver more than a good-looking homepage.",
+    image: "/assets/articles/how-to-write-a-web-design-brief-so-that-you-get-your-perfect-site-00-pexels-fotios-photos-811587.webp"
   }
 ];
+
+const credibilityGaps = [
+  {
+    num: "01",
+    question: "Does your site reflect the quality of your business within the first 10 seconds?",
+    problem: "Your site doesn't reflect the quality of your business within the first 10 seconds.",
+    benefit: "You'll have a website that immediately signals credibility to the type of client you want to attract."
+  },
+  {
+    num: "02",
+    question: "Can prospects quickly work out whether you're the right fit for them?",
+    problem: "Prospects can't quickly work out whether you're the right fit for them.",
+    benefit: "Clear, direct positioning lets the right people self-qualify fast."
+  },
+  {
+    num: "03",
+    question: "Do you back up your website claims with enough evidence?",
+    problem: "You make claims on your site, but don't back them up with evidence.",
+    benefit: "Proof in the right places helps prospects build trust before they've contacted you."
+  },
+  {
+    num: "04",
+    question: "Is there an obvious next step for visitors on every page?",
+    problem: "There's no obvious next step - so people leave without getting in touch.",
+    benefit: "A clear, low-friction path from visitor to enquiry on every page."
+  }
+];
+
+const homepageFaqs = [
+  ["What does Evolux actually do?", "Evolux designs and builds premium, conversion-focused websites for UK businesses that need more enquiries from their online presence. The work usually covers strategy, structure, design, WordPress development, performance, SEO foundations and post-launch support."],
+  ["Do you only design websites, or do you build them too?", "Both. You work directly with Joe from strategy through to launch, so the design and development stay connected. That means the finished site is not just a nice concept, but a fast, responsive, editable website built around clear business goals."],
+  ["What kind of businesses do you work with?", "Evolux is best suited to service-based businesses, local companies and growing brands that need their website to build trust and generate qualified enquiries. Projects often include professional services, recruitment, health and wellness, trades, education, hospitality and B2B suppliers."],
+  ["How much does a website cost?", "Most projects start from the packages shown on the pricing page. The exact investment depends on the number of pages, content, brand work, functionality and level of support needed. Before anything starts, you receive a clear written scope so there are no surprises."],
+  ["Can you review my current website first?", "Yes. The free website review is often the best starting point. Joe will look at your current site, identify where trust, clarity, SEO or conversion may be costing you enquiries, and send back a practical video review."],
+  ["How soon can we start?", "Availability changes depending on current projects, but the first step is usually a short message or free review. From there, Joe can confirm whether your project is a good fit, what timeline is realistic and which package or scope makes most sense."]
+];
+
+const trustedLogos = [
+  { name: "Skyn & Glo", image: "/assets/logos/skyn-glo-logo.webp" },
+  { name: "Ockerby Academy", image: "/assets/logos/ockerby-academy-logo.webp" },
+  { name: "Circular Branding", image: "/assets/logos/circular-branding-logo.webp" },
+  { name: "Manton Executives", image: "/assets/logos/manton-executives-logo.webp" }
+];
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://evoluxwebdesign.co.uk/#credibility-gap-faq",
+  mainEntity: [
+    ...credibilityGaps.map((gap) => ({
+    "@type": "Question",
+    name: gap.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: gap.benefit
+    }
+    })),
+    ...homepageFaqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer
+      }
+    }))
+  ]
+};
 ---
 
-<BaseLayout title="Web Design Sunderland - Websites That Generate Enquiries">
+<BaseLayout title="Web Design Sunderland - Websites That Generate Enquiries" structuredData={homepageSchema} includeFounderSchema includePersonSchema>
   <section class="home-hero">
     <div class="home-hero__glow home-hero__glow--one"></div>
     <div class="home-hero__glow home-hero__glow--two"></div>
@@ -109,36 +180,43 @@ const insightCards = [
 
       <h1 class="home-hero__title">
         <span>Websites built to win</span>
-        <span><em>enquiries,</em> <strong>not just traffic.</strong></span>
+        <span><em>enquiries,</em> <strong class="home-hero__title-muted">not just traffic.</strong></span>
       </h1>
 
       <div class="home-hero__grid">
         <div>
           <p class="home-hero__text">
-            If your website isn't consistently generating enquiries, there's usually a reason.
-            We find it, fix it, and build you something that works as hard as you do.
+            Evolux helps service businesses turn credibility into enquiries through sharper positioning,
+            clearer page structure and fewer moments of doubt between first impression and contact.
           </p>
           <div class="home-hero__actions">
-            <a class="button button--dark" href="/contact"><span></span>Book a Strategy Call</a>
-            <a class="text-button" href="/free-review">Free website review <span aria-hidden="true">&#8599;</span></a>
+            <a class="button button--accent" href="/contact"><span></span>Book a strategy call</a>
+            <a class="text-button" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+          </div>
+          <div class="home-hero__review-signal" aria-label="Google review rating">
+            <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span>5.0 Google rating from local businesses</span>
           </div>
           <div class="home-hero__clients">
             <p class="type-index">Trusted by</p>
-            <div>
-              <span>Circular Branding</span>
-              <span>Manton Executives</span>
-              <span>Ockerby Academy</span>
-              <span>Marley Doulas</span>
+            <div class="home-hero__logo-rail" aria-label="Trusted by client logos">
+              <div class="home-hero__logo-track">
+                {[...trustedLogos, ...trustedLogos].map((logo) => (
+                  <span class="home-hero__logo">
+                    <img src={logo.image} alt={logo.name} loading="eager" />
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         <figure class="home-hero__quote">
-          <div class="stars" aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>"We couldn't be happier with the new website Joe created for us. It truly captures who we are."</blockquote>
+          <img src="/assets/logos/steven-dunn-circular-branding.jpg" alt="Steven Dunn, Circular Branding Group" loading="eager" />
+          <blockquote>"The result says it all. Clear communication throughout, proactive, responsive, and attention to detail was second to none."</blockquote>
           <figcaption>
-            <span>KD</span>
-            <p>Katie Dutton - Manton Executives</p>
+            <strong>Steven Dunn</strong>
+            <p>Circular Branding Group</p>
           </figcaption>
         </figure>
       </div>
@@ -203,32 +281,27 @@ const insightCards = [
     </div>
     <div class="section-footer-row">
       <p class="type-index">All results measured at 90 days post-launch</p>
-      <a href="/projects">See all projects <span aria-hidden="true">&#8599;</span></a>
+      <a href="/projects">View Evolux web design projects <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
   <section class="studio-intro" id="about">
     <div class="studio-intro__inner">
-      <aside class="founder-card">
-        <div class="founder-card__wash"></div>
-        <span class="founder-card__watermark">JOE</span>
-        <div class="founder-card__top">
-          <span>EVOLUX</span>
-          <div>
-            <p class="type-index">Certified expert</p>
-            <p>Bricks Builder</p>
-          </div>
+      <aside class="founder-card founder-card--video" data-video-card>
+        <div class="founder-card__video" aria-label="Evolux Web Design video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1&controls=0&playsinline=1"
+            data-video-src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+            title="Evolux Web Design - How we build websites that generate enquiries"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
-        <div class="founder-card__body">
-          <p class="type-index">Web designer & developer</p>
-          <h2>Joe Evolux</h2>
-          <p>5+ years turning underperforming websites into lead-generation machines. Based in Sunderland. Working across the UK.</p>
-        </div>
-        <div class="founder-card__stats">
-          <div><strong>20+</strong><span class="type-index">projects delivered</span></div>
-          <div><strong>5+</strong><span class="type-index">years experience</span></div>
-          <div><span class="type-index">Based in</span><p>Sunderland, UK</p></div>
-        </div>
+        <button class="founder-card__play" type="button" data-video-play aria-label="Play Evolux video">
+          <span></span>
+          <strong>Watch Joe explain the process</strong>
+        </button>
       </aside>
 
       <div class="studio-intro__content">
@@ -253,35 +326,21 @@ const insightCards = [
     </div>
   </section>
 
-  <section class="video-section">
-    <div class="video-section__glow video-section__glow--one"></div>
-    <div class="video-section__glow video-section__glow--two"></div>
-    <div class="video-section__inner">
-      <div class="video-section__head">
-        <div>
-          <div class="mini-label"><span></span>Evolux in action</div>
-          <h2 class="display-heading"><span>See what conversion-focused</span><br />web design looks like.</h2>
-        </div>
-        <div>
-          <p>Watch how strategy, design, and development come together to create websites that feel premium and perform commercially.</p>
-          <a href="/about">More about Evolux <span aria-hidden="true">&#8599;</span></a>
-        </div>
-      </div>
-      <div class="video-frame">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1"
-          title="Evolux in action"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="video-section__caption">
-        <p class="type-index">Evolux Web Design · Sunderland, UK</p>
-        <a href="/contact">Start your project <span aria-hidden="true">&#8599;</span></a>
-      </div>
-    </div>
-  </section>
+  <script is:inline>
+    (() => {
+      const card = document.querySelector("[data-video-card]");
+      if (!card) return;
+
+      const button = card.querySelector("[data-video-play]");
+      const iframe = card.querySelector("iframe[data-video-src]");
+      if (!button || !iframe) return;
+
+      button.addEventListener("click", () => {
+        iframe.src = iframe.dataset.videoSrc;
+        card.classList.add("founder-card--playing");
+      });
+    })();
+  </script>
 
   <section class="credibility-section">
     <div class="section-split">
@@ -292,13 +351,8 @@ const insightCards = [
       <p>Most professional services websites fail for the same reason: they look credible enough at first glance, but don't build the trust a prospect needs to actually make contact.</p>
     </div>
     <div class="gap-grid">
-      {[
-        ["01", "Your site doesn't reflect the quality of your business within the first 10 seconds.", "You'll have a website that immediately signals credibility to the type of client you want to attract."],
-        ["02", "Prospects can't quickly work out whether you're the right fit for them.", "Clear, direct positioning lets the right people self-qualify fast."],
-        ["03", "You make claims on your site, but don't back them up with evidence.", "Proof in the right places helps prospects build trust before they've contacted you."],
-        ["04", "There's no obvious next step - so people leave without getting in touch.", "A clear, low-friction path from visitor to enquiry on every page."]
-      ].map(([num, problem, benefit]) => (
-        <article class="gap-card">
+      {credibilityGaps.map(({ num, problem, benefit }, index) => (
+        <article class:list={["gap-card", index === 0 && "gap-card--lead"]}>
           <div><span>{num}</span><span>&#8599;</span></div>
           <h3>"{problem}"</h3>
           <p class="type-index">What you gain</p>
@@ -311,7 +365,7 @@ const insightCards = [
         <h3>Not sure which applies to your business?</h3>
         <p>A free website review will identify your specific credibility gaps and tell you exactly what's costing you enquiries.</p>
       </div>
-      <a class="button button--accent" href="/free-review">Get free review <span aria-hidden="true">&#8599;</span></a>
+      <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
@@ -344,7 +398,7 @@ const insightCards = [
     <div class="kpi-bar">
       <div><strong>4-6 wks</strong><span class="type-index">From brief to launch</span></div>
       <div><strong>30 days</strong><span class="type-index">Post-launch support</span></div>
-      <a class="button button--accent" href="/contact">Start a project <span aria-hidden="true">&#8599;</span></a>
+      <a class="button button--accent" href="/contact">Contact Evolux about your web design project <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
@@ -370,7 +424,7 @@ const insightCards = [
           <li>Personalised video breakdown - in your inbox within 48 hours</li>
           <li>No sales pitch. No obligation.</li>
         </ul>
-        <a href="/free-review">Learn more about the review <span aria-hidden="true">&#8599;</span></a>
+        <a href="/free-review">See what is included in the free website review <span aria-hidden="true">&#8599;</span></a>
       </div>
 
       <form class="lead-form-card" action="/free-review">
@@ -389,6 +443,27 @@ const insightCards = [
         <button class="button button--accent" type="submit">Get my free review <span aria-hidden="true">&#8599;</span></button>
         <p>No sales pitch. No obligation. Just an honest review from Joe.</p>
       </form>
+    </div>
+  </section>
+
+  <section class="review-faq home-faq">
+    <div class="review-faq__inner">
+      <div class="faq-support-card">
+        <p class="type-index">A few practical answers</p>
+        <h2>Before we talk.</h2>
+        <div class="faq-support-card__person">
+          <img src={JOE_AUTHOR.image} alt="Joe, founder of Evolux Web Design" loading="lazy" />
+          <div>
+            <strong>Prefer a straight answer?</strong>
+            <span>Send Joe the context and he will point you in the right direction.</span>
+          </div>
+        </div>
+        <a class="button button--dark" href="/contact">Ask Joe a question</a>
+        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
+      </div>
+      <div class="faq-accordion-list">
+        {homepageFaqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
     </div>
   </section>
 
@@ -413,7 +488,7 @@ const insightCards = [
           <ul>
             {pkg.features.map((feature) => <li>{feature}</li>)}
           </ul>
-          <a href="/contact">{pkg.cta} <span aria-hidden="true">&#8599;</span></a>
+          <a href="/contact">Contact Joe about the {pkg.name} web design package <span aria-hidden="true">&#8599;</span></a>
         </article>
       ))}
     </div>
@@ -424,7 +499,7 @@ const insightCards = [
         <h3>30-day post-launch guarantee, on every package.</h3>
         <p>If something isn't right in the 30 days after you go live, we fix it. No quibble, no extra charge.</p>
       </div>
-      <a href="/free-review">Not sure? Get a free review <span aria-hidden="true">&#8599;</span></a>
+      <a href="/free-review">Get a free website review before choosing a package <span aria-hidden="true">&#8599;</span></a>
     </div>
 
     <div class="trust-grid">
@@ -446,6 +521,7 @@ const insightCards = [
       {insightCards.map((post, index) => (
         <a href={`/insights/${post.slug}`} class="insight-card">
           <div class="insight-card__cover">
+            <img src={post.image} alt="" loading="lazy" />
             <div class="insight-card__bloom"></div>
             <div class="insight-card__top">
               <span>{post.category}</span>
@@ -455,17 +531,16 @@ const insightCards = [
             <blockquote>{post.quote}</blockquote>
           </div>
           <div class="insight-card__body">
-            <div class="insight-card__meta"><span>J</span><p>{post.date}</p></div>
+            <div class="insight-card__meta"><img src={JOE_AUTHOR.image} alt="" loading="lazy" /><p>{post.date}</p></div>
             <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <strong>Read article <span aria-hidden="true">&#8599;</span></strong>
+            <strong>Read {post.title} <span aria-hidden="true">&#8599;</span></strong>
           </div>
         </a>
       ))}
     </div>
     <div class="section-footer-row">
       <p class="type-index">New articles published monthly</p>
-      <a href="/insights">View all articles <span aria-hidden="true">&#8599;</span></a>
+      <a href="/insights">Read all web design insights <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 </BaseLayout>

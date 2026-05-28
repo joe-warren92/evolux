@@ -1,15 +1,17 @@
 ---
+import googleReviewsData from "../data/googleReviews.json";
+
 const currentYear = new Date().getFullYear();
 
 const companyLinks = [
-  ["About", "/about"],
-  ["Projects", "/projects"],
-  ["Services", "/services"],
-  ["Packages", "/packages"],
-  ["Insights", "/insights"],
-  ["Locations", "/locations"],
-  ["Free Review", "/free-review"],
-  ["Contact", "/contact"]
+  ["About Evolux Web Design", "/about"],
+  ["Evolux web design projects", "/projects"],
+  ["Web design services", "/services"],
+  ["Web design packages", "/packages"],
+  ["Web design insights", "/insights"],
+  ["Web design locations", "/locations"],
+  ["Get a free website review", "/free-review"],
+  ["Contact Evolux Web Design", "/contact"]
 ];
 
 const legalLinks = [
@@ -23,6 +25,13 @@ const socialLinks = [
   ["Facebook", "https://www.facebook.com/evoluxwebdesign"],
   ["LinkedIn", "https://www.linkedin.com/company/evolux-web-design/"]
 ];
+
+const googleReviews = googleReviewsData.reviews.filter((review) => review.text);
+const googleRating = Number(googleReviewsData.rating || 5).toFixed(1);
+const googleReviewCount = googleReviewsData.reviewCount || googleReviews.length;
+const googleSourceUrl = googleReviewsData.sourceUrl || "https://www.google.com/search?q=Evolux+Web+Design+reviews";
+
+const getStars = (rating) => "★".repeat(Math.max(1, Math.min(5, Math.round(rating || 5))));
 ---
 
 <footer id="contact">
@@ -31,28 +40,46 @@ const socialLinks = [
       <div class="footer-testimonials__head">
         <div>
           <div class="section-kicker"><span></span><p class="type-index">What clients say</p></div>
-          <h2 class="display-heading"><span>Real words.</span><br />No agency gloss.</h2>
+          <h2 class="display-heading"><span>Real Google reviews.</span><br />Clearer proof.</h2>
         </div>
         <div class="footer-testimonials__rating">
-          <div class="stars" aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p>5.0 on Google</p>
+          <div class="google-review-mark" aria-label="Google reviews">
+            <span class="google-review-mark__g" aria-hidden="true">
+              <span>G</span>
+            </span>
+            <span>Google reviews</span>
+          </div>
+          <div class="stars" aria-label={`${googleRating} star Google rating`}>{getStars(googleReviewsData.rating)}</div>
+          <p>{googleRating} rating{googleReviewCount ? ` from ${googleReviewCount} reviews` : ""}</p>
         </div>
       </div>
 
-      <div class="testimonial-grid">
-        <article class="testimonial-card">
-          <div class="stars" aria-label="5 star rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
-          </blockquote>
-          <footer>
-            <span>KD</span>
-            <div>
-              <strong>Katie Dutton</strong>
-              <p>Manton Executives</p>
-            </div>
-          </footer>
-        </article>
+      <div class="google-reviews-carousel" data-google-reviews-carousel>
+        <div class="google-reviews-carousel__track" tabindex="0" aria-label="Google review carousel">
+          {googleReviews.map((review) => (
+            <article class="testimonial-card">
+              <header>
+                <div class="stars" aria-label={`${review.rating} star Google review`}>{getStars(review.rating)}</div>
+                <span class="testimonial-card__source">Google</span>
+              </header>
+              <blockquote>"{review.text}"</blockquote>
+              <footer>
+                <span>{review.authorInitials}</span>
+                <div>
+                  <strong>{review.authorName}</strong>
+                  <p>{review.company || review.relativeTimeDescription}</p>
+                </div>
+              </footer>
+            </article>
+          ))}
+        </div>
+        <div class="google-reviews-carousel__footer">
+          <a href={googleSourceUrl} target="_blank" rel="noreferrer">Read more reviews on Google <span aria-hidden="true">&#8599;</span></a>
+          <div class="google-reviews-carousel__controls" aria-label="Review carousel controls">
+            <button type="button" data-review-prev aria-label="Previous review">‹</button>
+            <button type="button" data-review-next aria-label="Next review">›</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -64,7 +91,7 @@ const socialLinks = [
         <div class="evolux-footer__cta">
           <h2><span>Let's build something</span> incredible together.</h2>
           <div class="evolux-footer__actions">
-            <a class="button button--accent" href="/contact">Start a project <span aria-hidden="true">&#8599;</span></a>
+            <a class="button button--accent" href="/contact">Contact Evolux about a web design project <span aria-hidden="true">&#8599;</span></a>
             <a class="button button--outline-light" href="mailto:info@evoluxwebdesign.co.uk">Send an email</a>
           </div>
           <div class="evolux-footer__location">
@@ -104,4 +131,25 @@ const socialLinks = [
       <div class="evolux-footer__wordmark">EVOLUX</div>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const carousel = document.querySelector("[data-google-reviews-carousel]");
+      if (!carousel) return;
+
+      const track = carousel.querySelector(".google-reviews-carousel__track");
+      const previous = carousel.querySelector("[data-review-prev]");
+      const next = carousel.querySelector("[data-review-next]");
+      if (!track || !previous || !next) return;
+
+      const scrollReview = (direction) => {
+        const firstCard = track.querySelector(".testimonial-card");
+        const distance = firstCard ? firstCard.getBoundingClientRect().width + 24 : track.clientWidth * 0.85;
+        track.scrollBy({ left: distance * direction, behavior: "smooth" });
+      };
+
+      previous.addEventListener("click", () => scrollReview(-1));
+      next.addEventListener("click", () => scrollReview(1));
+    })();
+  </script>
 </footer>

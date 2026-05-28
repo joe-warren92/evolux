@@ -6,12 +6,56 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  includeFounderSchema?: boolean;
+  includePersonSchema?: boolean;
 }
 
 const {
   title = "Evolux Web Design | Websites That Generate Enquiries",
-  description = "A premium web design studio building conversion-focused websites for ambitious UK businesses."
+  description = "A premium web design studio building conversion-focused websites for ambitious UK businesses.",
+  structuredData = [],
+  includeFounderSchema = false,
+  includePersonSchema = false
 } = Astro.props;
+
+const siteUrl = "https://evoluxwebdesign.co.uk";
+const localBusinessId = `${siteUrl}/#localbusiness`;
+const personId = `${siteUrl}/#joe`;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": localBusinessId,
+  name: "Evolux Web Design",
+  url: siteUrl,
+  telephone: "+447854932203",
+  email: "info@evoluxwebdesign.co.uk",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Sunderland",
+    addressRegion: "Tyne and Wear",
+    addressCountry: "GB"
+  },
+  openingHours: "Mo-Fr 09:00-17:00",
+  ...(includeFounderSchema && { founder: { "@id": personId } })
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": personId,
+  name: "Joe",
+  jobTitle: "Founder",
+  worksFor: { "@id": localBusinessId }
+};
+
+const pageStructuredData = Array.isArray(structuredData) ? structuredData : [structuredData];
+const jsonLdSchemas = [
+  localBusinessSchema,
+  ...(includePersonSchema || includeFounderSchema ? [personSchema] : []),
+  ...pageStructuredData
+].filter((schema) => Object.keys(schema).length > 0);
 ---
 
 <!doctype html>
@@ -23,6 +67,7 @@ const {
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/favicon.svg" />
     <title>{title}</title>
+    {jsonLdSchemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
   </head>
   <body>
     <Navigation />

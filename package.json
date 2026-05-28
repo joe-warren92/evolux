@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
-    "preview": "astro preview --host 0.0.0.0"
+    "preview": "astro preview --host 0.0.0.0",
+    "sync:google-reviews": "node scripts/sync-google-reviews.mjs"
   },
   "dependencies": {
     "astro": "^5.8.0"

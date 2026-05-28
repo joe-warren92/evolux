@@ -13,9 +13,27 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
   month: "long",
   year: "numeric"
 });
+const articleUrl = `https://evoluxwebdesign.co.uk/insights/${post.slug}`;
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": `${articleUrl}/#article`,
+  headline: post.title,
+  description: post.metaDescription,
+  datePublished: post.publishedAt,
+  dateModified: post.updatedAt ?? post.publishedAt,
+  author: { "@id": "https://evoluxwebdesign.co.uk/#joe" },
+  publisher: { "@id": "https://evoluxwebdesign.co.uk/#localbusiness" },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": articleUrl
+  },
+  keywords: post.tags.join(", "),
+  ...(post.heroImage && { image: `https://evoluxwebdesign.co.uk${post.heroImage}` })
+};
 ---
 
-<BaseLayout title={`${post.title} | Evolux Web Design`} description={post.metaDescription}>
+<BaseLayout title={`${post.title} | Evolux Web Design`} description={post.metaDescription} structuredData={articleSchema} includePersonSchema>
   <header class="article-hero">
     <div class="article-hero__inner">
       <nav class="blog-stamp" aria-label="Breadcrumb">
@@ -34,7 +52,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
           <h1>{post.title}</h1>
           <div class="article-meta">
             <div class="article-meta__author">
-              <span>{JOE_AUTHOR.initials}</span>
+              <img src={JOE_AUTHOR.image} alt="" />
               <div>
                 <strong>{JOE_AUTHOR.name}</strong>
                 <p>{JOE_AUTHOR.role}</p>
@@ -47,6 +65,11 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
         </div>
       </div>
     </div>
+    {post.heroImage && (
+      <figure class="article-hero__media">
+        <img src={post.heroImage} alt={`${post.title} article image`} />
+      </figure>
+    )}
     <div class="article-hero__rule"></div>
   </header>
 
@@ -76,6 +99,12 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
               {block.attribution && <footer>{block.attribution}</footer>}
             </blockquote>
           )}
+          {block.type === "image" && (
+            <figure class="article-image">
+              <img src={block.src} alt={block.alt ?? ""} loading="lazy" />
+              {block.caption && <figcaption>{block.caption}</figcaption>}
+            </figure>
+          )}
           {block.type === "callout" && (
             <aside class="article-callout">
               {block.label && <strong>{block.label}</strong>}
@@ -91,7 +120,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
       </div>
 
       <section class="article-author-card">
-        <div class="article-author-card__avatar">{JOE_AUTHOR.initials}</div>
+        <img class="article-author-card__avatar" src={JOE_AUTHOR.image} alt="Joe, founder of Evolux Web Design" loading="lazy" />
         <div>
           <div class="article-author-card__head">
             <h2>{JOE_AUTHOR.name}</h2>
@@ -101,7 +130,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
           <div class="article-author-card__expertise">
             {JOE_AUTHOR.expertise.map((item) => <span>{item}</span>)}
           </div>
-          <a href="/about">More about Joe <span aria-hidden="true">&#8599;</span></a>
+          <a href="/about">Read about Joe, founder of Evolux <span aria-hidden="true">&#8599;</span></a>
         </div>
       </section>
     </article>
@@ -114,7 +143,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
             <p class="type-label">Free review</p>
             <h2>Want us to review your website?</h2>
             <p>Get an honest, no-obligation assessment of what's stopping your site from converting visitors into enquiries.</p>
-            <a class="button button--accent" href="/free-review">Get a free review <span aria-hidden="true">&#8599;</span></a>
+            <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
           </div>
         </section>
 
@@ -133,7 +162,7 @@ const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
           </section>
         )}
 
-        <a class="article-back-link" href="/insights">All articles</a>
+        <a class="article-back-link" href="/insights">Read all web design insights</a>
       </div>
     </aside>
   </div>

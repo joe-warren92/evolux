@@ -8,6 +8,8 @@ const whatYouGet = [
   ["03", "Priority action list", "The 3-5 changes that will have the biggest impact on your enquiry rate."]
 ];
 
+const includedIcons = ["analytics", "design", "target"];
+
 const whoFor = [
   "You get traffic but not enough enquiries",
   "You're not sure why visitors aren't making contact",
@@ -63,7 +65,14 @@ const whoFor = [
       <div class="section-kicker"><span></span><p class="type-index">What's included</p></div>
       <h2><span>Everything you need</span><br />to understand your site.</h2>
       <div>
-        {whatYouGet.map(([num, title, desc]) => <article><em>{num}</em><span>{num}</span><h3>{title}</h3><p>{desc}</p></article>)}
+        {whatYouGet.map(([num, title, desc], index) => (
+          <article>
+            <em>{num}</em>
+            <span class="review-included__marker"><Icon name={includedIcons[index] ?? "check"} /><small>{num}</small></span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -85,14 +94,25 @@ const whoFor = [
 
   <section class="review-faq">
     <div class="review-faq__inner">
-      <h2><span>Common</span> questions</h2>
-      {[
+      <div class="faq-support-card">
+        <p class="type-index">Before you submit</p>
+        <h2>How the review works.</h2>
+        <div class="faq-support-card__person">
+          <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
+          <div><strong>Unsure what to send?</strong><span>Share the URL and Joe will do the rest.</span></div>
+        </div>
+        <a class="button button--dark" href="#top">Request the review</a>
+        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
+      </div>
+      <div class="faq-accordion-list">
+        {[
         ["Is the website review really free?", "Yes. The free website review is genuinely free and designed to give UK businesses a clear starting point before they commit to a redesign, CRO audit or web design project. Joe reviews your website against practical conversion, SEO, trust and user experience factors, then sends a personalised video with the main issues and opportunities."],
         ["How long does the free review take?", "Submitting the form takes less than a minute. Your personalised video review is normally delivered within 48 business hours, depending on current availability. The review focuses on the changes most likely to improve enquiries, such as messaging clarity, page structure, mobile usability, trust signals, calls to action and obvious SEO gaps."],
         ["What do I need to provide for the review?", "You only need to provide your website URL and business email address. If there is a specific challenge, such as traffic but no leads, poor local SEO visibility, low mobile conversions or an outdated design, you can include that too. The more context you share, the more useful and specific the review can be."],
         ["Will I get a sales pitch afterwards?", "No. The review stands on its own as useful advice. If your website needs deeper conversion optimisation, SEO work, maintenance or a full redesign, Joe may explain what that could look like, but there is no pressure call or obligation. You can use the recommendations yourself, with your existing developer or with Evolux."],
         ["What kind of businesses is the free review best for?", "It is best for service-based businesses, local companies and growing UK brands that rely on their website to generate enquiries. If your website looks fine but does not convert enough visitors, ranks poorly in local search or feels weaker than your competitors, the review will help identify the most important fixes."]
       ].map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
     </div>
   </section>
 
