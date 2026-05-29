@@ -9,6 +9,7 @@
       "authorName": "Steven Dunn",
       "authorInitials": "SD",
       "company": "Circular Branding Group",
+      "companyLogo": "/assets/logos/circular-branding-logo.webp",
       "rating": 5,
       "relativeTimeDescription": "Google review",
       "text": "We recently partnered with Evolux to redesign our company website and the result says it all. Clear communication throughout, they were proactive, responsive and their attention to detail was second to none. I would highly recommend."
@@ -17,9 +18,37 @@
       "authorName": "Katie Dutton",
       "authorInitials": "KD",
       "company": "Manton Executives",
+      "companyLogo": "/assets/logos/manton-executives-logo.webp",
       "rating": 5,
       "relativeTimeDescription": "Google review",
       "text": "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
+    },
+    {
+      "authorName": "Steven Dunn",
+      "authorInitials": "SD",
+      "company": "Circular Branding Group",
+      "companyLogo": "/assets/logos/circular-branding-logo.webp",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "We recently partnered with Evolux to redesign our company website and the result says it all. Clear communication throughout, they were proactive, responsive and their attention to detail was second to none. I would highly recommend."
+    },
+    {
+      "authorName": "Katie Dutton",
+      "authorInitials": "KD",
+      "company": "Manton Executives",
+      "companyLogo": "/assets/logos/manton-executives-logo.webp",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
+    },
+    {
+      "authorName": "Steven Dunn",
+      "authorInitials": "SD",
+      "company": "Circular Branding Group",
+      "companyLogo": "/assets/logos/circular-branding-logo.webp",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "We recently partnered with Evolux to redesign our company website and the result says it all. Clear communication throughout, they were proactive, responsive and their attention to detail was second to none. I would highly recommend."
     }
   ]
 }

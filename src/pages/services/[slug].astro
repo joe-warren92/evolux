@@ -48,7 +48,7 @@ const processIcons = ["search", "design", "code", "launch"];
           <p>{service.intro}</p>
           {service.slug === "web-design" && (
             <div class="service-page-hero__actions">
-              <a class="button button--dark" href="#packages"><span></span>See web design packages and pricing</a>
+              <a class="button button--dark" href="#packages"><span></span>Web design packages</a>
               <a class="text-button" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
             </div>
           )}
@@ -168,7 +168,7 @@ const processIcons = ["search", "design", "code", "launch"];
             {!note?.startsWith("/") && <span class="type-index">{note}</span>}
             <p>{tagline}</p>
             <ul>{features.map((feature) => <li>{feature}</li>)}</ul>
-            <a href="/free-review">Get a free website review for the {name} package <span aria-hidden="true">&#8599;</span></a>
+            <a href="/free-review">{name} website review <span aria-hidden="true">&#8599;</span></a>
           </article>
         ))}
       </div>
@@ -227,7 +227,7 @@ const processIcons = ["search", "design", "code", "launch"];
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{question}</strong>
             </summary>
-            <p>{answer}</p>
+            <p set:html={answer}></p>
           </details>
         ))}
       </div>
@@ -240,7 +240,7 @@ const processIcons = ["search", "design", "code", "launch"];
       <p>{service.ctaMuted}</p>
       <div>
         <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
-        <a href="mailto:info@evoluxwebdesign.co.uk">Or email Joe directly <span aria-hidden="true">&#8599;</span></a>
+        <a href="mailto:info@evoluxwebdesign.co.uk">Email Joe <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>

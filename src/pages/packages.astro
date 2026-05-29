@@ -10,7 +10,8 @@ const packages = [
     note: "Starting from",
     tagline: "Get online with a professional site that wins you new business from day one.",
     cta: "Start with Launch",
-    summary: "A focused website foundation for businesses ready to look credible and convert visitors."
+    summary: "A focused website foundation for businesses ready to look credible and convert visitors.",
+    features: ["Up to 5 custom pages", "Mobile-first responsive build", "CMS editing", "SEO foundations", "14-day support"]
   },
   {
     id: "studio",
@@ -20,6 +21,7 @@ const packages = [
     tagline: "The complete package - brand, website, and everything needed to grow.",
     cta: "Start with Studio",
     summary: "A fuller brand-led website for businesses that need stronger positioning and more content.",
+    features: ["Up to 12 custom pages", "Brand identity system", "Conversion-led layouts", "Blog or case study setup", "30-day support"],
     highlight: true
   },
   {
@@ -29,7 +31,8 @@ const packages = [
     note: "Starting from",
     tagline: "Our most ambitious work - for businesses that want to dominate their market.",
     cta: "Talk to us about Elite",
-    summary: "A deeper custom build for ambitious teams with more pages, strategy and interaction detail."
+    summary: "A deeper custom build for ambitious teams with more pages, strategy and interaction detail.",
+    features: ["Up to 25 custom pages", "Advanced content planning", "Copywriting support", "Custom interactions", "90-day support"]
   }
 ];
 
@@ -62,11 +65,12 @@ const rows = [
 ];
 
 const faqs = [
-  ["I'm not sure which website package is right for me. How do I decide?", "Start with a free website review or a short discovery call. Evolux will look at your current website, business goals, competition, local SEO needs and how much content you need before recommending Launch, Studio or Elite. The aim is to choose the level of web design investment that matches your commercial goals, not to push you into a larger package."],
-  ["Are the package prices fixed?", "The package prices are starting points for clearly defined scopes. Before work begins, you receive a written proposal that confirms pages, deliverables, timeline, support period and any optional extras such as copywriting, branding, SEO landing pages or advanced functionality. Once the scope is agreed, what is quoted is what you pay."],
-  ["What happens in the planning session?", "The planning session covers your business, audience, competitors, services, tone of voice, current website performance and what visitors need to do when they land on the site. This creates the strategy behind the design, page structure, calls to action and SEO foundations, so the website is built to generate enquiries rather than just look polished."],
-  ["What makes Elite different from Studio?", "Studio is ideal for businesses that need a strong brand-led website with conversion-focused layouts and a professional identity system. Elite goes further with more pages, deeper copy and content planning, custom interaction details, more advanced SEO structure and a longer post-launch support window. It is designed for businesses that want to make a stronger market statement."],
-  ["Can I start with Launch and upgrade later?", "Yes. Launch is designed as a credible foundation for businesses that need a professional site quickly. If your business grows, Evolux can build on the existing structure with extra pages, stronger SEO content, case studies, conversion improvements, branding work or a more advanced redesign. You are not locked into one stage forever."]
+  ["Which website package is right for my business?", "Launch is usually best if you need a focused, professional website with a clear offer and a small number of pages. Studio suits businesses that need stronger positioning, brand identity and a deeper site structure. Elite is for teams that need more pages, copy support, advanced content planning and a more distinctive digital presence. If you are unsure, start with a <a href=\"/free-review\">free website review</a> so Joe can recommend the sensible starting point."],
+  ["Are the package prices fixed or will the cost change later?", "The prices are starting points for clearly defined scopes, not open-ended estimates. Before work begins, you receive a written proposal confirming pages, deliverables, timeline, support period and optional extras such as copywriting, <a href=\"/services/branding\">brand identity</a>, SEO landing pages or advanced functionality. Once the scope is agreed, what is quoted is what you pay."],
+  ["What is included before the design work starts?", "Every package includes planning before design begins. That covers your business goals, audience, competitors, services, tone of voice, current website performance and what visitors need to do next. This creates the strategy behind the page structure, calls to action and SEO foundations. For more detail on the full build process, see the <a href=\"/services/web-design\">web design service</a>."],
+  ["Should I choose Studio or Elite?", "Studio is ideal if you need a polished, brand-led website with conversion-focused layouts, a professional identity system and enough content depth to explain your offer properly. Elite goes further with more pages, deeper copy and content planning, custom interaction details, more advanced SEO structure and a longer post-launch support window. It is the better fit when your website needs to support a stronger market position, not just replace an old site."],
+  ["Can I start with Launch and improve the website later?", "Yes. Launch is designed as a credible foundation for businesses that need a professional site quickly. If your business grows, Evolux can add service pages, case studies, SEO content, stronger proof, conversion improvements or a wider redesign later. You can also use the <a href=\"/services/conversion-optimisation\">conversion optimisation</a> service to improve an existing site before committing to a bigger rebuild."],
+  ["Do the packages include SEO?", "Every package includes SEO foundations such as clean page structure, metadata, headings, image optimisation and indexable pages. Studio and Elite allow more room for deeper service pages, case studies and content structure, which is usually what helps businesses compete for better searches. If you are comparing prices, the article on <a href=\"/insights/understanding-website-costs-in-2025\">website costs</a> explains why scope and strategy matter more than page count alone."]
 ];
 
 const renderCell = (value: boolean | string | undefined) => {
@@ -116,18 +120,26 @@ const renderCell = (value: boolean | string | undefined) => {
 
   <section class="packages-cards-section">
     <div class="packages-cards-section__inner">
-      <div class="packages-card-grid">
+      <div class="packages-cards-section__head">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Website packages</p></div>
+          <h2><span>Choose the right level</span><br />for where you are now.</h2>
+        </div>
+        <p>Each package follows the same strategy-led process. The difference is depth: pages, positioning, brand support, content and the amount of post-launch help included.</p>
+      </div>
+      <div class="packages-card-grid service-package-grid">
         {packages.map((pkg) => (
-          <article class:list={["packages-card", pkg.highlight && "packages-card--featured"]}>
-            {pkg.highlight && <em>Most popular</em>}
-            <div class="packages-card__content">
-              <p class="type-label">{pkg.name}</p>
-              <h2>{pkg.price}</h2>
-              <span class="type-label">{pkg.note}</span>
-              <p>{pkg.tagline}</p>
-              <small>{pkg.summary}</small>
-            </div>
-            <a href="#comparison">Compare {pkg.name} package features <span aria-hidden="true">&#8599;</span></a>
+          <article class:list={["service-package-card", "packages-card", pkg.highlight && "service-package-card--featured packages-card--featured"]}>
+            {pkg.highlight && <span class="service-package-card__badge">Most popular</span>}
+            <p class="type-label">{pkg.name}</p>
+            <h3>{pkg.price}</h3>
+            <span class="type-index">{pkg.note}</span>
+            <p>{pkg.tagline}</p>
+            <small>{pkg.summary}</small>
+            <ul>
+              {pkg.features.map((feature) => <li>{feature}</li>)}
+            </ul>
+            <a href="#comparison">{pkg.name} package details <span aria-hidden="true">&#8599;</span></a>
           </article>
         ))}
       </div>
@@ -135,7 +147,7 @@ const renderCell = (value: boolean | string | undefined) => {
       <div class="packages-guarantee">
         <span><Icon name="shield" /></span>
         <p><strong>Something wrong after launch?</strong> On Studio and Elite, we fix it free - no questions asked. 30 days on Studio, 90 days on Elite.</p>
-        <a href="/free-review">Get a free website review before choosing a package <span aria-hidden="true">&#8599;</span></a>
+        <a href="/free-review">Review my website first <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>
@@ -202,11 +214,11 @@ const renderCell = (value: boolean | string | undefined) => {
           <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
           <div><strong>Want a steer first?</strong><span>Joe can recommend the sensible starting point.</span></div>
         </div>
-        <a class="button button--dark" href="/free-review">Get a free review</a>
+        <a class="button button--dark" href="/free-review">Website review</a>
         <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
       </div>
       <div class="faq-accordion-list">
-        {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+        {faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
       </div>
     </div>
   </section>
@@ -217,7 +229,7 @@ const renderCell = (value: boolean | string | undefined) => {
       <h2>Not sure which package is right for you?</h2>
       <p>A free website review will show you exactly what your current site is missing - and make the right package obvious.</p>
       <div>
-        <a class="button button--accent" href="/free-review">Get a free website review</a>
+        <a class="button button--accent" href="/free-review">Free website review</a>
         <a href="mailto:info@evoluxwebdesign.co.uk">Email Joe directly <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>

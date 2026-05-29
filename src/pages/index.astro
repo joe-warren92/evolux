@@ -93,37 +93,37 @@ const insightCards = [
 const credibilityGaps = [
   {
     num: "01",
-    question: "Does your site reflect the quality of your business within the first 10 seconds?",
-    problem: "Your site doesn't reflect the quality of your business within the first 10 seconds.",
-    benefit: "You'll have a website that immediately signals credibility to the type of client you want to attract."
+    question: "Does your website reflect the quality of your work within the first 10 seconds?",
+    problem: "Your website doesn't reflect the quality of your work within the first 10 seconds.",
+    benefit: "You make a stronger first impression with the clients you actually want to attract."
   },
   {
     num: "02",
-    question: "Can prospects quickly work out whether you're the right fit for them?",
-    problem: "Prospects can't quickly work out whether you're the right fit for them.",
-    benefit: "Clear, direct positioning lets the right people self-qualify fast."
+    question: "Can potential clients quickly understand whether you're the right fit?",
+    problem: "Potential clients can't quickly understand whether you're the right fit.",
+    benefit: "Clear positioning helps the right people feel confident taking the next step."
   },
   {
     num: "03",
-    question: "Do you back up your website claims with enough evidence?",
-    problem: "You make claims on your site, but don't back them up with evidence.",
-    benefit: "Proof in the right places helps prospects build trust before they've contacted you."
+    question: "Do your claims have enough proof behind them?",
+    problem: "You say the right things, but don't show enough proof to make them believable.",
+    benefit: "Reviews, case studies and details in the right places help people trust you before they get in touch."
   },
   {
     num: "04",
     question: "Is there an obvious next step for visitors on every page?",
-    problem: "There's no obvious next step - so people leave without getting in touch.",
-    benefit: "A clear, low-friction path from visitor to enquiry on every page."
+    problem: "There isn't an obvious next step, so visitors leave without getting in touch.",
+    benefit: "Every key page gives people a clear, low-friction route to enquire."
   }
 ];
 
 const homepageFaqs = [
-  ["What does Evolux actually do?", "Evolux designs and builds premium, conversion-focused websites for UK businesses that need more enquiries from their online presence. The work usually covers strategy, structure, design, WordPress development, performance, SEO foundations and post-launch support."],
-  ["Do you only design websites, or do you build them too?", "Both. You work directly with Joe from strategy through to launch, so the design and development stay connected. That means the finished site is not just a nice concept, but a fast, responsive, editable website built around clear business goals."],
-  ["What kind of businesses do you work with?", "Evolux is best suited to service-based businesses, local companies and growing brands that need their website to build trust and generate qualified enquiries. Projects often include professional services, recruitment, health and wellness, trades, education, hospitality and B2B suppliers."],
-  ["How much does a website cost?", "Most projects start from the packages shown on the pricing page. The exact investment depends on the number of pages, content, brand work, functionality and level of support needed. Before anything starts, you receive a clear written scope so there are no surprises."],
-  ["Can you review my current website first?", "Yes. The free website review is often the best starting point. Joe will look at your current site, identify where trust, clarity, SEO or conversion may be costing you enquiries, and send back a practical video review."],
-  ["How soon can we start?", "Availability changes depending on current projects, but the first step is usually a short message or free review. From there, Joe can confirm whether your project is a good fit, what timeline is realistic and which package or scope makes most sense."]
+  ["Can Evolux help if my website looks fine but does not bring in enough enquiries?", "Yes. This is one of the most common reasons businesses contact Evolux. The issue is often not the visual design alone; it is usually a mix of unclear positioning, weak proof, poor page structure, slow mobile experience or calls to action that do not feel obvious. A good starting point is the <a href=\"/free-review\">free website review</a>, where Joe identifies the main trust and conversion gaps before you commit to a full redesign."],
+  ["Do you design and build the website, or just create the visuals?", "Evolux handles both the design and the build. You work directly with Joe from strategy and page planning through to design, WordPress development, testing and launch. That means the finished site is not just a static concept; it is a fast, responsive, editable website built around clear business goals. You can see the main service options on the <a href=\"/services\">web design services</a> page."],
+  ["What types of businesses are a good fit for Evolux?", "Evolux is best suited to service-based businesses, local companies and growing UK brands that rely on trust before someone makes an enquiry. That includes professional services, recruitment, health and wellness, trades, education, hospitality and B2B suppliers. If you want to see the kind of work and outcomes Evolux focuses on, start with the <a href=\"/projects\">web design projects</a>."],
+  ["How much should I budget for a professional website?", "Most Evolux website projects start from the figures shown on the <a href=\"/packages\">website packages</a> page. The final investment depends on the number of pages, how much content needs writing, whether brand identity is included, SEO requirements and the level of post-launch support. Before anything starts, you receive a written scope so the deliverables, timeline and cost are clear."],
+  ["Can you improve my existing website instead of rebuilding it?", "Sometimes, yes. If the underlying site is technically sound, a focused <a href=\"/services/conversion-optimisation\">conversion optimisation</a> project may be enough to improve enquiries without starting again. If the structure, brand, platform or mobile experience is holding the business back, a rebuild may be the better long-term option. The review process helps make that decision with evidence rather than guesswork."],
+  ["How quickly can a new website project start?", "Availability changes depending on current projects, but the first step is usually a short message, a call or a <a href=\"/free-review\">website review</a>. From there, Joe can confirm whether the project is a good fit, what timeline is realistic and which package or scope makes most sense. Focused Launch projects can move quickly; larger Studio or Elite projects need more discovery, content and design time."]
 ];
 
 const trustedLogos = [
@@ -281,7 +281,7 @@ const homepageSchema = {
     </div>
     <div class="section-footer-row">
       <p class="type-index">All results measured at 90 days post-launch</p>
-      <a href="/projects">View Evolux web design projects <span aria-hidden="true">&#8599;</span></a>
+      <a href="/projects">Web design projects <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
@@ -348,7 +348,7 @@ const homepageSchema = {
         <div class="section-kicker"><span></span><p class="type-index">The four credibility gaps</p></div>
         <h2 class="display-heading">Sound familiar?</h2>
       </div>
-      <p>Most professional services websites fail for the same reason: they look credible enough at first glance, but don't build the trust a prospect needs to actually make contact.</p>
+      <p>Most professional services websites fail for the same reason: they look credible enough at first glance, but don't build the trust a potential client needs to actually make contact.</p>
     </div>
     <div class="gap-grid">
       {credibilityGaps.map(({ num, problem, benefit }, index) => (
@@ -398,7 +398,7 @@ const homepageSchema = {
     <div class="kpi-bar">
       <div><strong>4-6 wks</strong><span class="type-index">From brief to launch</span></div>
       <div><strong>30 days</strong><span class="type-index">Post-launch support</span></div>
-      <a class="button button--accent" href="/contact">Contact Evolux about your web design project <span aria-hidden="true">&#8599;</span></a>
+      <a class="button button--accent" href="/contact">Contact Evolux <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
@@ -424,7 +424,7 @@ const homepageSchema = {
           <li>Personalised video breakdown - in your inbox within 48 hours</li>
           <li>No sales pitch. No obligation.</li>
         </ul>
-        <a href="/free-review">See what is included in the free website review <span aria-hidden="true">&#8599;</span></a>
+        <a href="/free-review">Website review details <span aria-hidden="true">&#8599;</span></a>
       </div>
 
       <form class="lead-form-card" action="/free-review">
@@ -462,7 +462,7 @@ const homepageSchema = {
         <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
       </div>
       <div class="faq-accordion-list">
-        {homepageFaqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+        {homepageFaqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
       </div>
     </div>
   </section>
@@ -488,7 +488,7 @@ const homepageSchema = {
           <ul>
             {pkg.features.map((feature) => <li>{feature}</li>)}
           </ul>
-          <a href="/contact">Contact Joe about the {pkg.name} web design package <span aria-hidden="true">&#8599;</span></a>
+          <a href="/contact">Ask about {pkg.name} <span aria-hidden="true">&#8599;</span></a>
         </article>
       ))}
     </div>
@@ -499,7 +499,7 @@ const homepageSchema = {
         <h3>30-day post-launch guarantee, on every package.</h3>
         <p>If something isn't right in the 30 days after you go live, we fix it. No quibble, no extra charge.</p>
       </div>
-      <a href="/free-review">Get a free website review before choosing a package <span aria-hidden="true">&#8599;</span></a>
+      <a href="/free-review">Review my website first <span aria-hidden="true">&#8599;</span></a>
     </div>
 
     <div class="trust-grid">
@@ -540,7 +540,7 @@ const homepageSchema = {
     </div>
     <div class="section-footer-row">
       <p class="type-index">New articles published monthly</p>
-      <a href="/insights">Read all web design insights <span aria-hidden="true">&#8599;</span></a>
+      <a href="/insights">Web design insights <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 </BaseLayout>

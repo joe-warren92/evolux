@@ -60,7 +60,7 @@ const resourceGroups = [
     <nav class="site-header__nav" aria-label="Main navigation">
       <a class="site-header__link" href="/projects">Projects</a>
       <div class="site-header__dropdown">
-        <button type="button" class="site-header__link site-header__dropdown-button">Services <span>&#8964;</span></button>
+        <button type="button" class="site-header__link site-header__dropdown-button">Services <span aria-hidden="true"></span></button>
         <div class="nav-panel">
           <div class="nav-panel__grid">
             {serviceGroups.map((group) => (
@@ -77,13 +77,13 @@ const resourceGroups = [
               </section>
             ))}
           </div>
-          <a class="nav-panel__all" href="/services">Explore all services <span>&#8599;</span></a>
+          <a class="nav-panel__all" href="/services">Web design services <span>&#8599;</span></a>
         </div>
       </div>
       <a class="site-header__link" href="/packages">Packages</a>
       <a class="site-header__link" href="/about">About</a>
       <div class="site-header__dropdown">
-        <button type="button" class="site-header__link site-header__dropdown-button">Resources <span>&#8964;</span></button>
+        <button type="button" class="site-header__link site-header__dropdown-button">Resources <span aria-hidden="true"></span></button>
         <div class="nav-panel nav-panel--narrow">
           <div class="nav-panel__grid">
             {resourceGroups.map((group) => (
@@ -116,7 +116,7 @@ const resourceGroups = [
             <span class="mobile-menu__status"><i></i>Available for new projects</span>
           </div>
 
-          <a class="mobile-menu__link" href="/projects">View web design projects <span>&#8599;</span></a>
+          <a class="mobile-menu__link" href="/projects">Web design projects <span>&#8599;</span></a>
 
           <details class="mobile-menu__section">
             <summary>
@@ -125,12 +125,12 @@ const resourceGroups = [
             </summary>
             <div class="mobile-menu__group">
               {services.map(([label, desc, href, icon]) => <a href={href}><Icon name={icon} /><span><strong>{label}</strong><small>{desc}</small></span></a>)}
-              <a href="/services"><Icon name="layers" /><span><strong>Explore all web design services</strong><small>View the complete service list</small></span></a>
+              <a href="/services"><Icon name="layers" /><span><strong>All web design services</strong><small>Full service list</small></span></a>
             </div>
           </details>
 
-          <a class="mobile-menu__link" href="/packages">See web design packages <span>&#8599;</span></a>
-          <a class="mobile-menu__link" href="/about">Meet Joe and Evolux <span>&#8599;</span></a>
+          <a class="mobile-menu__link" href="/packages">Website packages <span>&#8599;</span></a>
+          <a class="mobile-menu__link" href="/about">About Evolux <span>&#8599;</span></a>
 
           <details class="mobile-menu__section">
             <summary>
@@ -144,7 +144,7 @@ const resourceGroups = [
 
           <div class="mobile-menu__cta">
             <a class="button button--dark" href="/free-review">Get a free website review <span>&#8599;</span></a>
-            <a href="/contact">Contact Joe about your website <span>&#8599;</span></a>
+            <a href="/contact">Contact Joe <span>&#8599;</span></a>
           </div>
         </nav>
       </details>
