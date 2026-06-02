@@ -10,6 +10,8 @@ const serviceIcons: Record<string, string> = {
   branding: "brand",
   "graphic-design": "palette"
 };
+
+const stepIcons = ["message", "document", "launch"];
 ---
 
 <BaseLayout title="Services - Web Design, Branding & CRO | Evolux">
@@ -69,9 +71,9 @@ const serviceIcons: Record<string, string> = {
         ["01", "Tell me about your business", "A short call or email - you explain what you need and what's not working. No obligation, no hard sell."],
         ["02", "Receive a clear proposal", "A scoped proposal with timeline, deliverables and fixed price. No ambiguity, no surprises when the invoice arrives."],
         ["03", "We get to work", "Every project is delivered by Joe personally. You'll have direct access throughout - no delays waiting on a third party."]
-      ].map(([num, title, body]) => (
+      ].map(([num, title, body], index) => (
         <article>
-          <span class="type-index">{num}</span>
+          <div class="service-steps__icon"><Icon name={stepIcons[index] ?? "star"} /><span class="type-index">{num}</span></div>
           <h2>{title}</h2>
           <p>{body}</p>
         </article>

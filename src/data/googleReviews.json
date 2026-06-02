@@ -1,7 +1,7 @@
 {
   "businessName": "Evolux Web Design",
   "rating": 5,
-  "reviewCount": 0,
+  "reviewCount": 10,
   "sourceUrl": "https://www.google.com/search?q=Evolux+Web+Design+reviews",
   "lastSynced": null,
   "reviews": [
@@ -9,6 +9,7 @@
       "authorName": "Steven Dunn",
       "authorInitials": "SD",
       "company": "Circular Branding Group",
+      "companyInitials": "CB",
       "companyLogo": "/assets/logos/circular-branding-logo.webp",
       "rating": 5,
       "relativeTimeDescription": "Google review",
@@ -18,37 +19,91 @@
       "authorName": "Katie Dutton",
       "authorInitials": "KD",
       "company": "Manton Executives",
+      "companyInitials": "ME",
       "companyLogo": "/assets/logos/manton-executives-logo.webp",
       "rating": 5,
       "relativeTimeDescription": "Google review",
       "text": "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
     },
     {
-      "authorName": "Steven Dunn",
-      "authorInitials": "SD",
-      "company": "Circular Branding Group",
-      "companyLogo": "/assets/logos/circular-branding-logo.webp",
+      "authorName": "Vicky Jones",
+      "authorInitials": "VJ",
+      "company": "McClelland's Bathroom and Tile Studio",
+      "companyInitials": "MB",
+      "companyLogo": "/assets/logos/mcclellands-logo.png",
       "rating": 5,
       "relativeTimeDescription": "Google review",
-      "text": "We recently partnered with Evolux to redesign our company website and the result says it all. Clear communication throughout, they were proactive, responsive and their attention to detail was second to none. I would highly recommend."
+      "text": "We have recently had our new website designed and launched by Joe at Evolux. Joe has guided and supported us through the process of developing our site content and created an informative website that gives exactly the image we want for our business. Joe's patience, communication, attention to detail and flare for design combine perfectly to create the ideal online presence and I have no doubt that this will have a huge positive impact on our business growth. Thank you Joe!"
     },
     {
-      "authorName": "Katie Dutton",
-      "authorInitials": "KD",
+      "authorName": "Becky Graham",
+      "authorInitials": "BG",
+      "company": "Pro Pest Manchester",
+      "companyInitials": "PP",
+      "companyLogo": "/assets/logos/pro-pest-manchester-logo.jpg",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "Joe did a fantastic job building our website, from start to finish the whole process was straight forward. Joe gave us plenty of time to gather all of our content and made it really enjoyable. I wouldn't hesitate to use joes services again for any future projects that may arise"
+    },
+    {
+      "authorName": "Ian Bowman",
+      "authorInitials": "IB",
+      "company": "Bowman's Premium",
+      "companyInitials": "BP",
+      "companyLogo": "/assets/logos/bowmans-premium-logo.svg",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "Working with Joe at Evolux Web Design has been an absolute pleasure! From the very start, Joe's calm, kind, and supportive nature made the entire process stress-free. He communicates clearly and promptly through both email and video calls, always making sure we felt heard and understood. Joe has a fantastic eye for detail - he captured the heart of our family pet food business perfectly through his design work. We've worked with other web designers before, but Joe's level of expertise and professionalism is truly unmatched. He resolved any issues quickly and thoughtfully, taking all the pressure off of us throughout the project. We couldn't be happier with the final result and highly recommend Evolux Web Design to every business looking for a designer who truly cares about their vision. Thank you, Joe, for going above and beyond!"
+    },
+    {
+      "authorName": "Sara Knight",
+      "authorInitials": "SK",
+      "company": "Sara Knight Life Coaching",
+      "companyInitials": "SK",
+      "companyLogo": "/assets/logos/sara-knight-life-coaching-logo.png",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "Thrilled with my new website, thanks to Joe at Evolux Web Design. From the outset he checked in regularly, asked about my preferences, and turned my ideas into a slick, classic, professional site. What stood out most? Efficiency, prompt communication, and excellent customer service that's second to none. If you're looking for bespoke packages and true mastery in web design, I can't recommend Joe enough."
+    },
+    {
+      "authorName": "Luke Manton",
+      "authorInitials": "LM",
       "company": "Manton Executives",
+      "companyInitials": "ME",
       "companyLogo": "/assets/logos/manton-executives-logo.webp",
       "rating": 5,
       "relativeTimeDescription": "Google review",
-      "text": "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout."
+      "text": "Joe created our brand-new website from scratch and we're honestly obsessed with it. I spent ages trying to figure out what I actually wanted, but Joe was so patient and guided me through everything, making it all feel super easy. He came up with loads of ideas and details I never would have thought of, and it's all those little touches that made the final site so perfect. What I loved most is how proactive and caring he was the whole way through. You can tell he genuinely wanted it to look amazing for us, and the end result really shows that. Couldn't recommend Joe more, he's talented, creative, and soooooo easy to work with."
     },
     {
-      "authorName": "Steven Dunn",
-      "authorInitials": "SD",
-      "company": "Circular Branding Group",
-      "companyLogo": "/assets/logos/circular-branding-logo.webp",
+      "authorName": "Dannii Dunn",
+      "authorInitials": "DD",
+      "company": "Ockerby Academy",
+      "companyInitials": "OA",
+      "companyLogo": "/assets/logos/ockerby-academy-logo.webp",
       "rating": 5,
       "relativeTimeDescription": "Google review",
-      "text": "We recently partnered with Evolux to redesign our company website and the result says it all. Clear communication throughout, they were proactive, responsive and their attention to detail was second to none. I would highly recommend."
+      "text": "We absolutely LOVE our new website thanks Joe! Great communication throughout the process. Joe has a real eye for attention to detail and it shows within his work, super happy and Highly Recommend!"
+    },
+    {
+      "authorName": "Liam Walker",
+      "authorInitials": "LW",
+      "company": "VIW Projects",
+      "companyInitials": "VIW",
+      "companyLogo": "/assets/logos/viw-projects-logo.webp",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "Evolux, were great throughout the process from an initial call after my enquiry, to working with me on final design and implementing any changes. I looked forward to growing the site and working with Evolux moving forward."
+    },
+    {
+      "authorName": "Olivia Bowman",
+      "authorInitials": "OB",
+      "company": "Skyn & Glo",
+      "companyInitials": "SG",
+      "companyLogo": "/assets/logos/skyn-glo-logo.webp",
+      "rating": 5,
+      "relativeTimeDescription": "Google review",
+      "text": "Evolux Web Design has been an absolute game-changer for Skyn & Glo. Joe is not only highly knowledgeable but also incredibly creative, bringing my business vision to life in ways that exceeded my expectations. Joe's proactive approach and efficient communication made the entire process seamless and stress-free. He was patient and professional every step of the way, ensuring that my ideas were fully captured while also offering valuable insights and suggesting adjustments. Evolux Web Design didn't just build Skyn & Glo a website - they created a modern online experience that perfectly aligns with my business identity. I couldn't be happier with the results and I am incredibly proud to call the new website mine!"
     }
   ]
 }

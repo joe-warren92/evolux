@@ -1,0 +1,65 @@
+
+> prime-portfolio-astro@1.0.0 dev
+> astro dev --host 0.0.0.0 --port 4322
+
+[2m17:33:08[22m [34m[types][39m Generated [2m3ms[22m
+[2m17:33:08[22m [34m[content][39m Syncing content
+[2m17:33:08[22m [34m[content][39m Astro config changed
+[2m17:33:08[22m [34m[content][39m Clearing content store
+[2m17:33:08[22m [34m[content][39m Synced content
+[2m17:33:08[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m17:33:09[22m [34m[vite][39m Port 4322 is in use, trying another one...
+
+[42m[1m astro [22m[49m [32mv5.18.2[39m [2mready in[22m 657 [2mms[22m
+
+[2m┃[22m Local    [36mhttp://localhost:4323/[39m
+[2m┃[22m Network  [36mhttp://192.168.1.64:4323/[39m
+
+[2m17:33:09[22m [32mwatching for file changes...[39m
+[2m17:33:46[22m [34m[200][39m /locations/newcastle-upon-tyne/ [2m267ms[22m
+[2m17:33:46[22m [34m[200][39m /services/web-design/ [2m272ms[22m
+[2m17:33:46[22m [34m[200][39m / [2m61ms[22m
+[2m17:33:49[22m [34m[200][39m / [2m15ms[22m
+[2m17:36:45[22m [34m[watch][39m /src/styles/main.css
+[2m17:36:46[22m [34m[200][39m / [2m198ms[22m
+[2m17:36:56[22m [34m[200][39m / [2m11ms[22m
+[2m12:47:18[22m [34m[200][39m / [2m8ms[22m
+[2m12:48:48[22m [34m[watch][39m /src/styles/main.css
+[2m12:48:48[22m [34m[200][39m / [2m53ms[22m
+[2m12:49:25[22m [34m[200][39m / [2m10ms[22m
+[2m12:49:25[22m [34m[200][39m /services/web-design/ [2m6ms[22m
+[2m12:49:25[22m [34m[200][39m /packages/ [2m4ms[22m
+[2m12:51:31[22m [34m[watch][39m /src/styles/main.css
+[2m12:51:31[22m [34m[200][39m / [2m51ms[22m
+[2m12:51:40[22m [34m[200][39m / [2m8ms[22m
+[2m12:58:24[22m [34m[200][39m / [2m8ms[22m
+[2m13:01:34[22m [34m[watch][39m /src/styles/main.css
+[2m13:01:34[22m [34m[200][39m / [2m34ms[22m
+[2m13:03:27[22m [34m[200][39m / [2m6ms[22m
+[2m13:03:59[22m [34m[200][39m / [2m6ms[22m
+[2m13:03:59[22m [34m[watch][39m /src/styles/main.css
+[2m13:04:34[22m [34m[watch][39m /src/styles/main.css
+[2m13:04:34[22m [34m[200][39m / [2m26ms[22m
+[2m13:05:19[22m [34m[watch][39m /src/styles/main.css
+[2m13:05:20[22m [34m[200][39m / [2m32ms[22m
+[2m13:05:20[22m [34m[200][39m / [2m4ms[22m
+[2m13:05:33[22m [34m[200][39m / [2m10ms[22m
+[2m13:05:33[22m [34m[200][39m /insights/ [2m4ms[22m
+[2m13:06:28[22m [34m[200][39m /insights [2m8ms[22m
+[2m13:08:31[22m [34m[200][39m /insights [2m6ms[22m
+[2m13:09:33[22m [34m[200][39m /insights [2m5ms[22m
+[2m13:09:48[22m [34m[200][39m /insights [2m5ms[22m
+[2m13:09:54[22m [34m[200][39m /insights [2m7ms[22m
+[2m13:10:00[22m [34m[200][39m /insights [2m5ms[22m
+[2m13:10:53[22m [34m[200][39m /insights [2m5ms[22m
+[2m13:11:27[22m [34m[watch][39m /src/styles/main.css
+[2m13:11:27[22m [34m[200][39m /insights [2m32ms[22m
+[2m13:11:37[22m [34m[watch][39m /src/styles/main.css
+[2m13:11:37[22m [34m[200][39m /insights [2m24ms[22m
+[2m13:11:51[22m [34m[200][39m /insights/ [2m12ms[22m
+[2m13:12:02[22m [34m[200][39m /insights [2m4ms[22m
+[2m13:12:40[22m [34m[200][39m /insights/ [2m14ms[22m
+[2m13:16:39[22m [34m[200][39m /insights [2m6ms[22m
+[2m13:17:12[22m [34m[watch][39m /src/styles/main.css
+[2m13:17:12[22m [34m[200][39m /insights [2m30ms[22m
+[2m13:17:26[22m [34m[200][39m /insights/ [2m14ms[22m

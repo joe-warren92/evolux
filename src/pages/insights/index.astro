@@ -2,25 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { ALL_CATEGORIES, INSIGHT_POSTS, JOE_AUTHOR } from "../../data/insights";
 
-const topics = [
-  {
-    title: "Conversion strategy",
-    description: "Why most websites don't convert, and the layout, copy, and UX decisions that change that."
-  },
-  {
-    title: "Web design for small business",
-    description: "Practical advice on briefs, timelines, budgets, and choosing the right builder for your needs."
-  },
-  {
-    title: "Local SEO & visibility",
-    description: "How to rank for the searches your customers are actually making, without paying for ads."
-  },
-  {
-    title: "The business case for investment",
-    description: "The honest maths of web design ROI: when a new site pays for itself, and when it doesn't."
-  }
-];
-
 const formatDate = (date) =>
   new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
@@ -29,7 +10,7 @@ const postsByDate = [...INSIGHT_POSTS].sort(
 );
 ---
 
-<BaseLayout title="Insights - Web Design & Business Strategy">
+<BaseLayout title="Insights - Practical Website Advice for Business Owners">
   <section class="blog-hero">
     <div class="blog-hero__inner">
       <div class="blog-stamp">
@@ -38,36 +19,18 @@ const postsByDate = [...INSIGHT_POSTS].sort(
           <span>/</span>
           <strong>Insights</strong>
         </div>
-        <div class="blog-author-chip">
-          <img src={JOE_AUTHOR.image} alt="" />
-          <strong>{JOE_AUTHOR.name}</strong>
-          <em>Monthly</em>
-        </div>
       </div>
 
       <div class="blog-hero__grid">
-        <h1><span>Straight talk about</span><br />web design &amp; business.</h1>
-        <p>We write about the decisions that grow businesses - conversion, strategy, and the honest maths of web investment.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="blog-topics">
-    <div class="blog-topics__inner">
-      <div class="section-kicker"><span></span><p class="type-index">What we write about</p></div>
-      <div class="blog-topics__grid">
-        {topics.map((topic) => (
-          <article class="blog-topic-card">
-            <h2>{topic.title}</h2>
-            <p>{topic.description}</p>
-          </article>
-        ))}
+        <h1><span>Useful advice for</span><br />a better website.</h1>
+        <p>Clear, practical articles for business owners: what to improve, what to avoid and what is worth paying for.</p>
       </div>
     </div>
   </section>
 
   <section class="blog-filter" data-blog-filter>
     <div class="blog-filter__inner">
+      <span class="type-label blog-filter__label">Browse articles</span>
       <div class="blog-filter__buttons">
         {ALL_CATEGORIES.map((category, index) => (
           <button class:list={["blog-filter__button", index === 0 && "blog-filter__button--active"]} type="button" data-category={category}>
@@ -82,13 +45,11 @@ const postsByDate = [...INSIGHT_POSTS].sort(
   <section class="blog-archive">
     <div class="blog-archive__inner">
       <div class="blog-archive__grid">
-        {postsByDate.map((post, index) => (
+        {postsByDate.map((post) => (
           <article class="blog-card" data-post-card data-category={post.category}>
             <a href={`/insights/${post.slug}`}>
               <div class="blog-card__cover">
                 {post.heroImage && <img src={post.heroImage} alt="" loading="lazy" />}
-                <div class="blog-card__bloom"></div>
-                <span class="blog-card__number">{String(index + 1).padStart(2, "0")}</span>
                 <div class="blog-card__top">
                   <span>{post.category}</span>
                   <span>{post.readingTime} min read</span>

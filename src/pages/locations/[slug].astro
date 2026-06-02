@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { LOCATION_PAGES, type LocationPage } from "../../data/locations";
+import { PROJECTS } from "../../data/projects";
+
+export function getStaticPaths() {
+  return LOCATION_PAGES.map((location) => ({
+    params: { slug: location.slug },
+    props: { location }
+  }));
+}
+
+interface Props {
+  location: LocationPage;
+}
+
+const { location } = Astro.props;
+const { city } = location;
+const isNationwide = location.slug === "nationwide";
+const heroLocation = isNationwide ? "across the UK" : `in ${city}`;
+const packageLabel = isNationwide ? "UK-wide packages" : `${city} packages`;
+const industryLabel = isNationwide ? "Industries we serve across the UK" : `Industries we serve in ${city}`;
+const marketKicker = isNationwide ? "UK-wide web design" : `Web design in ${city}`;
+const faqHeading = isNationwide ? "Working across the UK." : `Working with ${city}.`;
+const ctaHeading = isNationwide ? "Ready to grow your business online?" : `Ready to grow your ${city} business online?`;
+const websiteLabel = isNationwide ? "website" : `${city} website`;
+const clientLabel = isNationwide ? "UK clients" : `${city} clients`;
+const businessLabel = isNationwide ? "UK businesses" : `${city} businesses`;
+const industries = ["Professional services", "Trades & construction", "Healthcare & wellness", "Financial & legal", "Hospitality & leisure", "Retail & e-commerce", "Consultancy", "Recruitment"];
+const deliverables = [
+  ["Custom design", `Every layout is built for your business. Your ${websiteLabel} should feel specific to your positioning, not adapted from a template.`],
+  ["Mobile-first", "The majority of local visitors arrive on a phone. We build mobile-first from day one."],
+  ["Conversion architecture", "Structured to guide visitors toward making contact."],
+  ["Local SEO", "On-page SEO, schema markup, and Google Business alignment."],
+  ["Performance", "Fast-loading pages rank better and convert better."],
+  ["Analytics", "GA4 configured with conversion goals."]
+];
+const deliverableIcons = ["design", "mobile", "target", "seo", "speed", "analytics"];
+const selectedCaseStudies = location.caseStudySlugs
+  .map((slug) => PROJECTS.find((project) => project.slug === slug))
+  .filter(Boolean);
+const packages = [
+  ["Launch", "£1,800", "Starting from", `A credible, conversion-ready website to get you in front of ${clientLabel}.`, ["5-page custom design & build", "Mobile-first, fully responsive", "Local SEO foundations", "CMS - edit copy yourself", "Google Business alignment", "14-day post-launch support"]],
+  ["Studio", "£3,500", "Starting from", `The full package for ${businessLabel} ready to strengthen their position online.`, ["Up to 12 custom pages", "Full visual identity system", "Conversion-optimised layouts", "Advanced local & on-page SEO", "Analytics & goal tracking", "30-day post-launch support"], true],
+  ["Elite", "£6,500", "Starting from", `For ${businessLabel} that want to stand apart and stay there.`, ["Up to 25 custom pages", "Complete brand identity system", "Custom animations", "Conversion-led copywriting", "Advanced local SEO & analytics", "90-day post-launch support"]]
+];
+---
+
+<BaseLayout title={`Web Design ${city} - Evolux Web Design & Development`} description={location.seoDescription}>
+  <section class="standard-hero">
+    <div class="standard-hero__glow"></div>
+    <div class="standard-hero__rule"></div>
+    <div class="standard-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs"><a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a><span>/</span><a href="/locations">Locations</a><span>/</span><strong>{city}</strong></div>
+        <div class="standard-pill">{location.locationLine}</div>
+      </div>
+      <div class="standard-hero__single">
+        <h1><span>Web Design & Development</span><br />{heroLocation}.</h1>
+        <p>{location.heroDescription}</p>
+        <div class="service-page-hero__actions"><a class="button button--dark" href="#packages"><span></span>{packageLabel}</a><a class="text-button" href="/free-review">Free website review <span aria-hidden="true">&#8599;</span></a></div>
+      </div>
+      <div class="service-proof-strip"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="type-index">5.0 on Google</p><i></i><p class="type-index">{location.locationLine}</p><i></i><p class="type-index">Est. 2023</p><i></i><p class="type-index">30-day post-launch guarantee</p></div>
+    </div>
+  </section>
+
+  <section class="sunderland-local">
+    <div class="sunderland-local__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">A local studio</p></div>
+        <h2><span>{location.localHeading.split(" ").slice(0, -1).join(" ")}</span><br />{location.localHeading.split(" ").slice(-1)}</h2>
+        {location.localParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <aside>
+        <p class="type-label">{industryLabel}</p>
+        <div>{industries.map((industry) => <span><i></i>{industry}</span>)}</div>
+        <blockquote><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"{location.testimonial.quote}"</p><footer><strong>{location.testimonial.name}</strong><em>{location.testimonial.company}</em></footer></blockquote>
+      </aside>
+    </div>
+  </section>
+
+  <section class="location-market">
+    <div class="location-market__inner">
+      <div class="location-market__intro">
+        <div class="section-kicker"><span></span><p class="type-index">{marketKicker}</p></div>
+        <h2><span>{location.marketHeading.split(" ").slice(0, -2).join(" ")}</span><br />{location.marketHeading.split(" ").slice(-2).join(" ")}</h2>
+        <p>{location.marketIntro}</p>
+        <div class="location-market__areas">
+          <p class="type-label">Areas covered</p>
+          <div>{location.areas.map((area) => <span>{area}</span>)}</div>
+        </div>
+      </div>
+      <div class="location-market__priorities">
+        {location.priorities.map((priority, index) => (
+          <article>
+            <div><span class="type-index">{String(index + 1).padStart(2, "0")}</span><i><Icon name={priority.icon} /></i></div>
+            <h3>{priority.title}</h3>
+            <p>{priority.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-deliverables">
+    <div class="service-deliverables__inner">
+      <div class="section-heading-row">
+        <div><div class="section-kicker"><span></span><p class="type-index">What's included</p></div><h2><span>Everything your</span><br />website needs.</h2></div>
+        <p>{location.marketDescription}</p>
+      </div>
+      <div class="service-deliverables__grid">{deliverables.map(([title, desc], index) => <article><div><Icon name={deliverableIcons[index] ?? "star"} /></div><h3>{title}</h3><p>{desc}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="service-case-studies location-case-studies">
+    <div class="service-case-studies__inner">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Selected work</p></div>
+          <h2><span>Credibility built</span><br />into the work.</h2>
+        </div>
+        <p>Different sectors, different audiences, and the same focus on making the business easier to trust and easier to choose.</p>
+      </div>
+      <div class="service-case-studies__grid">
+        {selectedCaseStudies.map((project, index) => project && (
+          <a class:list={["service-case-card", index === 0 && "service-case-card--featured"]} href={`/projects/${project.slug}`}>
+            <figure>
+              <img src={project.hero} alt={`${project.title} website project`} loading="lazy" />
+              <span class="type-index">{String(index + 1).padStart(2, "0")}</span>
+            </figure>
+            <div class="service-case-card__body">
+              <div>
+                <p class="type-index">{project.industry}</p>
+                <h3>{project.title}</h3>
+              </div>
+              <span class="service-case-card__arrow" aria-hidden="true"><Icon name="arrow" /></span>
+              <p>{project.description}</p>
+              <strong>Read the case study</strong>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="service-case-studies__footer">
+        <p>Looking for more examples across different sectors?</p>
+        <a href="/projects">Explore web design projects <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-packages" id="packages">
+    <div class="service-packages__inner">
+      <div class="section-heading-row"><div><div class="section-kicker"><span></span><p class="type-index">Packages</p></div><h2><span>Transparent pricing.</span><br />No surprises.</h2></div><p>Fully scoped before we start. What we quote is what you pay.</p></div>
+      <div class="service-package-grid">
+        {packages.map(([name, price, note, tagline, features, highlight]) => <article class:list={["service-package-card", highlight && "service-package-card--featured"]}>{highlight && <span class="service-package-card__badge">Most popular</span>}<p class="type-label">{name}</p><h3>{price}</h3><span class="type-index">{note}</span><p>{tagline}</p><ul>{(features as string[]).map((feature) => <li>{feature}</li>)}</ul><a href="/free-review">{name} website review <span aria-hidden="true">&#8599;</span></a></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="review-faq">
+    <div class="review-faq__inner">
+      <div class="faq-support-card">
+        <p class="type-index">Local questions</p>
+        <h2>{faqHeading}</h2>
+        <div class="faq-support-card__person">
+          <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
+          <div><strong>Planning a local project?</strong><span>Joe can talk through what matters for your area.</span></div>
+        </div>
+        <a class="button button--dark" href="/contact">Talk to Joe</a>
+        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
+      </div>
+      <div class="faq-accordion-list">
+        {location.faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-dark-cta">
+    <div>
+      <p class="type-index">{location.locationLine}</p>
+      <h2>{ctaHeading}</h2>
+      <p>Start with a free review of your current website. Joe will assess it against 20 conversion factors and send you a personalised video in 48 hours.</p>
+      <div><a class="button button--accent" href="/free-review">Free website review</a><a href="mailto:info@evoluxwebdesign.co.uk">Email Joe <span aria-hidden="true">&#8599;</span></a></div>
+    </div>
+  </section>
+</BaseLayout>

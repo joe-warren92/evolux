@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SERVICES } from "../../data/services";
+import { PROJECTS } from "../../data/projects";
 import Icon from "../../components/Icon.astro";
 
 export function getStaticPaths() {
@@ -18,17 +19,34 @@ const serviceIcons: Record<string, string[]> = {
 };
 
 const processIcons = ["search", "design", "code", "launch"];
+
+const caseStudySlugs: Record<string, string[]> = {
+  "web-design": ["circular-branding", "manton-executives"],
+  "website-maintenance": ["ockerby-academy", "circular-branding"],
+  "conversion-optimisation": ["circular-branding", "ockerby-academy"],
+  branding: ["marley-doulas", "manton-executives"],
+  "graphic-design": ["circular-branding", "marley-doulas"]
+};
+
+const caseStudyHeadings: Record<string, [string, string, string]> = {
+  "web-design": ["Selected web design projects", "Built for real businesses.", "Each project starts with a commercial problem, then turns it into a clearer and more credible customer journey."],
+  "website-maintenance": ["Websites worth protecting", "Built to stay useful.", "A well-maintained website protects the work already invested in design, search visibility and customer experience."],
+  "conversion-optimisation": ["Conversion-led projects", "Clarity before decoration.", "These websites were shaped around the questions, doubts and next steps that influence whether someone gets in touch."],
+  branding: ["Brand-led projects", "Identity with a job to do.", "These projects use brand identity to improve recognition, trust and the way the business is understood online."],
+  "graphic-design": ["Design in context", "Consistency builds trust.", "Good design earns its value when the website, brand and marketing materials feel like one considered system."]
+};
+
+const selectedCaseStudies = (caseStudySlugs[service.slug] ?? ["circular-branding", "manton-executives"])
+  .map((slug) => PROJECTS.find((project) => project.slug === slug))
+  .filter(Boolean);
+const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["web-design"];
 ---
 
 <BaseLayout title={`${service.title} | Evolux Web Design`}>
   <section class:list={["service-page-hero", service.slug !== "web-design" && "service-page-hero--simple"]}>
-    {service.slug === "web-design" && (
-      <>
-        <div class="service-page-hero__glow service-page-hero__glow--one"></div>
-        <div class="service-page-hero__glow service-page-hero__glow--two"></div>
-        <div class="service-page-hero__rule"></div>
-      </>
-    )}
+    <div class="service-page-hero__glow service-page-hero__glow--one"></div>
+    <div class="service-page-hero__glow service-page-hero__glow--two"></div>
+    <div class="service-page-hero__rule"></div>
     <div class="service-page-hero__inner">
       <div class="blog-stamp">
         <div class="blog-stamp__crumbs">
@@ -38,7 +56,7 @@ const processIcons = ["search", "design", "code", "launch"];
           <span>/</span>
           <strong>{service.crumb}</strong>
         </div>
-        {service.slug === "web-design" && <div class="service-page-hero__location"><span></span>Sunderland, UK - working nationally</div>}
+        <div class="service-page-hero__location"><span></span>Sunderland, UK - working nationally</div>
       </div>
 
       <div class="service-page-hero__grid">
@@ -46,32 +64,34 @@ const processIcons = ["search", "design", "code", "launch"];
           <div class="mini-label"><span></span>{service.shortTitle}</div>
           <h1><span>{service.heroLineOne}</span><br />{service.heroLineTwo}</h1>
           <p>{service.intro}</p>
-          {service.slug === "web-design" && (
-            <div class="service-page-hero__actions">
-              <a class="button button--dark" href="#packages"><span></span>Web design packages</a>
-              <a class="text-button" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
-            </div>
-          )}
+          <div class="service-page-hero__actions">
+            <a class="button button--dark" href="#packages"><span></span>{service.shortTitle} packages</a>
+            <a class="text-button" href="/free-review">Free website review <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
-        <dl class="service-page-meta">
-          {service.meta.map(([label, value]) => (
-            <div><dt>{label}</dt><dd>{value}</dd></div>
-          ))}
-        </dl>
+        <aside class="service-page-meta">
+          <div class="service-page-meta__head">
+            <p class="type-index">At a glance</p>
+            <span aria-hidden="true"><Icon name="star" /></span>
+          </div>
+          <dl>
+            {service.meta.map(([label, value]) => (
+              <div><dt>{label}</dt><dd>{value}</dd></div>
+            ))}
+          </dl>
+        </aside>
       </div>
 
-      {service.slug === "web-design" && (
       <div class="service-proof-strip">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <p class="type-index">5.0 on Google</p>
         <i></i>
-        <p class="type-index">Est. 2023, Sunderland</p>
+        <p class="type-index">Direct access to Joe</p>
         <i></i>
-        <p class="type-index">WordPress · Bricks Builder</p>
+        <p class="type-index">Clear written scope</p>
         <i></i>
-        <p class="type-index">30-day post-launch guarantee</p>
+        <p class="type-index">UK businesses supported</p>
       </div>
-      )}
     </div>
   </section>
 
@@ -114,6 +134,41 @@ const processIcons = ["search", "design", "code", "launch"];
             <p>{desc}</p>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-case-studies">
+    <div class="service-case-studies__inner">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">{caseStudyHeading[0]}</p></div>
+          <h2><span>{caseStudyHeading[1]}</span><br />Proof in the work.</h2>
+        </div>
+        <p>{caseStudyHeading[2]}</p>
+      </div>
+      <div class="service-case-studies__grid">
+        {selectedCaseStudies.map((project, index) => project && (
+          <a class:list={["service-case-card", index === 0 && "service-case-card--featured"]} href={`/projects/${project.slug}`}>
+            <figure>
+              <img src={project.hero} alt={`${project.title} website project`} loading="lazy" />
+              <span class="type-index">{String(index + 1).padStart(2, "0")}</span>
+            </figure>
+            <div class="service-case-card__body">
+              <div>
+                <p class="type-index">{project.industry}</p>
+                <h3>{project.title}</h3>
+              </div>
+              <span class="service-case-card__arrow" aria-hidden="true"><Icon name="arrow" /></span>
+              <p>{project.description}</p>
+              <strong>Read the case study</strong>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="service-case-studies__footer">
+        <p>Want to see more work across different sectors?</p>
+        <a href="/projects">Web design projects <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>

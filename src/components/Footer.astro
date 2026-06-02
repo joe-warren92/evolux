@@ -1,5 +1,6 @@
 ---
 import googleReviewsData from "../data/googleReviews.json";
+import Icon from "./Icon.astro";
 
 const currentYear = new Date().getFullYear();
 
@@ -85,7 +86,7 @@ const getStars = (rating) => "★".repeat(Math.max(1, Math.min(5, Math.round(rat
                     <img src={review.companyLogo} alt={`${review.company} logo`} loading="lazy" />
                   </span>
                 ) : (
-                  <span class="testimonial-card__logo">{review.authorInitials}</span>
+                  <span class="testimonial-card__logo">{review.companyInitials || review.authorInitials}</span>
                 )}
                 <div>
                   <strong>{review.authorName}</strong>
@@ -98,8 +99,8 @@ const getStars = (rating) => "★".repeat(Math.max(1, Math.min(5, Math.round(rat
         <div class="google-reviews-carousel__footer">
           <a href={googleSourceUrl} target="_blank" rel="noreferrer">Read Evolux Google reviews <span aria-hidden="true">&#8599;</span></a>
           <div class="google-reviews-carousel__controls" aria-label="Review carousel controls">
-            <button type="button" data-review-prev aria-label="Previous review">‹</button>
-            <button type="button" data-review-next aria-label="Next review">›</button>
+            <button type="button" data-review-prev aria-label="Previous review"><Icon name="arrow-left" /></button>
+            <button type="button" data-review-next aria-label="Next review"><Icon name="arrow-right" /></button>
           </div>
         </div>
       </div>

@@ -61,31 +61,25 @@ const insightCards = [
   {
     slug: "why-websites-dont-generate-business",
     title: "Why Your Website Gets Traffic But No Enquiries",
-    category: "Strategy",
+    category: "Website Advice",
     readingTime: "6 min read",
     date: "Jan 2026",
-    quote: "Traffic is only useful when the page earns trust quickly.",
-    excerpt: "Traffic and conversion are different problems. Most businesses are solving the wrong one.",
     image: "/assets/articles/6-things-that-kill-website-conversion-rate-00-img-2487-1-1.webp"
   },
   {
     slug: "real-cost-of-cheap-website",
     title: "The Real Cost of a Cheap Website",
-    category: "Business Case",
+    category: "Costs & Planning",
     readingTime: "4 min read",
     date: "Dec 2025",
-    quote: "The cheapest site is often the one quietly losing enquiries.",
-    excerpt: "A cheap build can become expensive when the site quietly loses qualified enquiries every month.",
     image: "/assets/articles/why-a-cheap-website-could-cost-you-more-than-you-think-00-pexels-pixabay-39284-1-1.jpg"
   },
   {
     slug: "questions-to-ask-web-design-agency",
     title: "5 Questions to Ask a Web Design Agency",
-    category: "Hiring Guide",
+    category: "Costs & Planning",
     readingTime: "5 min read",
     date: "Nov 2025",
-    quote: "The right questions reveal whether strategy exists behind the visuals.",
-    excerpt: "The answers will tell you whether an agency can deliver more than a good-looking homepage.",
     image: "/assets/articles/how-to-write-a-web-design-brief-so-that-you-get-your-perfect-site-00-pexels-fotios-photos-811587.webp"
   }
 ];
@@ -318,8 +312,8 @@ const homepageSchema = {
         </div>
         <blockquote class="studio-intro__testimonial">
           <span>"</span>
-          <p>Amazing! This company is so easy to work with - they created my website exactly how I'd imagined with no faff or hassle.</p>
-          <footer>Leah Hall - Client</footer>
+          <p>Joe's proactive approach and efficient communication made the entire process seamless and stress-free. He brought my business vision to life in ways that exceeded my expectations.</p>
+          <footer>Olivia Bowman - Skyn & Glo</footer>
         </blockquote>
         <a class="button button--dark" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
       </div>
@@ -376,8 +370,8 @@ const homepageSchema = {
         <h2 class="display-heading"><span>Four clear steps.</span><br />You're in control throughout.</h2>
       </div>
       <blockquote>
-        <p>"Joe was an absolute pleasure to work with. He was always available, quick to respond, and incredibly patient."</p>
-        <footer>Katie Dutton - Manton Executives</footer>
+        <p>"Joe's patience, communication, attention to detail and flare for design combine perfectly to create the ideal online presence."</p>
+        <footer>Vicky Jones - McClelland's Bathroom and Tile Studio</footer>
       </blockquote>
     </div>
     <div class="timeline">
@@ -417,31 +411,53 @@ const homepageSchema = {
     <div class="lead-section__inner">
       <div class="lead-section__copy">
         <div class="mini-label"><span></span>Free website review</div>
-        <h2 class="display-heading"><span>Is your website winning or losing you business</span> right now?</h2>
-        <p>If your website isn't producing the enquiries it should, we'll show you why. You'll receive a personal video review breaking down where trust, clarity, and conversion are being lost.</p>
+        <h2 class="display-heading">Find out why your website <span>isn't winning more enquiries.</span></h2>
+        <p>Joe will review your website personally and send you a clear video breakdown of the issues most likely to be costing you enquiries.</p>
         <ul>
-          <li>Scored against 20 conversion factors</li>
-          <li>Personalised video breakdown - in your inbox within 48 hours</li>
-          <li>No sales pitch. No obligation.</li>
+          <li><strong>20-point review</strong><span>Trust, clarity, mobile experience and conversion friction.</span></li>
+          <li><strong>Personal video</strong><span>A practical walkthrough in your inbox within 48 hours.</span></li>
+          <li><strong>Clear priorities</strong><span>The changes worth making first, without a sales pitch.</span></li>
         </ul>
-        <a href="/free-review">Website review details <span aria-hidden="true">&#8599;</span></a>
+        <div class="lead-section__proof">
+          <div>
+            <strong>5.0</strong>
+            <span><b aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</b> Google rating</span>
+          </div>
+          <div>
+            <strong>48h</strong>
+            <span>Typical delivery</span>
+          </div>
+          <a href="/free-review">Review details <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <blockquote class="lead-section__testimonial">
+          <img src="/assets/logos/steven-dunn-circular-branding.jpg" alt="Steven Dunn, Circular Branding Group" loading="lazy" />
+          <div>
+            <p>"Clear communication throughout, proactive, responsive and their attention to detail was second to none."</p>
+            <footer><strong>Steven Dunn</strong><span>Circular Branding Group</span></footer>
+          </div>
+        </blockquote>
       </div>
 
       <form class="lead-form-card" action="/free-review">
+        <header class="lead-form-card__head">
+          <p class="type-index">Request your free review</p>
+          <h3>Show me what's holding my website back.</h3>
+          <span>Share your details below. It takes around 30 seconds.</span>
+        </header>
         <label>
           <span>Your website URL</span>
-          <input type="url" name="website" placeholder="https://yourwebsite.co.uk" />
+          <input type="url" name="website" placeholder="https://yourwebsite.co.uk" required />
         </label>
         <label>
           <span>Business email</span>
-          <input type="email" name="email" placeholder="you@company.co.uk" />
+          <input type="email" name="email" placeholder="you@company.co.uk" required />
         </label>
         <label>
           <span>Biggest website challenge? <em>(optional)</em></span>
-          <textarea name="challenge" rows="4" placeholder="Tell us what's not working right now"></textarea>
+          <textarea name="challenge" rows="3" placeholder="For example: traffic but not enough enquiries"></textarea>
         </label>
         <button class="button button--accent" type="submit">Get my free review <span aria-hidden="true">&#8599;</span></button>
-        <p>No sales pitch. No obligation. Just an honest review from Joe.</p>
+        <p>No obligation. No pressure call. Just an honest review from Joe.</p>
       </form>
     </div>
   </section>
@@ -494,7 +510,7 @@ const homepageSchema = {
     </div>
 
     <div class="guarantee-bar">
-      <div class="guarantee-bar__icon">✓</div>
+      <div class="guarantee-bar__icon"><Icon name="shield" /></div>
       <div>
         <h3>30-day post-launch guarantee, on every package.</h3>
         <p>If something isn't right in the 30 days after you go live, we fix it. No quibble, no extra charge.</p>
@@ -503,9 +519,9 @@ const homepageSchema = {
     </div>
 
     <div class="trust-grid">
-      <article><h3>No hidden costs</h3><p>Fully scoped before we start. What we quote is what you pay.</p></article>
-      <article><h3>You deal with the designer</h3><p>No account managers. The person building your site is the person you talk to.</p></article>
-      <article><h3>30-day guarantee</h3><p>Not happy with something in the first 30 days after launch? We fix it.</p></article>
+      <article><span><Icon name="document" /></span><h3>No hidden costs</h3><p>Fully scoped before we start. What we quote is what you pay.</p></article>
+      <article><span><Icon name="direct" /></span><h3>You deal with the designer</h3><p>No account managers. The person building your site is the person you talk to.</p></article>
+      <article><span><Icon name="shield" /></span><h3>30-day guarantee</h3><p>Not happy with something in the first 30 days after launch? We fix it.</p></article>
     </div>
   </section>
 
@@ -518,22 +534,21 @@ const homepageSchema = {
       <p>We write about the decisions that grow businesses - not the tools we use to get there.</p>
     </div>
     <div class="insight-card-grid">
-      {insightCards.map((post, index) => (
+      {insightCards.map((post) => (
         <a href={`/insights/${post.slug}`} class="insight-card">
           <div class="insight-card__cover">
             <img src={post.image} alt="" loading="lazy" />
-            <div class="insight-card__bloom"></div>
             <div class="insight-card__top">
               <span>{post.category}</span>
               <span>{post.readingTime}</span>
             </div>
-            <span class="insight-card__number">{String(index + 1).padStart(2, "0")}</span>
-            <blockquote>{post.quote}</blockquote>
           </div>
           <div class="insight-card__body">
-            <div class="insight-card__meta"><img src={JOE_AUTHOR.image} alt="" loading="lazy" /><p>{post.date}</p></div>
             <h3>{post.title}</h3>
-            <strong>Read {post.title} <span aria-hidden="true">&#8599;</span></strong>
+            <div class="insight-card__footer">
+              <div class="insight-card__meta"><img src={JOE_AUTHOR.image} alt="" loading="lazy" /><p>{post.date}</p></div>
+              <strong>Read article <span aria-hidden="true">&#8599;</span></strong>
+            </div>
           </div>
         </a>
       ))}

@@ -42,10 +42,10 @@ export const SERVICES = [
       ["Post-launch guarantee", "If something is not right after launch, it gets fixed. Studio and Elite projects include extended support windows for extra peace of mind."]
     ],
     testimonial: {
-      quote: "We couldn't be happier with the new website Joe created for us. It truly captures who we are as a business and presents us in exactly the way we wanted.",
-      name: "Katie Dutton",
-      company: "Manton Executives, Sunderland",
-      initials: "KD"
+      quote: "Joe has a fantastic eye for detail. He captured the heart of our family pet food business perfectly through his design work. His level of expertise and professionalism is truly unmatched.",
+      name: "Ian Bowman",
+      company: "Bowman's Premium",
+      initials: "BP"
     },
     faqs: [
       ["How long does a web design project usually take?", "A focused five-page website usually takes around three to four weeks from discovery to launch. Larger Studio or Elite websites with more pages, copywriting, brand work, animations or advanced SEO structure usually take five to eight weeks. Before anything begins, you receive a clear schedule covering discovery, design, development, testing, launch and handover. You can compare typical project scopes on the <a href=\"/packages\">website packages</a> page."],

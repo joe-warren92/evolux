@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import { PROJECTS } from "../data/projects";
 
 const whatYouGet = [
   ["01", "Conversion score", "Your site assessed against 20 factors that determine whether visitors make contact or leave."],
@@ -17,6 +18,17 @@ const whoFor = [
   "You're considering a redesign and want an honest baseline first",
   "You want to understand what a conversion-focused site actually means"
 ];
+
+const reviewSignals = [
+  ["01", "First impression", "Does the site feel credible within the first few seconds?", "brand"],
+  ["02", "Message clarity", "Can a visitor quickly understand what you do and why it matters?", "message"],
+  ["03", "Trust signals", "Is there enough proof to make getting in touch feel low risk?", "shield"],
+  ["04", "Conversion path", "Are the next steps obvious on desktop and mobile?", "target"],
+  ["05", "Mobile friction", "Is anything making the phone experience harder than it needs to be?", "mobile"],
+  ["06", "Search foundations", "Are the basics in place for Google to understand the website?", "seo"]
+];
+
+const reviewProjects = PROJECTS.slice(0, 3);
 ---
 
 <BaseLayout title="Free Website Review - Evolux Web Design">
@@ -35,9 +47,10 @@ const whoFor = [
       </div>
 
       <div class="review-hero__grid">
-        <div>
+        <div class="review-hero__copy">
+          <div class="mini-label"><span></span>Personal video review by Joe</div>
           <h1><span>Find out what's stopping</span><br />your website converting.</h1>
-          <p>Joe reviews your site against 20 conversion factors and sends back a personalised screen-recorded video within 48 hours. Completely free. No pitch.</p>
+          <p>Get a practical screen-recorded review of the issues most likely to be costing your business enquiries. Joe checks your website personally, explains what matters and gives you a clear order of priority.</p>
           <div class="review-proof">
             <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="type-index">5.0 Google rating</span></div>
             <i></i>
@@ -45,17 +58,76 @@ const whoFor = [
             <i></i>
             <div><strong>48h</strong><span class="type-index">turnaround</span></div>
           </div>
+          <blockquote class="review-hero__testimonial">
+            <img src="/assets/logos/steven-dunn-circular-branding.jpg" alt="Steven Dunn, Circular Branding Group" />
+            <div>
+              <p>"Clear communication throughout, proactive, responsive and their attention to detail was second to none."</p>
+              <footer><strong>Steven Dunn</strong><span>Circular Branding Group</span></footer>
+            </div>
+          </blockquote>
         </div>
 
         <form class="review-form-card" action="mailto:info@evoluxwebdesign.co.uk" method="post" enctype="text/plain">
-          <h2>Request your free review</h2>
-          <p>30 seconds to submit. Video in your inbox within 48 hours.</p>
-          <label>Website URL<input type="url" name="website" placeholder="https://yourwebsite.com" /></label>
+          <div class="review-form-card__head">
+            <span><Icon name="target" /></span>
+            <div><p class="type-index">Free website review</p><small>Delivered personally by Joe</small></div>
+          </div>
+          <h2>Show me your website.</h2>
+          <p>Share the URL and your biggest concern. Your personalised video will arrive within 48 hours.</p>
+          <label>Website URL<input type="url" name="website" placeholder="https://yourwebsite.com" required /></label>
           <label>Business email<input type="email" name="email" placeholder="you@company.com" required /></label>
           <label>Biggest website challenge? <em>(optional)</em><input name="challenge" placeholder="e.g. visitors but no enquiries" /></label>
           <button type="submit"><span></span>Get my free review</button>
-          <p class="type-label">No sales pitch. No obligation. Just an honest review from Joe.</p>
+          <p class="type-label"><Icon name="shield" /> No sales pitch. No obligation. Just an honest review.</p>
         </form>
+      </div>
+      <div class="review-hero__visuals" aria-label="Examples of Evolux website projects">
+        <figure class="review-hero__visual review-hero__visual--main">
+          <img src="/assets/mockup3-1_1779878754712.webp" alt="Circular Branding Group website designed by Evolux" />
+          <figcaption><span class="type-index">Recent project</span><strong>Circular Branding Group</strong></figcaption>
+        </figure>
+        <figure class="review-hero__visual review-hero__visual--side">
+          <img src="/assets/iMac-M4-Purple-1_1779878754716.jpg" alt="Manton Executives website designed by Evolux" />
+          <figcaption><span class="type-index">Trust-led redesign</span><strong>Manton Executives</strong></figcaption>
+        </figure>
+      </div>
+      <div class="review-client-strip">
+        <p class="type-index">Trusted by UK businesses including</p>
+        <div>
+          <img src="/assets/logos/circular-branding-logo.webp" alt="Circular Branding Group" />
+          <img src="/assets/logos/manton-executives-logo.webp" alt="Manton Executives" />
+          <img src="/assets/logos/ockerby-academy-logo.webp" alt="Ockerby Academy" />
+          <img src="/assets/logos/skyn-glo-logo.webp" alt="Skyn & Glo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="review-example">
+    <div class="review-example__inner">
+      <div class="review-example__intro">
+        <div class="section-kicker"><span></span><p class="type-index">What Joe checks</p></div>
+        <h2><span>Not vague feedback.</span><br />A useful starting point.</h2>
+        <p>The review focuses on the parts of your website that influence whether a visitor trusts the business, understands the offer and feels ready to make contact.</p>
+        <div class="review-example__promise">
+          <span><Icon name="clock" /></span>
+          <div><strong>One short video. Clear priorities.</strong><p>Watch it when it suits you and use the advice in whichever way makes sense.</p></div>
+        </div>
+      </div>
+      <div class="review-scorecard">
+        <header>
+          <div><span class="type-index">Example review framework</span><h3>Your website, viewed like a customer.</h3></div>
+          <strong>20<span>/20</span></strong>
+        </header>
+        <div class="review-scorecard__grid">
+          {reviewSignals.map(([num, title, copy, icon]) => (
+            <article>
+              <div><span class="type-index">{num}</span><i><Icon name={icon} /></i></div>
+              <h4>{title}</h4>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -64,7 +136,7 @@ const whoFor = [
     <div class="review-included__inner">
       <div class="section-kicker"><span></span><p class="type-index">What's included</p></div>
       <h2><span>Everything you need</span><br />to understand your site.</h2>
-      <div>
+      <div class="review-included__grid">
         {whatYouGet.map(([num, title, desc], index) => (
           <article>
             <em>{num}</em>
@@ -87,8 +159,37 @@ const whoFor = [
       <blockquote>
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"Joe was always available, quick to respond, and incredibly patient throughout. The site looks amazing and truly captures who we are."</p>
-        <footer><span>KD</span><div><strong>Katie Dutton</strong><em>Manton Executives</em></div></footer>
+        <footer><span><img src="/assets/logos/manton-executives-logo.webp" alt="Manton Executives logo" /></span><div><strong>Katie Dutton</strong><em>Manton Executives</em></div></footer>
       </blockquote>
+    </div>
+  </section>
+
+  <section class="review-work">
+    <div class="review-work__inner">
+      <div class="section-heading-row">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Recent work</p></div>
+          <h2><span>Advice shaped by</span><br />real project work.</h2>
+        </div>
+        <p>The review is informed by the same conversion thinking used across Evolux website projects: clear positioning, credible proof and a customer journey that makes the next step obvious.</p>
+      </div>
+      <div class="review-work__grid">
+        {reviewProjects.map((project, index) => (
+          <a href={`/projects/${project.slug}`} class:list={["review-work-card", index === 0 && "review-work-card--featured"]}>
+            <figure><img src={project.hero} alt={`${project.title} website project`} loading="lazy" /></figure>
+            <div>
+              <p class="type-index">{project.industry}</p>
+              <h3>{project.title}</h3>
+              <span>Read the case study <Icon name="arrow" /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="review-work__proof">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"The result says it all. Clear communication throughout, proactive, responsive and their attention to detail was second to none."</blockquote>
+        <footer><img src="/assets/logos/circular-branding-logo.webp" alt="Circular Branding Group logo" loading="lazy" /><div><strong>Steven Dunn</strong><span>Circular Branding Group</span></div></footer>
+      </div>
     </div>
   </section>
 

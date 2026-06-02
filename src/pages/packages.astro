@@ -95,30 +95,49 @@ const renderCell = (value: boolean | string | undefined) => {
       </div>
 
       <div class="packages-hero__grid">
-        <div>
+        <div class="packages-hero__copy">
+          <div class="mini-label"><span></span>Website packages</div>
           <h1><span>Transparent pricing.</span><br />No surprises.</h1>
-          <p>Every project is fully scoped before we start. What we quote is what you pay. Choose the package that matches where your business is right now - and where you want it to go.</p>
+          <p>A clear starting point for a website investment that is properly scoped around your business. Choose the level that fits where you are now, then know exactly what is included before work begins.</p>
+          <div class="packages-hero__actions">
+            <a class="button button--accent" href="#packages">Compare packages</a>
+            <a class="text-button" href="/free-review">Start with a free review <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
-        <aside class="package-pricing-note" aria-label="How Evolux pricing works">
-          <p class="type-label">How pricing works</p>
-          <h2>Scoped properly before anything starts.</h2>
-          <p>Every package is a starting point. Before you commit, Joe maps the pages, content, functionality and support you need, then confirms the full scope in writing.</p>
-          <div>
-            <span><Icon name="check" /></span>
-            <strong>Clear proposal</strong>
-            <small>Deliverables, timeline and investment agreed upfront.</small>
-          </div>
-          <div>
-            <span><Icon name="user" /></span>
-            <strong>Direct process</strong>
-            <small>You speak with the person designing and building the site.</small>
-          </div>
+        <aside class="packages-hero__starting-point" aria-label="Website package starting price">
+          <p class="type-index">Website projects from</p>
+          <strong>&pound;1,800</strong>
+          <span>Every proposal is confirmed in writing before the design work starts.</span>
         </aside>
+      </div>
+
+      <div class="packages-hero__assurances" aria-label="What to expect">
+        <div>
+          <span class="packages-hero__assurance-icon"><Icon name="document" /></span>
+          <div>
+            <strong>Clear scope</strong>
+            <p>Pages, functionality and support agreed upfront.</p>
+          </div>
+        </div>
+        <div>
+          <span class="packages-hero__assurance-icon"><Icon name="direct" /></span>
+          <div>
+            <strong>Direct process</strong>
+            <p>Work directly with Joe from first call to launch.</p>
+          </div>
+        </div>
+        <div>
+          <span class="packages-hero__assurance-icon"><Icon name="growth" /></span>
+          <div>
+            <strong>Room to grow</strong>
+            <p>Start at the sensible level and build from there.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="packages-cards-section">
+  <section class="packages-cards-section" id="packages">
     <div class="packages-cards-section__inner">
       <div class="packages-cards-section__head">
         <div>
@@ -200,8 +219,8 @@ const renderCell = (value: boolean | string | undefined) => {
   <section class="packages-testimonial">
     <article>
       <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote>"We couldn't be happier with the new website Joe created for us. It truly captures who we are as a business and presents us in exactly the way we wanted."</blockquote>
-      <footer><span>KD</span><div><strong>Katie Dutton</strong><em>Manton Executives, Sunderland</em></div></footer>
+      <blockquote>"From the outset Joe checked in regularly, asked about my preferences, and turned my ideas into a slick, classic, professional site."</blockquote>
+      <footer><span>SK</span><div><strong>Sara Knight</strong><em>Sara Knight Life Coaching</em></div></footer>
     </article>
   </section>
 

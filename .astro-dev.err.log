@@ -1,0 +1,44 @@
+[31m[1m09:08:10[22m [ERROR] [vite][39m Error: [31m  Failed to scan for dependencies from entries:
+  C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/components/Footer.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/components/Icon.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/components/Navigation.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/components/ProjectCard.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/components/SectionHeading.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/layouts/BaseLayout.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/404.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/about.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/contact.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/free-review.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/index.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/packages.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/projects/index.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/projects/[slug].astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/insights/index.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/insights/[slug].astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/locations/index.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/locations/sunderland.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/services/index.astro
+C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/src/pages/services/[slug].astro
+
+  [39mspawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:441:11)
+    at Object.spawn (node:child_process:796:9)
+    at ensureServiceIsRunning (C:\Users\Joe\Downloads\Evolux\Prime-Portfolio\node_modules\vite\node_modules\esbuild\lib\main.js:1978:29)
+    at Object.context (C:\Users\Joe\Downloads\Evolux\Prime-Portfolio\node_modules\vite\node_modules\esbuild\lib\main.js:1877:33)
+    at prepareEsbuildScanner (file:///C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:14266:24)
+    at async file:///C:/Users/Joe/Downloads/Evolux/Prime-Portfolio/node_modules/vite/dist/node/chunks/dep-Dq2t6Dq0.js:47039:28
+[31m[1m17:32:17[22m [ERROR][39m spawn EPERM
+  [1mStack trace:[22m
+[2m    at ChildProcess.spawn (node:internal/child_process:441:11)
+    at Object.execFile (node:child_process:349:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[31m[1m17:32:17[22m [ERROR][39m spawn EPERM
+  [1mStack trace:[22m
+[2m    at ChildProcess.spawn (node:internal/child_process:441:11)
+    at Object.execFile (node:child_process:349:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m
+[31m[1m17:32:17[22m [ERROR][39m spawn EPERM
+  [1mStack trace:[22m
+[2m    at ChildProcess.spawn (node:internal/child_process:441:11)
+    at Object.execFile (node:child_process:349:17)
+    [...] See full stack trace in the browser, or rerun with --verbose.[22m

@@ -3,7 +3,7 @@ export const JOE_AUTHOR = {
   role: "Founder & Web Designer",
   initials: "J",
   image: "/assets/logos/joe-evolux-founder.png",
-  bio: "Joe is the founder of Evolux Web Design, a conversion-focused web design studio based in Sunderland, North East England. With 5+ years of experience building WordPress websites that generate real enquiries for UK businesses, he writes about web design, conversion optimisation, and digital strategy for SMEs.",
+  bio: "Joe is the founder of Evolux Web Design in Sunderland. He writes practical guides for business owners who want a clearer, more credible website and a better idea of what to improve next.",
   expertise: ["WordPress", "Bricks Builder", "Conversion Optimisation", "UX Strategy"]
 };
 
@@ -14,7 +14,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "High traffic, low enquiries? Discover the five conversion mistakes most UK business websites make and the straightforward fixes that generate results.",
     excerpt: "Most sites are built to look presentable. The ones that generate revenue are engineered around a single question: what do we want the visitor to do?",
     coverQuote: "Traffic and conversion are different problems. Most businesses are solving the wrong one.",
-    category: "Strategy",
+    category: "Website Advice",
     tags: ["conversion", "website strategy", "lead generation", "web design"],
     publishedAt: "2025-03-12",
     updatedAt: "2025-04-01",
@@ -45,7 +45,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "A cheap website might cost less upfront, but if it loses qualified enquiries every month, the real cost is much higher.",
     excerpt: "A cheap build can become expensive when the site quietly loses qualified enquiries every month.",
     coverQuote: "A cheap site losing 3 enquiries a month can cost more than a premium build.",
-    category: "Business Case",
+    category: "Costs & Planning",
     tags: ["roi", "web design cost", "small business", "website investment"],
     publishedAt: "2025-04-08",
     readingTime: 4,
@@ -69,7 +69,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Before hiring a web design agency, ask these five questions to understand whether they can actually deliver results.",
     excerpt: "The answers will tell you whether an agency can deliver more than a good-looking homepage.",
     coverQuote: "Every agency says the right things. These five questions separate the ones that deliver.",
-    category: "Hiring Guide",
+    category: "Costs & Planning",
     tags: ["hiring", "web design agency", "questions to ask", "due diligence"],
     publishedAt: "2025-05-02",
     readingTime: 5,
@@ -97,7 +97,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Learn website backup best practices to protect your business from data loss, downtime, malware, and recovery failures",
     excerpt: "Your website is working perfectly one day. Then an update runs overnight, and something breaks. Pages stop loading. Contact forms fail. In some cases, the whole site goes down w...",
     coverQuote: "What Is a Website Backup?",
-    category: "Website Maintenance",
+    category: "Maintenance",
     tags: [
       "web-design",
       "website",
@@ -1661,7 +1661,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "How secure is a WordPress website? Learn the real risks, security best practices, and how SMEs can protect their site and customer data.",
     excerpt: "Imagine this. You wake up to an email saying your website has been flagged for malware. Customers cannot access it. Your contact forms have stopped working. You start wondering...",
     coverQuote: "Is WordPress Secure by Default?",
-    category: "Website Maintenance",
+    category: "Maintenance",
     tags: [
       "web-design",
       "secure",
@@ -2133,7 +2133,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Your business is busy, customers come through word of mouth, but the website just sits there. It exists, it looks fine, yet it rarely brings in new enquiries.",
     excerpt: "Your business is busy, customers come through word of mouth, but the website just sits there. It exists, it looks fine, yet it rarely brings in new enquiries. Many Sunderland bu...",
     coverQuote: "Why a Website Plays a Bigger Role in Business Growth Than Many Expect",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "sunderland",
@@ -2838,7 +2838,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Learn the key signs your Sunderland business website needs a redesign and how poor speed, UX, and SEO could be costing you enquiries.",
     excerpt: "If your website isn’t generating as many sales or enquiries as it once did – ask yourself – “when did we last update our site?”. We’ve worked with many Sunderland business owner...",
     coverQuote: "Sign 1 – Your Website Loads Slowly or Feels Unresponsive",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "signs",
@@ -3098,7 +3098,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Discover why bespoke web design in Sunderland delivers better performance, SEO, branding, and conversions than template websites.",
     excerpt: "If your website feels slow, generic, or fails to bring in steady enquiries, you already know something isn’t working. Many Sunderland businesses face the same problem as you do....",
     coverQuote: "What Is Bespoke Web Design?",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "template",
@@ -3586,7 +3586,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Is your website costing you customers? Discover 5 warning signs your local business site may be turning visitors away—and how to fix them.",
     excerpt: "Your local business website is the first time many people encounter your business. The aim is for it to work around the clock to attract and convert potential customers. However...",
     coverQuote: "1. Your Website Takes Forever to Load",
-    category: "Conversion",
+    category: "Website Advice",
     tags: [
       "web-design",
       "signs",
@@ -3776,7 +3776,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Learn how a professional website helps your Sunderland business stand out from competitors. Real stats, local insights, and practical tips inside.",
     excerpt: "Walk down Fawcett Street on any given Saturday, and you’ll see dozens of local businesses competing for customers’ attention. But here’s something that might surprise you: 76% o...",
     coverQuote: "The Reality Check: Sunderland’s Digital Opportunity",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "website",
@@ -3993,7 +3993,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Estimating the true cost of a website can be tricky, because every project is different. In general, the more complex your site needs to be, the higher the",
     excerpt: "Estimating the true cost of a website can be tricky, because every project is different. In general, the more complex your site needs to be, the higher the price tag. Industry d...",
     coverQuote: "Why Website Costs Vary",
-    category: "Business Case",
+    category: "Costs & Planning",
     tags: [
       "web-design",
       "understanding",
@@ -4133,7 +4133,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Discover how to find the best web design company in North East England in 2025. This guide helps Sunderland and Newcastle businesses evaluate web design partners for effective online presence and growth.",
     excerpt: "In today’s world, your website often serves as the first point of contact between your business and potential customers. Having a strong online presence in 2025 isn’t just an op...",
     coverQuote: "Introduction",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "finding",
@@ -4404,7 +4404,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "We took a look at the WordPress plugins that can ensure that your website is secure, performance optimised and is visible to search engines.",
     excerpt: "In today’s world, your website is often the first impression potential customers have of your business. Whether you’re a marketing manager or a founder, you know that every seco...",
     coverQuote: "Why Plugins Matter",
-    category: "WordPress",
+    category: "Maintenance",
     tags: [
       "web-design",
       "best",
@@ -4618,7 +4618,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "When searching for \"Web Designer near me\", it can be a challenge. We've broken down what you should look for to deliver you your ideal website.",
     excerpt: "Finding the perfect web designer in your local area can make all the difference between a website that merely exists and one that truly represents your business. When you’re sea...",
     coverQuote: "The Benefits of Working with Local Web Designers",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "web",
@@ -5095,7 +5095,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Bricks Builder has recently created the Bricks Expert Directory - showcasing the best freelancers and agencies using Bricks to build websites on WordPress. We",
     excerpt: "We’re very happy to announce that we’ve been approved as Bricks Experts !",
     coverQuote: "Why we love Bricks Builder",
-    category: "WordPress",
+    category: "Maintenance",
     tags: [
       "web-design",
       "certified",
@@ -5226,7 +5226,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Discover why a cheap website might cost your business in the long run - poor first impressions, slow loading times, no SEO optimisation and low conversions.",
     excerpt: "Your website is often the first point of contact between your business and potential customers. You might be tempted to cut costs with hiring a cheap web designer, using a DIY w...",
     coverQuote: "Introduction",
-    category: "Business Case",
+    category: "Costs & Planning",
     tags: [
       "web-design",
       "why",
@@ -5446,7 +5446,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Read our in depth analysis of the 6 most common things that are killing your website conversion rates.",
     excerpt: "Conversion rate optimisation (CRO) is the process of increasing the percentage of website users who take a desired action – whether that’s filling out a form, making a purchase...",
     coverQuote: "What is Conversion Rate Optimsation?",
-    category: "Conversion",
+    category: "Website Advice",
     tags: [
       "web-design",
       "things",
@@ -5772,7 +5772,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "An overview of web design cost in the UK in 2025. We look at factors that can influence the pricing, and hidden costs that you need to consider.",
     excerpt: "In 2025, the world of web design is more exciting than ever. However, with new technologies, design trends, and user expectations on the rise, it can be confusing as to what you...",
     coverQuote: "Factors That Affect Web Design Prices in 2025",
-    category: "Business Case",
+    category: "Costs & Planning",
     tags: [
       "web-design",
       "web",
@@ -6069,7 +6069,7 @@ export const INSIGHT_POSTS = [
     metaDescription: "Learn how Sunderland businesses can stand out online with smarter website design, better UX, faster performance, and stronger local SEO.",
     excerpt: "Many Sunderland businesses struggle to stand out because their websites look similar, load slowly, or fail to explain what makes them different. When customers compare options i...",
     coverQuote: "What “Standing Out Online” Really Means for Local Businesses",
-    category: "Local SEO",
+    category: "SEO",
     tags: [
       "web-design",
       "sunderland",
@@ -6301,7 +6301,7 @@ export const INSIGHT_POSTS = [
   }
 ];
 
-export const ALL_CATEGORIES = ["All", ...Array.from(new Set(INSIGHT_POSTS.map((post) => post.category)))];
+export const ALL_CATEGORIES = ["All", "Web Design", "SEO", "Website Advice", "Costs & Planning", "Maintenance", "Branding"];
 
 export function getPostBySlug(slug) {
   return INSIGHT_POSTS.find((post) => post.slug === slug);
