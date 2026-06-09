@@ -1,9 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import InsightsPreview from "../components/InsightsPreview.astro";
 ---
 
-<BaseLayout title="About - Joe, Founder of Evolux Web Design">
+<BaseLayout
+  title="About Joe - Founder of Evolux Web Design"
+  description="Meet Joe, founder of Evolux Web Design in Sunderland, and learn how Evolux creates clearer, more credible websites for UK service businesses."
+  includePersonSchema
+>
   <section class="standard-hero about-hero">
     <div class="standard-hero__glow"></div>
     <div class="standard-hero__rule"></div>
@@ -21,14 +26,13 @@ import Icon from "../components/Icon.astro";
       <div class="standard-hero__grid">
         <div data-reveal>
           <div class="mini-label"><span></span>Independent studio</div>
-          <h1><span>Built differently.</span><br />On purpose.</h1>
+          <h1><span>Built differently.</span> On purpose.</h1>
           <p>Evolux is a one-person web design studio based in Sunderland, founded in 2023 on a single principle: a website should generate enquiries, not just exist.</p>
         </div>
         <aside class="about-hero__note" data-reveal>
           <p class="type-index">Founded</p>
           <strong>2023</strong>
           <p>Sunderland, Tyne & Wear<br />North East England</p>
-          <span><i></i>Available for new projects</span>
         </aside>
       </div>
       <div class="about-hero__ticker" aria-label="Evolux studio principles">
@@ -53,7 +57,7 @@ import Icon from "../components/Icon.astro";
         <span class="founder-card__watermark">JOE</span>
         <div class="founder-card__top">
           <span>EVOLUX</span>
-          <div><p class="type-index">Certified expert</p><p>Bricks Builder</p></div>
+          <div><p class="type-index">Founder-led</p><p>Strategy, design, build</p></div>
         </div>
         <div class="about-founder-card__portrait-frame">
           <img class="about-founder-card__portrait" src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" />
@@ -107,8 +111,19 @@ import Icon from "../components/Icon.astro";
             <span class="type-index">Studio note 01</span>
             <span class="type-index">02:00</span>
           </div>
-          <div class="video-frame">
-            <iframe src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1" title="Evolux Web Design - How we build websites that generate enquiries" loading="lazy" allowfullscreen></iframe>
+          <div class="video-frame" data-about-video-card>
+            <iframe
+              src="about:blank"
+              data-video-src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1&playsinline=1&autoplay=1"
+              title="Evolux Web Design - How we build websites that generate enquiries"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <button class="video-frame__play" type="button" data-about-video-play aria-label="Play Evolux Web Design video">
+              <span></span>
+              <strong>Play video</strong>
+            </button>
           </div>
         </div>
         <aside class="about-video__caption">
@@ -144,17 +159,17 @@ import Icon from "../components/Icon.astro";
   <section class="about-stack">
     <div class="about-stack__inner">
       <div data-reveal>
-        <div class="section-kicker"><span></span><p class="type-index">The toolkit</p></div>
-        <h2><span>The tools that</span><br />do the work.</h2>
-        <p>Every platform and tool is chosen because it gives clients maximum flexibility and performance.</p>
+        <div class="section-kicker"><span></span><p class="type-index">The standards</p></div>
+        <h2><span>The principles that</span><br />shape the work.</h2>
+        <p>Every decision is judged by whether it makes the website clearer, faster, easier to trust and easier to improve after launch.</p>
       </div>
       <div class="about-stack__list" data-reveal>
         {[
-          ["WordPress", "Core platform", "The world's most flexible CMS, giving clients full content control."],
-          ["Bricks Builder", "Visual builder", "Clean, semantic markup and performance that page builders typically sacrifice."],
-          ["Custom CSS", "Styling & animation", "No bloated frameworks. Every interaction is purposeful."],
-          ["WooCommerce", "E-commerce", "For clients selling online, a full WooCommerce build with payments and shipping."],
-          ["SEO Fundamentals", "Search visibility", "Schema markup, meta structure, performance scores and clean URLs."]
+          ["Clear structure", "User journeys", "Pages are organised around the way customers compare, trust and enquire."],
+          ["Fast performance", "Core experience", "Images, layouts and code are kept lean so the site feels responsive on real devices."],
+          ["Purposeful styling", "Design system", "No bloated visual effects. Every interaction has a reason."],
+          ["Client control", "After launch", "Key content areas are planned so routine updates do not need a full rebuild."],
+          ["SEO foundations", "Search visibility", "Schema markup, meta structure, performance scores and clean URLs."]
         ].map(([tool, role, desc]) => (
           <article><span><Icon name="check" /></span><div><h3>{tool}<em>{role}</em></h3><p>{desc}</p></div></article>
         ))}
@@ -176,11 +191,19 @@ import Icon from "../components/Icon.astro";
     </div>
   </section>
 
+  <InsightsPreview
+    slugs={["why-websites-dont-generate-business", "brand-identity-and-web-design", "questions-to-ask-web-design-agency"]}
+    headingMuted="How Joe thinks about"
+    heading="better websites."
+    intro="A few articles that show the Evolux approach to conversion, credibility and choosing the right web design partner."
+    footerText="Evolux thinking and advice"
+  />
+
   <section class="standard-light-cta">
     <div>
-      <p class="type-label">Ready to start?</p>
-      <h2>Let's build something<br /><span>that actually works.</span></h2>
-      <p>Every project starts with a free website review - an honest assessment of what's working, what's not, and what it would take to fix it.</p>
+      <p class="type-label">A practical first step</p>
+      <h2>Understand the website you have<br /><span>before investing in the next one.</span></h2>
+      <p>Every project starts with a clear review of what is working, what is creating doubt and what would make the biggest commercial difference.</p>
     </div>
     <div>
       <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
@@ -206,6 +229,20 @@ import Icon from "../components/Icon.astro";
       }, { threshold: 0.14 });
 
       items.forEach((item) => observer.observe(item));
+    })();
+
+    (() => {
+      const card = document.querySelector("[data-about-video-card]");
+      if (!card) return;
+
+      const button = card.querySelector("[data-about-video-play]");
+      const iframe = card.querySelector("iframe[data-video-src]");
+      if (!button || !iframe) return;
+
+      button.addEventListener("click", () => {
+        iframe.src = iframe.dataset.videoSrc;
+        card.classList.add("video-frame--playing");
+      });
     })();
   </script>
 </BaseLayout>

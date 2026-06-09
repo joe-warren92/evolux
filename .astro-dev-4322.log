@@ -65,3 +65,289 @@
 [2m13:17:26[22m [34m[200][39m /insights/ [2m14ms[22m
 [2m13:25:14[22m [34m[200][39m / [2m5ms[22m
 [2m13:50:54[22m [34m[200][39m /sitemap.xml [2m2ms[22m
+[2m14:09:51[22m [34m[200][39m / [2m6ms[22m
+[2m14:11:59[22m [34m[watch][39m /src/styles/main.css
+[2m14:11:59[22m [34m[200][39m / [2m60ms[22m
+[2m14:12:28[22m [34m[200][39m / [2m4ms[22m
+[2m14:12:57[22m [34m[200][39m /industries [2m3ms[22m
+[2m14:13:02[22m [34m[200][39m /industries/architects [2m3ms[22m
+[2m14:13:15[22m [34m[watch][39m /src/styles/main.css
+[2m14:13:16[22m [34m[200][39m /industries/architects [2m48ms[22m
+[2m14:13:53[22m [34m[200][39m /industries/architects [2m4ms[22m
+[2m14:13:53[22m [34m[200][39m /industries/architects [2m3ms[22m
+[2m14:14:17[22m [34m[200][39m / [2m4ms[22m
+[2m14:15:11[22m [34m[200][39m /industries [2m10ms[22m
+[2m14:15:11[22m [34m[200][39m /industries/accountants [2m2ms[22m
+[2m14:15:11[22m [34m[200][39m /industries/consultants [2m2ms[22m
+[2m14:15:11[22m [34m[200][39m /industries/solicitors [2m3ms[22m
+[2m14:15:12[22m [34m[200][39m /industries/financial-advisers [2m2ms[22m
+[2m14:15:12[22m [34m[200][39m /industries/recruitment [2m2ms[22m
+[2m14:15:12[22m [34m[200][39m /industries/architects [2m2ms[22m
+[2m14:15:12[22m [34m[200][39m /industries/engineers [2m2ms[22m
+[2m14:15:12[22m [34m[200][39m /industries/private-clinics [2m2ms[22m
+[2m14:15:13[22m [34m[200][39m /industries/training-providers [2m2ms[22m
+[2m14:15:13[22m [34m[200][39m /industries/trades [2m3ms[22m
+[2m14:16:20[22m [34m[200][39m / [2m3ms[22m
+[2m14:16:32[22m [34m[200][39m / [2m4ms[22m
+[2m14:17:09[22m [34m[200][39m /industries [2m3ms[22m
+[2m14:17:12[22m [34m[200][39m /industries/training-providers [2m15ms[22m
+[2m14:17:44[22m [34m[200][39m / [2m7ms[22m
+[2m14:19:43[22m [34m[watch][39m /src/styles/main.css
+[2m14:19:43[22m [34m[200][39m / [2m30ms[22m
+[2m14:19:43[22m [34m[200][39m / [2m5ms[22m
+[2m14:21:52[22m [34m[200][39m / [2m13ms[22m
+[2m14:21:54[22m [34m[200][39m /industries [2m9ms[22m
+[2m14:21:57[22m [34m[200][39m /industries/solicitors [2m9ms[22m
+[2m14:23:07[22m [34m[200][39m / [2m4ms[22m
+[2m14:23:19[22m [34m[200][39m / [2m8ms[22m
+[2m14:23:19[22m [34m[200][39m / [2m6ms[22m
+[2m14:23:30[22m [34m[watch][39m /src/styles/main.css
+[2m14:23:30[22m [34m[200][39m / [2m50ms[22m
+[2m14:23:30[22m [34m[200][39m / [2m54ms[22m
+[2m14:23:43[22m [34m[watch][39m /src/styles/main.css
+[2m14:23:43[22m [34m[200][39m / [2m54ms[22m
+[2m14:23:43[22m [34m[200][39m / [2m7ms[22m
+[2m14:24:47[22m [34m[200][39m /locations/middlesbrough [2m6ms[22m
+[2m14:24:52[22m [34m[200][39m /locations/nationwide [2m10ms[22m
+[2m14:30:56[22m [34m[watch][39m live-home.html
+[2m14:30:56[22m [34m[watch][39m live-home.html
+[2m14:30:59[22m [34m[watch][39m live-articles.html
+[2m14:33:31[22m [34m[200][39m /locations/nationwide [2m4ms[22m
+[2m14:33:31[22m [34m[200][39m /locations/nationwide [2m6ms[22m
+[2m14:33:31[22m [34m[200][39m / [2m7ms[22m
+[2m14:34:49[22m [34m[200][39m /locations/nationwide [2m5ms[22m
+[2m14:34:50[22m [34m[200][39m / [2m9ms[22m
+[2m14:37:58[22m [34m[200][39m /locations/nationwide [2m3ms[22m
+[2m14:37:59[22m [34m[200][39m / [2m4ms[22m
+[2m14:38:21[22m [34m[200][39m /locations/nationwide [2m4ms[22m
+[2m14:38:22[22m [34m[200][39m / [2m7ms[22m
+[2m14:38:42[22m [34m[200][39m /locations/nationwide [2m4ms[22m
+[2m14:38:43[22m [34m[200][39m / [2m7ms[22m
+[2m14:39:22[22m [34m[200][39m /services/web-design [2m4ms[22m
+[2m14:39:28[22m [34m[200][39m /industries [2m7ms[22m
+[2m14:39:30[22m [34m[200][39m /industries/consultants [2m8ms[22m
+[2m14:39:41[22m [34m[watch][39m live-articles.html
+[2m14:39:41[22m [34m[watch][39m live-home.html
+[2m14:39:58[22m [34m[200][39m /locations [2m2ms[22m
+[2m14:40:03[22m [34m[200][39m /locations/sunderland [2m7ms[22m
+[2m14:41:06[22m [34m[200][39m /services/web-design [2m19ms[22m
+[2m14:41:08[22m [34m[200][39m /locations/sunderland [2m14ms[22m
+[2m14:41:09[22m [34m[200][39m / [2m8ms[22m
+[2m14:41:13[22m [34m[200][39m /free-review [2m8ms[22m
+[2m14:45:59[22m [34m[200][39m /free-review [2m13ms[22m
+[2m14:46:07[22m [34m[200][39m /free-review [2m7ms[22m
+[2m14:46:07[22m [34m[200][39m /free-review [2m4ms[22m
+[2m14:46:25[22m [34m[watch][39m /src/styles/main.css
+[2m14:46:25[22m [34m[200][39m /free-review [2m41ms[22m
+[2m14:46:26[22m [34m[200][39m /free-review [2m3ms[22m
+[2m14:46:39[22m [34m[200][39m / [2m6ms[22m
+[2m14:46:57[22m [34m[watch][39m /src/styles/main.css
+[2m14:46:57[22m [34m[200][39m /free-review [2m55ms[22m
+[2m14:46:57[22m [34m[200][39m / [2m8ms[22m
+[2m14:47:05[22m [34m[watch][39m /src/styles/main.css
+[2m14:47:05[22m [34m[200][39m /free-review [2m43ms[22m
+[2m14:47:05[22m [34m[200][39m / [2m8ms[22m
+[2m14:47:46[22m [34m[watch][39m /src/styles/main.css
+[2m14:47:47[22m [34m[200][39m / [2m30ms[22m
+[2m14:47:47[22m [34m[200][39m /free-review [2m6ms[22m
+[2m14:47:58[22m [34m[watch][39m /src/styles/main.css
+[2m14:47:58[22m [34m[200][39m /free-review [2m53ms[22m
+[2m14:47:59[22m [34m[200][39m / [2m12ms[22m
+[2m14:48:51[22m [34m[watch][39m /src/styles/main.css
+[2m14:48:51[22m [34m[200][39m /free-review [2m48ms[22m
+[2m14:48:52[22m [34m[200][39m / [2m8ms[22m
+[2m14:49:17[22m [34m[200][39m /free-review/ [2m14ms[22m
+[2m15:08:53[22m [34m[200][39m / [2m11ms[22m
+[2m15:08:58[22m [34m[200][39m /services/web-design [2m13ms[22m
+[2m15:09:00[22m [34m[200][39m /about [2m9ms[22m
+[2m15:09:12[22m [34m[200][39m /services/website-maintenance [2m9ms[22m
+[2m15:23:53[22m [34m[200][39m /services/website-maintenance [2m14ms[22m
+[2m15:23:53[22m [34m[200][39m / [2m26ms[22m
+[2m16:16:10[22m [34m[200][39m /services/website-maintenance [2m11ms[22m
+[2m16:16:10[22m [34m[200][39m / [2m10ms[22m
+[2m09:06:25[22m [34m[200][39m / [2m11ms[22m
+[2m09:07:13[22m [34m[200][39m /services/website-maintenance [2m7ms[22m
+[2m09:07:21[22m [34m[200][39m /packages [2m7ms[22m
+[2m09:07:23[22m [34m[200][39m /industries [2m8ms[22m
+[2m09:07:26[22m [34m[200][39m /industries/consultants [2m5ms[22m
+[2m09:07:47[22m [34m[200][39m /contact [2m13ms[22m
+[2m09:08:24[22m [34m[200][39m / [2m15ms[22m
+[2m09:08:24[22m [34m[200][39m /contact [2m13ms[22m
+[2m09:08:28[22m [34m[200][39m / [2m20ms[22m
+[2m09:08:51[22m [34m[200][39m /projects [2m12ms[22m
+[2m09:08:51[22m [34m[200][39m / [2m10ms[22m
+[2m09:09:07[22m [34m[200][39m / [2m8ms[22m
+[2m09:09:07[22m [34m[200][39m /projects [2m6ms[22m
+[2m09:09:28[22m [34m[200][39m / [2m14ms[22m
+[2m09:09:28[22m [34m[200][39m /projects [2m8ms[22m
+[2m09:09:53[22m [34m[200][39m /about [2m12ms[22m
+[2m09:10:18[22m [34m[200][39m / [2m17ms[22m
+[2m09:10:46[22m [34m[200][39m / [2m10ms[22m
+[2m09:10:46[22m [34m[200][39m / [2m12ms[22m
+[2m09:10:53[22m [34m[200][39m / [2m10ms[22m
+[2m09:11:05[22m [34m[watch][39m /src/styles/main.css
+[2m09:11:06[22m [34m[200][39m / [2m93ms[22m
+[2m09:11:06[22m [34m[200][39m / [2m10ms[22m
+[2m09:11:38[22m [34m[200][39m / [2m7ms[22m
+[2m09:11:38[22m [34m[200][39m / [2m6ms[22m
+[2m09:12:10[22m [34m[200][39m / [2m13ms[22m
+[2m09:12:10[22m [34m[200][39m / [2m12ms[22m
+[2m09:13:35[22m [34m[200][39m / [2m9ms[22m
+[2m09:13:36[22m [34m[200][39m / [2m11ms[22m
+[2m09:14:10[22m [34m[200][39m / [2m23ms[22m
+[2m09:14:10[22m [34m[200][39m / [2m11ms[22m
+[2m09:14:44[22m [34m[200][39m / [2m8ms[22m
+[2m09:14:44[22m [34m[200][39m / [2m12ms[22m
+[2m09:14:57[22m [34m[watch][39m /src/styles/main.css
+[2m09:14:58[22m [34m[200][39m / [2m120ms[22m
+[2m09:14:58[22m [34m[200][39m / [2m13ms[22m
+[2m09:58:10[22m [34m[200][39m / [2m16ms[22m
+[2m09:58:10[22m [34m[200][39m / [2m19ms[22m
+[2m15:40:48[22m [34m[200][39m / [2m12ms[22m
+[2m15:40:48[22m [34m[200][39m / [2m9ms[22m
+[2m15:42:07[22m [34m[watch][39m /src/styles/main.css
+[2m15:42:07[22m [34m[200][39m / [2m267ms[22m
+[2m15:42:08[22m [34m[200][39m / [2m280ms[22m
+[2m15:48:40[22m [34m[watch][39m /src/styles/main.css
+[2m15:48:41[22m [34m[200][39m / [2m108ms[22m
+[2m15:48:41[22m [34m[200][39m / [2m121ms[22m
+[2m15:49:00[22m [34m[watch][39m /src/styles/main.css
+[2m15:49:00[22m [34m[200][39m / [2m91ms[22m
+[2m15:49:00[22m [34m[200][39m / [2m10ms[22m
+[2m15:49:30[22m [34m[200][39m /services/web-design [2m11ms[22m
+[2m15:49:48[22m [34m[200][39m / [2m9ms[22m
+[2m15:54:25[22m [34m[200][39m / [2m16ms[22m
+[2m15:54:33[22m [34m[200][39m / [2m19ms[22m
+[2m15:54:57[22m [34m[200][39m / [2m12ms[22m
+[2m15:55:09[22m [34m[200][39m / [2m22ms[22m
+[2m15:55:16[22m [34m[200][39m / [2m18ms[22m
+[2m15:56:15[22m [34m[200][39m / [2m13ms[22m
+[2m15:56:37[22m [34m[200][39m / [2m19ms[22m
+[2m15:56:52[22m [34m[200][39m / [2m12ms[22m
+[2m15:57:07[22m [34m[200][39m / [2m18ms[22m
+[2m15:57:14[22m [34m[200][39m /services/web-design [2m18ms[22m
+[2m15:57:15[22m [34m[200][39m /services/web-design [2m13ms[22m
+[2m15:58:20[22m [34m[200][39m /services/web-design [2m17ms[22m
+[2m15:58:51[22m [34m[watch][39m /src/styles/main.css
+[2m15:58:54[22m [34m[200][39m /services/web-design [2m116ms[22m
+[2m16:00:36[22m [34m[200][39m /services/web-design [2m19ms[22m
+[2m16:20:35[22m [34m[200][39m /services/web-design [2m23ms[22m
+[2m16:21:22[22m [34m[200][39m /services/web-design [2m16ms[22m
+[2m16:21:38[22m [34m[200][39m /services/web-design [2m19ms[22m
+[2m16:23:03[22m [34m[watch][39m /src/styles/main.css
+[2m16:23:03[22m [34m[200][39m /services/web-design [2m114ms[22m
+[2m16:23:25[22m [34m[watch][39m /src/styles/main.css
+[2m16:23:26[22m [34m[200][39m /services/web-design [2m139ms[22m
+[2m16:23:45[22m [34m[watch][39m /src/styles/main.css
+[2m16:23:45[22m [34m[200][39m /services/web-design [2m104ms[22m
+[2m16:24:05[22m [34m[200][39m /services/web-design [2m12ms[22m
+[2m16:24:22[22m [34m[200][39m /services/web-design [2m14ms[22m
+[2m16:25:25[22m [34m[watch][39m /src/styles/main.css
+[2m16:25:26[22m [34m[200][39m /services/web-design [2m252ms[22m
+[2m16:35:28[22m [34m[200][39m /services/web-design [2m23ms[22m
+[2m16:36:44[22m [34m[watch][39m /src/styles/main.css
+[2m16:36:44[22m [34m[200][39m /services/web-design [2m131ms[22m
+[2m16:36:59[22m [34m[watch][39m /src/styles/main.css
+[2m16:37:00[22m [34m[200][39m /services/web-design [2m118ms[22m
+[2m16:37:12[22m [34m[watch][39m /src/styles/main.css
+[2m16:37:12[22m [34m[200][39m /services/web-design [2m116ms[22m
+[2m16:37:29[22m [34m[watch][39m /src/styles/main.css
+[2m16:37:29[22m [34m[200][39m /services/web-design [2m109ms[22m
+[2m17:31:44[22m [34m[200][39m /services/web-design [2m13ms[22m
+[2m13:10:11[22m [34m[200][39m /services/web-design [2m10ms[22m
+[2m13:10:21[22m [34m[200][39m / [2m16ms[22m
+[2m13:15:10[22m [34m[watch][39m /src/styles/main.css
+[2m13:15:49[22m [34m[watch][39m /src/styles/main.css
+[2m13:21:24[22m [34m[watch][39m /src/styles/main.css
+[2m13:22:26[22m [34m[watch][39m /src/styles/main.css
+[2m13:25:59[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:21[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:36[22m [34m[watch][39m /src/styles/main.css
+[2m13:33:52[22m [34m[watch][39m /src/styles/main.css
+[2m13:34:05[22m [34m[watch][39m /src/styles/main.css
+[2m13:34:41[22m [34m[watch][39m /src/styles/main.css
+[2m13:35:24[22m [34m[watch][39m /src/styles/main.css
+[2m13:57:32[22m [34m[watch][39m /src/styles/main.css
+[2m13:58:04[22m [34m[watch][39m /src/styles/main.css
+[2m16:28:27[22m [34m[watch][39m /src/styles/main.css
+[2m16:28:43[22m [34m[watch][39m /src/styles/main.css
+[2m16:38:02[22m [34m[watch][39m /src/styles/main.css
+[2m16:41:21[22m [34m[watch][39m /src/styles/main.css
+[2m16:42:05[22m [34m[watch][39m /src/styles/main.css
+[2m16:43:06[22m [34m[watch][39m /src/styles/main.css
+[2m16:43:16[22m [34m[watch][39m /src/styles/main.css
+[2m16:52:40[22m [34m[watch][39m /src/styles/main.css
+[2m16:56:44[22m [34m[watch][39m /src/styles/main.css
+[2m16:56:56[22m [34m[watch][39m /src/styles/main.css
+[2m16:57:18[22m [34m[watch][39m /src/styles/main.css
+[2m16:57:39[22m [34m[watch][39m /src/styles/main.css
+[2m16:58:43[22m [34m[watch][39m /src/styles/main.css
+[2m16:59:23[22m [34m[watch][39m /src/styles/main.css
+[2m16:59:56[22m [34m[watch][39m /src/styles/main.css
+[2m17:00:05[22m [34m[watch][39m /src/styles/main.css
+[2m17:04:26[22m [34m[watch][39m /src/styles/main.css
+[2m17:08:01[22m [34m[watch][39m /src/styles/main.css
+[2m17:10:07[22m [34m[watch][39m /src/styles/main.css
+[2m12:05:05[22m [34m[watch][39m /src/styles/main.css
+[2m12:07:09[22m [34m[watch][39m /src/styles/main.css
+[2m12:10:28[22m [34m[watch][39m /src/styles/main.css
+[2m12:26:21[22m [34m[watch][39m /src/styles/main.css
+[2m12:26:44[22m [34m[watch][39m /src/styles/main.css
+[2m12:26:57[22m [34m[watch][39m /src/styles/main.css
+[2m12:30:06[22m [34m[watch][39m /src/styles/main.css
+[2m12:30:26[22m [34m[watch][39m /src/styles/main.css
+[2m12:38:56[22m [34m[watch][39m /src/styles/main.css
+[2m12:39:35[22m [34m[watch][39m /src/styles/main.css
+[2m12:39:47[22m [34m[watch][39m /src/styles/main.css
+[2m12:47:24[22m [34m[watch][39m /src/styles/main.css
+[2m12:48:48[22m [34m[watch][39m /src/styles/main.css
+[2m12:49:03[22m [34m[watch][39m /src/styles/main.css
+[2m12:49:32[22m [34m[watch][39m /src/styles/main.css
+[2m12:57:38[22m [34m[watch][39m /src/styles/main.css
+[2m12:58:00[22m [34m[watch][39m /src/styles/main.css
+[2m13:01:04[22m [34m[watch][39m /src/styles/main.css
+[2m13:01:23[22m [34m[watch][39m /src/styles/main.css
+[2m13:01:41[22m [34m[watch][39m /src/styles/main.css
+[2m13:06:58[22m [34m[watch][39m /src/styles/main.css
+[2m13:07:10[22m [34m[watch][39m /src/styles/main.css
+[2m13:07:22[22m [34m[watch][39m /src/styles/main.css
+[2m13:16:48[22m [34m[watch][39m /src/styles/main.css
+[2m13:17:02[22m [34m[watch][39m /src/styles/main.css
+[2m13:25:35[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:09[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:27[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:47[22m [34m[watch][39m /src/styles/main.css
+[2m13:27:56[22m [34m[watch][39m /src/styles/main.css
+[2m13:46:00[22m [34m[watch][39m /src/styles/main.css
+[2m13:46:26[22m [34m[watch][39m /src/styles/main.css
+[2m13:46:38[22m [34m[watch][39m /src/styles/main.css
+[2m13:46:50[22m [34m[watch][39m /src/styles/main.css
+[2m14:04:46[22m [34m[watch][39m /src/styles/main.css
+[2m14:04:59[22m [34m[watch][39m /src/styles/main.css
+[2m14:09:46[22m [34m[watch][39m /src/styles/main.css
+[2m14:22:49[22m [34m[watch][39m /src/styles/main.css
+[2m14:23:25[22m [34m[watch][39m /src/styles/main.css
+[2m14:23:36[22m [34m[watch][39m /src/styles/main.css
+[2m14:27:15[22m [34m[watch][39m /src/styles/main.css
+[2m14:27:37[22m [34m[watch][39m /src/styles/main.css
+[2m14:28:55[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:46[22m [34m[watch][39m /src/styles/main.css
+[2m13:26:59[22m [34m[watch][39m /src/styles/main.css
+[2m13:30:24[22m [34m[watch][39m /src/styles/main.css
+[2m13:32:11[22m [34m[watch][39m /src/styles/main.css
+[2m13:56:29[22m [34m[watch][39m /src/styles/main.css
+[2m14:11:02[22m [34m[watch][39m /src/styles/main.css
+[2m14:14:51[22m [34m[watch][39m /src/styles/main.css
+[2m14:15:14[22m [34m[watch][39m /src/styles/main.css
+[2m14:21:47[22m [34m[watch][39m /src/styles/main.css
+[2m14:22:11[22m [34m[watch][39m /src/styles/main.css
+[2m14:25:59[22m [34m[watch][39m /src/styles/main.css
+[2m14:26:25[22m [34m[watch][39m /src/styles/main.css
+[2m14:44:50[22m [34m[watch][39m /src/styles/main.css
+[2m14:55:15[22m [34m[watch][39m /src/styles/main.css
+[2m14:55:38[22m [34m[watch][39m /src/styles/main.css
+[2m14:56:23[22m [34m[watch][39m /src/styles/main.css
+[2m14:57:01[22m [34m[watch][39m /src/styles/main.css
+[2m15:10:36[22m [34m[watch][39m /src/styles/main.css
+[2m15:15:46[22m [34m[watch][39m /src/styles/main.css
+[2m15:16:33[22m [34m[watch][39m /src/styles/main.css

@@ -2,7 +2,7 @@
 import Icon from "./Icon.astro";
 
 const services = [
-  ["Web Design", "Conversion-focused WordPress websites", "/services/web-design", "code"],
+  ["Web Design", "Conversion-focused websites", "/services/web-design", "code"],
   ["Website Maintenance", "Security, backups and monthly updates", "/services/website-maintenance", "maintenance"],
   ["Conversion Optimisation", "More enquiries from existing traffic", "/services/conversion-optimisation", "conversion"],
   ["Brand Identity", "Logo, colours, typography and guidelines", "/services/branding", "brand"],
@@ -31,6 +31,7 @@ const resources = [
   ["Free Website Review", "Personalised video in your inbox in 48 hours", "/free-review", "target"],
   ["Contact", "Send a message and get a reply within one business day", "/contact", "email"],
   ["Insights", "Strategy, design and hiring guides", "/insights", "search"],
+  ["Industries", "Advice for businesses where trust matters", "/industries", "briefcase"],
   ["Locations", "Sunderland and across the North East", "/locations", "location"]
 ];
 
@@ -39,7 +40,8 @@ const resourceGroups = [
     label: "Helpful",
     items: [
       ["Free Website Review", "Find the fastest wins on your site", "/free-review", "target"],
-      ["Insights", "Strategy, design and hiring guides", "/insights", "search"]
+      ["Insights", "Strategy, design and hiring guides", "/insights", "search"],
+      ["Industries", "Advice for businesses where trust matters", "/industries", "briefcase"]
     ]
   },
   {
@@ -55,7 +57,9 @@ const resourceGroups = [
 <a class="skip-link" href="#work">Skip to content</a>
 <header class="site-header" data-site-header>
   <div class="site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Evolux home">EVOLUX</a>
+    <a class="site-header__brand" href="/" aria-label="Evolux home">
+      <img src="/assets/logos/evolux-logo.svg" alt="Evolux Web Design" width="1010" height="241" />
+    </a>
 
     <nav class="site-header__nav" aria-label="Main navigation">
       <a class="site-header__link" href="/projects">Projects</a>
@@ -113,7 +117,6 @@ const resourceGroups = [
         <nav class="mobile-menu" aria-label="Mobile navigation" data-mobile-menu>
           <div class="mobile-menu__top">
             <span class="mobile-menu__eyebrow">Navigation</span>
-            <span class="mobile-menu__status"><i></i>Available for new projects</span>
           </div>
 
           <a class="mobile-menu__link" href="/projects">Web design projects <span>&#8599;</span></a>
@@ -135,7 +138,7 @@ const resourceGroups = [
           <details class="mobile-menu__section">
             <summary>
               <span>Resources</span>
-              <small>Reviews, insights, contact and locations</small>
+              <small>Guides, industries, contact and locations</small>
             </summary>
             <div class="mobile-menu__group">
               {resources.map(([label, desc, href, icon]) => <a href={href}><Icon name={icon} /><span><strong>{label}</strong><small>{desc}</small></span></a>)}

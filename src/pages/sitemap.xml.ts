@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { INSIGHT_POSTS } from "../data/insights";
+import { INDUSTRIES } from "../data/industries";
 import { LOCATION_PAGES } from "../data/locations";
 import { PROJECTS } from "../data/projects";
 import { SERVICES } from "../data/services";
@@ -20,6 +21,7 @@ const staticEntries: SitemapEntry[] = [
   { path: "/services" },
   { path: "/projects" },
   { path: "/insights" },
+  { path: "/industries" },
   { path: "/locations" }
 ];
 
@@ -28,6 +30,7 @@ const entries: SitemapEntry[] = [
   ...SERVICES.map(({ slug }) => ({ path: `/services/${slug}` })),
   ...PROJECTS.map(({ slug }) => ({ path: `/projects/${slug}` })),
   ...LOCATION_PAGES.map(({ slug }) => ({ path: `/locations/${slug}` })),
+  ...INDUSTRIES.map(({ slug }) => ({ path: `/industries/${slug}` })),
   ...INSIGHT_POSTS.map(({ slug, updatedAt, publishedAt }) => ({
     path: `/insights/${slug}`,
     lastModified: updatedAt ?? publishedAt
@@ -42,11 +45,16 @@ const escapeXml = (value: string) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&apos;");
 
+const getAbsoluteUrl = (path: string) => {
+  if (!path) return `${SITE_URL}/`;
+  return `${SITE_URL}${path.endsWith("/") ? path : `${path}/`}`;
+};
+
 export const GET: APIRoute = () => {
   const urls = entries
     .map(({ path, lastModified }) => {
       const lastModifiedElement = lastModified ? `<lastmod>${escapeXml(lastModified)}</lastmod>` : "";
-      return `<url><loc>${escapeXml(`${SITE_URL}${path}`)}</loc>${lastModifiedElement}</url>`;
+      return `<url><loc>${escapeXml(getAbsoluteUrl(path))}</loc>${lastModifiedElement}</url>`;
     })
     .join("");
 

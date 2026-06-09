@@ -4,35 +4,35 @@ export const SERVICES = [
     title: "Web Design & Development",
     shortTitle: "Web Design",
     crumb: "Web Design",
-    description: "Conversion-focused WordPress websites built from strategy, not templates. For businesses that need their site to generate real enquiries.",
+    description: "Conversion-focused websites shaped around trust, positioning and the route from first impression to enquiry.",
     heroLineOne: "Websites built to",
     heroLineTwo: "win enquiries.",
-    intro: "Custom web design for UK professional service businesses. Every layout decision, every line of copy, every call-to-action is engineered to turn visitors into enquiries.",
-    tags: ["WordPress", "Bricks Builder", "Mobile-first", "CMS"],
+    intro: "For service businesses, a website is often the first serious trust test. Evolux designs and builds websites that make your offer easier to understand, your credibility harder to miss and the next step feel obvious.",
+    tags: ["Strategy", "Mobile-first", "SEO foundations", "Enquiries"],
     from: "£1,800",
-    meta: [["Location", "Sunderland, UK"], ["Platform", "WordPress · Bricks Builder"], ["Guarantee", "30-day post-launch"], ["From", "£1,800"]],
+    meta: [["Location", "Sunderland, UK"], ["Focus", "Enquiry generation"], ["Guarantee", "30-day post-launch"], ["From", "£1,800"]],
     whyTitleMuted: "Your website is either",
     whyTitle: "working or it isn't.",
-    whyCopy: "Most professional services websites have 3-5 gaps that stop visitors from making contact. They're rarely obvious, and they're almost never about visual design alone. They're about trust, clarity, mobile experience, page speed and the quality of the next step.",
+    whyCopy: "Most underperforming websites do not fail because they are ugly. They fail because the visitor cannot quickly understand what makes the business credible, who the service is really for, what happens next or why they should choose you over the other tabs they already have open.",
     stats: [
-      ["8 sec", "Average time before a visitor decides to stay or leave", "First impressions are formed in seconds. Your website needs to make your value, credibility and next step obvious before a potential customer starts comparing you with competitors."],
-      ["60%+", "Of traffic arrives on mobile devices", "A web design that only looks good on desktop is already costing enquiries. Every Evolux website is planned mobile-first so visitors can act quickly."],
-      ["3-5x", "More enquiries from conversion-led websites vs template sites", "The difference is rarely decoration. It comes from clearer messaging, stronger trust signals, faster pages and a structure built around real buying decisions."]
+      ["3-5", "Credibility gaps usually sit between a visitor and an enquiry", "The problem is rarely one dramatic issue. It is usually a stack of small doubts: vague positioning, weak proof, unclear services, poor mobile hierarchy and a next step that does not feel obvious enough."],
+      ["5.0", "Google review rating from Evolux clients", "A strong website should make that same standard visible on the page: real reviews, real work, clear process and a site that feels like the business behind it can be trusted."],
+      ["4-6", "Typical weeks for a focused Launch or Studio website", "Most service businesses do not need endless agency theatre. They need a clear scope, decisive direction, strong design and a launch process that keeps momentum." ]
     ],
     deliverablesTitleMuted: "Built from the ground up.",
     deliverablesTitle: "For your business.",
     deliverables: [
-      ["Brand-aligned design", "Every layout, typeface and colour decision is made to reflect the quality of your business, not pulled from a generic template."],
-      ["Mobile-first build", "Your site is built mobile-first and tested around the way real visitors browse, compare and make contact."],
-      ["Conversion architecture", "Each page is structured to guide the right visitor toward making contact with clear hierarchy, proof and low-friction calls to action."],
-      ["Performance & Core Web Vitals", "Fast-loading pages rank better and convert better, so images, code and hosting are optimised from the start."],
-      ["On-page SEO", "Title tags, schema markup, semantic HTML, sitemap and heading structure are handled so Google can understand every key page."],
-      ["Analytics & goal tracking", "GA4 is configured with conversion goals so you can see which pages and sources are generating enquiries."]
+      ["Positioning-led page planning", "Before layouts are designed, Joe maps what the visitor needs to believe, what proof they need to see and where the enquiry route should sit."],
+      ["Mobile-first design system", "Typography, spacing, actions and content blocks are planned for real browsing behaviour, not squeezed down from a desktop concept after the fact."],
+      ["Trust and proof architecture", "Reviews, case studies, process, FAQs, guarantees and local signals are placed where they answer hesitation, not hidden at the bottom of the page."],
+      ["Fast, accessible development", "The build is kept clean, responsive and lightweight, with semantic HTML, sensible image handling and careful testing before launch."],
+      ["SEO foundations", "Page titles, metadata, heading hierarchy, schema, sitemap and internal links are set up so search engines can understand the site properly."],
+      ["Handover and launch support", "You are not left with a mystery website. Joe walks you through the key areas and supports the launch period so small issues are handled quickly."]
     ],
     packagesTitleMuted: "Transparent pricing.",
     packagesTitle: "No surprises.",
     packages: [
-      ["Launch", "£1,800", "Starting from", "For businesses that need a credible first impression, fast.", ["5-page custom design & build", "Mobile-first, fully responsive", "Brand alignment session", "CMS - edit copy yourself", "Core SEO setup", "14-day post-launch support"]],
+      ["Launch", "£1,800", "Starting from", "For businesses that need a credible first impression, fast.", ["5-page custom design & build", "Mobile-first, fully responsive", "Brand alignment session", "Editable key content areas", "Core SEO setup", "14-day post-launch support"]],
       ["Studio", "£3,500", "Starting from", "The full package for brands serious about growth.", ["Up to 12 custom pages", "Full visual identity system", "Conversion-optimised layouts", "Advanced SEO & Core Web Vitals", "Analytics & goal tracking", "30-day post-launch support"], true],
       ["Elite", "£6,500", "Starting from", "Our most ambitious work for businesses that want to dominate their market.", ["Up to 25 custom pages", "Complete brand identity system", "Custom animations & interactions", "Conversion-led copywriting", "90-day post-launch support", "You own every file and line of code"]]
     ],
@@ -50,75 +50,91 @@ export const SERVICES = [
     faqs: [
       ["How long does a web design project usually take?", "A focused five-page website usually takes around three to four weeks from discovery to launch. Larger Studio or Elite websites with more pages, copywriting, brand work, animations or advanced SEO structure usually take five to eight weeks. Before anything begins, you receive a clear schedule covering discovery, design, development, testing, launch and handover. You can compare typical project scopes on the <a href=\"/packages\">website packages</a> page."],
       ["Do I need to write all the website copy myself?", "No. You need to provide the core information about your business, services, process and customers, but you are not expected to arrive with polished website copy. Evolux helps shape the messaging, page structure and calls to action so the finished website is clear, search-friendly and conversion-focused. If copy is a major concern, Studio or Elite may be a better fit because there is more room for content planning."],
-      ["What platform will my website be built on?", "Most Evolux websites are built on WordPress with Bricks Builder because it gives a strong balance of performance, flexibility and client control. You get a custom design, clean structure, fast-loading pages, SEO foundations and a content management system that lets you update key text, images and posts without touching code. If a different route makes more sense, that will be discussed during discovery."],
+      ["Will my website be easy to manage after launch?", "Yes. The site is planned so the parts you are most likely to update, such as page copy, imagery, articles or case studies, can be managed without needing to rebuild the layout. During handover, Joe shows you how to make routine content updates safely, and the ongoing <a href=\"/services/website-maintenance\">website maintenance</a> service is available if you would rather keep that responsibility off your desk."],
       ["Will the website be designed to rank on Google?", "Yes. Every web design project includes the technical and on-page SEO foundations needed for Google to understand your business: semantic page structure, title tags, meta descriptions, heading hierarchy, image optimisation, sitemap, indexing basics and local SEO considerations where relevant. For more competitive search terms, Evolux can also advise on content strategy. The <a href=\"/insights\">web design insights</a> include practical SEO and website planning guides."],
       ["Will I be able to update the website myself after launch?", "Yes. The website is built with day-to-day editing in mind. You receive a handover showing how to update text, swap images, publish blog posts or case studies and make routine content changes safely. If you would rather not manage updates yourself, Evolux also offers <a href=\"/services/website-maintenance\">website maintenance</a>."],
       ["Do you work with businesses outside Sunderland?", "Yes. Evolux is based in Sunderland and works with businesses across the North East and the wider UK. Discovery, design reviews and handover sessions can all be handled remotely, so location does not affect the quality of the strategy, design or development work. If you are local, the <a href=\"/locations/sunderland\">Sunderland web design</a> page explains how Evolux supports businesses in the area."]
     ],
-    ctaTitle: "Ready to build something that actually works?",
-    ctaMuted: "Start with a free website review and Joe will assess what's holding your current site back."
+    ctaTitle: "Make your website easier to trust.",
+    ctaMuted: "Start with a free website review and Joe will show where clarity, proof and enquiry flow can be improved."
   },
   {
     slug: "website-maintenance",
     title: "Website Maintenance",
     shortTitle: "Website Maintenance",
     crumb: "Website Maintenance",
-    description: "Monthly WordPress care plans covering updates, backups, security monitoring and priority support so you never have to think about it.",
+    description: "Website care plans for businesses that cannot afford broken forms, stale content, slow pages or missing backups.",
     heroLineOne: "Your website, maintained",
     heroLineTwo: "and protected.",
-    intro: "A WordPress site left unmaintained is a liability. Security vulnerabilities, broken plugins, and outdated code cost businesses every week.",
+    intro: "A website can look fine on the surface while forms fail, backups go stale, pages slow down and small errors chip away at trust. Evolux keeps the important parts watched, tested and supported so your site remains a useful business asset.",
     tags: ["Security", "Backups", "Updates", "Monitoring"],
     from: "£79/mo",
     meta: [["Monthly backups", "Daily on Care & Priority"], ["Uptime monitoring", "Hourly checks"], ["Support response", "Same day on Priority"], ["From", "£79 / month"]],
+    whyTitleMuted: "Small issues become",
+    whyTitle: "expensive when nobody owns them.",
+    whyCopy: "Maintenance is not about tinkering with a website for the sake of it. It is about protecting enquiries, keeping the customer journey working and making sure the site still reflects the business months after launch.",
+    stats: [
+      ["Hourly", "Uptime checks on supported care plans", "If your website goes offline, the issue should not be discovered by a potential client. Monitoring gives the site a basic layer of accountability."],
+      ["Offsite", "Backups stored away from the live website", "A backup only matters if it can actually help you recover. Offsite backups create a practical route back if something is damaged, deleted or compromised."],
+      ["1 day", "Support response available on active care plans", "When something affects enquiries or credibility, slow support creates more stress. The care plan gives you a clearer route to a real response from Joe."]
+    ],
     deliverablesTitleMuted: "Everything your site needs",
     deliverablesTitle: "to stay safe and fast.",
     deliverables: [
-      ["Core & plugin updates", "WordPress core, themes and all plugins updated monthly and tested before going live."],
-      ["Offsite backups", "Daily encrypted backups stored offsite so your site can be restored quickly."],
-      ["Uptime monitoring", "Your site is checked every hour and issues are picked up quickly."],
-      ["Security scanning", "Regular malware scans and security hardening."],
-      ["Priority support", "A real response within one business day on Essentials, same day on Priority."],
-      ["Monthly report", "A simple summary of updates, uptime and resolved issues."]
+      ["Customer journey checks", "Key pages, forms, buttons and enquiry routes are reviewed so obvious issues are caught before customers find them."],
+      ["Reliable backup routine", "Backups are stored away from the live site so there is a practical recovery route if something goes wrong."],
+      ["Uptime monitoring", "Availability checks help identify downtime quickly instead of waiting for a customer to tell you the site is unavailable."],
+      ["Security and health review", "The site is checked for avoidable risks, suspicious changes, errors and technical issues that could weaken trust."],
+      ["Practical content support", "Small text, image and page updates can be handled without dragging you into website admin."],
+      ["Plain-English reporting", "You get a useful summary of what has been checked, fixed or flagged, without technical theatre."]
     ],
     packagesTitleMuted: "One monthly fee.",
     packagesTitle: "No surprises.",
     packages: [
-      ["Essentials", "£79", "/mo", "Core protection for any WordPress site.", ["Monthly WordPress & plugin updates", "Weekly offsite backups", "Uptime monitoring", "Security scanning", "2-business-day support response"]],
+      ["Essentials", "£79", "/mo", "Core protection for a business website.", ["Monthly website health check", "Weekly offsite backups", "Uptime monitoring", "Security scanning", "2-business-day support response"]],
       ["Care", "£149", "/mo", "More support, more visibility, zero admin.", ["Everything in Essentials", "Daily offsite backups", "Monthly performance & SEO check", "Monthly written report", "Minor text/image changes"], true],
-      ["Priority", "£249", "/mo", "Maximum coverage and hands-on support.", ["Everything in Care", "2 hours development time per month", "Quarterly performance review call", "Same-day support response", "Plugin conflict resolution"]]
+      ["Priority", "£249", "/mo", "Maximum coverage and hands-on support.", ["Everything in Care", "2 hours development time per month", "Quarterly performance review call", "Same-day support response", "Issue investigation and fixes"]]
     ],
     faqs: [
-      ["Can you maintain a WordPress site you did not build?", "Yes. Evolux can maintain WordPress websites built by us or by another designer or agency. Before taking on a site, Joe carries out an initial health check to review plugins, theme setup, hosting, backups, security risks and update history. If the site is already outdated or unstable, you may be advised to fix those issues first or consider a wider <a href=\"/services/web-design\">web design rebuild</a>."],
-      ["What happens if a WordPress update breaks something?", "Updates are handled carefully, with backups in place before changes are made. Where possible, plugin and WordPress core updates are tested before being pushed live. If an update causes a conflict, the site can be restored quickly and the issue investigated without leaving your business exposed. The aim is to prevent the kind of avoidable issues covered in the <a href=\"/insights/website-backup-best-practices\">website backup best practices</a> guide."],
-      ["Is website maintenance worth it for a small business?", "If your website generates enquiries, takes bookings, supports local SEO or forms part of your credibility, maintenance is usually worth it. Unmaintained WordPress sites become vulnerable to plugin conflicts, security issues, broken forms and performance problems. A care plan keeps the site updated, backed up and monitored so you are not waiting for something to go wrong before taking action."],
+      ["Can you maintain a website you did not build?", "Yes. Evolux can maintain websites built by us or by another designer or agency. Before taking on a site, Joe carries out an initial health check to review hosting, backups, form reliability, visible issues, performance and support risks. If the site is already outdated or unstable, you may be advised to fix those issues first or consider a wider <a href=\"/services/web-design\">web design rebuild</a>."],
+      ["What happens if something breaks on my website?", "The first priority is to protect enquiries and restore a working customer journey. Backups, uptime monitoring and routine checks make it easier to identify problems quickly. If the issue affects forms, key pages or customer trust, it is treated as a practical business problem rather than a technical inconvenience. The <a href=\"/insights/website-backup-best-practices\">website backup best practices</a> guide explains why this matters."],
+      ["Is website maintenance worth it for a small business?", "If your website generates enquiries, takes bookings, supports local SEO or forms part of your credibility, maintenance is usually worth it. Unmaintained sites become vulnerable to broken forms, slow pages, missing backups, security issues and content that no longer reflects the business. A care plan keeps the site monitored and supported so you are not waiting for something to go wrong before taking action."],
       ["What counts as a minor website change?", "Minor changes usually include text edits, image swaps, adding or removing small content blocks, updating contact details, replacing downloads or making simple layout adjustments. Larger design, development, SEO or functionality changes are scoped separately so maintenance time stays focused and predictable. If you need bigger improvements, <a href=\"/services/conversion-optimisation\">conversion optimisation</a> may be more appropriate."],
       ["Can I upgrade or downgrade my maintenance plan?", "Yes. If your website becomes more important to your marketing, you can move to a plan with faster support, more backups and included development time. If your needs reduce, you can step down at the next billing cycle. The plan should match the role your website plays in your business."],
       ["Do maintenance plans include SEO work?", "Maintenance plans keep the site technically healthy, backed up and updated. They do not replace an SEO strategy, but they can include basic checks depending on the plan. If your goal is to improve rankings or create new search-focused pages, that should be scoped separately as part of web design, content or conversion work."]
     ],
-    ctaTitle: "Stop worrying about your website.",
-    ctaMuted: "Get in touch and we'll recommend the right plan for your site within 24 hours."
+    ctaTitle: "Keep your website quietly doing its job.",
+    ctaMuted: "Tell Joe what your site needs to support, and he will recommend a sensible maintenance plan."
   },
   {
     slug: "conversion-optimisation",
     title: "Conversion Rate Optimisation",
     shortTitle: "CRO",
     crumb: "Conversion Optimisation",
-    description: "A structured audit of why your existing site isn't converting, and the priority changes that will fix it.",
+    description: "A focused conversion audit that shows where visitors hesitate, lose trust or fail to take the next step.",
     heroLineOne: "More enquiries from the",
     heroLineTwo: "traffic you already have.",
-    intro: "More traffic is not always the answer. A CRO audit shows exactly where your current website is losing trust, clarity and enquiries.",
+    intro: "If the right people are reaching your website but not enquiring, the issue is usually friction. Evolux reviews the journey like a real buyer would: what they understand, what they doubt and where the page asks too much too soon.",
     tags: ["CRO Audit", "UX", "Analytics", "Copy"],
     from: "£450",
     meta: [["Audit", "20 conversion factors"], ["Delivery", "Video + action plan"], ["Optional", "Implementation"], ["From", "£450"]],
+    whyTitleMuted: "More traffic will not fix",
+    whyTitle: "a confusing journey.",
+    whyCopy: "Conversion optimisation is useful when your site already has attention but does not turn enough of that attention into action. The work is to identify the points where clarity, proof, hierarchy or confidence breaks down.",
+    stats: [
+      ["20", "Conversion factors reviewed across the journey", "The audit looks beyond surface design: headlines, proof, forms, calls to action, mobile hierarchy, speed, service clarity, page flow and the moments where confidence drops."],
+      ["5 days", "Typical turnaround for the audit and action plan", "You get a clear video walkthrough and practical priorities quickly, rather than a long report that sits unread."],
+      ["Top 3", "Priority fixes identified before cosmetic changes", "The aim is to separate commercial friction from personal preference, so the first changes focus on the issues most likely to improve enquiries."]
+    ],
     deliverablesTitleMuted: "A structured audit that",
     deliverablesTitle: "finds what's costing you enquiries.",
     deliverables: [
-      ["20-point conversion audit", "Layout, copy, CTA placement, trust signals, mobile experience and load time reviewed."],
-      ["Analytics & behaviour review", "Where visitors drop off and which pages hold attention."],
-      ["Page-level UX assessment", "Every key page reviewed through the lens of your target customer."],
-      ["Copy & messaging improvements", "Specific copy changes that move visitors closer to making contact."],
-      ["Priority action plan", "A ranked list of the changes with the biggest impact."],
-      ["Implementation optional", "On Audit + Build, we implement priority changes ourselves."]
+      ["Conversion friction review", "Headlines, page flow, forms, CTAs, proof, mobile hierarchy and page speed are reviewed through the lens of enquiry quality."],
+      ["Analytics and behaviour check", "Where data is available, Joe looks for patterns in landing pages, drop-offs, devices and traffic sources."],
+      ["Trust signal assessment", "Reviews, case studies, credentials, local signals and guarantees are checked for strength, placement and relevance."],
+      ["Messaging improvements", "You receive specific copy and hierarchy recommendations so pages feel clearer without becoming salesy."],
+      ["Prioritised action plan", "Recommendations are ranked by likely impact, effort and urgency, so you know what to fix first."],
+      ["Optional implementation", "If you want Evolux to handle the changes, priority fixes can be designed, built and reviewed after launch."]
     ],
     packagesTitleMuted: "Audit only,",
     packagesTitle: "or audit and implement.",
@@ -132,32 +148,40 @@ export const SERVICES = [
       ["Do you need access to Google Analytics or Search Console?", "Analytics access is strongly recommended because it shows how people actually behave on your website: where they arrive, where they leave, which pages convert and which devices create friction. If analytics is not available, the audit can still review layout, copy, UX, mobile experience, speed and trust signals, but data makes the recommendations sharper."],
       ["What sort of changes usually improve website conversion?", "Common improvements include clearer headlines, stronger proof near calls to action, simpler service pages, better mobile hierarchy, faster page loading, more specific forms and clearer routes from article or landing pages into enquiries. The article on <a href=\"/insights/6-things-that-kill-website-conversion-rate\">things that kill website conversion rate</a> covers several of the most common issues."],
       ["Can I implement the CRO recommendations myself?", "Yes. The audit is written so you, your internal team or your existing developer can act on it. Each recommendation is prioritised and explained in plain English. If you would rather Evolux handle implementation, the Audit + Build option covers the highest-impact layout, copy, CTA and tracking improvements."],
-      ["Is conversion optimisation only for WordPress websites?", "No. The audit can review any website platform, including WordPress, Shopify, Squarespace, Webflow or custom builds. Implementation is most efficient on WordPress, but the conversion principles apply to any business website that needs more leads from existing traffic."]
+      ["Is conversion optimisation tied to a specific platform?", "No. The audit can review any business website. The important questions are commercial rather than platform-specific: where visitors hesitate, what proof is missing, which pages create friction and whether the next step is clear enough. The recommendations can be used by Evolux, your existing developer or your internal team."]
     ],
-    ctaTitle: "Find out why your website isn't converting.",
-    ctaMuted: "Start with a free review or book a full CRO audit."
+    ctaTitle: "Turn more of the right visits into enquiries.",
+    ctaMuted: "Start with a free review or book a focused CRO audit to identify the friction holding people back."
   },
   {
     slug: "branding",
     title: "Brand Identity",
     shortTitle: "Brand Identity",
     crumb: "Branding",
-    description: "A complete visual identity built around the positioning that makes your business distinctive.",
+    description: "Brand identity for businesses that need to look more credible, recognisable and consistent across every touchpoint.",
     heroLineOne: "A brand that works",
     heroLineTwo: "as hard as you do.",
-    intro: "Logo, colour, typography, guidelines and social kit, all built around a clear strategic foundation.",
+    intro: "A logo on its own rarely fixes a weak first impression. Evolux builds practical identity systems around how the business should be understood: who it is for, what it needs to signal and how it should feel across website, social, print and proposals.",
     tags: ["Logo", "Guidelines", "Typography", "Social kit"],
     from: "£950",
     meta: [["Includes", "Logo + guidelines"], ["Output", "Digital and print assets"], ["Best for", "Growing businesses"], ["From", "£950"]],
+    whyTitleMuted: "A brand should make",
+    whyTitle: "the right business easier to choose.",
+    whyCopy: "Strong identity is not decoration. It gives people a faster read on quality, personality and fit. For growing service businesses, that consistency can be the difference between looking established and looking improvised.",
+    stats: [
+      ["1", "Focused brand direction, not a pile of disconnected options", "Evolux develops the strongest strategic route and shows how it works in real contexts, so the decision is based on fit rather than guesswork."],
+      ["2", "Revision rounds included as standard", "Feedback is handled inside a clear process, with enough room to refine the identity without letting the project drift."],
+      ["Guides", "Practical rules for colour, type, spacing and logo use", "The goal is not just a nice logo. It is a system that makes future website, print, social and proposal design easier to keep consistent."]
+    ],
     deliverablesTitleMuted: "A complete identity,",
     deliverablesTitle: "built to last.",
     deliverables: [
-      ["Brand strategy session", "Define positioning, tone of voice, audience and the idea that makes the brand distinctive."],
-      ["Primary logo + variations", "Full, stacked and icon variations for every context."],
-      ["Colour palette", "Primary and secondary colour system with digital and print values."],
-      ["Typography system", "Paired typeface system covering headings, body and accents."],
-      ["Brand guidelines document", "A single-source reference for logo, colour, typography and tone."],
-      ["Social media profile kit", "Profile images, cover photos and post templates."]
+      ["Positioning session", "A focused session to clarify audience, market, tone and the impression your brand needs to leave."],
+      ["Logo suite", "Primary, secondary and simplified marks prepared for digital, print and social contexts."],
+      ["Colour system", "A controlled palette with practical usage guidance, not a random set of favourite colours."],
+      ["Typography system", "Heading, body and accent type choices selected for readability, character and consistency."],
+      ["Brand guidelines", "A concise guide covering logo usage, spacing, colour, type and real-world application."],
+      ["Launch-ready assets", "Profile images, cover graphics and core files prepared so the identity can be used immediately."]
     ],
     packagesTitleMuted: "Choose your",
     packagesTitle: "starting point.",
@@ -173,30 +197,38 @@ export const SERVICES = [
       ["Can I use the brand identity on a website built elsewhere?", "Yes. You receive brand assets in practical digital and print formats, including web-ready files for your website, social media and marketing. The guidelines make it easier for another developer, printer or internal team to use the brand consistently across future touchpoints."],
       ["Can branding and web design be done together?", "Yes. Combining <a href=\"/services/branding\">brand identity</a> and <a href=\"/services/web-design\">web design</a> often creates a stronger result because the positioning, visuals, messaging and website structure are planned together. It also avoids building a new website around an old or inconsistent brand system."]
     ],
-    ctaTitle: "Start building a brand worth recognising.",
-    ctaMuted: "Get in touch and we'll scope a brand identity package to suit your business."
+    ctaTitle: "Build a brand that feels considered everywhere.",
+    ctaMuted: "Get in touch and Joe will scope the identity work around the moments your business needs to show up well."
   },
   {
     slug: "graphic-design",
     title: "Graphic Design",
     shortTitle: "Graphic Design",
     crumb: "Graphic Design",
-    description: "Ongoing design support for social media, print materials, presentations and marketing collateral.",
+    description: "Graphic design support that keeps campaigns, documents and everyday marketing aligned with the quality of your brand.",
     heroLineOne: "Design that makes your",
     heroLineTwo: "business look the part.",
-    intro: "Consistent, professional design across every touchpoint, from social graphics to pitch decks and printed materials.",
+    intro: "A strong website can be weakened by inconsistent leaflets, rushed social graphics or proposal documents that feel disconnected. Evolux creates practical design assets that keep the business looking considered wherever people meet it.",
     tags: ["Social media", "Print", "Presentations", "Marketing"],
     from: "£250",
     meta: [["Formats", "Print and digital"], ["Options", "One-off or retainer"], ["Turnaround", "Scoped per project"], ["From", "£250"]],
+    whyTitleMuted: "Every touchpoint either",
+    whyTitle: "builds trust or dilutes it.",
+    whyCopy: "Graphic design matters because customers rarely experience your brand in one place. They might see a social post, a proposal, a brochure, a presentation and then your website. Those moments should feel connected.",
+    stats: [
+      ["2", "Digital and print contexts handled properly", "A social graphic, proposal and printed flyer all need different handling. The output is prepared properly instead of being stretched from one generic file."],
+      ["Mo", "Ongoing design support available when the work is regular", "For businesses producing frequent marketing, a monthly design rhythm keeps the quality consistent and avoids the last-minute scramble."],
+      ["Files", "Clear deliverables before design starts", "You know what is being created, what files you will receive and what the design needs to achieve before the work begins."]
+    ],
     deliverablesTitleMuted: "Every format",
     deliverablesTitle: "your brand needs.",
     deliverables: [
-      ["Social media graphics", "Posts, stories, ads and profile assets sized and styled for key platforms."],
-      ["Print materials", "Business cards, flyers, brochures, banners and signage."],
-      ["Presentation decks", "Branded pitch decks and slide templates."],
-      ["Email marketing templates", "Branded templates designed for click-through."],
-      ["Marketing collateral", "Proposals, case study documents, service brochures and reports."],
-      ["Custom illustrations & icons", "Bespoke icon sets or simple illustrations."]
+      ["Social graphics", "Post, story and campaign graphics designed to feel aligned rather than disposable."],
+      ["Printed materials", "Flyers, brochures, business cards, banners and signage prepared with proper print-ready outputs."],
+      ["Pitch and presentation design", "Decks and templates that make your ideas easier to follow and more credible in the room."],
+      ["Email and campaign assets", "Branded visuals for launches, promotions and announcements across digital channels."],
+      ["Sales collateral", "Proposal documents, service sheets, case study PDFs and lead magnets designed for clarity."],
+      ["Icon and visual systems", "Simple supporting graphics that make content easier to scan across website and marketing materials."]
     ],
     packagesTitleMuted: "One-off project",
     packagesTitle: "or monthly retainer.",
@@ -212,7 +244,7 @@ export const SERVICES = [
       ["Can graphic design support a website launch?", "Yes. Graphic design often supports a wider <a href=\"/services/web-design\">web design</a> or brand launch through social graphics, announcement posts, pitch decks, case study PDFs, email graphics and print materials. This keeps the new website, marketing assets and customer touchpoints visually aligned."],
       ["Do you design one-off items like flyers or presentations?", "Yes. Evolux can quote one-off design projects such as flyers, brochures, business cards, presentation decks, proposal documents and social media campaigns. For regular marketing output, a monthly retainer is usually more efficient because the brand style and workflow are already established."]
     ],
-    ctaTitle: "Ready to look the part at every touchpoint?",
-    ctaMuted: "Tell us what you need and we'll quote the same day."
+    ctaTitle: "Bring the same standard to every touchpoint.",
+    ctaMuted: "Tell Joe what you need designed and he will shape a clear, practical brief before quoting."
   }
 ];

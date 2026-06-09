@@ -1,12 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import InsightsPreview from "../components/InsightsPreview.astro";
 
 const serviceOptions = ["Web Design & Development", "Website Maintenance", "Conversion Rate Optimisation", "Brand Identity", "Graphic Design", "Not sure yet - I'd like some advice", "Something else"];
 const budgetOptions = ["Under £500", "£500 - £1,000", "£1,000 - £3,000", "£3,000 - £6,000", "£6,000+", "Not sure yet"];
 ---
 
-<BaseLayout title="Contact Evolux Web Design - Sunderland">
+<BaseLayout
+  title="Contact Evolux Web Design - Sunderland"
+  description="Contact Joe at Evolux Web Design to discuss a website, branding or conversion project for your Sunderland, North East or UK business."
+>
   <section class="contact-page">
     <div class="contact-page__inner">
       <div class="blog-stamp">
@@ -20,18 +24,24 @@ const budgetOptions = ["Under £500", "£500 - £1,000", "£1,000 - £3,000", "�
       <div class="contact-page__grid">
         <aside class="contact-page__info">
           <div class="mini-label"><span></span>Get in touch</div>
-          <h1><span>Let's talk</span><br />about your project.</h1>
-          <p>Whether you have a clear brief or just an idea of what you need, get in touch and we'll figure out the best path forward together.</p>
+          <h1><span>Tell me</span> what you need help with.</h1>
+          <p>Send a short message about your website, project or enquiry problem. Joe will read it personally and reply with a clear next step.</p>
 
-          <aside class="contact-intro-proof" aria-label="Evolux client review and direct contact details">
+          <div class="contact-page__expectations" aria-label="What to expect after contacting Evolux">
+            <article><span>01</span><strong>Personal reply</strong><p>No automated sales sequence. You will hear directly from Joe.</p></article>
+            <article><span>02</span><strong>Clear guidance</strong><p>If Evolux is not the right fit, you will still get a useful answer.</p></article>
+            <article><span>03</span><strong>Simple next step</strong><p>Usually a short call, a free review, or a scoped proposal.</p></article>
+          </div>
+
+          <aside class="contact-intro-proof" aria-label="Evolux contact reassurance">
             <div class="contact-intro-proof__founder">
               <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="eager" />
-              <div><p class="type-index">A direct line to the designer</p><strong>Hi, I'm Joe.</strong><span>I'll read your message personally and come back to you with a clear next step.</span></div>
+              <div>
+                <p class="type-index">Direct to the designer</p>
+                <strong>Hi, I'm Joe.</strong>
+                <span>I usually reply within one business day.</span>
+              </div>
             </div>
-            <blockquote>
-              <p>"Joe's proactive approach and efficient communication made the entire process seamless and stress-free."</p>
-              <footer><strong>Olivia Bowman</strong><span>Skyn & Glo</span></footer>
-            </blockquote>
             <div class="contact-intro-proof__rating">
               <div aria-label="5 star Google rating">
                 <svg class="google-review-mark__logo" viewBox="0 0 48 48" aria-hidden="true">
@@ -42,28 +52,23 @@ const budgetOptions = ["Under £500", "£500 - £1,000", "£1,000 - £3,000", "�
                 </svg>
                 <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
               </div>
-              <p><strong>5.0 on Google</strong><span>10 five-star reviews from UK businesses</span></p>
+              <p><strong>5.0 Google rating</strong><span>from UK business owners</span></p>
             </div>
           </aside>
 
           <div class="contact-detail-list">
             <a href="mailto:info@evoluxwebdesign.co.uk"><i><Icon name="email" /></i><div><span class="type-index">Email</span><strong>info@evoluxwebdesign.co.uk</strong></div><em>&#8599;</em></a>
-            <article><i><Icon name="location" /></i><div><span class="type-index">Based in</span><strong>Sunderland, Tyne & Wear</strong><p class="type-index">Working with UK businesses nationwide</p></div></article>
-            <article><i><Icon name="clock" /></i><div><span class="type-index">Response time</span><strong>Within one business day</strong></div><p class="type-index"><b></b>Available</p></article>
-          </div>
-
-          <div class="contact-review-card">
-            <h2>Not sure where to start?</h2>
-            <p>Submit your website for a free video review and Joe will tell you exactly what needs fixing - no obligation.</p>
-            <a href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+            <article><i><Icon name="location" /></i><div><span class="type-index">Based in</span><strong>Sunderland, Tyne and Wear</strong></div></article>
           </div>
         </aside>
 
-        <form class="contact-page-form" action="mailto:info@evoluxwebdesign.co.uk" method="post" enctype="text/plain">
+        <form class="contact-page-form" name="contact" action="/thank-you/" method="post" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="contact-page-form__honeypot"><label>Leave this field empty<input name="bot-field" /></label></p>
           <div class="contact-page-form__rule"></div>
           <div class="contact-page-form__inner">
             <h2>Send a message</h2>
-            <p>Typically replied to within a few hours on weekdays.</p>
+            <p>Tell me what you are trying to improve and I will come back with the most useful next step.</p>
             <div class="contact-page-form__row">
               <label>Full name <span>*</span><input name="name" placeholder="Joe Smith" required /></label>
               <label>Email address <span>*</span><input type="email" name="email" placeholder="joe@business.co.uk" required /></label>
@@ -83,7 +88,7 @@ const budgetOptions = ["Under £500", "£500 - £1,000", "£1,000 - £3,000", "�
   <section class="contact-next">
     <div class="contact-next__inner">
       <div class="section-kicker"><span></span><p class="type-index">What happens next</p></div>
-      <h2><span>From first message</span><br />to clear proposal.</h2>
+      <h2><span>From first message</span><br />to a considered next step.</h2>
       <div>
         {[
           ["01", "You'll hear back within one business day", "Joe reads every message personally. You'll get a real reply, not an automated acknowledgement."],
@@ -93,4 +98,12 @@ const budgetOptions = ["Under £500", "£500 - £1,000", "£1,000 - £3,000", "�
       </div>
     </div>
   </section>
+
+  <InsightsPreview
+    slugs={["questions-to-ask-web-design-agency", "understanding-website-costs-in-2025", "how-to-write-a-web-design-brief-so-that-you-get-your-perfect-site"]}
+    headingMuted="Useful reading before"
+    heading="you send a brief."
+    intro="If you're still shaping the project, these guides will help you ask better questions, understand cost and prepare a clearer web design brief."
+    footerText="Project planning articles"
+  />
 </BaseLayout>

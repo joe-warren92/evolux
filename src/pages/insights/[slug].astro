@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getRelatedPosts, INSIGHT_POSTS, JOE_AUTHOR } from "../../data/insights";
+import { INDUSTRIES } from "../../data/industries";
 
 export function getStaticPaths() {
   return INSIGHT_POSTS.map((post) => ({ params: { slug: post.slug }, props: { post } }));
@@ -8,16 +9,19 @@ export function getStaticPaths() {
 
 const { post } = Astro.props;
 const related = getRelatedPosts(post.slug);
+const relatedIndustries = INDUSTRIES
+  .filter((industry) => industry.relatedInsights.some((insight) => insight.slug === post.slug))
+  .slice(0, 3);
 const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-GB", {
   day: "numeric",
   month: "long",
   year: "numeric"
 });
-const articleUrl = `https://evoluxwebdesign.co.uk/insights/${post.slug}`;
+const articleUrl = `https://evoluxwebdesign.co.uk/insights/${post.slug}/`;
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "@id": `${articleUrl}/#article`,
+  "@id": `${articleUrl}#article`,
   headline: post.title,
   description: post.metaDescription,
   datePublished: post.publishedAt,
@@ -33,7 +37,15 @@ const articleSchema = {
 };
 ---
 
-<BaseLayout title={`${post.title} | Evolux Web Design`} description={post.metaDescription} structuredData={articleSchema} includePersonSchema>
+<BaseLayout
+  title={post.title.length > 55 ? post.title : `${post.title} | Evolux`}
+  description={post.metaDescription}
+  canonicalPath={`/insights/${post.slug}`}
+  ogImage={post.heroImage}
+  ogType="article"
+  structuredData={articleSchema}
+  includePersonSchema
+>
   <header class="article-hero">
     <div class="article-hero__inner">
       <nav class="blog-stamp" aria-label="Breadcrumb">
@@ -52,7 +64,7 @@ const articleSchema = {
           <h1>{post.title}</h1>
           <div class="article-meta">
             <div class="article-meta__author">
-              <img src={JOE_AUTHOR.image} alt="" />
+              <img src={JOE_AUTHOR.image} alt="Joe Warren, founder of Evolux Web Design" />
               <div>
                 <strong>{JOE_AUTHOR.name}</strong>
                 <p>{JOE_AUTHOR.role}</p>
@@ -141,8 +153,8 @@ const articleSchema = {
           <div class="article-cta-card__glow"></div>
           <div>
             <p class="type-label">Free review</p>
-            <h2>Want us to review your website?</h2>
-            <p>Get an honest, no-obligation assessment of what's stopping your site from converting visitors into enquiries.</p>
+            <h2>See how this applies to your own website.</h2>
+            <p>Get a clear, no-obligation review of the trust, clarity and conversion issues affecting your current site.</p>
             <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
           </div>
         </section>
@@ -156,6 +168,20 @@ const articleSchema = {
                   <span>{relatedPost.category}</span>
                   <strong>{relatedPost.title}</strong>
                   <em>{relatedPost.readingTime} min read</em>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {relatedIndustries.length > 0 && (
+          <section class="article-industry-guides">
+            <p class="type-label">Relevant industry guides</p>
+            <div>
+              {relatedIndustries.map((industry) => (
+                <a href={`/industries/${industry.slug}`}>
+                  <strong>{industry.name}</strong>
+                  <span>Website guidance for {industry.pluralName} <em aria-hidden="true">&#8599;</em></span>
                 </a>
               ))}
             </div>

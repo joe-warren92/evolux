@@ -10,7 +10,10 @@ const postsByDate = [...INSIGHT_POSTS].sort(
 );
 ---
 
-<BaseLayout title="Insights - Practical Website Advice for Business Owners">
+<BaseLayout
+  title="Web Design Insights for Business Owners | Evolux"
+  description="Practical website advice for business owners: web design, SEO foundations, conversion, maintenance, costs and planning from Evolux."
+>
   <section class="blog-hero">
     <div class="blog-hero__inner">
       <div class="blog-stamp">
@@ -22,7 +25,7 @@ const postsByDate = [...INSIGHT_POSTS].sort(
       </div>
 
       <div class="blog-hero__grid">
-        <h1><span>Useful advice for</span><br />a better website.</h1>
+        <h1><span>Useful advice for</span> a better website.</h1>
         <p>Clear, practical articles for business owners: what to improve, what to avoid and what is worth paying for.</p>
       </div>
     </div>
@@ -49,7 +52,7 @@ const postsByDate = [...INSIGHT_POSTS].sort(
           <article class="blog-card" data-post-card data-category={post.category}>
             <a href={`/insights/${post.slug}`}>
               <div class="blog-card__cover">
-                {post.heroImage && <img src={post.heroImage} alt="" loading="lazy" />}
+                {post.heroImage && <img src={post.heroImage} alt={`${post.title} article preview`} loading="lazy" />}
                 <div class="blog-card__top">
                   <span>{post.category}</span>
                   <span>{post.readingTime} min read</span>
@@ -59,7 +62,7 @@ const postsByDate = [...INSIGHT_POSTS].sort(
                 <h2>{post.title}</h2>
                 <div class="blog-card__meta">
                   <div>
-                    <img src={JOE_AUTHOR.image} alt="" loading="lazy" />
+                    <img src={JOE_AUTHOR.image} alt="Joe Warren, founder of Evolux Web Design" loading="lazy" />
                     <div>
                       <strong>{JOE_AUTHOR.name}</strong>
                       <time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>

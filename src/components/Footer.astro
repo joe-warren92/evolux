@@ -5,7 +5,9 @@ import Icon from "./Icon.astro";
 const currentYear = new Date().getFullYear();
 
 const primaryLinks = [
+  ["Home", "/"],
   ["Projects", "/projects"],
+  ["Services", "/services"],
   ["Packages", "/packages"],
   ["About", "/about"]
 ];
@@ -22,8 +24,31 @@ const serviceLinks = [
 const resourceLinks = [
   ["Free Website Review", "/free-review"],
   ["Insights", "/insights"],
+  ["Industries", "/industries"],
   ["Locations", "/locations"],
   ["Contact", "/contact"]
+];
+
+const industryLinks = [
+  ["Accountants", "/industries/accountants"],
+  ["Consultants", "/industries/consultants"],
+  ["Solicitors", "/industries/solicitors"],
+  ["Financial Advisers", "/industries/financial-advisers"],
+  ["Recruitment Agencies", "/industries/recruitment"],
+  ["Architects", "/industries/architects"],
+  ["Engineers", "/industries/engineers"],
+  ["Private Clinics", "/industries/private-clinics"],
+  ["Training Providers", "/industries/training-providers"],
+  ["Trades", "/industries/trades"]
+];
+
+const locationLinks = [
+  ["Sunderland", "/locations/sunderland"],
+  ["Newcastle upon Tyne", "/locations/newcastle-upon-tyne"],
+  ["Durham", "/locations/durham"],
+  ["Gateshead", "/locations/gateshead"],
+  ["Middlesbrough", "/locations/middlesbrough"],
+  ["Nationwide", "/locations/nationwide"]
 ];
 
 const socialLinks = [
@@ -112,24 +137,25 @@ const getStars = (rating) => "★".repeat(Math.max(1, Math.min(5, Math.round(rat
     <div class="evolux-footer__inner">
       <div class="evolux-footer__grid">
         <div class="evolux-footer__cta">
-          <h2><span>Let's build something</span> incredible together.</h2>
+          <h2><span>Make your website</span> easier to trust.</h2>
           <div class="evolux-footer__actions">
             <a class="button button--accent" href="/contact">Contact Evolux <span aria-hidden="true">&#8599;</span></a>
-            <a class="button button--outline-light" href="mailto:info@evoluxwebdesign.co.uk">Email Evolux</a>
+            <a class="button button--outline-light" href="/contact">Send a project enquiry</a>
           </div>
           <div class="evolux-footer__location">
             <p class="type-index">Based in</p>
-            <strong>Sunderland, Tyne &amp; Wear</strong>
-            <p>North East England</p>
+            <strong>Evolux Web Design</strong>
+            <p>Sunderland, Tyne &amp; Wear, UK</p>
+            <p><a href="tel:+447854932203">Phone: +44 7854 932203</a></p>
           </div>
         </div>
 
         <nav class="evolux-footer__links" aria-label="Footer navigation">
           <div class="evolux-footer__contact">
             <h3>Contact</h3>
-            <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a>
+            <a href="/contact">Contact Evolux</a>
             <a href="tel:+447854932203">+44 7854 932203</a>
-            <p>Sunderland, Tyne &amp; Wear</p>
+            <p>Sunderland, Tyne &amp; Wear, UK</p>
             <div class="evolux-footer__social">
               {socialLinks.map(([label, href]) => (
                 <a href={href} target="_blank" rel="noreferrer">{label} <span aria-hidden="true">&#8599;</span></a>
@@ -148,6 +174,18 @@ const getStars = (rating) => "★".repeat(Math.max(1, Math.min(5, Math.round(rat
             <h3>Resources</h3>
             {resourceLinks.map(([label, href]) => <a href={href}>{label}</a>)}
           </div>
+          <section class="evolux-footer__directory">
+            <h3>Industries</h3>
+            <div>
+              {industryLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+            </div>
+          </section>
+          <section class="evolux-footer__directory">
+            <h3>Locations</h3>
+            <div>
+              {locationLinks.map(([label, href]) => <a href={href}>{label}</a>)}
+            </div>
+          </section>
         </nav>
       </div>
 
@@ -155,7 +193,9 @@ const getStars = (rating) => "★".repeat(Math.max(1, Math.min(5, Math.round(rat
         <p>&copy; {currentYear} Evolux Web Design Ltd. All rights reserved.</p>
         <p>Web Design &amp; Development · Sunderland, UK</p>
       </div>
-      <div class="evolux-footer__wordmark">EVOLUX</div>
+      <div class="evolux-footer__wordmark" aria-hidden="true">
+        <img src="/assets/logos/evolux-logo.svg" alt="" loading="lazy" />
+      </div>
     </div>
   </section>
 

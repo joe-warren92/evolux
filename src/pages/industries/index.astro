@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import InsightsPreview from "../../components/InsightsPreview.astro";
+import { INDUSTRIES } from "../../data/industries";
+---
+
+<BaseLayout
+  title="Website Design for Trust-Led Businesses | Evolux"
+  description="Explore website design guidance for service businesses where credibility, clarity and trust matter before someone makes an enquiry."
+  canonicalPath="/industries"
+>
+  <section class="industries-hero">
+    <div class="industries-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <strong>Industries</strong>
+        </div>
+      </div>
+      <div class="industries-hero__grid">
+        <div>
+          <div class="mini-label"><span></span>Industry-focused web design</div>
+          <h1><span>Websites for businesses</span> where trust comes first.</h1>
+        </div>
+        <div>
+          <p>A recruitment agency needs different proof from an accountant. An architect needs to present expertise differently from a solicitor. The right website structure depends on how your customers make decisions.</p>
+          <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="industries-grid-section">
+    <div class="industries-grid-section__inner">
+      <div class="industry-section__heading">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Industries</p></div>
+          <h2><span>Built around the</span><br />way clients choose.</h2>
+        </div>
+        <p>Each guide covers the specific credibility gaps, page structure and proof that matter in that sector.</p>
+      </div>
+      <div class="industries-grid">
+        {INDUSTRIES.map((industry) => (
+          <article class="industry-card">
+            <a href={`/industries/${industry.slug}`}>
+              <span class="industry-card__icon"><Icon name={industry.icon} /></span>
+              <div>
+                <h2>{industry.name}</h2>
+                <p>{industry.cardDescription}</p>
+              </div>
+              <strong>Web design for {industry.name.toLowerCase()} <span aria-hidden="true">&#8599;</span></strong>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="industries-gaps">
+    <div class="industries-gaps__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">The common thread</p></div>
+        <h2><span>Different industries.</span><br />Familiar credibility gaps.</h2>
+        <p>The details change, but the same issues regularly stop good service businesses from winning the enquiries they deserve.</p>
+      </div>
+      <div class="industries-gaps__list">
+        {[
+          ["01", "Unclear positioning", "Visitors cannot quickly tell whether the business is the right fit."],
+          ["02", "Weak trust signals", "The claims sound reasonable, but there is not enough visible proof behind them."],
+          ["03", "Generic service pages", "Important services are described broadly instead of answering real client questions."],
+          ["04", "Poor mobile experience", "A potential client has to work too hard to find information or make contact."],
+          ["05", "No clear next step", "The page ends without guiding an interested visitor towards a sensible action."]
+        ].map(([num, title, copy]) => (
+          <article><span>{num}</span><div><h3>{title}</h3><p>{copy}</p></div></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="industries-expertise">
+    <div class="industries-expertise__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">Why the industry matters</p></div>
+        <h2><span>Trust is built</span><br />in context.</h2>
+      </div>
+      <div class="industries-expertise__grid">
+        <article><span><Icon name="direct" /></span><h3>Different buying journeys</h3><p>A patient, employer and business owner arrive with different levels of urgency, knowledge and confidence.</p></article>
+        <article><span><Icon name="target" /></span><h3>Different decisions</h3><p>Some clients compare portfolios. Others look for qualifications, local proof or a reassuring process.</p></article>
+        <article><span><Icon name="shield" /></span><h3>Different trust requirements</h3><p>The right proof needs to appear at the moment a potential client is most likely to hesitate.</p></article>
+      </div>
+      <div class="industries-expertise__links">
+        <a href="/services">Explore web design services <span aria-hidden="true">&#8599;</span></a>
+        <a href="/packages">Compare website packages <span aria-hidden="true">&#8599;</span></a>
+        <a href="/projects">See recent web design projects <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <InsightsPreview
+    slugs={["why-websites-dont-generate-business", "brand-identity-and-web-design", "template-vs-bespoke-web-design-sunderland"]}
+    headingMuted="Helpful context for"
+    heading="trust-led websites."
+    intro="Articles on the proof, positioning and structure that help service businesses feel credible before a potential client gets in touch."
+    footerText="Industry website strategy articles"
+  />
+
+  <section class="service-dark-cta">
+    <div>
+      <div class="section-kicker"><span></span><p class="type-index">Start with your current website</p></div>
+      <h2>Find out whether your website gives the right people enough confidence to enquire.</h2>
+      <p>Joe will review your website personally and send a short video with the most useful improvements to make first.</p>
+      <div>
+        <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        <a href="/contact">Contact Evolux <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

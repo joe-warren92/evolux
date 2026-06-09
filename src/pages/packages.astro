@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import InsightsPreview from "../components/InsightsPreview.astro";
+import PackageCard from "../components/PackageCard.astro";
+import { createFaqSchema } from "../utils/schema";
 
 const packages = [
   {
@@ -78,9 +81,14 @@ const renderCell = (value: boolean | string | undefined) => {
   if (value === false) return "-";
   return value;
 };
+const faqSchema = createFaqSchema("https://evoluxwebdesign.co.uk/packages/#faq", faqs);
 ---
 
-<BaseLayout title="Packages & Pricing - Evolux Web Design">
+<BaseLayout
+  title="Website Design Packages & Pricing | Evolux"
+  description="Compare Evolux website design packages, pricing and deliverables. Choose a focused launch site, a strategic studio build or a premium custom project."
+  structuredData={faqSchema}
+>
   <section class="packages-hero">
     <div class="packages-hero__glow packages-hero__glow--one"></div>
     <div class="packages-hero__glow packages-hero__glow--two"></div>
@@ -97,7 +105,7 @@ const renderCell = (value: boolean | string | undefined) => {
       <div class="packages-hero__grid">
         <div class="packages-hero__copy">
           <div class="mini-label"><span></span>Website packages</div>
-          <h1><span>Transparent pricing.</span><br />No surprises.</h1>
+          <h1><span>Transparent pricing.</span> No surprises.</h1>
           <p>A clear starting point for a website investment that is properly scoped around your business. Choose the level that fits where you are now, then know exactly what is included before work begins.</p>
           <div class="packages-hero__actions">
             <a class="button button--accent" href="#packages">Compare packages</a>
@@ -146,20 +154,17 @@ const renderCell = (value: boolean | string | undefined) => {
         </div>
         <p>Each package follows the same strategy-led process. The difference is depth: pages, positioning, brand support, content and the amount of post-launch help included.</p>
       </div>
-      <div class="packages-card-grid service-package-grid">
+      <div class="package-grid packages-page-card-grid">
         {packages.map((pkg) => (
-          <article class:list={["service-package-card", "packages-card", pkg.highlight && "service-package-card--featured packages-card--featured"]}>
-            {pkg.highlight && <span class="service-package-card__badge">Most popular</span>}
-            <p class="type-label">{pkg.name}</p>
-            <h3>{pkg.price}</h3>
-            <span class="type-index">{pkg.note}</span>
-            <p>{pkg.tagline}</p>
-            <small>{pkg.summary}</small>
-            <ul>
-              {pkg.features.map((feature) => <li>{feature}</li>)}
-            </ul>
-            <a href="#comparison">{pkg.name} package details <span aria-hidden="true">&#8599;</span></a>
-          </article>
+          <PackageCard
+            id={pkg.id}
+            name={pkg.name}
+            tagline={pkg.tagline}
+            price={pkg.price}
+            features={pkg.features}
+            highlight={pkg.highlight}
+            note={pkg.note}
+          />
         ))}
       </div>
 
@@ -171,10 +176,31 @@ const renderCell = (value: boolean | string | undefined) => {
     </div>
   </section>
 
+  <section class="service-industry-cta packages-industry-cta">
+    <div class="service-industry-cta__content">
+      <div class="section-kicker"><span></span><p class="type-index">Industry-focused planning</p></div>
+      <h2><span>The right package</span> depends on the buying journey.</h2>
+      <p>A clinic, accountant, recruitment agency and trades business do not need the same website structure. The package should reflect how your audience builds trust, compares options and decides whether to get in touch.</p>
+    </div>
+    <div class="service-industry-cta__aside">
+      <ul>
+        <li><span>01</span><strong>Trust requirements</strong><em>Choose the depth of proof your buyers need before they enquire.</em></li>
+        <li><span>02</span><strong>Content depth</strong><em>Plan the pages needed to explain services clearly without bloating the site.</em></li>
+        <li><span>03</span><strong>Commercial fit</strong><em>Match the scope to the value of the enquiries the website needs to create.</em></li>
+      </ul>
+      <a class="button button--dark" href="/industries">Explore industry website guides <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </section>
+
   <section class="comparison-section" id="comparison">
     <div class="comparison-section__inner">
-      <div class="section-kicker"><span></span><p class="type-index">Full comparison</p></div>
-      <h2><span>What's included</span><br />in each package.</h2>
+      <div class="section-heading-row comparison-section__head">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Full comparison</p></div>
+          <h2><span>What's included</span><br />in each package.</h2>
+        </div>
+        <p>Compare the practical differences in page depth, brand support, enquiry planning, SEO foundations and launch support before choosing a scope.</p>
+      </div>
 
       <div class="comparison-table" aria-label="Package comparison table">
         <div class="comparison-table__head">
@@ -209,7 +235,7 @@ const renderCell = (value: boolean | string | undefined) => {
                 );
               })}
             </div>
-            <a href="mailto:info@evoluxwebdesign.co.uk">{pkg.cta} <span aria-hidden="true">&#8599;</span></a>
+            <a href="/contact">{pkg.cta} <span aria-hidden="true">&#8599;</span></a>
           </article>
         ))}
       </div>
@@ -224,17 +250,24 @@ const renderCell = (value: boolean | string | undefined) => {
     </article>
   </section>
 
+  <InsightsPreview
+    slugs={["understanding-website-costs-in-2025", "real-cost-of-cheap-website", "questions-to-ask-web-design-agency"]}
+    headingMuted="Better context for"
+    heading="website pricing."
+    intro="These articles explain how to compare website costs, avoid false economies and understand what a serious web design project should include."
+    footerText="Pricing and planning articles"
+  />
+
   <section class="review-faq packages-faq">
     <div class="review-faq__inner">
       <div class="faq-support-card">
-        <p class="type-index">Choosing a package</p>
+        <div class="section-kicker"><span></span><p class="type-index">FAQs</p></div>
         <h2>Scope, pricing and fit.</h2>
         <div class="faq-support-card__person">
           <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
-          <div><strong>Want a steer first?</strong><span>Joe can recommend the sensible starting point.</span></div>
+          <div><strong>Want a steer first?</strong><span>Ask Joe directly.</span></div>
         </div>
         <a class="button button--dark" href="/free-review">Website review</a>
-        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
       </div>
       <div class="faq-accordion-list">
         {faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
@@ -244,12 +277,12 @@ const renderCell = (value: boolean | string | undefined) => {
 
   <section class="service-dark-cta packages-cta">
     <div>
-      <p class="type-index"><span></span>Currently available for new projects</p>
-      <h2>Not sure which package is right for you?</h2>
-      <p>A free website review will show you exactly what your current site is missing - and make the right package obvious.</p>
+      <div class="section-kicker"><span></span><p class="type-index">Scope before spend</p></div>
+      <h2>Find the right level of website investment.</h2>
+      <p>A free website review will show what your current site is missing, which improvements matter most and which package is likely to be proportionate.</p>
       <div>
         <a class="button button--accent" href="/free-review">Free website review</a>
-        <a href="mailto:info@evoluxwebdesign.co.uk">Email Joe directly <span aria-hidden="true">&#8599;</span></a>
+        <a href="/contact">Contact Joe directly <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>

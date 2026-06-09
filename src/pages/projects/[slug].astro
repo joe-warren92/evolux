@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
+import InsightsPreview from "../../components/InsightsPreview.astro";
 import { PROJECTS } from "../../data/projects";
 
 export function getStaticPaths() {
@@ -8,9 +9,24 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const projectSeoDescriptions: Record<string, string> = {
+  "circular-branding": "See how Evolux redesigned the Circular Branding Group website to strengthen trade credibility, showcase its portfolio and support higher-quality B2B enquiries.",
+  "marley-doulas": "See how Evolux created a calm, trust-led website for Marley Doulas, with clearer services and a more reassuring enquiry journey for expectant parents.",
+  "ockerby-academy": "See how Evolux designed the Ockerby Academy website around clearer class discovery, stronger local credibility and simpler enquiries for parents.",
+  "manton-executives": "See how Evolux created a premium recruitment website for Manton Executives, with clearer candidate and employer journeys and stronger positioning.",
+  "pro-pest-manchester": "See how Evolux rebuilt the Pro Pest Manchester website with clearer pest control services, stronger local trust signals and a faster estimate enquiry journey."
+};
+
+const quoteText = project.testimonial ?? project.projectQuote;
+const quoteName = project.testimonialName ?? project.projectQuoteAttribution ?? "Project focus";
+const quoteCompany = project.testimonialCompany;
 ---
 
-<BaseLayout title={`${project.title} - Case Study | Evolux Web Design`}>
+<BaseLayout
+  title={`${project.title} - Case Study | Evolux Web Design`}
+  description={projectSeoDescriptions[project.slug] ?? project.description}
+  canonicalPath={`/projects/${project.slug}`}
+>
   <section class="case-study-hero">
     <div class="case-study-hero__inner">
       <nav class="case-study-crumbs" aria-label="Breadcrumb">
@@ -23,6 +39,14 @@ const { project } = Astro.props;
           <div class="mini-label"><span></span>{project.category}</div>
           <h1>{project.title}</h1>
           <p>{project.description}</p>
+          <div class="case-study-hero__actions">
+            {project.liveUrl && (
+              <a class="button button--accent" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                View live website <span aria-hidden="true">&#8599;</span>
+              </a>
+            )}
+            <a class="text-button" href="/projects">Back to projects <span aria-hidden="true">&#8599;</span></a>
+          </div>
         </div>
         <dl class="case-meta">
           {project.meta.map(([label, value]) => (
@@ -34,6 +58,24 @@ const { project } = Astro.props;
     <figure class="case-study-hero__image">
       <img src={project.hero} alt={`${project.title} website mockup`} />
     </figure>
+  </section>
+
+  <section class="case-study-summary">
+    <div class="case-study-summary__inner">
+      <div class="case-study-summary__intro">
+        <div class="section-kicker"><span></span><p class="type-index">Case study</p></div>
+        <h2>A website shaped around {project.resultLabel}.</h2>
+        <p>{project.challenge}</p>
+      </div>
+      <div class="case-study-summary__points" aria-label="Project focus areas">
+        {project.outcomes.map((item) => (
+          <article>
+            <span>{item.metric}</span>
+            <p>{item.label}</p>
+          </article>
+        ))}
+      </div>
+    </div>
   </section>
 
   <section class="case-overview">
@@ -67,6 +109,33 @@ const { project } = Astro.props;
     </div>
   </section>
 
+  {quoteText && (
+    <section class="case-quote-section">
+      <div class="case-quote-section__inner">
+        <figure class="case-quote">
+          <span class="case-quote__mark" aria-hidden="true">"</span>
+          <blockquote>
+            <p>"{quoteText}"</p>
+            <footer>
+              <strong>{quoteName}</strong>
+              {quoteCompany && <span>{quoteCompany}</span>}
+            </footer>
+          </blockquote>
+        </figure>
+        <aside class="case-quote-section__link">
+          <p class="type-label">Live project</p>
+          <h2>See the finished website in context.</h2>
+          <p>Review the live site to see how the structure, visual hierarchy and enquiry routes work together outside a mockup.</p>
+          {project.liveUrl && (
+            <a class="button button--dark" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              Open live website <span aria-hidden="true">&#8599;</span>
+            </a>
+          )}
+        </aside>
+      </div>
+    </section>
+  )}
+
   <section class="case-screens">
     <div class="case-screens__inner">
       <div class="section-kicker"><span></span><p class="type-index">Selected screens</p></div>
@@ -85,33 +154,35 @@ const { project } = Astro.props;
     <div class="case-results__inner">
       <div class="section-kicker"><span></span><p class="type-index">Outcomes</p></div>
       <h2>{project.outcomeTitle}</h2>
-      {project.testimonial ? (
-        <blockquote>
-          <p>"{project.testimonial}"</p>
-          <footer>Katie Dutton - Manton Executives</footer>
-        </blockquote>
-      ) : (
-        <div class="case-results__grid">
-          {project.outcomes.map((item) => (
-            <article><strong>{item.metric}</strong><span class="type-label">{item.label}</span></article>
-          ))}
-        </div>
-      )}
+      <div class="case-results__grid">
+        {project.outcomes.map((item) => (
+          <article><strong>{item.metric}</strong><span class="type-label">{item.label}</span></article>
+        ))}
+      </div>
       <div class="case-results__quote">
-        <p>Want a website built with the same thinking? Start with a free review and we'll show you exactly what's possible.</p>
+        <p>Want the same level of thinking applied to your own website? Start with a free review and Joe will show where the strongest opportunities sit.</p>
         <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>
 
+  <InsightsPreview
+    slugs={["why-websites-dont-generate-business", "brand-identity-and-web-design", "6-things-that-kill-website-conversion-rate"]}
+    headingMuted="Related thinking from"
+    heading="the Evolux process."
+    intro="A few practical articles that explain the conversion, credibility and positioning decisions behind projects like this."
+    footerText="Case study related articles"
+  />
+
   <section class="case-next">
     <div>
-      <p class="type-label">Ready to start?</p>
-      <h2>Let's build something<br /><span>that performs.</span></h2>
-      <p>Every Evolux project starts with a free website review - an honest assessment of what's working and what's costing you enquiries.</p>
+      <p class="type-label">Plan the next move</p>
+      <h2>Build around the decision<br /><span>your customers need to make.</span></h2>
+      <p>Every Evolux project starts with a clear look at what is working, what is creating doubt and what needs to change.</p>
     </div>
     <div>
       <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      {project.liveUrl && <a class="button" href={project.liveUrl} target="_blank" rel="noopener noreferrer">View live website</a>}
       <a class="button" href="/projects">Web design projects</a>
     </div>
   </section>

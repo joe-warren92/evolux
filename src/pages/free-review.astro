@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
+import InsightsPreview from "../components/InsightsPreview.astro";
 import { PROJECTS } from "../data/projects";
+import { createFaqSchema } from "../utils/schema";
 
 const whatYouGet = [
-  ["01", "Conversion score", "Your site assessed against 20 factors that determine whether visitors make contact or leave."],
-  ["02", "Personalised video walkthrough", "A screen-recorded review delivered to your inbox within 48 hours. Specific, actionable, honest."],
-  ["03", "Priority action list", "The 3-5 changes that will have the biggest impact on your enquiry rate."]
+  ["01", "A sharper view of the problem", "Joe reviews the moments where visitors decide whether your business feels credible enough to contact."],
+  ["02", "A personal video you can act on", "You receive a screen-recorded walkthrough within 48 hours, with plain-English reasoning behind each recommendation."],
+  ["03", "A clear order of priority", "Instead of a long list of opinions, you get the 3-5 fixes most likely to improve clarity, trust and enquiries first."]
 ];
 
 const includedIcons = ["analytics", "design", "target"];
@@ -28,10 +30,23 @@ const reviewSignals = [
   ["06", "Search foundations", "Are the basics in place for Google to understand the website?", "seo"]
 ];
 
+const reviewFaqs = [
+  ["What will you actually look at in my website review?", "Joe reviews the parts of your website that affect enquiries: first impression, page structure, mobile usability, speed, trust signals, calls to action, service clarity, local SEO basics and whether the page gives people enough confidence to get in touch. It is a lighter starting point than a full <a href=\"/services/conversion-optimisation\">conversion optimisation audit</a>, but it gives you practical priorities rather than vague feedback."],
+  ["Is the website review really free?", "Yes. The review is genuinely free and designed to give UK businesses a clear starting point before they commit to a redesign, CRO audit or web design project. You receive a personalised video with the main issues and opportunities. If a larger project makes sense, Joe may point you toward the relevant <a href=\"/services\">web design services</a>, but there is no obligation or pressure call."],
+  ["How long does the free review take to arrive?", "Submitting the form takes less than a minute. Your personalised video review is normally delivered within 48 business hours, depending on current availability. The review focuses on changes most likely to improve enquiries, such as clearer messaging, stronger proof, better page hierarchy, mobile experience and obvious SEO gaps."],
+  ["What do I need to send for the review?", "You only need to provide your website URL and business email address. If there is a specific issue, such as traffic but no leads, poor local visibility, weak mobile conversions or an outdated design, include that context too. The more detail you share, the more specific the review can be. If you are planning a rebuild, it can also help to look at the <a href=\"/packages\">website packages</a> before submitting."],
+  ["Will you just tell me I need a new website?", "No. Sometimes the right answer is a few focused improvements, better calls to action or clearer proof rather than a full rebuild. If the platform, structure, brand or mobile experience is holding the business back, Joe will explain why a rebuild may be more sensible. You can use the advice yourself, with your existing developer or with Evolux."],
+  ["What kind of business gets the most value from a review?", "The review is best for service-based businesses, local companies and growing UK brands that rely on their website to generate enquiries. If your website looks fine but people are not getting in touch, if competitors look more credible, or if you are unsure what to fix first, this gives you a clear starting point. You can also read more practical guidance in the <a href=\"/insights\">web design insights</a>."]
+];
 const reviewProjects = PROJECTS.slice(0, 3);
+const faqSchema = createFaqSchema("https://evoluxwebdesign.co.uk/free-review/#faq", reviewFaqs);
 ---
 
-<BaseLayout title="Free Website Review - Evolux Web Design">
+<BaseLayout
+  title="Free Website Review for UK Businesses | Evolux"
+  description="Request a free personalised website review from Evolux. Get a practical video assessment of the issues affecting trust, SEO and enquiries."
+  structuredData={faqSchema}
+>
   <section class="review-hero" id="top">
     <div class="review-hero__glow review-hero__glow--one"></div>
     <div class="review-hero__glow review-hero__glow--two"></div>
@@ -49,8 +64,13 @@ const reviewProjects = PROJECTS.slice(0, 3);
       <div class="review-hero__grid">
         <div class="review-hero__copy">
           <div class="mini-label"><span></span>Personal video review by Joe</div>
-          <h1><span>Find out what's stopping</span><br />your website converting.</h1>
+          <h1><span>Find out what's stopping</span> your website converting.</h1>
           <p>Get a practical screen-recorded review of the issues most likely to be costing your business enquiries. Joe checks your website personally, explains what matters and gives you a clear order of priority.</p>
+          <ul class="review-hero__benefits" aria-label="Free website review benefits">
+            <li><Icon name="target" /> Identify the friction that makes visitors hesitate</li>
+            <li><Icon name="shield" /> Understand which proof and trust signals are missing</li>
+            <li><Icon name="analytics" /> Leave with practical changes, not vague opinions</li>
+          </ul>
           <div class="review-proof">
             <div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><span class="type-index">5.0 Google rating</span></div>
             <i></i>
@@ -58,27 +78,22 @@ const reviewProjects = PROJECTS.slice(0, 3);
             <i></i>
             <div><strong>48h</strong><span class="type-index">turnaround</span></div>
           </div>
-          <blockquote class="review-hero__testimonial">
-            <img src="/assets/logos/steven-dunn-circular-branding.jpg" alt="Steven Dunn, Circular Branding Group" />
-            <div>
-              <p>"Clear communication throughout, proactive, responsive and their attention to detail was second to none."</p>
-              <footer><strong>Steven Dunn</strong><span>Circular Branding Group</span></footer>
-            </div>
-          </blockquote>
         </div>
 
-        <form class="review-form-card" action="mailto:info@evoluxwebdesign.co.uk" method="post" enctype="text/plain">
+        <form class="review-form-card" name="free-website-review" action="/thank-you/" method="post" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="free-website-review" />
+          <p class="review-form-card__honeypot"><label>Leave this field empty<input name="bot-field" /></label></p>
           <div class="review-form-card__head">
             <span><Icon name="target" /></span>
-            <div><p class="type-index">Free website review</p><small>Delivered personally by Joe</small></div>
+            <div><p class="type-index">Free website review</p><small>Takes under 60 seconds to request</small></div>
           </div>
-          <h2>Show me your website.</h2>
-          <p>Share the URL and your biggest concern. Your personalised video will arrive within 48 hours.</p>
-          <label>Website URL<input type="url" name="website" placeholder="https://yourwebsite.com" required /></label>
-          <label>Business email<input type="email" name="email" placeholder="you@company.com" required /></label>
-          <label>Biggest website challenge? <em>(optional)</em><input name="challenge" placeholder="e.g. visitors but no enquiries" /></label>
-          <button type="submit"><span></span>Get my free review</button>
-          <p class="type-label"><Icon name="shield" /> No sales pitch. No obligation. Just an honest review.</p>
+          <label>Website URL<span aria-hidden="true">*</span><input type="url" name="website" placeholder="https://yourwebsite.com" autocomplete="url" required /></label>
+          <label>Business email<span aria-hidden="true">*</span><input type="email" name="email" placeholder="you@company.com" autocomplete="email" required /></label>
+          <label>Biggest website challenge? <em>(optional, but helpful)</em><textarea name="challenge" rows="3" placeholder="e.g. People visit the site, but very few ask for a quote"></textarea></label>
+          <button type="submit"><span></span>Send my website for review</button>
+          <div class="review-form-card__assurance">
+            <p><Icon name="clock" /> Usually delivered within 48 business hours.</p>
+          </div>
         </form>
       </div>
       <div class="review-hero__visuals" aria-label="Examples of Evolux website projects">
@@ -86,10 +101,16 @@ const reviewProjects = PROJECTS.slice(0, 3);
           <img src="/assets/mockup3-1_1779878754712.webp" alt="Circular Branding Group website designed by Evolux" />
           <figcaption><span class="type-index">Recent project</span><strong>Circular Branding Group</strong></figcaption>
         </figure>
-        <figure class="review-hero__visual review-hero__visual--side">
-          <img src="/assets/iMac-M4-Purple-1_1779878754716.jpg" alt="Manton Executives website designed by Evolux" />
-          <figcaption><span class="type-index">Trust-led redesign</span><strong>Manton Executives</strong></figcaption>
-        </figure>
+        <aside class="review-hero__visual-note">
+          <p class="type-index">A clearer starting point</p>
+          <h2>See your website like a customer.</h2>
+          <p>Joe looks at the page as a potential buyer would: what feels credible, what creates doubt and what makes the next step harder than it needs to be.</p>
+          <div>
+            <span><Icon name="check" /> Personal video</span>
+            <span><Icon name="check" /> Practical priorities</span>
+            <span><Icon name="check" /> No obligation</span>
+          </div>
+        </aside>
       </div>
       <div class="review-client-strip">
         <p class="type-index">Trusted by UK businesses including</p>
@@ -185,43 +206,38 @@ const reviewProjects = PROJECTS.slice(0, 3);
           </a>
         ))}
       </div>
-      <div class="review-work__proof">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote>"The result says it all. Clear communication throughout, proactive, responsive and their attention to detail was second to none."</blockquote>
-        <footer><img src="/assets/logos/circular-branding-logo.webp" alt="Circular Branding Group logo" loading="lazy" /><div><strong>Steven Dunn</strong><span>Circular Branding Group</span></div></footer>
-      </div>
     </div>
   </section>
+
+  <InsightsPreview
+    slugs={["why-websites-dont-generate-business", "6-things-that-kill-website-conversion-rate", "3-ways-improve-website"]}
+    headingMuted="Before your review,"
+    heading="know what usually breaks."
+    intro="These guides explain the common trust, clarity and conversion issues Joe looks for when reviewing a business website."
+    footerText="Website review reading"
+  />
 
   <section class="review-faq">
     <div class="review-faq__inner">
       <div class="faq-support-card">
-        <p class="type-index">Before you submit</p>
+        <p class="type-index">FAQs</p>
         <h2>How the review works.</h2>
         <div class="faq-support-card__person">
           <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
-          <div><strong>Unsure what to send?</strong><span>Share the URL and Joe will do the rest.</span></div>
+          <div><strong>Unsure what to send?</strong><span>Just share the URL.</span></div>
         </div>
         <a class="button button--dark" href="#top">Request the review</a>
-        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
       </div>
       <div class="faq-accordion-list">
-        {[
-        ["What will you actually look at in my website review?", "Joe reviews the parts of your website that affect enquiries: first impression, page structure, mobile usability, speed, trust signals, calls to action, service clarity, local SEO basics and whether the page gives people enough confidence to get in touch. It is a lighter starting point than a full <a href=\"/services/conversion-optimisation\">conversion optimisation audit</a>, but it gives you practical priorities rather than vague feedback."],
-        ["Is the website review really free?", "Yes. The review is genuinely free and designed to give UK businesses a clear starting point before they commit to a redesign, CRO audit or web design project. You receive a personalised video with the main issues and opportunities. If a larger project makes sense, Joe may point you toward the relevant <a href=\"/services\">web design services</a>, but there is no obligation or pressure call."],
-        ["How long does the free review take to arrive?", "Submitting the form takes less than a minute. Your personalised video review is normally delivered within 48 business hours, depending on current availability. The review focuses on changes most likely to improve enquiries, such as clearer messaging, stronger proof, better page hierarchy, mobile experience and obvious SEO gaps."],
-        ["What do I need to send for the review?", "You only need to provide your website URL and business email address. If there is a specific issue, such as traffic but no leads, poor local visibility, weak mobile conversions or an outdated design, include that context too. The more detail you share, the more specific the review can be. If you are planning a rebuild, it can also help to look at the <a href=\"/packages\">website packages</a> before submitting."],
-        ["Will you just tell me I need a new website?", "No. Sometimes the right answer is a few focused improvements, better calls to action or clearer proof rather than a full rebuild. If the platform, structure, brand or mobile experience is holding the business back, Joe will explain why a rebuild may be more sensible. You can use the advice yourself, with your existing developer or with Evolux."],
-        ["What kind of business gets the most value from a review?", "The review is best for service-based businesses, local companies and growing UK brands that rely on their website to generate enquiries. If your website looks fine but people are not getting in touch, if competitors look more credible, or if you are unsure what to fix first, this gives you a clear starting point. You can also read more practical guidance in the <a href=\"/insights\">web design insights</a>."]
-      ].map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
+        {reviewFaqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
       </div>
     </div>
   </section>
 
   <section class="review-bottom-cta">
     <div>
-      <h2><span>Ready to find out</span><br />what your site is missing?</h2>
-      <p>Free. Honest. In your inbox in 48 hours.</p>
+      <h2><span>Get a sharper view</span><br />of the website your customers see.</h2>
+      <p>A personal video review with clear priorities, delivered within 48 hours.</p>
       <a class="button button--dark" href="#top"><span></span>Get my free review</a>
     </div>
   </section>

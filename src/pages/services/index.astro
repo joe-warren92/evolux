@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SERVICES } from "../../data/services";
 import Icon from "../../components/Icon.astro";
+import InsightsPreview from "../../components/InsightsPreview.astro";
 
 const serviceIcons: Record<string, string> = {
   "web-design": "code",
@@ -14,7 +15,10 @@ const serviceIcons: Record<string, string> = {
 const stepIcons = ["message", "document", "launch"];
 ---
 
-<BaseLayout title="Services - Web Design, Branding & CRO | Evolux">
+<BaseLayout
+  title="Services - Web Design, Branding & CRO | Evolux"
+  description="Explore web design, website maintenance, conversion optimisation, branding and graphic design services from Evolux in Sunderland."
+>
   <section class="services-archive-hero">
     <div class="services-archive-hero__inner">
       <div class="blog-stamp">
@@ -26,13 +30,12 @@ const stepIcons = ["message", "document", "launch"];
       </div>
       <div class="services-archive-hero__grid">
         <div>
-          <h1><span>Every service</span><br />your business needs online.</h1>
+          <h1><span>Every service</span> your business needs online.</h1>
           <p>From a first website to a complete brand identity, Evolux provides the full range of digital services for UK small businesses - all delivered personally by Joe.</p>
         </div>
         <aside>
           <p class="type-index">One studio</p>
           <p>All services are delivered by the same person who takes your initial call - no hand-offs, no account managers, no briefing chains.</p>
-          <span><i></i>Available for new projects</span>
         </aside>
       </div>
     </div>
@@ -65,6 +68,17 @@ const stepIcons = ["message", "document", "launch"];
     </div>
   </section>
 
+  <section class="standard-light-cta">
+    <div>
+      <p class="type-label">Industry guides</p>
+      <h2><span>Different buyers need</span><br />different proof.</h2>
+      <p>Explore practical guidance for sectors where credibility and trust shape whether someone gets in touch.</p>
+    </div>
+    <div>
+      <a class="button button--dark" href="/industries">Explore industry website guides <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </section>
+
   <section class="service-steps">
     <div class="service-steps__inner">
       {[
@@ -81,14 +95,22 @@ const stepIcons = ["message", "document", "launch"];
     </div>
   </section>
 
+  <InsightsPreview
+    slugs={["why-websites-dont-generate-business", "questions-to-ask-web-design-agency", "website-backup-best-practices"]}
+    headingMuted="Useful thinking before"
+    heading="you choose a service."
+    intro="If you're comparing web design, maintenance, conversion work or brand support, these guides explain what usually matters before you invest."
+    footerText="Service planning articles"
+  />
+
   <section class="service-dark-cta">
     <div>
-      <div class="section-kicker"><span></span><p class="type-index">Not sure where to start?</p></div>
-      <h2>Get a free website review<br /><span>and we'll tell you exactly what you need.</span></h2>
-      <p>A personalised video review delivered to your inbox within 48 hours - no obligation, no sales pitch.</p>
+      <div class="section-kicker"><span></span><p class="type-index">Start with the evidence</p></div>
+      <h2>See where your website is helping<br /><span>and where it is holding enquiries back.</span></h2>
+      <p>A personalised video review delivered to your inbox within 48 hours, with clear priorities and no pressure call.</p>
       <div>
         <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
-        <a href="mailto:info@evoluxwebdesign.co.uk">Email Evolux <span aria-hidden="true">&#8599;</span></a>
+        <a href="/contact">Contact Evolux <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>

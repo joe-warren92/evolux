@@ -1,0 +1,71 @@
+---
+import { INSIGHT_POSTS, JOE_AUTHOR } from "../data/insights";
+
+interface Props {
+  slugs?: string[];
+  kicker?: string;
+  headingMuted?: string;
+  heading?: string;
+  intro?: string;
+  footerText?: string;
+  class?: string;
+}
+
+const {
+  slugs = ["why-websites-dont-generate-business", "real-cost-of-cheap-website", "questions-to-ask-web-design-agency"],
+  kicker = "Insights",
+  headingMuted = "Straight talk about",
+  heading = "web design & business.",
+  intro = "Practical articles for business owners making decisions about trust, conversion, pricing and website performance.",
+  footerText = "Useful articles for business owners",
+  class: className
+} = Astro.props;
+
+const fallbackPosts = INSIGHT_POSTS.slice(0, 3);
+const selectedPosts = slugs
+  .map((slug) => INSIGHT_POSTS.find((post) => post.slug === slug))
+  .filter(Boolean);
+const posts = (selectedPosts.length ? selectedPosts : fallbackPosts).slice(0, 3);
+const formatDate = (date: string) =>
+  new Date(date).toLocaleDateString("en-GB", {
+    month: "short",
+    year: "numeric"
+  });
+---
+
+<section class:list={["insights-section", className]}>
+  <div class="section-split">
+    <div>
+      <div class="section-kicker"><span></span><p class="type-index">{kicker}</p></div>
+      <h2 class="display-heading"><span>{headingMuted}</span><br />{heading}</h2>
+    </div>
+    <p>{intro}</p>
+  </div>
+  <div class="insight-card-grid">
+    {posts.map((post) => (
+      <a href={`/insights/${post.slug}`} class="insight-card">
+        <div class="insight-card__cover">
+          {post.heroImage && <img src={post.heroImage} alt={`${post.title} article preview`} loading="lazy" />}
+          <div class="insight-card__top">
+            <span>{post.category}</span>
+            <span>{post.readingTime} min read</span>
+          </div>
+        </div>
+        <div class="insight-card__body">
+          <h3>{post.title}</h3>
+          <div class="insight-card__footer">
+            <div class="insight-card__meta">
+              <img src={JOE_AUTHOR.image} alt="Joe Warren, founder of Evolux Web Design" loading="lazy" />
+              <p>{formatDate(post.publishedAt)}</p>
+            </div>
+            <strong>Read article <span aria-hidden="true">&#8599;</span></strong>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+  <div class="section-footer-row">
+    <p class="type-index">{footerText}</p>
+    <a href="/insights">Web design insights <span aria-hidden="true">&#8599;</span></a>
+  </div>
+</section>

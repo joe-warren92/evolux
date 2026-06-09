@@ -6,22 +6,51 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  robots?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
   includeFounderSchema?: boolean;
   includePersonSchema?: boolean;
+  includeLocalBusinessSchema?: boolean;
+  bodyClass?: string;
 }
 
 const {
   title = "Evolux Web Design | Websites That Generate Enquiries",
-  description = "A premium web design studio building conversion-focused websites for ambitious UK businesses.",
+  description = "Sunderland web design studio creating conversion-focused websites for service businesses that need to build trust, win enquiries and grow online.",
+  canonicalPath = Astro.url.pathname,
+  // TODO: replace /og-image.jpg with a fully branded launch social image once final artwork is approved.
+  ogImage = "/og-image.jpg",
+  ogType = "website",
+  robots,
   structuredData = [],
   includeFounderSchema = false,
-  includePersonSchema = false
+  includePersonSchema = false,
+  includeLocalBusinessSchema = true,
+  bodyClass
 } = Astro.props;
 
 const siteUrl = "https://evoluxwebdesign.co.uk";
+const normaliseCanonicalPath = (path: string) => {
+  if (path === "/") return path;
+  if (path.includes(".") || path.endsWith("/")) return path;
+  return `${path}/`;
+};
+const canonicalUrl = new URL(normaliseCanonicalPath(canonicalPath), siteUrl).toString();
+const openGraphImage = new URL(ogImage, siteUrl).toString();
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const localBusinessId = `${siteUrl}/#localbusiness`;
 const personId = `${siteUrl}/#joe`;
+const websiteId = `${siteUrl}/#website`;
+const breadcrumbPath = normaliseCanonicalPath(canonicalPath);
+const breadcrumbSegments = breadcrumbPath === "/" ? [] : breadcrumbPath.replace(/^\/|\/$/g, "").split("/");
+const formatBreadcrumbName = (segment: string) =>
+  segment
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -31,6 +60,14 @@ const localBusinessSchema = {
   url: siteUrl,
   telephone: "+447854932203",
   email: "info@evoluxwebdesign.co.uk",
+  image: openGraphImage,
+  priceRange: "\u00A3\u00A3",
+  areaServed: ["Sunderland", "North East England", "United Kingdom"],
+  sameAs: [
+    "https://www.instagram.com/evoluxwebdesign/",
+    "https://www.facebook.com/evoluxwebdesign",
+    "https://www.linkedin.com/company/evolux-web-design/"
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Sunderland",
@@ -39,6 +76,40 @@ const localBusinessSchema = {
   },
   openingHours: "Mo-Fr 09:00-17:00",
   ...(includeFounderSchema && { founder: { "@id": personId } })
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": websiteId,
+  url: `${siteUrl}/`,
+  name: "Evolux Web Design",
+  alternateName: "Evolux",
+  publisher: { "@id": localBusinessId },
+  inLanguage: "en-GB"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${canonicalUrl}#breadcrumb`,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${siteUrl}/`
+    },
+    ...breadcrumbSegments.map((segment, index) => {
+      const path = `/${breadcrumbSegments.slice(0, index + 1).join("/")}/`;
+      return {
+        "@type": "ListItem",
+        position: index + 2,
+        name: formatBreadcrumbName(segment),
+        item: new URL(path, siteUrl).toString()
+      };
+    })
+  ]
 };
 
 const personSchema = {
@@ -52,24 +123,52 @@ const personSchema = {
 
 const pageStructuredData = Array.isArray(structuredData) ? structuredData : [structuredData];
 const jsonLdSchemas = [
-  localBusinessSchema,
+  ...(includeLocalBusinessSchema ? [localBusinessSchema] : []),
+  ...(includeLocalBusinessSchema ? [websiteSchema] : []),
+  ...(robots?.includes("noindex") ? [] : [breadcrumbSchema]),
   ...(includePersonSchema || includeFounderSchema ? [personSchema] : []),
   ...pageStructuredData
 ].filter((schema) => Object.keys(schema).length > 0);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260609" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Evolux Web Design" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={openGraphImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={openGraphImage} />
     <title>{title}</title>
     {jsonLdSchemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+    {
+      gaMeasurementId && (
+        <>
+          <!-- Set PUBLIC_GA_MEASUREMENT_ID in Netlify environment variables to enable GA4. -->
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+          <script
+            is:inline
+            set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","${gaMeasurementId}");`}
+          />
+        </>
+      )
+    }
   </head>
-  <body>
+  <body class={bodyClass}>
     <Navigation />
     <main id="content">
       <slot />
@@ -106,6 +205,25 @@ const jsonLdSchemas = [
         });
         window.addEventListener("resize", () => {
           if (window.matchMedia("(min-width: 1025px)").matches) setMenuOpen(false);
+        });
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const faqLists = document.querySelectorAll(".faq-accordion-list, .service-faq-list");
+
+        faqLists.forEach((list) => {
+          const items = Array.from(list.querySelectorAll(":scope > details"));
+
+          items.forEach((item) => {
+            item.addEventListener("toggle", () => {
+              if (!item.open) return;
+
+              items.forEach((sibling) => {
+                if (sibling !== item) sibling.open = false;
+              });
+            });
+          });
         });
       })();
     </script>

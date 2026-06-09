@@ -4,10 +4,10 @@ export const JOE_AUTHOR = {
   initials: "J",
   image: "/assets/logos/joe-evolux-founder.png",
   bio: "Joe is the founder of Evolux Web Design in Sunderland. He writes practical guides for business owners who want a clearer, more credible website and a better idea of what to improve next.",
-  expertise: ["WordPress", "Bricks Builder", "Conversion Optimisation", "UX Strategy"]
+  expertise: ["Conversion Optimisation", "UX Strategy", "Website Planning", "SEO Foundations"]
 };
 
-export const INSIGHT_POSTS = [
+const RAW_INSIGHT_POSTS = [
   {
     slug: "why-websites-dont-generate-business",
     title: "Why Your Website Gets Traffic But No Enquiries (And How to Fix It)",
@@ -42,7 +42,7 @@ export const INSIGHT_POSTS = [
   {
     slug: "real-cost-of-cheap-website",
     title: "The Real Cost of a Cheap Website (And How to Do the Maths)",
-    metaDescription: "A cheap website might cost less upfront, but if it loses qualified enquiries every month, the real cost is much higher.",
+    metaDescription: "A cheap website might cost less upfront, but if it loses qualified enquiries every month, the real cost for your business is much higher.",
     excerpt: "A cheap build can become expensive when the site quietly loses qualified enquiries every month.",
     coverQuote: "A cheap site losing 3 enquiries a month can cost more than a premium build.",
     category: "Costs & Planning",
@@ -57,7 +57,7 @@ export const INSIGHT_POSTS = [
       { type: "image", src: "/assets/articles/why-a-cheap-website-could-cost-you-more-than-you-think-00-pexels-pixabay-39284-1-1.jpg", alt: "Website design workspace representing website investment decisions" },
       { type: "callout", label: "Quick calculation", text: "Take your average client value times the number of enquiries you estimate your website is losing per month. That is your website's monthly cost." },
       { type: "h2", text: "What a Cheap Website Actually Costs You" },
-      { type: "numbered-list", items: ["Time spent fixing and tweaking things that were never quite right.", "Performance problems that create higher bounce rates.", "Credibility issues before a prospect ever speaks to you.", "Weak technical SEO foundations.", "Maintenance risk from unsupported themes or plugins."] },
+      { type: "numbered-list", items: ["Time spent fixing and tweaking things that were never quite right.", "Performance problems that create higher bounce rates.", "Credibility issues before a prospect ever speaks to you.", "Weak technical SEO foundations.", "Maintenance risk from unsupported themes or add-ons."] },
       { type: "h2", text: "What Good Web Design Investment Looks Like" },
       { type: "paragraph", text: "A website built properly is not just a digital brochure. It is a sales asset, answering questions and building trust while you are not in the room." },
       { type: "quote", text: "Your website is either earning you money or costing you money. It isn't doing nothing." }
@@ -66,7 +66,7 @@ export const INSIGHT_POSTS = [
   {
     slug: "questions-to-ask-web-design-agency",
     title: "5 Questions to Ask a Web Design Agency Before You Sign Anything",
-    metaDescription: "Before hiring a web design agency, ask these five questions to understand whether they can actually deliver results.",
+    metaDescription: "Before hiring a web design agency, ask these five practical questions to understand whether they can deliver a credible website and measurable results.",
     excerpt: "The answers will tell you whether an agency can deliver more than a good-looking homepage.",
     coverQuote: "Every agency says the right things. These five questions separate the ones that deliver.",
     category: "Costs & Planning",
@@ -94,7 +94,7 @@ export const INSIGHT_POSTS = [
   {
     slug: "website-backup-best-practices",
     title: "Website Backup Best Practices: How To Protect Your Business Online",
-    metaDescription: "Learn website backup best practices to protect your business from data loss, downtime, malware, and recovery failures",
+    metaDescription: "Learn website backup best practices to protect your business from data loss, downtime, malware and recovery failures, with practical steps for safer restores.",
     excerpt: "Your website is working perfectly one day. Then an update runs overnight, and something breaks. Pages stop loading. Contact forms fail. In some cases, the whole site goes down w...",
     coverQuote: "What Is a Website Backup?",
     category: "Maintenance",
@@ -240,7 +240,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Imagine your website breaks after an update. Something very common when updating WordPress plugins, or to the latest version of Shopify or WordPress. You try to access your site, but pages are not loading. Customers cannot browse your services. Your contact forms stop working. Enquiries that should be coming in simply disappear."
+        text: "Imagine your website breaks after an update. Something very common when updating CMS add-ons, or to the latest version of Shopify or CMS. You try to access your site, but pages are not loading. Customers cannot browse your services. Your contact forms stop working. Enquiries that should be coming in simply disappear."
       },
       {
         type: "paragraph",
@@ -291,7 +291,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Full Backup A full backup creates a complete copy of your entire website at a specific point in time. This includes your website files, images, themes, plugins, and your database, which holds your content, products, and customer data."
+        text: "Full Backup A full backup creates a complete copy of your entire website at a specific point in time. This includes your website files, images, themes, add-ons, and your database, which holds your content, products, and customer data."
       },
       {
         type: "paragraph",
@@ -424,15 +424,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h3",
-        text: "Plugin-Based Backups (WordPress)"
+        text: "Add-on-Based Backups (CMS)"
       },
       {
         type: "paragraph",
-        text: "If your website is built on WordPress, backup plugins offer a more flexible option. These tools allow you to schedule backups regularly and store them in external locations such as cloud storage."
+        text: "If your website is built on CMS, backup add-ons offer a more flexible option. These tools allow you to schedule backups regularly and store them in external locations such as cloud storage."
       },
       {
         type: "paragraph",
-        text: "Plugin-based backups give you more control over how often backups run and where they are stored. This makes them a popular choice for businesses that want a more reliable setup."
+        text: "Add-on-based backups give you more control over how often backups run and where they are stored. This makes them a popular choice for businesses that want a more reliable setup."
       },
       {
         type: "h3",
@@ -631,7 +631,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Because we build and support websites using platforms like WordPress, we understand how updates, plugins, and integrations can impact stability. Our approach ensures your backups are not only in place, but also recent, complete, and ready to restore when needed."
+        text: "Because we build and support websites using platforms like CMS, we understand how updates, add-ons, and integrations can impact stability. Our approach ensures your backups are not only in place, but also recent, complete, and ready to restore when needed."
       },
       {
         type: "paragraph",
@@ -1656,23 +1656,23 @@ export const INSIGHT_POSTS = [
     ]
   },
   {
-    slug: "how-secure-is-a-wordpress-website",
-    title: "How Secure Is a WordPress Website? What Small Businesses Need to Know",
-    metaDescription: "How secure is a WordPress website? Learn the real risks, security best practices, and how SMEs can protect their site and customer data.",
+    slug: "how-secure-is-a-cms-website",
+    title: "How Secure Is a CMS Website? What Small Businesses Need to Know",
+    metaDescription: "How secure is a CMS website? Learn the real risks, security best practices, and how SMEs can protect their site and customer data.",
     excerpt: "Imagine this. You wake up to an email saying your website has been flagged for malware. Customers cannot access it. Your contact forms have stopped working. You start wondering...",
-    coverQuote: "Is WordPress Secure by Default?",
+    coverQuote: "Is CMS Secure by Default?",
     category: "Maintenance",
     tags: [
       "web-design",
       "secure",
-      "wordpress",
+      "cms",
       "website"
     ],
     publishedAt: "2026-02-19",
     updatedAt: "2026-02-19",
     readingTime: 13,
-    sourceUrl: "https://evoluxwebdesign.co.uk/article/how-secure-is-a-wordpress-website/",
-    heroImage: "/assets/articles/how-secure-is-a-wordpress-website-00-christopher-gower-m-hrflhgabo-unsplash-scaled.webp",
+    sourceUrl: "https://evoluxwebdesign.co.uk/article/how-secure-is-a-cms-website/",
+    heroImage: "/assets/articles/how-secure-is-a-cms-website-00-christopher-gower-m-hrflhgabo-unsplash-scaled.webp",
     content: [
       {
         type: "paragraph",
@@ -1680,15 +1680,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "It is a common fear among SME owners. Many ask, how secure is a WordPress website? You may have heard that WordPress gets hacked often. You may even question whether it is safe for handling customer data."
+        text: "It is a common fear among SME owners. Many ask, how secure is a CMS website? You may have heard that CMS gets hacked often. You may even question whether it is safe for handling customer data."
       },
       {
         type: "paragraph",
-        text: "Here is the truth. WordPress is secure when it is managed properly. The platform itself is not the problem. Poor maintenance, weak hosting, and outdated plugins create the risk."
+        text: "Here is the truth. CMS is secure when it is managed properly. The platform itself is not the problem. Poor maintenance, weak hosting, and outdated add-ons create the risk."
       },
       {
         type: "paragraph",
-        text: "WordPress powers over 40% of websites globally. It is used by small businesses, large brands, and global organisations. Its popularity makes it a target, but that does not make it insecure. Security depends on how your website is configured, hosted, and maintained."
+        text: "CMS powers over 40% of websites globally. It is used by small businesses, large brands, and global organisations. Its popularity makes it a target, but that does not make it insecure. Security depends on how your website is configured, hosted, and maintained."
       },
       {
         type: "paragraph",
@@ -1697,8 +1697,8 @@ export const INSIGHT_POSTS = [
       {
         type: "list",
         items: [
-          "Whether WordPress is secure by default",
-          "Why some WordPress websites get hacked",
+          "Whether CMS is secure by default",
+          "Why some CMS websites get hacked",
           "The real security risks for small businesses",
           "How hosting affects website security",
           "What practical steps protect your site",
@@ -1707,23 +1707,23 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Let’s break down the risks, the myths, what actually keeps a WordPress website secure, and why we always recommend WordPress to our web design clients."
+        text: "Let’s break down the risks, the myths, what actually keeps a CMS website secure, and why we always recommend CMS to our web design clients."
       },
       {
         type: "h2",
-        text: "Is WordPress Secure by Default?"
+        text: "Is CMS Secure by Default?"
       },
       {
         type: "paragraph",
-        text: "WordPress is secure by default, but its overall security depends on how it is configured, hosted, and maintained."
+        text: "CMS is secure by default, but its overall security depends on how it is configured, hosted, and maintained."
       },
       {
         type: "paragraph",
-        text: "That distinction matters. The core WordPress software is developed and maintained by a dedicated global security team, and it is updated regularly to address vulnerabilities, improve stability, and respond to new threats. These updates are not occasional patches. They are part of an ongoing process that keeps the platform resilient and reliable."
+        text: "That distinction matters. The core CMS software is developed and maintained by a dedicated global security team, and it is updated regularly to address vulnerabilities, improve stability, and respond to new threats. These updates are not occasional patches. They are part of an ongoing process that keeps the platform resilient and reliable."
       },
       {
         type: "paragraph",
-        text: "As mentioned earlier, WordPress powers over 40% of all websites worldwide . That includes small business websites, online shops, professional service firms, media brands, and major international organisations. A platform used at that scale attracts constant attention from developers and security researchers. When issues are found, they are usually identified and fixed quickly."
+        text: "As mentioned earlier, CMS powers over 40% of all websites worldwide . That includes small business websites, online shops, professional service firms, media brands, and major international organisations. A platform used at that scale attracts constant attention from developers and security researchers. When issues are found, they are usually identified and fixed quickly."
       },
       {
         type: "paragraph",
@@ -1731,39 +1731,39 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "For small and medium-sized businesses, the key takeaway is straightforward. WordPress itself is not the weak point. Security problems almost always arise from outdated plugins, weak passwords, poor hosting environments, or a lack of ongoing maintenance. When those areas are managed properly, WordPress provides a strong and dependable foundation for a secure business website."
+        text: "For small and medium-sized businesses, the key takeaway is straightforward. CMS itself is not the weak point. Security problems almost always arise from outdated add-ons, weak passwords, poor hosting environments, or a lack of ongoing maintenance. When those areas are managed properly, CMS provides a strong and dependable foundation for a secure business website."
       },
       {
         type: "paragraph",
-        text: "At Evolux Web Design, we offer WordPress Support & Maintenance across Sunderland , Newcastle and the entire UK. Our maintenance packages ensure that your site is fully secure, updated and as optimised as can be. "
+        text: "At Evolux Web Design, we offer CMS Support & Maintenance across Sunderland , Newcastle and the entire UK. Our maintenance packages ensure that your site is fully secure, updated and as optimised as can be. "
       },
       {
         type: "h2",
-        text: "Why Do Some WordPress Websites Get Hacked?"
+        text: "Why Do Some CMS Websites Get Hacked?"
       },
       {
         type: "paragraph",
-        text: "In most cases, the issue comes down to how the site is managed. Security is not a single switch you turn on. It is the result of multiple layers working together. Understanding where weaknesses usually appear helps you prevent them before they cause damage. Here are the most common reasons a WordPress website gets hacked."
+        text: "In most cases, the issue comes down to how the site is managed. Security is not a single switch you turn on. It is the result of multiple layers working together. Understanding where weaknesses usually appear helps you prevent them before they cause damage. Here are the most common reasons a CMS website gets hacked."
       },
       {
         type: "h3",
-        text: "Outdated Plugins and Themes"
+        text: "Outdated Add-ons and Themes"
       },
       {
         type: "paragraph",
-        text: "The biggest security risk in WordPress websites usually comes from third-party plugins and themes. These are pieces of additional code that extend functionality. They power contact forms, booking systems, ecommerce features, SEO tools, and more."
+        text: "The biggest security risk in CMS websites usually comes from third-party add-ons and themes. These are pieces of additional code that extend functionality. They power contact forms, booking systems, ecommerce features, SEO tools, and more."
       },
       {
         type: "paragraph",
-        text: "Plugins and themes require regular updates. Developers release updates to fix bugs, improve performance, and patch security vulnerabilities. When updates are ignored, known weaknesses remain open."
+        text: "Add-ons and themes require regular updates. Developers release updates to fix bugs, improve performance, and patch security vulnerabilities. When updates are ignored, known weaknesses remain open."
       },
       {
         type: "paragraph",
-        text: "Hackers often scan the web for websites running outdated versions of popular plugins. If a vulnerability is public, automated bots can exploit it quickly. This is not targeted hacking. It is automated and opportunistic."
+        text: "Hackers often scan the web for websites running outdated versions of popular add-ons. If a vulnerability is public, automated bots can exploit it quickly. This is not targeted hacking. It is automated and opportunistic."
       },
       {
         type: "paragraph",
-        text: "The business impact can be serious. An outdated plugin creates a vulnerability. That vulnerability allows malware. Malware can deface your site, steal data, or inject spam links. Once that happens, trust drops instantly. Customers may see warnings in their browser. Search engines may flag your website. Enquiries slow down."
+        text: "The business impact can be serious. An outdated add-on creates a vulnerability. That vulnerability allows malware. Malware can deface your site, steal data, or inject spam links. Once that happens, trust drops instantly. Customers may see warnings in their browser. Search engines may flag your website. Enquiries slow down."
       },
       {
         type: "paragraph",
@@ -1775,7 +1775,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Another common entry point is weak login security. WordPress uses a standard login URL, which makes it easy for automated bots to attempt brute force attacks. These attacks repeatedly try different username and password combinations until one works."
+        text: "Another common entry point is weak login security. CMS uses a standard login URL, which makes it easy for automated bots to attempt brute force attacks. These attacks repeatedly try different username and password combinations until one works."
       },
       {
         type: "paragraph",
@@ -1795,7 +1795,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Website Hosting plays a far larger role in WordPress website security than many business owners realise. A website may look secure on the surface, but if it sits on a weak hosting environment, the foundation is unstable."
+        text: "Website Hosting plays a far larger role in CMS website security than many business owners realise. A website may look secure on the surface, but if it sits on a weak hosting environment, the foundation is unstable."
       },
       {
         type: "paragraph",
@@ -1811,7 +1811,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "When people ask how secure is a WordPress website, hosting is often the missing piece in the conversation. WordPress can be secure, but the environment it runs in matters just as much as the software itself."
+        text: "When people ask how secure is a CMS website, hosting is often the missing piece in the conversation. CMS can be secure, but the environment it runs in matters just as much as the software itself."
       },
       {
         type: "h2",
@@ -1819,11 +1819,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "WordPress security does not sit with one party. It is shared. When something goes wrong, it is usually because one layer in the chain has been neglected. Think of it as a stack with each layer supports the one above it."
+        text: "CMS security does not sit with one party. It is shared. When something goes wrong, it is usually because one layer in the chain has been neglected. Think of it as a stack with each layer supports the one above it."
       },
       {
         type: "paragraph",
-        text: "WordPress core updates keep the foundation secure. No updates exposes your site known vulnerabilities. Hackers will use automated exploits to take advantage, which leads to your website being compromised."
+        text: "CMS core updates keep the foundation secure. No updates exposes your site known vulnerabilities. Hackers will use automated exploits to take advantage, which leads to your website being compromised."
       },
       {
         type: "paragraph",
@@ -1831,7 +1831,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Plugin and theme quality affects the code running on your site. Poorly coded plugins can leave gaps in the security of your WordPress site. This leads to data exposure, and ultimately a loss of trust."
+        text: "Add-on and theme quality affects the code running on your site. Poorly coded add-ons can leave gaps in the security of your CMS site. This leads to data exposure, and ultimately a loss of trust."
       },
       {
         type: "paragraph",
@@ -1843,11 +1843,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Each layer matters. When all five work together, WordPress becomes a secure and stable platform for business use. When even one layer is ignored, the risk increases."
+        text: "Each layer matters. When all five work together, CMS becomes a secure and stable platform for business use. When even one layer is ignored, the risk increases."
       },
       {
         type: "h2",
-        text: "What Happens If a WordPress Website Is Not Secure?"
+        text: "What Happens If a CMS Website Is Not Secure?"
       },
       {
         type: "paragraph",
@@ -1883,11 +1883,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h2",
-        text: "How Secure Hosting Strengthens a WordPress Website"
+        text: "How Secure Hosting Strengthens a CMS Website"
       },
       {
         type: "paragraph",
-        text: "Hosting is one of the biggest variables in WordPress website security. Two websites can run the same version of WordPress, yet one is secure and the other is vulnerable. The difference often comes down to the hosting environment."
+        text: "Hosting is one of the biggest variables in CMS website security. Two websites can run the same version of CMS, yet one is secure and the other is vulnerable. The difference often comes down to the hosting environment."
       },
       {
         type: "paragraph",
@@ -1901,7 +1901,7 @@ export const INSIGHT_POSTS = [
         type: "list",
         items: [
           "Daily backups so your site can be restored quickly if something goes wrong",
-          "Server-level firewalls that block malicious traffic before it reaches WordPress",
+          "Server-level firewalls that block malicious traffic before it reaches CMS",
           "Malware scanning to detect suspicious activity early",
           "DDoS protection to prevent traffic floods from taking your site offline",
           "Automatic updates to reduce exposure to known vulnerabilities"
@@ -1909,7 +1909,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "These measures act as security layers beneath your website. Even if a plugin vulnerability appears, server-level protection can reduce the impact."
+        text: "These measures act as security layers beneath your website. Even if a add-on vulnerability appears, server-level protection can reduce the impact."
       },
       {
         type: "paragraph",
@@ -1917,11 +1917,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "When asking how secure is a WordPress website, hosting should be one of the first factors considered."
+        text: "When asking how secure is a CMS website, hosting should be one of the first factors considered."
       },
       {
         type: "h2",
-        text: "How to Check If Your WordPress Website Is Secure"
+        text: "How to Check If Your CMS Website Is Secure"
       },
       {
         type: "paragraph",
@@ -1932,7 +1932,7 @@ export const INSIGHT_POSTS = [
         items: [
           "Check for HTTPS Look at your browser’s address bar. If your site does not show HTTPS, install an SSL certificate immediately.",
           "Run a security scan Use a reputable malware scanning tool to detect obvious threats or suspicious files.",
-          "Review plugin and theme updates Log into WordPress and check whether updates are pending. Outdated software increases risk.",
+          "Review add-on and theme updates Log into CMS and check whether updates are pending. Outdated software increases risk.",
           "Test your backups Confirm that backups exist and that they can be restored if needed. A backup that cannot be restored offers little protection.",
           "Use Google Search Console Check for security warnings or manual actions. Google often flags compromised websites.",
           "Check your hosting support Ask your hosting provider what security features are included. Do they offer firewalls, monitoring, and malware protection?"
@@ -1940,7 +1940,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "These checks provide clarity. They help you understand whether your WordPress website security is strong or whether improvements are needed. Small actions taken early can prevent far larger problems later."
+        text: "These checks provide clarity. They help you understand whether your CMS website security is strong or whether improvements are needed. Small actions taken early can prevent far larger problems later."
       },
       {
         type: "h2",
@@ -1948,15 +1948,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h3",
-        text: "How secure is a WordPress website for small businesses?"
+        text: "How secure is a CMS website for small businesses?"
       },
       {
         type: "paragraph",
-        text: "A WordPress website is secure for small businesses when it is properly hosted, updated, and maintained. The core WordPress software is actively maintained by a global security team and receives regular updates to fix vulnerabilities."
+        text: "A CMS website is secure for small businesses when it is properly hosted, updated, and maintained. The core CMS software is actively maintained by a global security team and receives regular updates to fix vulnerabilities."
       },
       {
         type: "paragraph",
-        text: "Security risks usually come from outdated plugins, weak passwords, or poor hosting rather than the platform itself. When you combine secure hosting, regular updates, strong login protection, and backups, WordPress provides a reliable and safe environment for business websites."
+        text: "Security risks usually come from outdated add-ons, weak passwords, or poor hosting rather than the platform itself. When you combine secure hosting, regular updates, strong login protection, and backups, CMS provides a reliable and safe environment for business websites."
       },
       {
         type: "paragraph",
@@ -1964,19 +1964,19 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h3",
-        text: "Is WordPress more vulnerable than other platforms?"
+        text: "Is CMS more vulnerable than other platforms?"
       },
       {
         type: "paragraph",
-        text: "WordPress is not inherently more vulnerable than other platforms. It is more frequently targeted because it powers over 40% of websites worldwide."
+        text: "CMS is not inherently more vulnerable than other platforms. It is more frequently targeted because it powers over 40% of websites worldwide."
       },
       {
         type: "paragraph",
-        text: "Closed platforms handle many updates automatically, which reduces user responsibility. WordPress gives you more flexibility and control, which also means more responsibility."
+        text: "Closed platforms handle many updates automatically, which reduces user responsibility. CMS gives you more flexibility and control, which also means more responsibility."
       },
       {
         type: "paragraph",
-        text: "Security depends on configuration quality. A poorly managed WordPress site may be vulnerable. A properly configured WordPress site with secure hosting and regular updates can be just as secure as any alternative platform."
+        text: "Security depends on configuration quality. A poorly managed CMS site may be vulnerable. A properly configured CMS site with secure hosting and regular updates can be just as secure as any alternative platform."
       },
       {
         type: "paragraph",
@@ -1984,11 +1984,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h3",
-        text: "Can WordPress handle sensitive customer data?"
+        text: "Can CMS handle sensitive customer data?"
       },
       {
         type: "paragraph",
-        text: "Yes, WordPress can handle sensitive customer data securely when it is configured correctly and follows data protection best practices."
+        text: "Yes, CMS can handle sensitive customer data securely when it is configured correctly and follows data protection best practices."
       },
       {
         type: "paragraph",
@@ -2006,15 +2006,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Security is not automatic. It requires ongoing attention. When these measures are in place, WordPress can safely manage contact forms, payment details, and customer records in line with GDPR requirements."
+        text: "Security is not automatic. It requires ongoing attention. When these measures are in place, CMS can safely manage contact forms, payment details, and customer records in line with GDPR requirements."
       },
       {
         type: "h3",
-        text: "What is the biggest WordPress security risk?"
+        text: "What is the biggest CMS security risk?"
       },
       {
         type: "paragraph",
-        text: "The biggest WordPress security risk is neglected maintenance. Outdated plugins, themes, and core files create known vulnerabilities that attackers can exploit."
+        text: "The biggest CMS security risk is neglected maintenance. Outdated add-ons, themes, and core files create known vulnerabilities that attackers can exploit."
       },
       {
         type: "paragraph",
@@ -2022,15 +2022,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h3",
-        text: "Do I need a security plugin for WordPress?"
+        text: "Do I need a security add-on for CMS?"
       },
       {
         type: "paragraph",
-        text: "A security plugin can strengthen protection, but it is not a complete solution on its own. Plugins such as Wordfence or Sucuri provide features like firewalls, malware scanning, and login monitoring."
+        text: "A security add-on can strengthen protection, but it is not a complete solution on its own. Add-ons such as Wordfence or Sucuri provide features like firewalls, malware scanning, and login monitoring."
       },
       {
         type: "paragraph",
-        text: "However, security plugins work best when combined with:"
+        text: "However, security add-ons work best when combined with:"
       },
       {
         type: "list",
@@ -2043,15 +2043,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "A plugin adds a layer of defence, but it cannot compensate for poor hosting or ignored updates. WordPress security works best as a layered approach."
+        text: "A add-on adds a layer of defence, but it cannot compensate for poor hosting or ignored updates. CMS security works best as a layered approach."
       },
       {
         type: "h3",
-        text: "How often should WordPress be updated?"
+        text: "How often should CMS be updated?"
       },
       {
         type: "paragraph",
-        text: "WordPress should be updated whenever new core, plugin, or theme updates are released. These updates often contain security patches that close newly discovered vulnerabilities."
+        text: "CMS should be updated whenever new core, add-on, or theme updates are released. These updates often contain security patches that close newly discovered vulnerabilities."
       },
       {
         type: "paragraph",
@@ -2065,21 +2065,21 @@ export const INSIGHT_POSTS = [
         type: "list",
         items: [
           "Prompt core updates",
-          "Weekly plugin and theme checks",
+          "Weekly add-on and theme checks",
           "Ongoing monitoring for critical patches"
         ]
       },
       {
         type: "paragraph",
-        text: "Regular updates are one of the simplest and most effective ways to protect a WordPress website."
+        text: "Regular updates are one of the simplest and most effective ways to protect a CMS website."
       },
       {
         type: "h3",
-        text: "Does WordPress security affect SEO?"
+        text: "Does CMS security affect SEO?"
       },
       {
         type: "paragraph",
-        text: "Yes, WordPress security can directly impact SEO performance. If your website is hacked or infected with malware, search engines may flag it with warning messages."
+        text: "Yes, CMS security can directly impact SEO performance. If your website is hacked or infected with malware, search engines may flag it with warning messages."
       },
       {
         type: "paragraph",
@@ -2091,11 +2091,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "h2",
-        text: "How Evolux Helps Keep WordPress Websites Secure"
+        text: "How Evolux Helps Keep CMS Websites Secure"
       },
       {
         type: "paragraph",
-        text: "For many small and medium-sized businesses, WordPress security feels technical and overwhelming. That is where we step in. We’re a Sunderland Web Design specialist that helps SMEs in the North East and beyond to make website security simple, structured, and proactive."
+        text: "For many small and medium-sized businesses, CMS security feels technical and overwhelming. That is where we step in. We’re a Sunderland Web Design specialist that helps SMEs in the North East and beyond to make website security simple, structured, and proactive."
       },
       {
         type: "paragraph",
@@ -2103,7 +2103,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Ongoing maintenance is just as important. We manage WordPress core updates, plugin updates, and theme updates on a structured schedule. This reduces exposure to known vulnerabilities and keeps your site running smoothly. Updates are not left until something breaks. Find out more on our Sunderland Website Maintenance page."
+        text: "Ongoing maintenance is just as important. We manage CMS core updates, add-on updates, and theme updates on a structured schedule. This reduces exposure to known vulnerabilities and keeps your site running smoothly. Updates are not left until something breaks. Find out more on our Sunderland Website Maintenance page."
       },
       {
         type: "paragraph",
@@ -2115,7 +2115,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Everything is guided by WordPress best practices. We limit unnecessary plugins, apply strong login protection, configure secure settings, and maintain clean, well-structured environments. Security is not treated as an afterthought. It is built into the way your website is managed."
+        text: "Everything is guided by CMS best practices. We limit unnecessary add-ons, apply strong login protection, configure secure settings, and maintain clean, well-structured environments. Security is not treated as an afterthought. It is built into the way your website is managed."
       },
       {
         type: "paragraph",
@@ -3072,7 +3072,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "A website redesign does not have to be expensive, but it is an investment. Costs vary based on the features, number of pages, and level of customisation required. For many small businesses, a redesign replaces ongoing fixes, plugin costs, and lost enquiries caused by an outdated site. When viewed over time, a well-planned redesign often delivers better value by improving performance, SEO, and conversion rates, which supports long-term business growth."
+        text: "A website redesign does not have to be expensive, but it is an investment. Costs vary based on the features, number of pages, and level of customisation required. For many small businesses, a redesign replaces ongoing fixes, add-on costs, and lost enquiries caused by an outdated site. When viewed over time, a well-planned redesign often delivers better value by improving performance, SEO, and conversion rates, which supports long-term business growth."
       },
       {
         type: "h2",
@@ -3119,7 +3119,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "You deserve a site that works for you, not against you. Our bespoke web design in Sunderland gives you that control. Instead of squeezing your content into a rigid template from Wix, Squarespace, or a generic WordPress theme, a custom-built website adapts to your brand, your customers, and your goals. It gives you faster performance, a stronger identity, and the flexibility to grow without restrictions."
+        text: "You deserve a site that works for you, not against you. Our bespoke web design in Sunderland gives you that control. Instead of squeezing your content into a rigid template from Wix, Squarespace, or a generic CMS theme, a custom-built website adapts to your brand, your customers, and your goals. It gives you faster performance, a stronger identity, and the flexibility to grow without restrictions."
       },
       {
         type: "paragraph",
@@ -3135,7 +3135,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "A template site works differently. Platforms like Wix, Squarespace, and standard WordPress themes use fixed structures that thousands of other businesses also follow. You can change colours and images, but you cannot change the underlying design or how the site functions."
+        text: "A template site works differently. Platforms like Wix, Squarespace, and standard CMS themes use fixed structures that thousands of other businesses also follow. You can change colours and images, but you cannot change the underlying design or how the site functions."
       },
       {
         type: "paragraph",
@@ -3345,7 +3345,7 @@ export const INSIGHT_POSTS = [
       {
         type: "image",
         src: "/assets/articles/template-vs-bespoke-web-design-sunderland-04-pexels-tranmautritam-326514-1-1-1024x683.jpg",
-        alt: ""
+        alt: "Laptop workspace used when planning bespoke website design"
       },
       {
         type: "h2",
@@ -3361,7 +3361,7 @@ export const INSIGHT_POSTS = [
           "They look generic. Many local businesses end up with the same structure and style, which makes it hard to stand out in areas like Seaburn, Fulwell, and the city centre.",
           "They load slowly. Templates often include unused scripts, widgets, and design elements. This bloat hurts page speed, Core Web Vitals, and overall user experience.",
           "They limit your flexibility. Changing layouts or adding new features can break the design. Styling options are limited, and customisation often requires workarounds.",
-          "They create hidden long-term costs. Many templates need paid plugins, theme renewals, and redesigns every few years. You also lose time trying to fix things yourself, which slows your business down.",
+          "They create hidden long-term costs. Many templates need paid add-ons, theme renewals, and redesigns every few years. You also lose time trying to fix things yourself, which slows your business down.",
           "They make local SEO harder. Template structures often restrict how you implement schema, structured data, and local landing pages. This affects your visibility on Google Business Profile and weakens your performance for Sunderland-based searches."
         ]
       },
@@ -3411,7 +3411,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Ranking well locally means building a website that search engines can understand. Evolux structures every bespoke website with clear headings, logical page hierarchies, clean URLs, and fast-loading code. We use tools such as WordPress and Bricks Builder to give you complete flexibility without compromising SEO. This approach strengthens your visibility in Sunderland and helps more local customers find you."
+        text: "Ranking well locally means building a website that search engines can understand. Evolux structures every bespoke website with clear headings, logical page hierarchies, clean URLs, and fast-loading code. We use tools such as CMS and modern build tools to give you complete flexibility without compromising SEO. This approach strengthens your visibility in Sunderland and helps more local customers find you."
       },
       {
         type: "h3",
@@ -3436,7 +3436,7 @@ export const INSIGHT_POSTS = [
       {
         type: "image",
         src: "/assets/articles/template-vs-bespoke-web-design-sunderland-05-mockup-marleydoulas-1024x683.webp",
-        alt: ""
+        alt: "Marley Doulas website mockup showing a bespoke service-business design"
       },
       {
         type: "h2",
@@ -3501,7 +3501,7 @@ export const INSIGHT_POSTS = [
       {
         type: "image",
         src: "/assets/articles/template-vs-bespoke-web-design-sunderland-06-mockup3-2-1024x884.webp",
-        alt: ""
+        alt: "Circular Branding Group website mockup showing bespoke web design"
       },
       {
         type: "h2",
@@ -3738,7 +3738,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "For Speed Issues : Optimise images, choose better hosting, and remove unnecessary plugins or scripts."
+        text: "For Speed Issues : Optimise images, choose better hosting, and remove unnecessary add-ons or scripts."
       },
       {
         type: "paragraph",
@@ -4022,11 +4022,11 @@ export const INSIGHT_POSTS = [
       {
         type: "list",
         items: [
-          "Design and Customisation: Will you use a pre-made template or a fully custom design? Off-the-shelf themes (e.g. WordPress or Squarespace templates) are faster and cheaper to implement, often costing from a few dozen to a few hundred pounds for a premium theme. Fully bespoke designs, however, require much more work and creativity – these can easily cost £5,000 – £15,000+ just in design and development fees.",
+          "Design and Customisation: Will you use a pre-made template or a fully custom design? Off-the-shelf themes (e.g. CMS or Squarespace templates) are faster and cheaper to implement, often costing from a few dozen to a few hundred pounds for a premium theme. Fully bespoke designs, however, require much more work and creativity – these can easily cost £5,000 – £15,000+ just in design and development fees.",
           "Functionality and Features: Each additional feature (such as e-commerce capabilities, customer portals, interactive tools or booking systems) adds to the budget. HubSpot notes that features like secure client logins, advanced e-commerce shopping carts or interactive dashboards can “quickly increase your budget” , often £1,500 – £20,000+ for sophisticated functionality. Even animations or custom widgets require extra development time.",
           "Development Approach: Who builds the site matters. Freelancers and small agencies typically charge less than large agencies, but rates vary. According to HubSpot, a small freelance website project may run £1,500 – £12,000 , whereas full-service agencies might quote from £8,000 up to £100,000+ for large or complex sites.",
           "Content Creation: Who provides the text, images and media for the site? If you supply all your own content, you save money. If you need professional copywriting, photography or video production, add another significant cost. Having writers and designers create new content can cost £80 – £240 per page of text, plus extra for visuals. These fees quickly add up – for a 10-page site, it might be several thousand pounds extra.",
-          "Technical Requirements: Some sites require special technical work. For example, multilingual sites, membership systems, or integration with other software (like CRM or payment gateways) will increase costs. Similarly, building on a familiar platform (e.g. WordPress) is often quicker than coding from scratch. Custom development in a less common framework may be pricier due to limited expertise."
+          "Technical Requirements: Some sites require special technical work. For example, multilingual sites, membership systems, or integration with other software (like CRM or payment gateways) will increase costs. Similarly, building on a familiar platform (e.g. CMS) is often quicker than coding from scratch. Custom development in a less common framework may be pricier due to limited expertise."
         ]
       },
       {
@@ -4044,7 +4044,7 @@ export const INSIGHT_POSTS = [
           "Design Level: Template vs custom. Templates save time (and money), whereas full custom visuals increase costs significantly.",
           "Features & Functionality: E-commerce stores, booking engines, user accounts, blogs, analytics – each adds to development effort. For example, adding an online shop can start at a few thousand pounds for basic functionality, but highly custom stores can be far more.",
           "Content Production: Who creates text, images, videos? Outsourced writing/photography adds ongoing fees. Have as much ready-made content as you can to save costs.",
-          "Technology & Platform: Are you using a website builder, WordPress, or coding a custom CMS? Builders and open platforms reduce initial fees (although advanced add-ons may cost extra), while custom systems incur higher development hours.",
+          "Technology & Platform: Are you using a website builder, CMS, or coding a custom CMS? Builders and open platforms reduce initial fees (although advanced add-ons may cost extra), while custom systems incur higher development hours.",
           "Copywriting and Multimedia: Professional-level copywriting, custom graphics or licensed media can be expensive. Hiring experts for content can add “several thousand pounds” to a project budget."
         ]
       },
@@ -4073,7 +4073,7 @@ export const INSIGHT_POSTS = [
         items: [
           "Domain and SSL Renewal: You need to renew your domain name (typically £8–£40/year , depending on extension). SSL certificates (for site security) often renew yearly too (some are free, others ~£10–£100/yr).",
           "Web Hosting: Whether on a shared server or cloud service, you pay hosting fees monthly or annually. Basic hosting can be as low as a few pounds a month, but robust business hosting can run to £100+ per year . (Large or e-commerce sites need stronger hosting.)",
-          "Software Licences and Plugins: If your site relies on premium themes, plugins or third-party tools, there are renewal costs. These might be £50–£200 per year or more per plugin. The other hidden costs of DIY platforms could be subscription costs for themes, plugins, updates and backing up data. Even WordPress sites incur this if you need advanced features.",
+          "Software Licences and Add-ons: If your site relies on premium themes, add-ons or third-party tools, there are renewal costs. These might be £50–£200 per year or more per add-on. The other hidden costs of DIY platforms could be subscription costs for themes, add-ons, updates and backing up data. Even CMS sites incur this if you need advanced features.",
           "Maintenance & Updates: Websites require regular care. Expect to budget for periodic updates, security patches, backups and minor tweaks. Basic site maintenance can range from £200 to £10,000/year , depending on complexity. (Larger sites or busy businesses usually need more support.) Forgetting these can leave your site out-of-date or vulnerable.",
           "Redesign & Growth: Over time (every 2–3 years), you’ll likely want a refresh or new features. Set aside funds for future redesign or expansion. Sites often need a refresh to stay current – ignoring this can mean much higher overhaul costs later."
         ]
@@ -4093,7 +4093,7 @@ export const INSIGHT_POSTS = [
       {
         type: "list",
         items: [
-          "DIY Website Builders: Platforms like Wix, WordPress.com, Shopify or Squarespace let you create a site yourself, often with no coding. The pros are obvious: much lower cost and faster turnaround. You can start a site for “as little as £2–£40 per month” on DIY plans. DIY builds can launch in 1–2 weeks and use inexpensive tools. However, the cons are the trade-offs: you’re limited to the platform’s templates and capabilities. Custom features beyond what the builder offers may be impossible. You also handle maintenance, updates and technical issues yourself (or via the platform’s limited support). Essentially, you save money upfront, but it can cost you time and flexibility, and the final site may not be as polished.",
+          "DIY Website Builders: Platforms like Wix, CMS.com, Shopify or Squarespace let you create a site yourself, often with no coding. The pros are obvious: much lower cost and faster turnaround. You can start a site for “as little as £2–£40 per month” on DIY plans. DIY builds can launch in 1–2 weeks and use inexpensive tools. However, the cons are the trade-offs: you’re limited to the platform’s templates and capabilities. Custom features beyond what the builder offers may be impossible. You also handle maintenance, updates and technical issues yourself (or via the platform’s limited support). Essentially, you save money upfront, but it can cost you time and flexibility, and the final site may not be as polished.",
           "Professional Agency or Freelancer: Hiring a pro costs more, but gives you expertise and support. Agency-built sites average £800–£120,000 depending on size. Agencies or freelancers quote higher hourly rates (for example £50–£120/hour or more). In return, you get a fully custom website with expert design, coding, and SEO best-practice. Pros include high-quality results, scalability, and having someone else handle updates and fixes. Cons? The main drawback is cost and project time. Professional builds often take several months from brief to launch, and you’ll need to collaborate closely with designers/developers. But many businesses find the investment worthwhile: a well-built site can drive more leads and sales in the long run."
         ]
       },
@@ -4130,7 +4130,7 @@ export const INSIGHT_POSTS = [
   {
     slug: "finding-web-design-north-east",
     title: "Finding the Right Web Design Partner in the North East: A 2025 Guide",
-    metaDescription: "Discover how to find the best web design company in North East England in 2025. This guide helps Sunderland and Newcastle businesses evaluate web design partners for effective online presence and growth.",
+    metaDescription: "Find the right web design company in North East England. Compare partners using practical criteria for strategy, credibility, support and business results.",
     excerpt: "In today’s world, your website often serves as the first point of contact between your business and potential customers. Having a strong online presence in 2025 isn’t just an op...",
     coverQuote: "Introduction",
     category: "SEO",
@@ -4399,35 +4399,35 @@ export const INSIGHT_POSTS = [
     ]
   },
   {
-    slug: "best-wordpress-plugins",
-    title: "The Essential Plugins Every WordPress Site Needs",
-    metaDescription: "We took a look at the WordPress plugins that can ensure that your website is secure, performance optimised and is visible to search engines.",
+    slug: "best-cms-add-ons",
+    title: "The Essential Add-ons Every CMS Site Needs",
+    metaDescription: "We took a look at the CMS add-ons that can ensure that your website is secure, performance optimised and is visible to search engines.",
     excerpt: "In today’s world, your website is often the first impression potential customers have of your business. Whether you’re a marketing manager or a founder, you know that every seco...",
-    coverQuote: "Why Plugins Matter",
+    coverQuote: "Why Add-ons Matter",
     category: "Maintenance",
     tags: [
       "web-design",
       "best",
-      "wordpress",
-      "plugins"
+      "cms",
+      "add-ons"
     ],
     publishedAt: "2025-03-30",
     updatedAt: "2025-07-07",
     readingTime: 5,
-    sourceUrl: "https://evoluxwebdesign.co.uk/article/best-wordpress-plugins/",
-    heroImage: "/assets/articles/best-wordpress-plugins-00-screenshot-2025-03-30-at-20-33-36.png",
+    sourceUrl: "https://evoluxwebdesign.co.uk/article/best-cms-add-ons/",
+    heroImage: "/assets/articles/best-cms-add-ons-00-screenshot-2025-03-30-at-20-33-36.png",
     content: [
       {
         type: "paragraph",
-        text: "In today’s world, your website is often the first impression potential customers have of your business. Whether you’re a marketing manager or a founder, you know that every second counts. That’s why investing in the right WordPress plugins can make all the difference. We took a look at the must-have plugins that can help you secure, optimise and streamline your online presence."
+        text: "In today’s world, your website is often the first impression potential customers have of your business. Whether you’re a marketing manager or a founder, you know that every second counts. That’s why investing in the right CMS add-ons can make all the difference. We took a look at the must-have add-ons that can help you secure, optimise and streamline your online presence."
       },
       {
         type: "h2",
-        text: "Why Plugins Matter"
+        text: "Why Add-ons Matter"
       },
       {
         type: "paragraph",
-        text: "Plugins extend the functionality of your WordPress site without the need for extensive coding. They allow you to tailor your website to your business needs – enhancing performance, security, SEO and user experience. With over 55,000 plugins available in the WordPress Plugin Directory , choosing the right ones can feel overwhelming. But by focusing on essentials, you set the stage for measurable growth and improved site performance."
+        text: "Add-ons extend the functionality of your CMS site without the need for extensive coding. They allow you to tailor your website to your business needs – enhancing performance, security, SEO and user experience. With over 55,000 add-ons available in the CMS Add-on Directory , choosing the right ones can feel overwhelming. But by focusing on essentials, you set the stage for measurable growth and improved site performance."
       },
       {
         type: "h2",
@@ -4435,7 +4435,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Security is non-negotiable. With cyber threats on the rise, protecting your site is paramount. Consider these security plugins:"
+        text: "Security is non-negotiable. With cyber threats on the rise, protecting your site is paramount. Consider these security add-ons:"
       },
       {
         type: "list",
@@ -4446,7 +4446,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "For an in-depth look at WordPress security best practices, check out WPBeginner’s security guide ."
+        text: "For an in-depth look at CMS security best practices, check out WPBeginner’s security guide ."
       },
       {
         type: "h2",
@@ -4454,12 +4454,12 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Site speed directly affects user experience and SEO rankings. A few carefully chosen plugins can significantly boost your site’s performance:"
+        text: "Site speed directly affects user experience and SEO rankings. A few carefully chosen add-ons can significantly boost your site’s performance:"
       },
       {
         type: "list",
         items: [
-          "LiteSpeed Cache: A caching plugin that reduces load times and improves overall site speed.",
+          "LiteSpeed Cache: A caching add-on that reduces load times and improves overall site speed.",
           "Smush: Optimises images without compromising quality, ensuring your visuals are both attractive and fast-loading.",
           "Autoptimize: Minifies and compresses your site’s HTML, CSS, and JavaScript files to further improve performance."
         ]
@@ -4474,12 +4474,12 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Optimising your site for search engines is crucial for attracting organic traffic. The following plugins can help you stay ahead of the competition:"
+        text: "Optimising your site for search engines is crucial for attracting organic traffic. The following add-ons can help you stay ahead of the competition:"
       },
       {
         type: "list",
         items: [
-          "Yoast SEO: A widely used plugin that guides you through on-page SEO optimisation. It offers readability analysis, keyword optimisation, and more.",
+          "Yoast SEO: A widely used add-on that guides you through on-page SEO optimisation. It offers readability analysis, keyword optimisation, and more.",
           "Rank Math: An emerging alternative that provides detailed SEO analytics and an intuitive interface for managing your content."
         ]
       },
@@ -4531,18 +4531,18 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "If your website sells products or services, integrating e-commerce plugins is a smart move:"
+        text: "If your website sells products or services, integrating e-commerce add-ons is a smart move:"
       },
       {
         type: "list",
         items: [
-          "WooCommerce: The go-to plugin for transforming your WordPress site into a fully functional online store.",
+          "e-commerce setup: The go-to add-on for transforming your CMS site into a fully functional online store.",
           "Easy Digital Downloads: Ideal for businesses focusing on digital products, offering a seamless shopping experience for customers."
         ]
       },
       {
         type: "paragraph",
-        text: "For more details on optimizing your online store, visit the WooCommerce official site ."
+        text: "For more details on optimizing your online store, visit the e-commerce setup official site ."
       },
       {
         type: "h2",
@@ -4550,12 +4550,12 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Understanding visitor behavior is key to refining your digital strategy. Incorporating analytics plugins will help you make data-driven decisions:"
+        text: "Understanding visitor behavior is key to refining your digital strategy. Incorporating analytics add-ons will help you make data-driven decisions:"
       },
       {
         type: "list",
         items: [
-          "MonsterInsights: Connects your site to Google Analytics, providing easy-to-read reports right from your WordPress dashboard.",
+          "MonsterInsights: Connects your site to Google Analytics, providing easy-to-read reports right from your CMS dashboard.",
           "ExactMetrics: Another solid option that simplifies the process of monitoring website performance."
         ]
       },
@@ -4569,7 +4569,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Sometimes your site needs a little extra functionality that off-the-shelf plugins can’t provide. Custom plugin development allows you to add unique features tailored to your business. It’s worth consulting with a developer if your site requires bespoke solutions."
+        text: "Sometimes your site needs a little extra functionality that off-the-shelf add-ons can’t provide. Custom add-on development allows you to add unique features tailored to your business. It’s worth consulting with a developer if your site requires bespoke solutions."
       },
       {
         type: "h2",
@@ -4582,8 +4582,8 @@ export const INSIGHT_POSTS = [
       {
         type: "list",
         items: [
-          "Zapier for WordPress: Connects your site with over 2,000 apps, automating tasks and improving workflow.",
-          "MailChimp for WordPress: Integrates your site with one of the most popular email marketing platforms, making it easy to build your subscriber list."
+          "Zapier for CMS: Connects your site with over 2,000 apps, automating tasks and improving workflow.",
+          "MailChimp for CMS: Integrates your site with one of the most popular email marketing platforms, making it easy to build your subscriber list."
         ]
       },
       {
@@ -4592,19 +4592,19 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Each plugin plays a crucial role in the overall performance and success of your WordPress site. As you evaluate these tools, consider how they align with your business goals – whether it’s improving security, enhancing performance or driving conversions. Always test new plugins on a staging environment before implementing them live to avoid conflicts or disruptions."
+        text: "Each add-on plays a crucial role in the overall performance and success of your CMS site. As you evaluate these tools, consider how they align with your business goals – whether it’s improving security, enhancing performance or driving conversions. Always test new add-ons on a staging environment before implementing them live to avoid conflicts or disruptions."
       },
       {
         type: "paragraph",
-        text: "By carefully selecting the right plugins, you empower your website to serve as a robust, secure and effective marketing tool. For ongoing insights and expert tips, stay connected with reputable resources like WPBeginner and Moz ."
+        text: "By carefully selecting the right add-ons, you empower your website to serve as a robust, secure and effective marketing tool. For ongoing insights and expert tips, stay connected with reputable resources like WPBeginner and Moz ."
       },
       {
         type: "paragraph",
-        text: "It’s important to note, however, that not all solutions require a plugin. In order to ensure that your website is secure and loads quickly, you should try to keep the plugins that you use to an absolute minimum. Therefore, it’s essential that you choose the correct solutions for your website and that all of your plugins are vetted and kept up to date regularly ."
+        text: "It’s important to note, however, that not all solutions require a add-on. In order to ensure that your website is secure and loads quickly, you should try to keep the add-ons that you use to an absolute minimum. Therefore, it’s essential that you choose the correct solutions for your website and that all of your add-ons are vetted and kept up to date regularly ."
       },
       {
         type: "paragraph",
-        text: "Invest in the right tools today and set your website on the path to success. Each plugin should be a stepping stone toward a more efficient, secure and high-performing online presence."
+        text: "Invest in the right tools today and set your website on the path to success. Each add-on should be a stepping stone toward a more efficient, secure and high-performing online presence."
       },
       {
         type: "paragraph",
@@ -4686,13 +4686,13 @@ export const INSIGHT_POSTS = [
           "HTML and CSS : The building blocks of modern websites",
           "JavaScript : For interactive elements and advanced functionality",
           "Responsive design principles : Ensuring your site works flawlessly across all devices",
-          "Content Management Systems (CMS) : Like WordPress, Drupal, or Shopify",
+          "Content Management Systems (CMS) : Like CMS, Drupal, or Shopify",
           "Search Engine Optimization (SEO) fundamentals : To ensure your site ranks well"
         ]
       },
       {
         type: "paragraph",
-        text: "According to Statista , WordPress powers over 40% of all websites, making it the most popular CMS. Ensure your designer is well-versed in the platform most suitable for your needs."
+        text: "According to Statista , CMS powers over 40% of all websites, making it the most popular CMS. Ensure your designer is well-versed in the platform most suitable for your needs."
       },
       {
         type: "h3",
@@ -5091,10 +5091,10 @@ export const INSIGHT_POSTS = [
   },
   {
     slug: "certified-bricks-builder-experts",
-    title: "We’re Certified Bricks Builder Experts!",
-    metaDescription: "Bricks Builder has recently created the Bricks Expert Directory - showcasing the best freelancers and agencies using Bricks to build websites on WordPress. We",
-    excerpt: "We’re very happy to announce that we’ve been approved as Bricks Experts !",
-    coverQuote: "Why we love Bricks Builder",
+    title: "We’re Certified modern build tools Experts!",
+    metaDescription: "modern build tools has recently created the modern build tools Expert Directory - showcasing the best freelancers and agencies using modern build tools to build websites on CMS. We",
+    excerpt: "We’re very happy to announce that we’ve been approved as modern build tools Experts !",
+    coverQuote: "Why we love modern build tools",
     category: "Maintenance",
     tags: [
       "web-design",
@@ -5111,20 +5111,20 @@ export const INSIGHT_POSTS = [
     content: [
       {
         type: "paragraph",
-        text: "We’re very happy to announce that we’ve been approved as Bricks Experts !"
+        text: "We’re very happy to announce that we’ve been approved as modern build tools Experts !"
       },
       {
         type: "paragraph",
-        text: "Bricks Builder has recently created the Bricks Expert Directory – showcasing the best freelancers and agencies using Bricks to build websites on WordPress. We feel that Bricks Builder has changed the game within WordPress development and it has completely transformed our development processes. Therefore, we were exceptionally happy to be accepted and to have some outside recognition of the work that we’ve done using Bricks."
+        text: "modern build tools has recently created the modern build tools Expert Directory – showcasing the best freelancers and agencies using modern build tools to build websites on CMS. We feel that modern build tools has changed the game within CMS development and it has completely transformed our development processes. Therefore, we were exceptionally happy to be accepted and to have some outside recognition of the work that we’ve done using modern build tools."
       },
       {
         type: "image",
         src: "/assets/articles/certified-bricks-builder-experts-01-screenshot-2025-03-16-at-19-15-18-1024x483.png",
-        alt: "Evolux Web Design's profile in the Bricks Builder Expert Directory"
+        alt: "Evolux Web Design's profile in the modern build tools Expert Directory"
       },
       {
         type: "h2",
-        text: "Why we love Bricks Builder"
+        text: "Why we love modern build tools"
       },
       {
         type: "h3",
@@ -5132,7 +5132,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "A big issue with existing page builders in WordPress is the code that they output. The likes of Elementor and Divi generate nested div structures with a large amount of unnecessary elements and CSS classes. This creates a significantly larger DOM and typically results in larger page sizes and slow loading times. On the other hand, Bricks produces clean, semantic HTML which means that only strictly necessary code is outputted – reducing the DOM size and improving page load speeds."
+        text: "A big issue with existing page builders in CMS is the code that they output. The likes of Elementor and Divi generate nested div structures with a large amount of unnecessary elements and CSS classes. This creates a significantly larger DOM and typically results in larger page sizes and slow loading times. On the other hand, modern build tools produces clean, semantic HTML which means that only strictly necessary code is outputted – reducing the DOM size and improving page load speeds."
       },
       {
         type: "h3",
@@ -5140,22 +5140,22 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Other, traditional page builders often rely on pre-designed templates which can often create a recognisable look across websites. Bricks doesn’t rely on templated designs at all and simply provides the necessary building blocks for developers to use to create the designs that they choose. As we only ever create bespoke web designs , this suits our needs perfectly and allows us the freedom to build any designs that we create in Figma."
+        text: "Other, traditional page builders often rely on pre-designed templates which can often create a recognisable look across websites. modern build tools doesn’t rely on templated designs at all and simply provides the necessary building blocks for developers to use to create the designs that they choose. As we only ever create bespoke web designs , this suits our needs perfectly and allows us the freedom to build any designs that we create in Figma."
       },
       {
         type: "h3",
-        text: "Bricks Builder is the Theme & Page Builder"
+        text: "modern build tools is the Theme & Page Builder"
       },
       {
         type: "paragraph",
-        text: "Unlike traditional WordPress page builders, Bricks Builder is both a WordPress theme and a page builder, meaning that everything is fully integrated with one-another. How is this beneficial:"
+        text: "Unlike traditional CMS page builders, modern build tools is both a CMS theme and a page builder, meaning that everything is fully integrated with one-another. How is this beneficial:"
       },
       {
         type: "list",
         items: [
-          "Performance – Because Bricks is the theme and the builder, there are no compatibility issues, no conflicting code and no extra resources have to be used – meaning a much better performance",
+          "Performance – Because modern build tools is the theme and the builder, there are no compatibility issues, no conflicting code and no extra resources have to be used – meaning a much better performance",
           "Flexibility – Full visual control over all elements",
-          "Developer Friendly – Bricks is built for developers. There is no limitations on customisation as you might find in other page builders."
+          "Developer Friendly – modern build tools is built for developers. There is no limitations on customisation as you might find in other page builders."
         ]
       },
       {
@@ -5164,11 +5164,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Bricks gives you control over the breakpoints that you set. This means that you aren’t reliant on preset breakpoints that don’t take into account the diverse range of modern devices. For example, Elementor limits users to desktop, tablet and mobile with limited customisations available."
+        text: "modern build tools gives you control over the breakpoints that you set. This means that you aren’t reliant on preset breakpoints that don’t take into account the diverse range of modern devices. For example, Elementor limits users to desktop, tablet and mobile with limited customisations available."
       },
       {
         type: "paragraph",
-        text: "Bricks is a completely different story. With custom breakpoints, you can establish specific width thresholds that target exact device dimensions. This can be especially useful on complex layouts where more control is needed – Bricks gives you that control."
+        text: "modern build tools is a completely different story. With custom breakpoints, you can establish specific width thresholds that target exact device dimensions. This can be especially useful on complex layouts where more control is needed – modern build tools gives you that control."
       },
       {
         type: "h3",
@@ -5176,7 +5176,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Bricks is fully compatible with dynamic content, meaning that it is ideal for advanced WordPress websites. It supports:"
+        text: "modern build tools is fully compatible with dynamic content, meaning that it is ideal for advanced CMS websites. It supports:"
       },
       {
         type: "list",
@@ -5188,7 +5188,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "This makes Bricks Builder an exceptionally powerful and flexible approach to WordPress development. Despite the steep learning curve, Bricks builder has the power to build almost any type of website but especially dynamic websites."
+        text: "This makes modern build tools an exceptionally powerful and flexible approach to CMS development. Despite the steep learning curve, modern build tools has the power to build almost any type of website but especially dynamic websites."
       },
       {
         type: "h3",
@@ -5196,11 +5196,11 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Bricks Builder is constantly evolving and growing. Its roadmap shows the planned, next and in progress features and the guys over at Bricks do a fantastic job of rolling out regular updates and genuinely listening to their users. They also offer exceptional support through their forum, Facebook group and via email."
+        text: "modern build tools is constantly evolving and growing. Its roadmap shows the planned, next and in progress features and the guys over at modern build tools do a fantastic job of rolling out regular updates and genuinely listening to their users. They also offer exceptional support through their forum, Facebook group and via email."
       },
       {
         type: "paragraph",
-        text: "There is also a extremely active, growing community of Bricks developers and it is very easy to find support and guidance if needed."
+        text: "There is also a extremely active, growing community of modern build tools developers and it is very easy to find support and guidance if needed."
       },
       {
         type: "h2",
@@ -5208,15 +5208,15 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Bricks Builder is more than just a page builder – it’s a complete WordPress solution that provides the best of visual development with flexibility and customisation. Whether you’re wanting to build a portfolio, a business website or an eCommerce site, Bricks is an exceptionally powerful development tool."
+        text: "modern build tools is more than just a page builder – it’s a complete CMS solution that provides the best of visual development with flexibility and customisation. Whether you’re wanting to build a portfolio, a business website or an eCommerce site, modern build tools is an exceptionally powerful development tool."
       },
       {
         type: "paragraph",
-        text: "That’s why we’re so excited to be Bricks Experts – powerful customisation combined with extreme flexibility."
+        text: "That’s why we’re so excited to be modern build tools Experts – powerful customisation combined with extreme flexibility."
       },
       {
         type: "paragraph",
-        text: "If you’re interested in Custom Web Design and Bricks Development , get in touch with us to discuss your project."
+        text: "If you’re interested in Custom Web Design and modern build tools Development , get in touch with us to discuss your project."
       }
     ]
   },
@@ -5314,7 +5314,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "A cheap or DIY website often neglects crucial security measures, especially true when your website is not properly maintained or updated. According to Creative Minds , of all of the WordPress websites that are hacked, 61% are outdated and 52% are caused by out-of-date plugins. Furthermore, if you’re paying for a cheap website, you’re unlikely to get proper security measures implemented, such as using a WAF like Cloudflare ."
+        text: "A cheap or DIY website often neglects crucial security measures, especially true when your website is not properly maintained or updated. According to Creative Minds , of all of the CMS websites that are hacked, 61% are outdated and 52% are caused by out-of-date add-ons. Furthermore, if you’re paying for a cheap website, you’re unlikely to get proper security measures implemented, such as using a WAF like Cloudflare ."
       },
       {
         type: "paragraph",
@@ -5443,7 +5443,7 @@ export const INSIGHT_POSTS = [
   {
     slug: "6-things-that-kill-website-conversion-rate",
     title: "Conversion Rate Optimisation: 6 Things That Are Killing Your Website Conversions",
-    metaDescription: "Read our in depth analysis of the 6 most common things that are killing your website conversion rates.",
+    metaDescription: "Discover six common website conversion issues that reduce enquiries, from slow pages and unclear calls to action to weak trust signals and mobile friction.",
     excerpt: "Conversion rate optimisation (CRO) is the process of increasing the percentage of website users who take a desired action – whether that’s filling out a form, making a purchase...",
     coverQuote: "What is Conversion Rate Optimsation?",
     category: "Website Advice",
@@ -5505,7 +5505,7 @@ export const INSIGHT_POSTS = [
         type: "list",
         items: [
           "Optimise your images – using a modern format like WebP or AVIF and compressing images using tools like TinyPNG can make a huge difference to the loading time of your website.",
-          "Reduce Unused Plugins – bloated plugins are a common cause of a slow website. Make sure that your website isn’t full of unnecessary plugins that not only slow you down, but pose a security risk.",
+          "Reduce Unused Add-ons – bloated add-ons are a common cause of a slow website. Make sure that your website isn’t full of unnecessary add-ons that not only slow you down, but pose a security risk.",
           "Use good hosting – not all hosting is equal. Using reputable hosting with sufficient bandwidth, storage and resources will significantly help your website’s speed. Also, it’s hugely important to look at the Uptime Guarantee – this should be at least 99.99%. At the end of the day, if your website is down, nobody can convert at all!",
           "Use a CDN – In simple terms, a content delivery network (CDN) enables your website to be distributed to different servers around the world so that it loads from somewhere closer to where you visit the site. Basically, it reduces lag and improves page load speed."
         ]
@@ -5513,7 +5513,7 @@ export const INSIGHT_POSTS = [
       {
         type: "image",
         src: "/assets/articles/6-things-that-kill-website-conversion-rate-01-screenshot-2025-03-09-at-08-52-15-1024x566.webp",
-        alt: "",
+        alt: "Google Lighthouse performance report used to review website loading speed",
         caption: "Using Google Lighthouse to improve the speed of Circular Branding Group ‘s website"
       },
       {
@@ -5579,7 +5579,7 @@ export const INSIGHT_POSTS = [
       {
         type: "image",
         src: "/assets/articles/6-things-that-kill-website-conversion-rate-02-screenshot-2025-03-09-at-09-15-55-1-1024x562.webp",
-        alt: "",
+        alt: "Evolux website homepage showing a clear above-the-fold call to action",
         caption: "Example of an above-the-fold CTA that stands out – Evolux Web Design"
       },
       {
@@ -5634,7 +5634,7 @@ export const INSIGHT_POSTS = [
       {
         type: "image",
         src: "/assets/articles/6-things-that-kill-website-conversion-rate-03-screenshot-2025-03-09-at-20-27-25-1024x508.webp",
-        alt: "",
+        alt: "Website testimonial section showing names, images and review details",
         caption: "An example of good use of testimonials on a website"
       },
       {
@@ -5823,7 +5823,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "The platform on which your website runs can impact the cost significantly. While some DIY options like Wix or Shopify are more affordable, a custom-built website can cost a lot more. Pre-built CMS platforms are generally faster and cheaper to implement, but they may need additional plugins or custom coding to meet your specific needs."
+        text: "The platform on which your website runs can impact the cost significantly. While some DIY options like Wix or Shopify are more affordable, a custom-built website can cost a lot more. Pre-built CMS platforms are generally faster and cheaper to implement, but they may need additional add-ons or custom coding to meet your specific needs."
       },
       {
         type: "h3",
@@ -5950,7 +5950,7 @@ export const INSIGHT_POSTS = [
   {
     slug: "3-ways-improve-website",
     title: "3 Easy Ways That You Can Improve Your Website",
-    metaDescription: "We look into 3 quick and easy ways that you can improve your website without needing a full redesign.",
+    metaDescription: "Explore three practical ways to improve your business website without a full redesign, including clearer calls to action, stronger proof and better usability.",
     excerpt: "At Evolux Web Design, sometimes when we complete our free website audits , it’s apparent that the business doesn’t need a full website redesign. A lot of website have what we li...",
     coverQuote: "1 – High-Quality Images",
     category: "Web Design",
@@ -6048,7 +6048,7 @@ export const INSIGHT_POSTS = [
         type: "list",
         items: [
           "Optimise Images – Large image files can slow down your website significantly. Use image compression tools like TinyPNG to reduce file sizes without sacrificing quality. You should also use modern formats like WebP or AVIF and you should make sure that your images aren’t too large – there’s no point having a 10,000 x 10,000 pixel image that is only showing at 100 x 100 pixels on the live website.",
-          "Minimise Plugins – If you’re using WordPress or another CMS, too many plugins can slow down your site. Keep only the essential ones as large, bloated plugins are a major cause of slow websites. Plugins can also cause security issues so it’s essential to make sure that the ones you use are reputable!",
+          "Minimise Add-ons – If you’re using CMS or another CMS, too many add-ons can slow down your site. Keep only the essential ones as large, bloated add-ons are a major cause of slow websites. Add-ons can also cause security issues so it’s essential to make sure that the ones you use are reputable!",
           "Enable Caching – Browser caching stores parts of your website so that returning visitors experience faster load times.",
           "Use a Content Delivery Network (CDN) – A CDN distributes your website’s content across multiple servers worldwide, improving load times for users in different locations."
         ]
@@ -6135,7 +6135,7 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "Template-led design is the first issue. Many local businesses use the same WordPress themes, Wix layouts, or Squarespace templates. This creates a sea of identical-looking websites across Sunderland, from Ryhope to Roker. When customers compare three or four local options, nothing visually separates one business from another. If your site looks the same as competitors, users default to price, convenience, or reviews instead."
+        text: "Template-led design is the first issue. Many local businesses use the same CMS themes, Wix layouts, or Squarespace templates. This creates a sea of identical-looking websites across Sunderland, from Ryhope to Roker. When customers compare three or four local options, nothing visually separates one business from another. If your site looks the same as competitors, users default to price, convenience, or reviews instead."
       },
       {
         type: "paragraph",
@@ -6172,7 +6172,7 @@ export const INSIGHT_POSTS = [
           "Poor performance Templates often load unnecessary scripts and features. This slows pages down, especially on mobile. Local users searching on the go may leave before the page finishes loading, costing you potential enquiries.",
           "Limited flexibility Templates restrict how much you can change. Adding new services, local pages, or features often breaks layouts or requires workarounds. As your business grows, these limits become frustrating and expensive.",
           "SEO restrictions Many templates limit control over site structure, headings, and page speed. This makes it harder to compete in local search results, even if you offer a better service than other Sunderland businesses.",
-          "Hidden long-term costs Templates may seem affordable, but costs add up. Paid plugins, theme renewals, and frequent fixes drain time and money. Many local businesses eventually rebuild their site, paying twice for a solution that should have worked from the start."
+          "Hidden long-term costs Templates may seem affordable, but costs add up. Paid add-ons, theme renewals, and frequent fixes drain time and money. Many local businesses eventually rebuild their site, paying twice for a solution that should have worked from the start."
         ]
       },
       {
@@ -6238,12 +6238,12 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "WordPress provides the flexibility needed for effective local SEO. When built properly, WordPress allows clean site architecture, fast performance, and scalable design. It makes it easier to create location pages, optimise headings, and improve speed over time. This flexibility helps Sunderland businesses maintain strong local SEO as they grow."
+        text: "CMS provides the flexibility needed for effective local SEO. When built properly, CMS allows clean site architecture, fast performance, and scalable design. It makes it easier to create location pages, optimise headings, and improve speed over time. This flexibility helps Sunderland businesses maintain strong local SEO as they grow."
       },
       {
         type: "image",
         src: "/assets/articles/how-sunderland-businesses-can-stand-out-online-smarter-website-design-03-rectangle-351.png",
-        alt: ""
+        alt: "Sunderland city centre and River Wear representing local business visibility"
       },
       {
         type: "h2",
@@ -6295,11 +6295,19 @@ export const INSIGHT_POSTS = [
       },
       {
         type: "paragraph",
-        text: "To bring these priorities together, it helps to work with a team that understands both website performance and the local market. Evolux supports Sunderland businesses from our base in Ryhope, offering a bespoke approach that avoids templates and focuses on real outcomes. Every website is designed around performance, user experience, and local SEO, using WordPress and modern build tools that allow flexibility and growth. Ongoing support ensures your site continues to perform as your business evolves, rather than becoming outdated or restrictive. Contact us today to start your web journey."
+        text: "To bring these priorities together, it helps to work with a team that understands both website performance and the local market. Evolux supports Sunderland businesses from our base in Ryhope, offering a bespoke approach that avoids templates and focuses on real outcomes. Every website is designed around performance, user experience, and local SEO, using CMS and modern build tools that allow flexibility and growth. Ongoing support ensures your site continues to perform as your business evolves, rather than becoming outdated or restrictive. Contact us today to start your web journey."
       }
     ]
   }
 ];
+
+const EXCLUDED_INSIGHT_SLUGS = new Set([
+  "how-secure-is-a-cms-website",
+  "best-cms-add-ons",
+  "certified-bricks-builder-experts"
+]);
+
+export const INSIGHT_POSTS = RAW_INSIGHT_POSTS.filter((post) => !EXCLUDED_INSIGHT_SLUGS.has(post.slug));
 
 export const ALL_CATEGORIES = ["All", "Web Design", "SEO", "Website Advice", "Costs & Planning", "Maintenance", "Branding"];
 

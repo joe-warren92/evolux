@@ -1,13 +1,21 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
-import { PROJECT_ARCHIVE_STATS, PROJECTS } from "../../data/projects";
+import InsightsPreview from "../../components/InsightsPreview.astro";
+import { PROJECTS } from "../../data/projects";
 
 const [featured, ...rest] = PROJECTS;
-const statIcons = ["briefcase", "star", "location", "launch"];
+const heroVisuals = PROJECTS.flatMap((project) => [
+  { title: project.title, image: project.hero, category: project.category },
+  ...project.screens.slice(0, 1).map((image) => ({ title: project.title, image, category: project.industry }))
+]);
+const visualTrack = [...heroVisuals, ...heroVisuals];
 ---
 
-<BaseLayout title="Projects - Evolux Web Design">
+<BaseLayout
+  title="Web Design Projects & Case Studies | Evolux"
+  description="Explore web design projects by Evolux, including websites for professional services, recruitment, healthcare, education and growing UK businesses."
+>
   <section class="portfolio-hero">
     <div class="portfolio-hero__glow"></div>
     <div class="portfolio-hero__rule"></div>
@@ -19,16 +27,36 @@ const statIcons = ["briefcase", "star", "location", "launch"];
           <strong>Projects</strong>
         </div>
       </div>
-      <div class="portfolio-hero__grid">
-        <div>
-          <h1><span>Results that</span><br />speak for themselves.</h1>
-          <p>Every project at Evolux starts with a question: what does success actually look like for this business? The work below is our answer.</p>
-        </div>
-        <div class="portfolio-stats">
-          {PROJECT_ARCHIVE_STATS.map((stat, index) => (
-            <article><i><Icon name={statIcons[index] ?? "star"} /></i><strong>{stat.value}</strong><span class="type-index">{stat.label}</span></article>
+      <div class="portfolio-hero__visual-belt" aria-hidden="true">
+        <div class="portfolio-hero__visual-track">
+          {visualTrack.map((item) => (
+            <figure class="portfolio-hero__visual">
+              <img src={item.image} alt="" loading="lazy" />
+              <span><strong>{item.title}</strong><em>{item.category}</em></span>
+            </figure>
           ))}
         </div>
+      </div>
+      <div class="portfolio-hero__grid">
+        <div>
+          <h1><span>Selected work,</span> with the thinking behind it.</h1>
+          <p>A closer look at websites shaped around trust, clarity and better enquiry journeys for service-led businesses.</p>
+        </div>
+        <aside class="portfolio-hero__note">
+          <p class="type-index">Project thinking</p>
+          <h2>Not a gallery. A record of commercial decisions.</h2>
+          <p>Each project is shaped around the point where a visitor decides whether the business feels credible enough to contact.</p>
+          <dl>
+            <div>
+              <dt>Focus</dt>
+              <dd>Trust before enquiry</dd>
+            </div>
+            <div>
+              <dt>Evidence</dt>
+              <dd>Real sites for real businesses</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </div>
   </section>
@@ -43,9 +71,9 @@ const statIcons = ["briefcase", "star", "location", "launch"];
               <p class="type-index">{featured.category}</p>
               <strong>{featured.title}</strong>
             </div>
-            <span>&#8599;</span>
+            <span><Icon name="arrow" /></span>
           </figcaption>
-          <em>{featured.num} - Featured project</em>
+          <em>{featured.num} - Selected project</em>
         </figure>
         <div class="portfolio-featured-card__meta">
           <div>
@@ -83,21 +111,30 @@ const statIcons = ["briefcase", "star", "location", "launch"];
               <div>
                 <div>
                   <h2>{project.title}</h2>
-                  <strong>{project.result}</strong>
+                  <span class="portfolio-card__focus">{project.result}</span>
                 </div>
                 <p class="type-index">{project.category} · {project.year}</p>
                 <p>{project.description}</p>
+                <strong class="portfolio-card__link-text">View project</strong>
               </div>
             </a>
           </article>
         ))}
       </div>
       <div class="portfolio-footnote">
-        <p class="type-index">All results measured at 90 days post-launch</p>
+        <p class="type-index">Selected examples of recent Evolux project work</p>
         <p class="type-index">Sunderland, Tyne & Wear - est. 2023</p>
       </div>
     </div>
   </section>
+
+  <InsightsPreview
+    slugs={["why-websites-dont-generate-business", "template-vs-bespoke-web-design-sunderland", "brand-identity-and-web-design"]}
+    headingMuted="The thinking behind"
+    heading="better website projects."
+    intro="These articles explain the strategy behind clearer positioning, stronger proof and websites that make it easier for the right people to enquire."
+    footerText="Project strategy articles"
+  />
 
   <section class="archive-cta">
     <svg aria-hidden="true" viewBox="0 0 380 380">
@@ -105,9 +142,9 @@ const statIcons = ["briefcase", "star", "location", "launch"];
       <circle cx="320" cy="320" r="110"></circle>
     </svg>
     <div>
-      <p class="type-index"><span></span>Currently available for new projects</p>
-      <h2>Want results like these?</h2>
-      <p>Start with a free website review - we'll show you exactly what's holding your current site back.</p>
+      <p class="type-index"><span></span>Plan the next improvement</p>
+      <h2>Bring the same level of thinking to your own website.</h2>
+      <p>Start with a free website review and Joe will show where trust, clarity or conversion friction is holding your current site back.</p>
       <div>
         <a class="button button--accent" href="/free-review">Free website review</a>
         <a href="/packages">Website packages <span aria-hidden="true">&#8594;</span></a>

@@ -3,6 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SERVICES } from "../../data/services";
 import { PROJECTS } from "../../data/projects";
 import Icon from "../../components/Icon.astro";
+import InsightsPreview from "../../components/InsightsPreview.astro";
+import PackageCard from "../../components/PackageCard.astro";
+import { createFaqSchema, createServiceSchema } from "../../utils/schema";
 
 export function getStaticPaths() {
   return SERVICES.map((service) => ({ params: { slug: service.slug }, props: { service } }));
@@ -18,7 +21,41 @@ const serviceIcons: Record<string, string[]> = {
   "graphic-design": ["design", "package", "layers", "email", "briefcase", "palette"]
 };
 
-const processIcons = ["search", "design", "code", "launch"];
+const processIcons = ["search", "target", "design", "launch"];
+const trustIcons = ["document", "user", "shield"];
+
+const serviceProcessSteps: Record<string, string[][]> = {
+  "web-design": [
+    ["01", "Commercial discovery", "We define the audience, offer, credibility gaps and pages needed before anything visual is designed.", "Week 1"],
+    ["02", "Content and structure", "Your pages are planned around what visitors need to understand, trust and do next.", "Week 1"],
+    ["03", "Design and build", "The approved direction becomes a fast, responsive website with careful hierarchy and clean development.", "Weeks 2-4"],
+    ["04", "Launch and handover", "Testing, launch, training and support are handled so the site goes live with confidence.", "Week 4-5"]
+  ],
+  "website-maintenance": [
+    ["01", "Initial health check", "Joe reviews the current site, forms, hosting, backups, content risks and visible issues.", "Setup"],
+    ["02", "Care plan setup", "Monitoring, backup routines and support expectations are put in place around the role your site plays.", "Setup"],
+    ["03", "Regular checks", "Key pages, enquiry paths, uptime and practical updates are reviewed on the agreed schedule.", "Monthly"],
+    ["04", "Support and reporting", "You get clear updates on what has changed, what was fixed and what needs attention.", "Ongoing"]
+  ],
+  "conversion-optimisation": [
+    ["01", "Journey review", "We look at the site as a potential customer would, from first impression to enquiry.", "Day 1"],
+    ["02", "Data and friction audit", "Analytics, mobile behaviour, page hierarchy, forms, proof and messaging are reviewed.", "Days 2-3"],
+    ["03", "Priority action plan", "Recommendations are ranked so you know what to fix first and what can wait.", "Days 4-5"],
+    ["04", "Implement or hand over", "Evolux can build the priority fixes, or your team can use the plan internally.", "Optional"]
+  ],
+  branding: [
+    ["01", "Positioning session", "We clarify who the brand is for, what it needs to signal and where it currently feels unclear.", "Week 1"],
+    ["02", "Creative direction", "A focused identity route is developed around logo, colour, typography and usage context.", "Week 1-2"],
+    ["03", "Refinement", "The chosen direction is refined across real applications, not just shown as a floating logo.", "Week 2"],
+    ["04", "Guidelines and assets", "You receive practical files and guidance so the identity can be used consistently.", "Week 3"]
+  ],
+  "graphic-design": [
+    ["01", "Brief and context", "We clarify the audience, purpose, format and where the design will be used.", "Scoped"],
+    ["02", "Design direction", "The piece is designed within your brand system or, where needed, a cleaner visual direction.", "Scoped"],
+    ["03", "Refinement", "Feedback is applied with a focus on clarity, hierarchy and professional finish.", "Scoped"],
+    ["04", "Final files", "You receive the correct digital or print-ready outputs for the job.", "Delivery"]
+  ]
+};
 
 const caseStudySlugs: Record<string, string[]> = {
   "web-design": ["circular-branding", "manton-executives"],
@@ -36,13 +73,44 @@ const caseStudyHeadings: Record<string, [string, string, string]> = {
   "graphic-design": ["Design in context", "Consistency builds trust.", "Good design earns its value when the website, brand and marketing materials feel like one considered system."]
 };
 
+const serviceInsightSlugs: Record<string, string[]> = {
+  "web-design": ["why-websites-dont-generate-business", "template-vs-bespoke-web-design-sunderland", "how-to-write-a-web-design-brief-so-that-you-get-your-perfect-site"],
+  "website-maintenance": ["website-backup-best-practices", "why-a-cheap-website-could-cost-you-more-than-you-think", "5-signs-your-local-business-website-might-be-losing-you-customers"],
+  "conversion-optimisation": ["why-websites-dont-generate-business", "6-things-that-kill-website-conversion-rate", "3-ways-improve-website"],
+  branding: ["brand-identity-and-web-design", "template-vs-bespoke-web-design-sunderland", "questions-to-ask-web-design-agency"],
+  "graphic-design": ["brand-identity-and-web-design", "how-to-write-a-web-design-brief-so-that-you-get-your-perfect-site", "why-websites-dont-generate-business"]
+};
+
 const selectedCaseStudies = (caseStudySlugs[service.slug] ?? ["circular-branding", "manton-executives"])
   .map((slug) => PROJECTS.find((project) => project.slug === slug))
   .filter(Boolean);
 const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["web-design"];
+const processSteps = serviceProcessSteps[service.slug] ?? serviceProcessSteps["web-design"];
+const serviceSeoDescriptions: Record<string, string> = {
+  "web-design": "Conversion-focused web design for service businesses that need stronger trust signals, clearer positioning and better enquiry journeys.",
+  "website-maintenance": "Website maintenance for business websites, covering backups, uptime checks, form testing, practical support and clear monthly reporting.",
+  "conversion-optimisation": "Conversion optimisation audits that find where website visitors lose trust, hesitate or fail to enquire, then prioritise the right fixes.",
+  branding: "Brand identity design for growing businesses that need clearer positioning, stronger recognition and a more credible visual system.",
+  "graphic-design": "Graphic design support for social, print, presentations and marketing collateral that keeps every touchpoint aligned with your brand."
+};
+const faqSchema = createFaqSchema(
+  `https://evoluxwebdesign.co.uk/services/${service.slug}/#faq`,
+  service.faqs ?? []
+);
+const serviceSchema = createServiceSchema({
+  id: `https://evoluxwebdesign.co.uk/services/${service.slug}/#service`,
+  name: `${service.title} by Evolux Web Design`,
+  description: serviceSeoDescriptions[service.slug] ?? service.description,
+  url: `https://evoluxwebdesign.co.uk/services/${service.slug}/`
+});
 ---
 
-<BaseLayout title={`${service.title} | Evolux Web Design`}>
+<BaseLayout
+  title={`${service.title} | Evolux Web Design`}
+  description={serviceSeoDescriptions[service.slug] ?? service.description}
+  canonicalPath={`/services/${service.slug}`}
+  structuredData={[serviceSchema, faqSchema]}
+>
   <section class:list={["service-page-hero", service.slug !== "web-design" && "service-page-hero--simple"]}>
     <div class="service-page-hero__glow service-page-hero__glow--one"></div>
     <div class="service-page-hero__glow service-page-hero__glow--two"></div>
@@ -62,7 +130,7 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
       <div class="service-page-hero__grid">
         <div>
           <div class="mini-label"><span></span>{service.shortTitle}</div>
-          <h1><span>{service.heroLineOne}</span><br />{service.heroLineTwo}</h1>
+          <h1><span>{service.heroLineOne}</span> {service.heroLineTwo}</h1>
           <p>{service.intro}</p>
           <div class="service-page-hero__actions">
             <a class="button button--dark" href="#packages"><span></span>{service.shortTitle} packages</a>
@@ -70,15 +138,17 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
           </div>
         </div>
         <aside class="service-page-meta">
-          <div class="service-page-meta__head">
-            <p class="type-index">At a glance</p>
-            <span aria-hidden="true"><Icon name="star" /></span>
+          <div class="service-page-meta__panel">
+            <div class="service-page-meta__head">
+              <p class="type-index">At a glance</p>
+              <span aria-hidden="true"><Icon name="star" /></span>
+            </div>
+            <dl>
+              {service.meta.map(([label, value]) => (
+                <div><dt>{label}</dt><dd>{value}</dd></div>
+              ))}
+            </dl>
           </div>
-          <dl>
-            {service.meta.map(([label, value]) => (
-              <div><dt>{label}</dt><dd>{value}</dd></div>
-            ))}
-          </dl>
         </aside>
       </div>
 
@@ -100,7 +170,7 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
       <div class="service-problem__inner">
         <div>
           <div class="section-kicker"><span></span><p class="type-index">Why it matters</p></div>
-          <h2><span>{service.whyTitleMuted}</span><br />{service.whyTitle}</h2>
+          <h2><span>{service.whyTitleMuted}</span> {service.whyTitle}</h2>
         </div>
         <p>{service.whyCopy}</p>
       </div>
@@ -123,7 +193,7 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
       <div class="section-heading-row">
         <div>
           <div class="section-kicker"><span></span><p class="type-index">What's included</p></div>
-          <h2><span>{service.deliverablesTitleMuted}</span><br />{service.deliverablesTitle}</h2>
+          <h2><span>{service.deliverablesTitleMuted}</span> {service.deliverablesTitle}</h2>
         </div>
       </div>
       <div class="service-deliverables__grid">
@@ -138,12 +208,30 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
     </div>
   </section>
 
+  {service.slug === "web-design" && (
+    <section class="service-industry-cta">
+      <div class="service-industry-cta__content">
+        <div class="section-kicker"><span></span><p class="type-index">Industry-focused planning</p></div>
+        <h2><span>A credible website</span> looks different in every sector.</h2>
+        <p>A solicitor, accountant, clinic and recruitment agency all need to create confidence in different ways. The strongest websites reflect how buyers compare options, what reassures them and what proof they need before making contact.</p>
+      </div>
+      <div class="service-industry-cta__aside">
+        <ul>
+          <li><span>01</span><strong>Decision journey</strong><em>Pages shaped around how your audience chooses.</em></li>
+          <li><span>02</span><strong>Relevant proof</strong><em>Trust signals placed where hesitation usually appears.</em></li>
+          <li><span>03</span><strong>Clear next step</strong><em>A route to enquire that feels natural, not forced.</em></li>
+        </ul>
+        <a class="button button--dark" href="/industries">Explore industry website guides <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </section>
+  )}
+
   <section class="service-case-studies">
     <div class="service-case-studies__inner">
       <div class="section-heading-row">
         <div>
           <div class="section-kicker"><span></span><p class="type-index">{caseStudyHeading[0]}</p></div>
-          <h2><span>{caseStudyHeading[1]}</span><br />Proof in the work.</h2>
+          <h2><span>{caseStudyHeading[1]}</span> Proof in the work.</h2>
         </div>
         <p>{caseStudyHeading[2]}</p>
       </div>
@@ -173,70 +261,70 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
     </div>
   </section>
 
-  {service.slug === "web-design" && (
-    <section class="service-process-dark">
-      <svg aria-hidden="true" viewBox="0 0 460 460">
-        <circle cx="340" cy="120" r="200"></circle>
-        <circle cx="340" cy="120" r="130"></circle>
-        <circle cx="340" cy="120" r="60"></circle>
-      </svg>
-      <div class="service-process-dark__inner">
-        <div class="section-kicker"><span></span><p class="type-index">How it works</p></div>
-        <div class="section-heading-row section-heading-row--dark">
-          <h2>A process built around clarity, not chaos.</h2>
-          <p>You'll always know where your project is, what's happening next, and who to contact. No chasing, no radio silence.</p>
-        </div>
-        <div class="service-process-dark__grid">
-          {[
-            ["01", "Discovery", "A focused strategy session to understand your business, competitors, and exact goals.", "Week 1"],
-            ["02", "Design", "Full design in Figma - desktop and mobile. You review and approve before build.", "Weeks 1-2"],
-            ["03", "Build", "Your approved design is built to pixel precision with CMS integration.", "Weeks 2-4"],
-            ["04", "Launch & handover", "We handle go-live, training and post-launch support.", "Week 4-5"]
-          ].map(([step, title, desc, duration], index) => (
-            <article>
-              <div><span>{step}</span><i><Icon name={processIcons[index] ?? "star"} /></i></div>
+  <section class="service-process-dark">
+    <svg class="service-process-dark__rings" aria-hidden="true" viewBox="0 0 460 460">
+      <circle cx="340" cy="120" r="200"></circle>
+      <circle cx="340" cy="120" r="130"></circle>
+      <circle cx="340" cy="120" r="60"></circle>
+    </svg>
+    <div class="service-process-dark__inner">
+      <div class="section-kicker"><span></span><p class="type-index">How it works</p></div>
+      <div class="section-heading-row section-heading-row--dark">
+        <h2>A considered process, shaped around better decisions.</h2>
+        <p>You work directly with Joe through a clear sequence of discovery, structure, refinement and delivery, so every stage has a purpose and every decision connects back to the outcome.</p>
+      </div>
+      <div class="service-process-dark__grid">
+        {processSteps.map(([step, title, desc, duration], index) => (
+          <article>
+            <header>
+              <i><Icon name={processIcons[index] ?? "star"} /></i>
+              <span>{step}</span>
+            </header>
+            <div>
               <h3>{title}</h3>
               <p>{desc}</p>
-              <strong>{duration}</strong>
-            </article>
-          ))}
-        </div>
+            </div>
+            <strong>{duration}</strong>
+          </article>
+        ))}
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <section class="service-packages" id="packages">
     <div class="service-packages__inner">
       <div class="section-heading-row">
         <div>
           <div class="section-kicker"><span></span><p class="type-index">Packages</p></div>
-          <h2><span>{service.packagesTitleMuted}</span><br />{service.packagesTitle}</h2>
+          <h2><span>{service.packagesTitleMuted}</span> {service.packagesTitle}</h2>
         </div>
         <p>Every project is fully scoped before we start. What we quote is what you pay.</p>
       </div>
       <div class:list={["service-package-grid", service.packages.length === 2 && "service-package-grid--two"]}>
         {service.packages.map(([name, price, note, tagline, features, highlight]) => (
-          <article class:list={["service-package-card", highlight && "service-package-card--featured"]}>
-            {highlight && <span class="service-package-card__badge">Most popular</span>}
-            <p class="type-label">{name}</p>
-            <h3>{price}<small>{note?.startsWith("/") ? note : ""}</small></h3>
-            {!note?.startsWith("/") && <span class="type-index">{note}</span>}
-            <p>{tagline}</p>
-            <ul>{features.map((feature) => <li>{feature}</li>)}</ul>
-            <a href="/free-review">{name} website review <span aria-hidden="true">&#8599;</span></a>
-          </article>
+          <PackageCard
+            id={name.toLowerCase().replaceAll(" ", "-")}
+            name={name}
+            price={price}
+            note={note}
+            tagline={tagline}
+            features={features}
+            highlight={highlight}
+            ctaHref="/free-review"
+            ctaText={`${name} website review`}
+          />
         ))}
       </div>
       {service.trust && (
-        <div class="service-trust-strip">
-          {service.trust.map(([title, desc]) => (
-            <article>
-              <span></span>
-              <h3>{title}</h3>
-              <p>{desc}</p>
-            </article>
+        <aside class="service-package-assurance" aria-label="Project assurances">
+          <p class="type-index">Project safeguards</p>
+          {service.trust.map(([title, desc], index) => (
+            <div>
+              <span><Icon name={trustIcons[index] ?? "shield"} /></span>
+              <p><strong>{title}</strong><em>{desc}</em></p>
+            </div>
           ))}
-        </div>
+        </aside>
       )}
     </div>
   </section>
@@ -246,7 +334,7 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
       <div class="service-testimonial__inner">
         <div>
           <div class="section-kicker"><span></span><p class="type-index">Client results</p></div>
-          <h2><span>Trusted by</span><br />growing businesses.</h2>
+          <h2><span>Trusted by</span> growing businesses.</h2>
         </div>
         <blockquote>
           <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -263,17 +351,24 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
     </section>
   )}
 
+  <InsightsPreview
+    slugs={serviceInsightSlugs[service.slug] ?? serviceInsightSlugs["web-design"]}
+    headingMuted="Useful reading for"
+    heading={`${service.shortTitle.toLowerCase()} decisions.`}
+    intro="A few practical guides to help you understand what affects trust, enquiry quality and the value of the work before you commit."
+    footerText={`${service.shortTitle} related articles`}
+  />
+
   <section class="service-faq-section">
     <div class="service-faq-section__inner">
       <div class="faq-support-card">
-        <p class="type-index">Service questions</p>
-        <h2>{service.title}, clearly explained.</h2>
+        <p class="type-index">FAQs</p>
+        <h2>Questions before you choose.</h2>
         <div class="faq-support-card__person">
           <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
-          <div><strong>Need context?</strong><span>Joe can explain what applies to your website.</span></div>
+          <div><strong>Need a straight answer?</strong><span>Ask Joe directly.</span></div>
         </div>
         <a class="button button--dark" href="/contact">Ask about this service</a>
-        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
       </div>
       <div class="service-faq-list">
         {(service.faqs ?? []).map(([question, answer], index) => (
@@ -291,11 +386,11 @@ const caseStudyHeading = caseStudyHeadings[service.slug] ?? caseStudyHeadings["w
 
   <section class="service-dark-cta">
     <div>
-      <h2>{service.ctaTitle}<br /><span>{service.heroLineTwo}</span></h2>
+      <h2>{service.ctaTitle}</h2>
       <p>{service.ctaMuted}</p>
       <div>
         <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
-        <a href="mailto:info@evoluxwebdesign.co.uk">Email Joe <span aria-hidden="true">&#8599;</span></a>
+        <a href="/contact">Contact Joe <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>

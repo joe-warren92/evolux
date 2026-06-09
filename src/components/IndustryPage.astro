@@ -1,0 +1,217 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "./Icon.astro";
+import InsightsPreview from "./InsightsPreview.astro";
+import type { IndustryPage as IndustryPageData } from "../data/industries";
+import { PROJECTS } from "../data/projects";
+
+interface Props {
+  industry: IndustryPageData;
+}
+
+const { industry } = Astro.props;
+const selectedProjects = industry.projectSlugs
+  .map((slug) => PROJECTS.find((project) => project.slug === slug))
+  .filter(Boolean);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `https://evoluxwebdesign.co.uk/industries/${industry.slug}#faq`,
+  mainEntity: industry.faqs.map(([question, answer]) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: answer
+    }
+  }))
+};
+---
+
+<BaseLayout
+  title={`Website Design for ${industry.name} | Evolux`}
+  description={industry.metaDescription}
+  canonicalPath={`/industries/${industry.slug}`}
+  structuredData={faqSchema}
+>
+  <section class="industry-hero">
+    <div class="industry-hero__inner">
+      <div class="blog-stamp">
+        <div class="blog-stamp__crumbs">
+          <a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a>
+          <span>/</span>
+          <a href="/industries">Industries</a>
+          <span>/</span>
+          <strong>{industry.name}</strong>
+        </div>
+      </div>
+      <div class="industry-hero__grid">
+        <div>
+          <div class="mini-label"><span></span>Web design for {industry.name.toLowerCase()}</div>
+          <h1>{industry.title}</h1>
+          <p>{industry.intro}</p>
+          <div class="industry-hero__actions">
+            <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+            <a class="text-button" href="/contact">Book a strategy call <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <aside class="industry-hero__aside">
+          <div class="section-kicker industry-hero__kicker"><span></span><p class="type-index">A useful website should</p></div>
+          <strong>Make expertise easier to trust.</strong>
+          <p>Clear positioning, relevant proof and a straightforward next step for the people you most want to hear from.</p>
+          <a href="/services/web-design">Explore the web design service <span aria-hidden="true">&#8599;</span></a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="industry-challenges">
+    <div class="industry-section__inner">
+      <div class="industry-section__heading">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Where websites fall short</p></div>
+          <h2><span>Common gaps for</span><br />{industry.pluralName}.</h2>
+        </div>
+        <p>{industry.challengeIntro}</p>
+      </div>
+      <div class="industry-challenges__grid">
+        {industry.challenges.map((challenge, index) => (
+          <article>
+            <span class="type-index">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{challenge.title}</h3>
+            <p>{challenge.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="industry-needs">
+    <div class="industry-section__inner">
+      <div class="industry-section__heading">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">What the website needs to do</p></div>
+          <h2><span>Designed around</span><br />the real decision.</h2>
+        </div>
+        <p>{industry.needsIntro}</p>
+      </div>
+      <div class="industry-needs__grid">
+        {industry.needs.map((need) => (
+          <article>
+            <span><Icon name={need.icon} /></span>
+            <h3>{need.title}</h3>
+            <p>{need.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="industry-sitemap">
+    <div class="industry-sitemap__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">Recommended sitemap</p></div>
+        <h2>A clear starting structure.</h2>
+        <p>{industry.sitemapIntro}</p>
+        <a href="/packages">Compare website packages <span aria-hidden="true">&#8599;</span></a>
+      </div>
+      <ol>
+        {industry.sitemap.map((page, index) => (
+          <li><span>{String(index + 1).padStart(2, "0")}</span><strong>{page}</strong></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="industry-help">
+    <div class="industry-help__inner">
+      <div>
+        <div class="section-kicker"><span></span><p class="type-index">How Evolux helps</p></div>
+        <h2><span>Strategy before</span><br />screens.</h2>
+      </div>
+      <div>
+        <p>{industry.helpCopy}</p>
+        <ul>
+          <li>Discovery and positioning</li>
+          <li>Content structure and sitemap planning</li>
+          <li>Custom website design and development</li>
+          <li>SEO foundations and conversion-focused decisions</li>
+        </ul>
+        <a class="button button--dark" href="/services/web-design">Explore web design <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="industry-projects">
+    <div class="industry-section__inner">
+      <div class="industry-section__heading">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Relevant work</p></div>
+          <h2><span>Transferable thinking.</span><br />Real projects.</h2>
+        </div>
+        <p>{industry.projectIntro}</p>
+      </div>
+      <div class="service-case-studies__grid">
+        {selectedProjects.map((project, index) => project && (
+          <a class:list={["service-case-card", index === 0 && "service-case-card--featured"]} href={`/projects/${project.slug}`}>
+            <figure>
+              <img src={project.hero} alt={`${project.title} website project`} loading="lazy" />
+              <span class="type-index">{String(index + 1).padStart(2, "0")}</span>
+            </figure>
+            <div class="service-case-card__body">
+              <div>
+                <p class="type-index">{project.industry}</p>
+                <h3>{project.title}</h3>
+              </div>
+              <span class="service-case-card__arrow" aria-hidden="true"><Icon name="arrow" /></span>
+              <p>{project.description}</p>
+              <strong>Read the case study</strong>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="industry-projects__footer">
+        <p>See how Evolux approaches different commercial challenges.</p>
+        <a href="/projects">Explore web design projects <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <InsightsPreview
+    slugs={industry.relatedInsights.map((insight) => insight.slug)}
+    headingMuted="Useful reading for"
+    heading={`${industry.name.toLowerCase()} websites.`}
+    intro={`A few practical articles on trust, positioning and website decisions that often affect ${industry.pluralName.toLowerCase()}.`}
+    footerText={`${industry.name} website strategy articles`}
+  />
+
+  <section class="review-faq industry-faq">
+    <div class="review-faq__inner">
+      <div class="faq-support-card">
+        <p class="type-index">FAQs</p>
+        <h2>{industry.name} website questions.</h2>
+        <div class="faq-support-card__person">
+          <img src="/assets/logos/joe-evolux-founder.png" alt="Joe, founder of Evolux Web Design" loading="lazy" />
+          <div><strong>Need advice on your site?</strong><span>Ask Joe directly.</span></div>
+        </div>
+        <a class="button button--dark" href="/free-review">Get a free website review</a>
+      </div>
+      <div class="faq-accordion-list">
+        {industry.faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="service-dark-cta">
+    <div>
+      <div class="section-kicker"><span></span><p class="type-index">Start with the current website</p></div>
+      <h2>See whether your website gives this audience enough confidence to enquire.</h2>
+      <p>Get a personalised video review of your current website, with practical priorities delivered by Joe within 48 hours.</p>
+      <div>
+        <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        <a href="/contact">Book a strategy call <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

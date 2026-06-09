@@ -1,19 +1,23 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
+import InsightsPreview from "../../components/InsightsPreview.astro";
 import { LOCATION_PAGES } from "../../data/locations";
 
 const workflowIcons = ["message", "design", "clock", "launch"];
 ---
 
-<BaseLayout title="Locations - Evolux Web Design | Sunderland & the North East">
+<BaseLayout
+  title="Web Design Locations | Sunderland, North East & UK | Evolux"
+  description="Evolux provides premium, conversion-focused web design in Sunderland, Newcastle, Durham, Gateshead, Middlesbrough and across the UK."
+>
   <section class="standard-hero">
     <div class="standard-hero__glow"></div>
     <div class="standard-hero__rule"></div>
     <div class="standard-hero__inner">
       <div class="blog-stamp"><div class="blog-stamp__crumbs"><a href="/" class="blog-stamp__home"><span>E</span><strong>Evolux</strong></a><span>/</span><strong>Locations</strong></div></div>
       <div class="standard-hero__single">
-        <h1><span>Based in Sunderland.</span><br />Working across the UK.</h1>
+        <h1><span>Based in Sunderland.</span> Working across the UK.</h1>
         <p>Evolux was founded in Sunderland in 2023 and has grown to serve businesses across the North East and beyond. Every client gets the same level of attention whether they're in Sunderland or Southampton.</p>
       </div>
     </div>
@@ -56,10 +60,18 @@ const workflowIcons = ["message", "design", "clock", "launch"];
     </div>
   </section>
 
+  <InsightsPreview
+    slugs={["how-a-sunderland-web-design-agency-helps-small-businesses-grow", "finding-web-design-north-east", "web-designer-near-me-2"]}
+    headingMuted="Local website advice"
+    heading="for North East businesses."
+    intro="Guides covering local search, choosing a web designer and building a website that supports both Google visibility and real enquiries."
+    footerText="Local web design articles"
+  />
+
   <section class="review-bottom-cta">
     <div>
-      <h2><span>Not sure if we cover</span><br />your area?</h2>
-      <p>Get in touch - we almost certainly do. Or start with a free website review and we'll take it from there.</p>
+      <h2><span>Need a website that feels local</span><br />without thinking small?</h2>
+      <p>Start with a free review and Joe will show where your current site could build more trust with the people you want to hear from.</p>
       <a class="button button--dark" href="/free-review"><span></span>Free website review</a>
     </div>
   </section>

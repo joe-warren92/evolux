@@ -3,6 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/site";
 import { JOE_AUTHOR } from "../data/insights";
 import Icon from "../components/Icon.astro";
+import InsightsPreview from "../components/InsightsPreview.astro";
+import PackageCard from "../components/PackageCard.astro";
+import { stripHtml } from "../utils/schema";
 
 const packages = [
   {
@@ -57,33 +60,6 @@ const packages = [
   }
 ];
 
-const insightCards = [
-  {
-    slug: "why-websites-dont-generate-business",
-    title: "Why Your Website Gets Traffic But No Enquiries",
-    category: "Website Advice",
-    readingTime: "6 min read",
-    date: "Jan 2026",
-    image: "/assets/articles/6-things-that-kill-website-conversion-rate-00-img-2487-1-1.webp"
-  },
-  {
-    slug: "real-cost-of-cheap-website",
-    title: "The Real Cost of a Cheap Website",
-    category: "Costs & Planning",
-    readingTime: "4 min read",
-    date: "Dec 2025",
-    image: "/assets/articles/why-a-cheap-website-could-cost-you-more-than-you-think-00-pexels-pixabay-39284-1-1.jpg"
-  },
-  {
-    slug: "questions-to-ask-web-design-agency",
-    title: "5 Questions to Ask a Web Design Agency",
-    category: "Costs & Planning",
-    readingTime: "5 min read",
-    date: "Nov 2025",
-    image: "/assets/articles/how-to-write-a-web-design-brief-so-that-you-get-your-perfect-site-00-pexels-fotios-photos-811587.webp"
-  }
-];
-
 const credibilityGaps = [
   {
     num: "01",
@@ -113,7 +89,7 @@ const credibilityGaps = [
 
 const homepageFaqs = [
   ["Can Evolux help if my website looks fine but does not bring in enough enquiries?", "Yes. This is one of the most common reasons businesses contact Evolux. The issue is often not the visual design alone; it is usually a mix of unclear positioning, weak proof, poor page structure, slow mobile experience or calls to action that do not feel obvious. A good starting point is the <a href=\"/free-review\">free website review</a>, where Joe identifies the main trust and conversion gaps before you commit to a full redesign."],
-  ["Do you design and build the website, or just create the visuals?", "Evolux handles both the design and the build. You work directly with Joe from strategy and page planning through to design, WordPress development, testing and launch. That means the finished site is not just a static concept; it is a fast, responsive, editable website built around clear business goals. You can see the main service options on the <a href=\"/services\">web design services</a> page."],
+  ["Do you design and build the website, or just create the visuals?", "Evolux handles both the design and the build. You work directly with Joe from strategy and page planning through to design, development, testing and launch. That means the finished site is not just a static concept; it is a fast, responsive, editable website built around clear business goals. You can see the main service options on the <a href=\"/services\">web design services</a> page."],
   ["What types of businesses are a good fit for Evolux?", "Evolux is best suited to service-based businesses, local companies and growing UK brands that rely on trust before someone makes an enquiry. That includes professional services, recruitment, health and wellness, trades, education, hospitality and B2B suppliers. If you want to see the kind of work and outcomes Evolux focuses on, start with the <a href=\"/projects\">web design projects</a>."],
   ["How much should I budget for a professional website?", "Most Evolux website projects start from the figures shown on the <a href=\"/packages\">website packages</a> page. The final investment depends on the number of pages, how much content needs writing, whether brand identity is included, SEO requirements and the level of post-launch support. Before anything starts, you receive a written scope so the deliverables, timeline and cost are clear."],
   ["Can you improve my existing website instead of rebuilding it?", "Sometimes, yes. If the underlying site is technically sound, a focused <a href=\"/services/conversion-optimisation\">conversion optimisation</a> project may be enough to improve enquiries without starting again. If the structure, brand, platform or mobile experience is holding the business back, a rebuild may be the better long-term option. The review process helps make that decision with evidence rather than guesswork."],
@@ -144,15 +120,21 @@ const homepageSchema = {
       "@type": "Question",
       name: question,
       acceptedAnswer: {
-        "@type": "Answer",
-        text: answer
+      "@type": "Answer",
+        text: stripHtml(answer)
       }
     }))
   ]
 };
 ---
 
-<BaseLayout title="Web Design Sunderland - Websites That Generate Enquiries" structuredData={homepageSchema} includeFounderSchema includePersonSchema>
+<BaseLayout
+  title="Web Design Sunderland | Websites That Generate Enquiries"
+  description="Sunderland web design studio creating conversion-focused websites for service businesses that need to build trust, win enquiries and grow online."
+  structuredData={homepageSchema}
+  includeFounderSchema
+  includePersonSchema
+>
   <section class="home-hero">
     <div class="home-hero__glow home-hero__glow--one"></div>
     <div class="home-hero__glow home-hero__glow--two"></div>
@@ -161,14 +143,9 @@ const homepageSchema = {
     <div class="home-hero__inner">
       <div class="home-hero__stamp">
         <div class="home-hero__identity">
-          <span class="home-hero__mark">E</span>
           <span class="type-index">Evolux Web Design</span>
           <span class="home-hero__dot"></span>
           <span class="type-index home-hero__location">Sunderland, UK · Est. 2023</span>
-        </div>
-        <div class="availability-pill">
-          <span></span>
-          <span>Available for new projects</span>
         </div>
       </div>
 
@@ -180,7 +157,7 @@ const homepageSchema = {
       <div class="home-hero__grid">
         <div>
           <p class="home-hero__text">
-            Evolux helps service businesses turn credibility into enquiries through sharper positioning,
+            Conversion-focused web design in Sunderland for service businesses that need to build trust and generate better enquiries. Evolux turns credibility into enquiries through sharper positioning,
             clearer page structure and fewer moments of doubt between first impression and contact.
           </p>
           <div class="home-hero__actions">
@@ -242,9 +219,9 @@ const homepageSchema = {
     <div class="section-split">
       <div>
         <div class="section-kicker"><span></span><p class="type-index">Selected projects</p></div>
-        <h2 class="display-heading"><span>Results that</span><br />speak for themselves.</h2>
+        <h2 class="display-heading"><span>Selected work</span><br />with a clear purpose.</h2>
       </div>
-      <p>Every project has a measurable outcome. We don't consider work complete until the numbers prove it.</p>
+      <p>Recent websites shaped around clearer positioning, stronger trust signals and a more useful route to enquiry.</p>
     </div>
 
     <div class="work-grid">
@@ -274,7 +251,7 @@ const homepageSchema = {
       ))}
     </div>
     <div class="section-footer-row">
-      <p class="type-index">All results measured at 90 days post-launch</p>
+      <p class="type-index">Selected examples of recent Evolux project work</p>
       <a href="/projects">Web design projects <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
@@ -283,8 +260,15 @@ const homepageSchema = {
     <div class="studio-intro__inner">
       <aside class="founder-card founder-card--video" data-video-card>
         <div class="founder-card__video" aria-label="Evolux Web Design video">
+          <img
+            class="founder-card__poster"
+            src="/assets/video/evolux-explainer-poster.jpg"
+            alt="Joe from Evolux Web Design explaining the website design process"
+            loading="lazy"
+            decoding="async"
+          />
           <iframe
-            src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1&controls=0&playsinline=1"
+            src="about:blank"
             data-video-src="https://www.youtube-nocookie.com/embed/dWjJn7rQjNQ?rel=0&modestbranding=1&playsinline=1&autoplay=1"
             title="Evolux Web Design - How we build websites that generate enquiries"
             loading="lazy"
@@ -303,7 +287,7 @@ const homepageSchema = {
         <h2 class="display-heading">Hey, I'm Joe.<br /><span>Founder of Evolux.</span></h2>
         <div class="copy-stack">
           <p>With 5+ years in web design and development, I founded Evolux in 2023 with a simple idea: businesses across the UK deserve websites that actually generate enquiries - not just look the part.</p>
-          <p>I combine technical expertise, brand thinking, and a genuine obsession with conversion to build WordPress websites that deliver measurable results. You'll always deal directly with me - no account managers, no handoffs.</p>
+          <p>I combine technical expertise, brand thinking, and a genuine obsession with conversion to build websites that deliver measurable results. You'll always deal directly with me - no account managers, no handoffs.</p>
         </div>
         <div class="differentiator-list">
           <article><span><Icon name="direct" /></span><div><h3>Direct access</h3><p>You work with me, not an account manager.</p></div></article>
@@ -316,6 +300,7 @@ const homepageSchema = {
           <footer>Olivia Bowman - Skyn & Glo</footer>
         </blockquote>
         <a class="button button--dark" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        <a class="text-button" href="/industries">Explore industry website guides <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>
@@ -356,8 +341,8 @@ const homepageSchema = {
     </div>
     <div class="review-bar">
       <div>
-        <h3>Not sure which applies to your business?</h3>
-        <p>A free website review will identify your specific credibility gaps and tell you exactly what's costing you enquiries.</p>
+        <h3>Get a clearer read on your own credibility gaps.</h3>
+        <p>A free website review will identify the trust, clarity and conversion issues most likely to be affecting enquiries.</p>
       </div>
       <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
     </div>
@@ -378,7 +363,7 @@ const homepageSchema = {
       {[
         ["01", "Discovery", "Day 1", "You leave with complete clarity - a sitemap, a content plan, and a clear picture of what your site needs to do for your business."],
         ["02", "Design", "Week 2", "You see the finished user experience and interface in prototype form before a single line of code is written."],
-        ["03", "Development", "Weeks 3-5", "You get a fast-loading, fully responsive WordPress website built with Bricks Builder."],
+        ["03", "Development", "Weeks 3-5", "You get a fast-loading, fully responsive website built around the approved strategy and design."],
         ["04", "Deployment", "Week 6", "You go live with confidence. Final testing, launch, and a full handover."]
       ].map(([num, title, time, desc]) => (
         <article class="timeline__item">
@@ -411,8 +396,8 @@ const homepageSchema = {
     <div class="lead-section__inner">
       <div class="lead-section__copy">
         <div class="mini-label"><span></span>Free website review</div>
-        <h2 class="display-heading">Find out why your website <span>isn't winning more enquiries.</span></h2>
-        <p>Joe will review your website personally and send you a clear video breakdown of the issues most likely to be costing you enquiries.</p>
+        <h2 class="display-heading">See the trust gaps <span>your visitors are reacting to.</span></h2>
+        <p>Joe will review your website personally and send a clear video breakdown of the issues most likely to weaken confidence, clarity and enquiry quality.</p>
         <ul>
           <li><strong>20-point review</strong><span>Trust, clarity, mobile experience and conversion friction.</span></li>
           <li><strong>Personal video</strong><span>A practical walkthrough in your inbox within 48 hours.</span></li>
@@ -441,7 +426,7 @@ const homepageSchema = {
       <form class="lead-form-card" action="/free-review">
         <header class="lead-form-card__head">
           <p class="type-index">Request your free review</p>
-          <h3>Show me what's holding my website back.</h3>
+          <h3>Show me where the website is losing confidence.</h3>
           <span>Share your details below. It takes around 30 seconds.</span>
         </header>
         <label>
@@ -465,17 +450,16 @@ const homepageSchema = {
   <section class="review-faq home-faq">
     <div class="review-faq__inner">
       <div class="faq-support-card">
-        <p class="type-index">A few practical answers</p>
+        <p class="type-index">FAQs</p>
         <h2>Before we talk.</h2>
         <div class="faq-support-card__person">
           <img src={JOE_AUTHOR.image} alt="Joe, founder of Evolux Web Design" loading="lazy" />
           <div>
             <strong>Prefer a straight answer?</strong>
-            <span>Send Joe the context and he will point you in the right direction.</span>
+            <span>Ask Joe directly.</span>
           </div>
         </div>
         <a class="button button--dark" href="/contact">Ask Joe a question</a>
-        <p>Or email <a href="mailto:info@evoluxwebdesign.co.uk">info@evoluxwebdesign.co.uk</a></p>
       </div>
       <div class="faq-accordion-list">
         {homepageFaqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
@@ -493,19 +477,7 @@ const homepageSchema = {
     </div>
     <div class="package-grid">
       {packages.map((pkg) => (
-        <article class:list={["package-card", pkg.highlight && "package-card--featured"]} data-package={pkg.id}>
-          {pkg.highlight && <span class="package-card__badge">Most popular</span>}
-          <div class="package-card__head">
-            <p class="type-index">{pkg.name}</p>
-            <p>{pkg.tagline}</p>
-            <span class="type-index">Starting from</span>
-            <h3 set:html={pkg.price}></h3>
-          </div>
-          <ul>
-            {pkg.features.map((feature) => <li>{feature}</li>)}
-          </ul>
-          <a href="/contact">Ask about {pkg.name} <span aria-hidden="true">&#8599;</span></a>
-        </article>
+        <PackageCard {...pkg} />
       ))}
     </div>
 
@@ -525,37 +497,8 @@ const homepageSchema = {
     </div>
   </section>
 
-  <section class="insights-section">
-    <div class="section-split">
-      <div>
-        <div class="section-kicker"><span></span><p class="type-index">Insights</p></div>
-        <h2 class="display-heading"><span>Straight talk about</span><br />web design & business.</h2>
-      </div>
-      <p>We write about the decisions that grow businesses - not the tools we use to get there.</p>
-    </div>
-    <div class="insight-card-grid">
-      {insightCards.map((post) => (
-        <a href={`/insights/${post.slug}`} class="insight-card">
-          <div class="insight-card__cover">
-            <img src={post.image} alt="" loading="lazy" />
-            <div class="insight-card__top">
-              <span>{post.category}</span>
-              <span>{post.readingTime}</span>
-            </div>
-          </div>
-          <div class="insight-card__body">
-            <h3>{post.title}</h3>
-            <div class="insight-card__footer">
-              <div class="insight-card__meta"><img src={JOE_AUTHOR.image} alt="" loading="lazy" /><p>{post.date}</p></div>
-              <strong>Read article <span aria-hidden="true">&#8599;</span></strong>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-    <div class="section-footer-row">
-      <p class="type-index">New articles published monthly</p>
-      <a href="/insights">Web design insights <span aria-hidden="true">&#8599;</span></a>
-    </div>
-  </section>
+  <InsightsPreview
+    intro="We write about the decisions that grow businesses - not the tools we use to get there."
+    footerText="New articles published monthly"
+  />
 </BaseLayout>

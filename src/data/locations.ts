@@ -18,6 +18,16 @@ export interface LocationPage {
     description: string;
     icon: string;
   }[];
+  localSeoSection: {
+    kicker: string;
+    heading: string;
+    intro: string;
+    points: {
+      title: string;
+      description: string;
+    }[];
+    note: string;
+  };
   caseStudySlugs: string[];
   faqs: [string, string][];
   testimonial: {
@@ -51,6 +61,17 @@ export const LOCATION_PAGES: LocationPage[] = [
       { title: "Referral confidence", description: "Give referred visitors the proof they need when they check your website before picking up the phone.", icon: "shield" },
       { title: "Service-led SEO", description: "Build a clear structure around the services and locations your Sunderland customers actually search for.", icon: "seo" }
     ],
+    localSeoSection: {
+      kicker: "Sunderland search intent",
+      heading: "What Sunderland customers need to see before they enquire.",
+      intro: "A Sunderland website has to work for people who already know the area, compare local options quickly and often arrive after a recommendation. The page structure should reinforce local trust without making the business feel small.",
+      points: [
+        { title: "Show your Sunderland relevance clearly", description: "Mention the parts of the city and Wearside you genuinely serve, but connect that local detail to useful service information rather than repeating place names for search engines." },
+        { title: "Support referral traffic", description: "Many local customers arrive after hearing your name elsewhere. Your website should quickly confirm what you do, who you help and why you are credible enough to contact." },
+        { title: "Build around local service searches", description: "Service pages, case studies and FAQs should answer the searches Sunderland customers actually make before they choose a supplier." }
+      ],
+      note: "For Sunderland businesses, the strongest local SEO usually comes from specific service pages, genuine proof and a website that makes the business feel established in the area."
+    },
     caseStudySlugs: ["manton-executives", "circular-branding"],
     faqs: [
       ["Are you actually based in Sunderland?", "Yes. Evolux was founded in Sunderland and works with businesses across the city, Wearside and the wider North East. That local base helps when planning <a href=\"/services/web-design\">web design</a>, local SEO and messaging for Sunderland customers."],
@@ -89,6 +110,17 @@ export const LOCATION_PAGES: LocationPage[] = [
       { title: "Premium first impression", description: "Match the quality of your service with a website that feels considered, confident and established.", icon: "design" },
       { title: "Local search structure", description: "Create useful service and location signals without filling the website with repetitive SEO copy.", icon: "search" }
     ],
+    localSeoSection: {
+      kicker: "Newcastle search intent",
+      heading: "Competing in Newcastle means making your difference obvious.",
+      intro: "Newcastle has a dense mix of agencies, consultants, professional services, independents and regional brands. A website needs to explain why your business is the right fit before a visitor drifts back to the search results.",
+      points: [
+        { title: "Position against credible alternatives", description: "Newcastle customers often compare several polished businesses. Your homepage and service pages should make the difference in your approach, audience and results easy to understand." },
+        { title: "Use location without looking generic", description: "Local relevance should appear naturally through service areas, project examples, testimonials and useful page copy, not through repetitive city-name stuffing." },
+        { title: "Make proof easy to scan", description: "Reviews, project outcomes and clear service detail help Newcastle visitors decide whether your business feels established enough to contact." }
+      ],
+      note: "For Newcastle businesses, SEO and conversion work best together: clear positioning helps search visitors understand why you are worth choosing."
+    },
     caseStudySlugs: ["circular-branding", "manton-executives"],
     faqs: [
       ["Do you work with businesses across Newcastle upon Tyne?", "Yes. Evolux supports businesses across Newcastle city centre and surrounding areas such as Jesmond, Gosforth, Heaton, Ouseburn and the Quayside. The process can run remotely or include North East meetings where useful."],
@@ -127,6 +159,17 @@ export const LOCATION_PAGES: LocationPage[] = [
       { title: "Trust-led design", description: "Use testimonials, case studies and a calm visual hierarchy to make the next step feel low risk.", icon: "shield" },
       { title: "Mobile enquiries", description: "Make it simple for customers to understand your service and get in touch while searching on a phone.", icon: "mobile" }
     ],
+    localSeoSection: {
+      kicker: "Durham search intent",
+      heading: "Durham websites need to balance city trust with county-wide reach.",
+      intro: "Many Durham businesses serve customers beyond the city centre. The website should feel locally grounded while making it clear which towns, services and customer types are genuinely relevant.",
+      points: [
+        { title: "Explain the real service area", description: "Durham, Chester-le-Street, Seaham and wider County Durham can be represented in a useful way when the copy explains how and why those areas matter to customers." },
+        { title: "Reduce uncertainty for careful buyers", description: "Professional services and local owner-managed businesses benefit from clear process pages, FAQs and proof that make the enquiry feel lower risk." },
+        { title: "Create useful local content", description: "Durham SEO improves when location content answers real questions about availability, service scope, experience and customer fit." }
+      ],
+      note: "A strong Durham location strategy should avoid duplicated town pages and focus on relevance, proof and genuinely useful local information."
+    },
     caseStudySlugs: ["marley-doulas", "ockerby-academy"],
     faqs: [
       ["Do you work with businesses across County Durham?", "Yes. Evolux works with businesses in Durham City and across County Durham, including nearby towns and service areas. Your website can be structured around the places your customers search for without relying on thin or repetitive location copy."],
@@ -165,6 +208,17 @@ export const LOCATION_PAGES: LocationPage[] = [
       { title: "Fast mobile access", description: "Prioritise the pages, details and actions people need when searching locally on a phone.", icon: "speed" },
       { title: "Proof before enquiry", description: "Use relevant work, testimonials and strong service detail to reduce hesitation before contact.", icon: "star" }
     ],
+    localSeoSection: {
+      kicker: "Gateshead search intent",
+      heading: "Gateshead businesses often need to speak to both local and Tyneside buyers.",
+      intro: "A Gateshead website should make it clear whether you serve the town, Team Valley, Newcastle, wider Tyneside or a specialist B2B market. That clarity helps both search visibility and enquiry quality.",
+      points: [
+        { title: "Clarify the business footprint", description: "If your customers come from Gateshead, Newcastle and the wider region, your website should explain that coverage without scattering attention across thin location pages." },
+        { title: "Make complex offers easier to buy", description: "Industrial, trade and B2B services often need clearer page structure so visitors can understand the offer before calling or sending a brief." },
+        { title: "Use proof close to the decision", description: "Relevant testimonials, case studies and sector-specific examples should sit near key enquiry points, not hidden away at the bottom of the site." }
+      ],
+      note: "For Gateshead businesses, the website should help people understand whether you are local, regional or specialist within the first few seconds."
+    },
     caseStudySlugs: ["circular-branding", "manton-executives"],
     faqs: [
       ["Do you work with businesses in Gateshead and Team Valley?", "Yes. Evolux supports businesses across Gateshead, Team Valley and the wider Tyneside area. Projects can run remotely, with North East meetings available where a face-to-face session would be useful."],
@@ -203,6 +257,17 @@ export const LOCATION_PAGES: LocationPage[] = [
       { title: "Service confidence", description: "Replace generic claims with clear service detail, strong proof and a more credible first impression.", icon: "shield" },
       { title: "Search foundations", description: "Build a scalable site structure that can support important services and local search intent over time.", icon: "seo" }
     ],
+    localSeoSection: {
+      kicker: "Teesside search intent",
+      heading: "Middlesbrough websites need room for wider Teesside visibility.",
+      intro: "Many Middlesbrough businesses serve customers across Teesside, so the website should support that wider search footprint while still feeling specific, credible and easy to understand.",
+      points: [
+        { title: "Plan around Teesside, not just one town", description: "Middlesbrough, Stockton, Redcar, Yarm and Billingham can all matter, but each area should be included because it helps customers understand your real coverage." },
+        { title: "Strengthen service depth", description: "Detailed service pages help local visitors compare your business properly and give search engines clearer context about what you offer." },
+        { title: "Make trust signals more visible", description: "For Teesside sectors such as construction, healthcare, hospitality and professional services, reviews and project evidence should be easy to find before enquiry." }
+      ],
+      note: "A Middlesbrough SEO strategy works best when service depth, local reach and proof are planned together rather than bolted on after launch."
+    },
     caseStudySlugs: ["circular-branding", "ockerby-academy"],
     faqs: [
       ["Do you work with businesses across Teesside?", "Yes. Evolux works with businesses in Middlesbrough and across Teesside, including Stockton-on-Tees, Redcar, Yarm, Billingham and surrounding areas. The website can reflect your genuine service area in a clear, useful way."],
@@ -241,6 +306,17 @@ export const LOCATION_PAGES: LocationPage[] = [
       { title: "Shared design reviews", description: "Review layouts online, leave focused feedback and keep every design decision easy to follow.", icon: "design" },
       { title: "Reliable handover", description: "Launch with training, documentation and a clear support period wherever your team is based.", icon: "launch" }
     ],
+    localSeoSection: {
+      kicker: "UK-wide search intent",
+      heading: "A nationwide website still needs a specific position.",
+      intro: "When a business serves customers across the UK, the website has to do more than list locations. It needs a clear proposition, strong service pages and proof that reassures people who may never meet you in person.",
+      points: [
+        { title: "Avoid vague national messaging", description: "UK-wide service copy should still be specific about who the business helps, what problem it solves and why someone should enquire." },
+        { title: "Build depth around services", description: "National visibility usually depends on strong service pages, useful insight content, case studies and technical foundations rather than dozens of shallow location pages." },
+        { title: "Make remote trust explicit", description: "Process, communication, reviews and project examples matter more when visitors are deciding whether to work with a studio remotely." }
+      ],
+      note: "For UK-wide businesses, the strongest SEO strategy is usually topic depth and trust-building content, supported by location pages only where they genuinely help users."
+    },
     caseStudySlugs: ["marley-doulas", "ockerby-academy"],
     faqs: [
       ["Do you work with businesses outside the North East?", "Yes. Evolux works with businesses throughout the UK. Discovery, strategy, design reviews, feedback and handover can all be handled remotely, so the quality of the project does not depend on location."],

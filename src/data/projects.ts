@@ -1,7 +1,7 @@
 export const PROJECT_ARCHIVE_STATS = [
-  { value: "4", label: "Projects delivered" },
-  { value: "5.0★", label: "Google rating" },
-  { value: "UK-wide", label: "Clients served" },
+  { value: "5", label: "Selected case studies" },
+  { value: "5.0", label: "Google review rating" },
+  { value: "UK", label: "Clients supported" },
   { value: "2023", label: "Founded in Sunderland" }
 ];
 
@@ -13,16 +13,17 @@ export const PROJECTS = [
     category: "Web Design & Development",
     industry: "Labels & Packaging",
     year: "2024",
-    result: "200+",
-    resultLabel: "fashion brands served",
-    description: "Trade website for a labels, trims and packaging supplier. Built to win brand partnerships and showcase their portfolio.",
+    result: "B2B",
+    resultLabel: "trade credibility",
+    description: "A clearer website for a labels, trims and packaging supplier, shaped around capability, product quality and trade enquiries.",
+    liveUrl: "https://circularbrandinggroup.com/",
     hero: "/assets/mockup3-1_1779878754712.webp",
     meta: [
       ["Client", "Circular Branding Group"],
       ["Industry", "Labels & Packaging"],
       ["Services", "Web Design, Development"],
       ["Year", "2024"],
-      ["Result", "200+ brands worldwide"]
+      ["Focus", "Trade credibility"]
     ],
     briefTitle: "A supplier that needed to look like a partner.",
     brief: [
@@ -30,7 +31,7 @@ export const PROJECTS = [
       "The brief was clear: build something that would immediately signal credibility and quality to a brand buyer visiting for the first time."
     ],
     deliverables: [
-      "Custom WordPress build with Bricks Builder",
+      "Custom website design and development",
       "Full visual identity integration",
       "Trade enquiry funnel & lead capture",
       "Case study portfolio showcase",
@@ -39,10 +40,13 @@ export const PROJECTS = [
       "CMS for self-managed content",
       "30-day post-launch support"
     ],
-    challengeTitle: "Buyers arriving and leaving without making contact.",
-    challenge: "The original site had no clear call-to-action, no trust signals, and no way for a brand buyer to quickly understand the scope of Circular's capabilities.",
+    challengeTitle: "A specialist supplier needed to look more credible online.",
+    challenge: "The site needed to help brand buyers understand Circular's capabilities quickly, see the quality of the work and find a clear route into a trade enquiry.",
     solutionTitle: "Built to win trade partnerships, not just display products.",
     solution: "We rebuilt from scratch around a single goal: give a brand buyer everything they need to feel confident making contact.",
+    testimonial: "The result says it all. Clear communication throughout, proactive, responsive, and attention to detail was second to none.",
+    testimonialName: "Steven Dunn",
+    testimonialCompany: "Circular Branding Group",
     screens: [
       "/assets/Screenshot_2026-05-27_092951_1779870750832.png",
       "/assets/Screenshot_2026-05-27_093006_1779870750834.png",
@@ -50,10 +54,11 @@ export const PROJECTS = [
       "/assets/Screenshot_2026-05-27_093030_1779870750836.png",
       "/assets/mockup3-1_1779878754712.webp"
     ],
-    outcomeTitle: "The numbers 90 days after launch.",
+    outcomeTitle: "What the project focused on.",
     outcomes: [
-      { metric: "200+", label: "fashion brands served" },
-      { metric: "5.0★", label: "Google rating" }
+      { metric: "Clarity", label: "clearer capability structure" },
+      { metric: "Trust", label: "stronger portfolio presentation" },
+      { metric: "Enquiry", label: "more obvious trade contact route" }
     ]
   },
   {
@@ -63,9 +68,10 @@ export const PROJECTS = [
     category: "Brand Identity + Web",
     industry: "Healthcare & Wellness",
     year: "2024",
-    result: "",
-    resultLabel: "",
-    description: "Website for a birth doula in Surrey Hills and South London. Built around trust and enquiry conversion.",
+    result: "Trust",
+    resultLabel: "reassuring client journey",
+    description: "A calm website for a birth doula, designed to make a sensitive, personal service feel clearer and easier to enquire about.",
+    liveUrl: "https://www.marleydoulas.co.uk/",
     hero: "/assets/4K-Mockup-1-1_1779878754714.webp",
     meta: [
       ["Client", "Marley Doulas"],
@@ -80,7 +86,7 @@ export const PROJECTS = [
       "The brief was to build a site that communicated care and professionalism without feeling clinical."
     ],
     deliverables: [
-      "Custom WordPress build with Bricks Builder",
+      "Custom website design and development",
       "Brand identity integration",
       "Trust-led homepage design",
       "Services & packages page",
@@ -90,31 +96,38 @@ export const PROJECTS = [
       "30-day post-launch support"
     ],
     challengeTitle: "A personal service that felt impersonal online.",
-    challenge: "The previous website felt clinical and generic, the kind of design that works for a GP's surgery, not a birth doula.",
+    challenge: "The website needed to communicate care, professionalism and warmth without making the service feel clinical or generic.",
     solutionTitle: "Designed around the emotional journey of expectant parents.",
     solution: "We rebuilt the site around the psychology of an anxious expectant parent: what they need to feel safe and what stops them from reaching out.",
+    projectQuote: "The site needed to feel as calm, personal and reassuring online as the support Marley gives families in real life.",
+    projectQuoteAttribution: "Project focus",
     screens: ["/assets/Mockup-laptop-Marley_1779878754713.webp", "/assets/Mockup-iphone-marley_1779878754712.webp"],
     outcomeTitle: "Built around trust before enquiry.",
-    outcomes: [{ metric: "Trust-led", label: "homepage journey" }]
+    outcomes: [
+      { metric: "Warmth", label: "softer first impression" },
+      { metric: "Clarity", label: "clearer service explanation" },
+      { metric: "Confidence", label: "more reassuring enquiry path" }
+    ]
   },
   {
     slug: "ockerby-academy",
     num: "03",
     title: "Ockerby Academy",
-    category: "Web Design & Booking",
+    category: "Web Design",
     industry: "Education & Performing Arts",
     year: "2024",
-    result: "5.0★",
-    resultLabel: "Google rating",
-    description: "Website for a dance and musical theatre academy in West Yorkshire. Built around class sign-ups.",
+    result: "Classes",
+    resultLabel: "clearer parent journey",
+    description: "A polished website for a dance and musical theatre academy, organised around class discovery, confidence and parent enquiries.",
+    liveUrl: "https://ockerbyacademy.co.uk/",
     hero: "/assets/Macbook-Air-Light-Background-2_1779878754715.png",
     meta: [
       ["Client", "Ockerby Academy"],
       ["Industry", "Education & Performing Arts"],
-      ["Services", "Web Design, Online Booking"],
+      ["Services", "Web Design"],
       ["Location", "West Yorkshire"],
       ["Year", "2024"],
-      ["Rating", "5.0★ Google"]
+      ["Focus", "Class discovery"]
     ],
     briefTitle: "A growing academy whose website was creating more admin, not less.",
     brief: [
@@ -122,7 +135,7 @@ export const PROJECTS = [
       "The brief was to build something vibrant, welcoming, and easy to navigate, with class information parents could understand at a glance."
     ],
     deliverables: [
-      "Custom WordPress build with Bricks Builder",
+      "Custom website design and development",
       "Class discovery & booking flow",
       "Timetable & schedule pages",
       "Mobile-first responsive design",
@@ -131,13 +144,20 @@ export const PROJECTS = [
       "Core on-page SEO",
       "30-day post-launch support"
     ],
-    challengeTitle: "Parents couldn't find what they needed without picking up the phone.",
+    challengeTitle: "Parents needed to find the right class faster.",
     challenge: "With multiple class types, age groups and term schedules, the old website made finding the right class harder than it should have been.",
     solutionTitle: "Built around the way parents actually look for classes.",
     solution: "We structured the site around discovery, making it easy to understand classes, timetables and the next step.",
+    testimonial: "We absolutely LOVE our new website. Great communication throughout the process. Joe has a real eye for attention to detail and it shows within his work.",
+    testimonialName: "Dannii Dunn",
+    testimonialCompany: "Ockerby Academy",
     screens: ["/assets/Screenshot_2026-05-27_125506_1779882927176.png", "/assets/Screenshot_2026-05-27_125833_1779883127781.png"],
-    outcomeTitle: "A 5-star rating on Google.",
-    outcomes: [{ metric: "5.0★", label: "Google rating" }]
+    outcomeTitle: "What the project focused on.",
+    outcomes: [
+      { metric: "Structure", label: "clearer class information" },
+      { metric: "Mobile", label: "easier browsing for parents" },
+      { metric: "Trust", label: "more polished academy presence" }
+    ]
   },
   {
     slug: "manton-executives",
@@ -146,9 +166,10 @@ export const PROJECTS = [
     category: "Brand Identity + Web",
     industry: "Executive Recruitment",
     year: "2024",
-    result: "",
-    resultLabel: "",
-    description: "Website for an executive recruitment agency in Sunderland. Built to reflect a growing team.",
+    result: "Premium",
+    resultLabel: "executive positioning",
+    description: "A premium website for an executive recruitment agency, designed around employer confidence and candidate trust.",
+    liveUrl: "https://mantonexecutives.com/",
     hero: "/assets/iMac-M4-Purple-1_1779878754716.jpg",
     meta: [
       ["Client", "Manton Executives"],
@@ -163,7 +184,7 @@ export const PROJECTS = [
       "The brief was to build a website that reflected the quality of the agency's work: professional, clean, and immediately credible."
     ],
     deliverables: [
-      "Custom WordPress build with Bricks Builder",
+      "Custom website design and development",
       "Executive brand identity integration",
       "Services & specialisms overview",
       "Candidate & client registration flows",
@@ -173,12 +194,67 @@ export const PROJECTS = [
       "30-day post-launch support"
     ],
     challengeTitle: "A website that undersold an agency doing excellent work.",
-    challenge: "The existing website was functional, but not credible at the senior end of the recruitment market.",
+    challenge: "The website needed to feel more aligned with senior-level recruitment conversations and make the two audiences, employers and candidates, easier to serve.",
     solutionTitle: "Executive-grade design built for two audiences at once.",
     solution: "We designed around two distinct user journeys: the client looking to fill a senior role, and the candidate exploring their next move.",
     screens: ["/assets/Free-iPhone-16-Pro-in-Hand-Mockup-2_1779878754716.jpg", "/assets/mockup-mobile-copy-2_1779878754713.webp"],
-    outcomeTitle: "In their own words.",
+    outcomeTitle: "Client feedback.",
     testimonial: "We couldn't be happier with the new website Joe created for us. It's absolutely amazing and truly captures who we are and what Manton Executives stands for. Joe was always available, quick to respond, and incredibly patient throughout.",
+    testimonialName: "Luke Manton",
+    testimonialCompany: "Manton Executives",
     outcomes: [{ metric: "Premium", label: "executive positioning" }]
+  },
+  {
+    slug: "pro-pest-manchester",
+    num: "05",
+    title: "Pro Pest Manchester",
+    category: "Web Design & Development",
+    industry: "Pest Control",
+    year: "2024",
+    result: "Local",
+    resultLabel: "faster customer enquiries",
+    description: "A clean, modern website for a Manchester pest control company, built around urgent enquiries, service clarity and local trust.",
+    liveUrl: "https://propestmanchester.co.uk/",
+    hero: "/assets/projects/pro-pest-manchester-hero.jpg",
+    meta: [
+      ["Client", "Pro Pest Manchester"],
+      ["Industry", "Pest Control"],
+      ["Services", "Web Design, Development"],
+      ["Location", "Greater Manchester"],
+      ["Focus", "Service enquiries"]
+    ],
+    briefTitle: "Manchester's trusted pest control experts needed a site that matched their service.",
+    brief: [
+      "Pro Pest Manchester is a professional pest control company offering safe, effective pest management for homes and businesses across Greater Manchester.",
+      "Known for quick response times and reliable service, they needed a website that better reflected their expertise and professionalism while helping more customers find the right service quickly."
+    ],
+    deliverables: [
+      "Custom website design and development",
+      "Mobile-first responsive design",
+      "Clearer service and pest information structure",
+      "Service area and contact visibility",
+      "Authentic imagery and brand presentation",
+      "Estimate enquiry flow",
+      "Core on-page SEO",
+      "30-day post-launch support"
+    ],
+    challengeTitle: "A dated, cluttered website was making urgent enquiries harder than they needed to be.",
+    challenge: "The previous website no longer represented the company's growth. The design lacked structure, key information such as service areas and emergency contact details was difficult to find, and the mobile experience was not strong enough for customers searching during urgent pest problems.",
+    solutionTitle: "A clearer, more trustworthy pest control website built for fast decisions.",
+    solution: "We rebuilt the site around practical customer journeys: identify the pest issue, understand the service, confirm Pro Pest covers the area, and get in touch quickly from any device.",
+    testimonial: "Joe did a fantastic job building our website. From start to finish the whole process was straightforward, enjoyable and well managed.",
+    testimonialName: "Becky Graham",
+    testimonialCompany: "Pro Pest Manchester",
+    screens: [
+      "/assets/projects/pro-pest-manchester-hero.jpg",
+      "/assets/projects/pro-pest-manchester-services.jpg",
+      "/assets/projects/pro-pest-manchester-contact.jpg"
+    ],
+    outcomeTitle: "The result.",
+    outcomes: [
+      { metric: "Modern", label: "cleaner and more professional design" },
+      { metric: "Clear", label: "simpler service navigation" },
+      { metric: "Mobile", label: "faster contact from any device" }
+    ]
   }
 ];

@@ -12,7 +12,7 @@ export const services = [
     slug: "web-design",
     title: "Web Design",
     eyebrow: "Conversion websites",
-    description: "Premium WordPress websites planned around trust, clarity, and enquiry generation.",
+    description: "Premium websites planned around trust, clarity, and enquiry generation.",
     bullets: ["Strategy-led structure", "Responsive design", "Launch support", "SEO foundations"]
   },
   {
@@ -51,16 +51,16 @@ export const projects = [
     title: "Circular Branding",
     category: "Labels and packaging",
     image: "/assets/mockup3-1_1779878754712.webp",
-    description: "A clearer digital presence for a packaging specialist with 200+ brands worldwide.",
-    stats: ["200+ brands", "Packaging", "B2B enquiries"]
+    description: "A clearer digital presence for a packaging specialist, built around capability and trade credibility.",
+    stats: ["B2B", "Packaging", "Trade enquiries"]
   },
   {
-    slug: "marley-doulas",
-    title: "Marley Doulas",
-    category: "Birth doula",
-    image: "/assets/4K-Mockup-1-1_1779878754714.webp",
-    description: "A calm, high-trust website built around the emotional journey of expectant parents.",
-    stats: ["Booked out", "Mobile-first", "Service clarity"]
+    slug: "pro-pest-manchester",
+    title: "Pro Pest Manchester",
+    category: "Pest control",
+    image: "/assets/projects/pro-pest-manchester-hero.jpg",
+    description: "A cleaner, faster website built around urgent pest control enquiries and local trust.",
+    stats: ["Local trust", "Mobile-first", "Service clarity"]
   },
   {
     slug: "ockerby-academy",
@@ -68,7 +68,7 @@ export const projects = [
     category: "Dance academy",
     image: "/assets/Macbook-Air-Light-Background-2_1779878754715.png",
     description: "A polished academy site with simpler class discovery and stronger local credibility.",
-    stats: ["5.0 rating", "Class enquiries", "Local SEO"]
+    stats: ["Classes", "Parent journey", "Local clarity"]
   },
   {
     slug: "manton-executives",
