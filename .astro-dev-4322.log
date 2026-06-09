@@ -351,3 +351,10 @@
 [2m15:10:36[22m [34m[watch][39m /src/styles/main.css
 [2m15:15:46[22m [34m[watch][39m /src/styles/main.css
 [2m15:16:33[22m [34m[watch][39m /src/styles/main.css
+[2m15:31:02[22m Configuration file updated. Restarting...
+[2m15:31:03[22m [34m[content][39m Syncing content
+[2m15:31:03[22m [34m[content][39m Astro config changed
+[2m15:31:03[22m [34m[content][39m Clearing content store
+[2m15:31:03[22m [34m[content][39m Synced content
+[2m15:31:03[22m [34m[types][39m Generated [2m662ms[22m
+[2m15:31:03[22m [34m[vite][39m Port 4322 is in use, trying another one...

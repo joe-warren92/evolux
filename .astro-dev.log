@@ -24,3 +24,16 @@
 [2m14:30:59[22m [34m[watch][39m live-articles.html
 [2m14:39:41[22m [34m[watch][39m live-articles.html
 [2m14:39:41[22m [34m[watch][39m live-home.html
+[2m15:31:02[22m Configuration file updated. Restarting...
+[33m[1m15:31:02[22m [WARN] [vite][39m Failed to resolve dependency: [36mastro > cssesc[39m, present in client 'optimizeDeps.include'
+[33m[1m15:31:02[22m [WARN] [vite][39m Failed to resolve dependency: [36mastro > aria-query[39m, present in client 'optimizeDeps.include'
+[33m[1m15:31:02[22m [WARN] [vite][39m Failed to resolve dependency: [36mastro > axobject-query[39m, present in client 'optimizeDeps.include'
+[2m15:31:02[22m [34m[content][39m Syncing content
+[2m15:31:02[22m [34m[content][39m Astro config changed
+[2m15:31:02[22m [34m[content][39m Clearing content store
+[2m15:31:03[22m [34m[content][39m Synced content
+[2m15:31:03[22m [34m[types][39m Generated [2m198ms[22m
+[2m15:31:03[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[33m[1m15:31:03[22m [WARN] [vite][39m Failed to resolve dependency: [36mastro > cssesc[39m, present in client 'optimizeDeps.include'
+[33m[1m15:31:03[22m [WARN] [vite][39m Failed to resolve dependency: [36mastro > aria-query[39m, present in client 'optimizeDeps.include'
+[33m[1m15:31:03[22m [WARN] [vite][39m Failed to resolve dependency: [36mastro > axobject-query[39m, present in client 'optimizeDeps.include'
