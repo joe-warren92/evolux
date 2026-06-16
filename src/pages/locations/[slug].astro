@@ -5,7 +5,7 @@ import InsightsPreview from "../../components/InsightsPreview.astro";
 import PackageCard from "../../components/PackageCard.astro";
 import { LOCATION_PAGES, type LocationPage } from "../../data/locations";
 import { PROJECTS } from "../../data/projects";
-import { createFaqSchema } from "../../utils/schema";
+import { createFaqSchema, formatHtmlParagraphs } from "../../utils/schema";
 
 export function getStaticPaths() {
   return LOCATION_PAGES.map((location) => ({
@@ -87,7 +87,7 @@ const locationImages: Record<string, { hero: string; local: string; supporting: 
 const locationImage = locationImages[location.slug] ?? locationImages.sunderland;
 const packages = [
   ["Launch", "£1,800", "Starting from", `A credible, conversion-ready website to get you in front of ${clientLabel}.`, ["5-page custom design & build", "Mobile-first, fully responsive", "Local SEO foundations", "CMS - edit copy yourself", "Google Business alignment", "14-day post-launch support"]],
-  ["Studio", "£3,500", "Starting from", `The full package for ${businessLabel} ready to strengthen their position online.`, ["Up to 12 custom pages", "Full visual identity system", "Conversion-optimised layouts", "Advanced local & on-page SEO", "Analytics & goal tracking", "30-day post-launch support"], true],
+  ["Studio", "£3,500", "Starting from", `The full package for ${businessLabel} ready to strengthen their position online.`, ["Up to 12 custom pages", "Full visual identity system", "Conversion-optimised layouts", "Advanced local & on-page SEO", "Analytics & goal tracking"], true],
   ["Elite", "£6,500", "Starting from", `For ${businessLabel} that want to stand apart and stay there.`, ["Up to 25 custom pages", "Complete brand identity system", "Custom animations", "Conversion-led copywriting", "Advanced local SEO & analytics", "90-day post-launch support"]]
 ];
 const faqSchema = createFaqSchema(
@@ -118,7 +118,7 @@ const faqSchema = createFaqSchema(
           <p>{location.heroDescription}</p>
           <div class="service-page-hero__actions"><a class="button button--dark" href="#packages"><span></span>{packageLabel}</a><a class="text-button" href="/free-review">Free website review <span aria-hidden="true">&#8599;</span></a></div>
         </div>
-        <div class="service-proof-strip"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="type-index">5.0 on Google</p><i></i><p class="type-index">{location.locationLine}</p><i></i><p class="type-index">Est. 2023</p><i></i><p class="type-index">30-day post-launch guarantee</p></div>
+        <div class="service-proof-strip"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="type-index">5.0 on Google</p><i></i><p class="type-index">{location.locationLine}</p><i></i><p class="type-index">Est. 2023</p></div>
       </div>
     </div>
   </section>
@@ -297,7 +297,9 @@ const faqSchema = createFaqSchema(
         <a class="button button--dark" href="/contact">Talk to Joe</a>
       </div>
       <div class="faq-accordion-list">
-        {location.faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
+        {location.faqs.map(([q, a]) => (
+          <details><summary>{q}</summary><div class="faq-answer" set:html={formatHtmlParagraphs(a)}></div></details>
+        ))}
       </div>
     </div>
   </section>

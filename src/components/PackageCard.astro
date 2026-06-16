@@ -5,6 +5,7 @@ interface Props {
   tagline: string;
   price: string;
   features: string[];
+  bestFor?: string;
   highlight?: boolean;
   note?: string;
   ctaHref?: string;
@@ -17,6 +18,7 @@ const {
   tagline,
   price,
   features,
+  bestFor,
   highlight = false,
   note = "Starting from",
   ctaHref = "/contact",
@@ -31,6 +33,7 @@ const hasPriceSuffix = note.startsWith("/");
   <div class="package-card__head">
     <p class="package-card__name">{name}</p>
     <p>{tagline}</p>
+    {bestFor && <p class="package-card__best-for"><span>Best for</span>{bestFor}</p>}
     {!hasPriceSuffix && <span class="type-index">{note}</span>}
     <h3><span set:html={price}></span>{hasPriceSuffix && <small>{note}</small>}</h3>
   </div>

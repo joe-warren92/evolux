@@ -14,6 +14,7 @@ interface Props {
   includeFounderSchema?: boolean;
   includePersonSchema?: boolean;
   includeLocalBusinessSchema?: boolean;
+  hideFooterReviews?: boolean;
   bodyClass?: string;
 }
 
@@ -29,6 +30,7 @@ const {
   includeFounderSchema = false,
   includePersonSchema = false,
   includeLocalBusinessSchema = true,
+  hideFooterReviews = false,
   bodyClass
 } = Astro.props;
 
@@ -173,7 +175,7 @@ const jsonLdSchemas = [
     <main id="content">
       <slot />
     </main>
-    <Footer />
+    <Footer hideReviews={hideFooterReviews} />
     <script is:inline>
       (() => {
         const header = document.querySelector("[data-site-header]");

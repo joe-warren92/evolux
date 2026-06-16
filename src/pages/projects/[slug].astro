@@ -3,6 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Icon from "../../components/Icon.astro";
 import InsightsPreview from "../../components/InsightsPreview.astro";
 import { PROJECTS } from "../../data/projects";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 export function getStaticPaths() {
   return PROJECTS.map((project) => ({ params: { slug: project.slug }, props: { project } }));
@@ -13,13 +15,32 @@ const projectSeoDescriptions: Record<string, string> = {
   "circular-branding": "See how Evolux redesigned the Circular Branding Group website to strengthen trade credibility, showcase its portfolio and support higher-quality B2B enquiries.",
   "marley-doulas": "See how Evolux created a calm, trust-led website for Marley Doulas, with clearer services and a more reassuring enquiry journey for expectant parents.",
   "ockerby-academy": "See how Evolux designed the Ockerby Academy website around clearer class discovery, stronger local credibility and simpler enquiries for parents.",
-  "manton-executives": "See how Evolux created a premium recruitment website for Manton Executives, with clearer candidate and employer journeys and stronger positioning.",
+  "manton-executives": "See how Evolux created a bold website for Manton Executives, with clearer virtual PA services, stronger personality and a more confident enquiry journey.",
   "pro-pest-manchester": "See how Evolux rebuilt the Pro Pest Manchester website with clearer pest control services, stronger local trust signals and a faster estimate enquiry journey."
 };
 
 const quoteText = project.testimonial ?? project.projectQuote;
 const quoteName = project.testimonialName ?? project.projectQuoteAttribution ?? "Project focus";
 const quoteCompany = project.testimonialCompany;
+const quoteLogo = project.testimonialLogo;
+const quoteLogoAlt = project.testimonialLogoAlt ?? `${quoteCompany ?? project.title} logo`;
+const quoteImage = project.testimonialImage;
+const quoteImageAlt = project.testimonialImageAlt ?? quoteName;
+const hasQuoteMedia = Boolean(quoteLogo || quoteImage);
+const projectGalleryImages = import.meta.glob("../../assets/projects/**/*.{webp,jpg,jpeg,png}", {
+  eager: true,
+  import: "default"
+}) as Record<string, ImageMetadata>;
+const projectGallery = (project.gallery ?? [])
+  .map((item) => ({
+    ...item,
+    image: projectGalleryImages[`../../assets/projects/${item.src}`]
+  }))
+  .filter((item) => Boolean(item.image));
+const challengeVisual = projectGallery[0];
+const solutionVisual = projectGallery[1] ?? projectGallery[0];
+const supportingVisuals = projectGallery.slice(2);
+const heroMeta = project.meta.filter(([label]) => !["services", "focus", "location"].includes(label.toLowerCase()));
 ---
 
 <BaseLayout
@@ -36,7 +57,7 @@ const quoteCompany = project.testimonialCompany;
       </nav>
       <div class="case-study-hero__grid">
         <div>
-          <div class="mini-label"><span></span>{project.category}</div>
+          <div class="section-kicker"><span></span><p class="type-index">{project.category}</p></div>
           <h1>{project.title}</h1>
           <p>{project.description}</p>
           <div class="case-study-hero__actions">
@@ -49,9 +70,10 @@ const quoteCompany = project.testimonialCompany;
           </div>
         </div>
         <dl class="case-meta">
-          {project.meta.map(([label, value]) => (
+          {heroMeta.map(([label, value]) => (
             <div><dt>{label}</dt><dd>{value}</dd></div>
           ))}
+          {project.timeline && <div><dt>Timeline</dt><dd>{project.timeline}</dd></div>}
         </dl>
       </div>
     </div>
@@ -68,12 +90,45 @@ const quoteCompany = project.testimonialCompany;
         <p>{project.challenge}</p>
       </div>
       <div class="case-study-summary__points" aria-label="Project focus areas">
-        {project.outcomes.map((item) => (
-          <article>
-            <span>{item.metric}</span>
-            <p>{item.label}</p>
-          </article>
-        ))}
+        <article>
+          <span>Problem</span>
+          <p>{project.cardProblem}</p>
+        </article>
+        <article>
+          <span>Changed</span>
+          <p>{project.cardChange}</p>
+        </article>
+        <article>
+          <span>Outcome</span>
+          <p>{project.cardOutcome}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-commercial">
+    <div class="case-commercial__inner">
+      <div class="case-commercial__head">
+        <div class="section-kicker"><span></span><p class="type-index">Commercial decisions</p></div>
+        <h2>What mattered for this website.</h2>
+        <p>The design decisions were shaped around the visitor's confidence: what they needed to understand, believe and do before making an enquiry.</p>
+      </div>
+      <div class="case-commercial__grid">
+        <article>
+          <span><Icon name="target" /></span>
+          <h3>Key website decisions</h3>
+          <ul>{project.keyDecisions.map((item) => <li>{item}</li>)}</ul>
+        </article>
+        <article>
+          <span><Icon name="shield" /></span>
+          <h3>Trust improvements</h3>
+          <ul>{project.trustImprovements.map((item) => <li>{item}</li>)}</ul>
+        </article>
+        <article>
+          <span><Icon name="growth" /></span>
+          <h3>Conversion improvements</h3>
+          <ul>{project.conversionImprovements.map((item) => <li>{item}</li>)}</ul>
+        </article>
       </div>
     </div>
   </section>
@@ -86,7 +141,7 @@ const quoteCompany = project.testimonialCompany;
         {project.brief.map((paragraph) => <p>{paragraph}</p>)}
       </div>
       <aside class="case-deliverables">
-        <p class="type-label">What was delivered</p>
+        <div class="section-kicker"><span></span><p class="type-index">What was delivered</p></div>
         <ul>
           {project.deliverables.map((item) => <li><span><Icon name="check" /></span>{item}</li>)}
         </ul>
@@ -94,17 +149,49 @@ const quoteCompany = project.testimonialCompany;
     </div>
   </section>
 
-  <section class="case-split-section">
-    <div class="case-split-section__inner">
-      <article>
-        <span class="type-label">01 - The challenge</span>
-        <h2>{project.challengeTitle}</h2>
-        <p>{project.challenge}</p>
+  <section class="case-narrative">
+    <div class="case-narrative__inner">
+      <article class="case-narrative__item">
+        <div class="case-narrative__copy">
+          <span class="case-narrative__number" aria-hidden="true">01</span>
+          <div class="section-kicker"><span></span><p class="type-index">The challenge</p></div>
+          <h2>{project.challengeTitle}</h2>
+          <p>{project.challenge}</p>
+          {(project.challengeDetails ?? []).map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        {challengeVisual && (
+          <figure class="case-narrative__visual">
+            <Image
+              src={challengeVisual.image}
+              alt={challengeVisual.alt}
+              widths={[480, 720, 960, 1280]}
+              sizes="(min-width: 960px) 42vw, 100vw"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        )}
       </article>
-      <article>
-        <span class="type-label">02 - The solution</span>
-        <h2>{project.solutionTitle}</h2>
-        <p>{project.solution}</p>
+      <article class="case-narrative__item case-narrative__item--reverse">
+        <div class="case-narrative__copy">
+          <span class="case-narrative__number" aria-hidden="true">02</span>
+          <div class="section-kicker"><span></span><p class="type-index">The solution</p></div>
+          <h2>{project.solutionTitle}</h2>
+          <p>{project.solution}</p>
+          {(project.solutionDetails ?? []).map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        {solutionVisual && (
+          <figure class="case-narrative__visual">
+            <Image
+              src={solutionVisual.image}
+              alt={solutionVisual.alt}
+              widths={[480, 720, 960, 1280]}
+              sizes="(min-width: 960px) 42vw, 100vw"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        )}
       </article>
     </div>
   </section>
@@ -112,18 +199,27 @@ const quoteCompany = project.testimonialCompany;
   {quoteText && (
     <section class="case-quote-section">
       <div class="case-quote-section__inner">
-        <figure class="case-quote">
+        <figure class:list={["case-quote", hasQuoteMedia && "case-quote--with-media"]}>
           <span class="case-quote__mark" aria-hidden="true">"</span>
+          {hasQuoteMedia && (
+            <div class="case-quote__brand">
+              <span>Client feedback</span>
+              {quoteLogo && <img class="case-quote__logo" src={quoteLogo} alt={quoteLogoAlt} loading="lazy" />}
+            </div>
+          )}
           <blockquote>
             <p>"{quoteText}"</p>
             <footer>
-              <strong>{quoteName}</strong>
-              {quoteCompany && <span>{quoteCompany}</span>}
+              {quoteImage && <img class="case-quote__image" src={quoteImage} alt={quoteImageAlt} loading="lazy" />}
+              <span>
+                <strong>{quoteName}</strong>
+                {quoteCompany && <em>{quoteCompany}</em>}
+              </span>
             </footer>
           </blockquote>
         </figure>
         <aside class="case-quote-section__link">
-          <p class="type-label">Live project</p>
+          <div class="section-kicker"><span></span><p class="type-index">Live project</p></div>
           <h2>See the finished website in context.</h2>
           <p>Review the live site to see how the structure, visual hierarchy and enquiry routes work together outside a mockup.</p>
           {project.liveUrl && (
@@ -136,32 +232,62 @@ const quoteCompany = project.testimonialCompany;
     </section>
   )}
 
-  <section class="case-screens">
-    <div class="case-screens__inner">
-      <div class="section-kicker"><span></span><p class="type-index">Selected screens</p></div>
-      <div class="case-screens__grid">
-        {project.screens.map((screen) => (
-          <figure>
-            <img src={screen} alt={`${project.title} screen`} />
-          </figure>
-        ))}
+  {supportingVisuals.length > 0 && (
+    <section class="case-visual-story">
+      <div class="case-visual-story__inner">
+        <div class="case-visual-story__head">
+          <div class="section-kicker"><span></span><p class="type-index">Project details</p></div>
+          <h2>{project.galleryTitle ?? "How the website comes together."}</h2>
+          <p>{project.galleryIntro ?? "A closer look at the page layouts, visual hierarchy and conversion routes used across the finished website."}</p>
+        </div>
+        <div class="case-visual-story__slider" aria-label={`${project.title} project screenshots`}>
+          <div class="case-visual-story__track">
+          {supportingVisuals.map((screen, index) => (
+            <figure class:list={["case-screen-card", index === 0 && "case-screen-card--featured"]}>
+              <Image
+                src={screen.image}
+                alt={screen.alt}
+                widths={[480, 720, 960, 1280, 1600]}
+                sizes="(min-width: 1100px) 56vw, (min-width: 720px) 76vw, 88vw"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <section class="case-results">
     <div class="case-results__glow"></div>
     <div class="case-results__inner">
-      <div class="section-kicker"><span></span><p class="type-index">Outcomes</p></div>
-      <h2>{project.outcomeTitle}</h2>
-      <div class="case-results__grid">
-        {project.outcomes.map((item) => (
-          <article><strong>{item.metric}</strong><span class="type-label">{item.label}</span></article>
-        ))}
+      <div class="case-results__head">
+        <div>
+          <div class="section-kicker"><span></span><p class="type-index">Outcomes</p></div>
+          <h2>{project.outcomeTitle}</h2>
+        </div>
+        <p>The result is not measured with invented numbers. It is judged by whether the site now gives the right visitor a clearer reason to trust, understand and enquire.</p>
       </div>
-      <div class="case-results__quote">
-        <p>Want the same level of thinking applied to your own website? Start with a free review and Joe will show where the strongest opportunities sit.</p>
-        <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      <div class="case-results__panel">
+        <div class="case-results__list">
+          {project.outcomes.map((item, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <strong>{item.metric}</strong>
+                <p>{item.label}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <aside class="case-results__next">
+          <p class="type-index">Apply the same thinking</p>
+          <h3>Find the friction in your own website.</h3>
+          <p>Joe will review where your site is losing clarity, trust or enquiry momentum, then send back the highest-priority changes to focus on first.</p>
+          <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+        </aside>
       </div>
     </div>
   </section>
@@ -176,12 +302,14 @@ const quoteCompany = project.testimonialCompany;
 
   <section class="case-next">
     <div>
-      <p class="type-label">Plan the next move</p>
+      <div class="section-kicker"><span></span><p class="type-index">Plan the next move</p></div>
       <h2>Build around the decision<br /><span>your customers need to make.</span></h2>
       <p>Every Evolux project starts with a clear look at what is working, what is creating doubt and what needs to change.</p>
     </div>
     <div>
       <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+      <a class="button" href="/services/web-design">Web design service</a>
+      <a class="button" href="/packages">Website packages</a>
       {project.liveUrl && <a class="button" href={project.liveUrl} target="_blank" rel="noopener noreferrer">View live website</a>}
       <a class="button" href="/projects">Web design projects</a>
     </div>

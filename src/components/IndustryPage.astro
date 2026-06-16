@@ -4,6 +4,7 @@ import Icon from "./Icon.astro";
 import InsightsPreview from "./InsightsPreview.astro";
 import type { IndustryPage as IndustryPageData } from "../data/industries";
 import { PROJECTS } from "../data/projects";
+import { formatHtmlParagraphs, stripHtml } from "../utils/schema";
 
 interface Props {
   industry: IndustryPageData;
@@ -23,7 +24,7 @@ const faqSchema = {
     name: question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: answer
+      text: stripHtml(answer)
     }
   }))
 };
@@ -198,7 +199,9 @@ const faqSchema = {
         <a class="button button--dark" href="/free-review">Get a free website review</a>
       </div>
       <div class="faq-accordion-list">
-        {industry.faqs.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+        {industry.faqs.map(([question, answer]) => (
+          <details><summary>{question}</summary><div class="faq-answer" set:html={formatHtmlParagraphs(answer)}></div></details>
+        ))}
       </div>
     </div>
   </section>

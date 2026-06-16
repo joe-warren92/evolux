@@ -5,7 +5,7 @@ import { PROJECTS } from "../../data/projects";
 import Icon from "../../components/Icon.astro";
 import InsightsPreview from "../../components/InsightsPreview.astro";
 import PackageCard from "../../components/PackageCard.astro";
-import { createFaqSchema, createServiceSchema } from "../../utils/schema";
+import { createFaqSchema, createServiceSchema, formatHtmlParagraphs } from "../../utils/schema";
 
 export function getStaticPaths() {
   return SERVICES.map((service) => ({ params: { slug: service.slug }, props: { service } }));
@@ -377,7 +377,7 @@ const serviceSchema = createServiceSchema({
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{question}</strong>
             </summary>
-            <p set:html={answer}></p>
+            <div class="faq-answer" set:html={formatHtmlParagraphs(answer)}></div>
           </details>
         ))}
       </div>

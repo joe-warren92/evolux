@@ -4,6 +4,17 @@ export const stripHtml = (value: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
+export const formatHtmlParagraphs = (value: string) => {
+  if (/<(p|ul|ol|blockquote)\b/i.test(value)) return value;
+
+  return value
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean)
+    .map((paragraph) => `<p>${paragraph}</p>`)
+    .join("");
+};
+
 export const createFaqSchema = (id: string, faqs: readonly (readonly string[])[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",

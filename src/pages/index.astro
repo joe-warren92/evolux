@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/site";
+import { PROJECTS } from "../data/projects";
 import { JOE_AUTHOR } from "../data/insights";
 import Icon from "../components/Icon.astro";
 import InsightsPreview from "../components/InsightsPreview.astro";
 import PackageCard from "../components/PackageCard.astro";
-import { stripHtml } from "../utils/schema";
+import { formatHtmlParagraphs, stripHtml } from "../utils/schema";
 
 const packages = [
   {
@@ -35,7 +36,6 @@ const packages = [
       "Advanced SEO & Core Web Vitals",
       "Headless CMS integration",
       "Analytics & goal tracking",
-      "30-day post-launch support",
       "Monthly strategy review"
     ],
     cta: "Start with Studio",
@@ -87,12 +87,58 @@ const credibilityGaps = [
   }
 ];
 
+const fitProjects = ["circular-branding", "pro-pest-manchester", "ockerby-academy", "manton-executives", "marley-doulas"]
+  .map((slug) => PROJECTS.find((project) => project.slug === slug))
+  .filter(Boolean);
+
+const fitVisuals = fitProjects.flatMap((project) => [
+  { title: project!.title, category: project!.industry, image: project!.hero },
+  ...(project!.screens?.slice(0, 1).map((image) => ({ title: project!.title, category: project!.category, image })) ?? [])
+]).slice(0, 7);
+
+const fitVisualTrack = [...fitVisuals, ...fitVisuals];
+
+const homepageProcessSteps = [
+  {
+    num: "01",
+    title: "Discovery",
+    time: "Day 1",
+    desc: "We map the audience, pages, proof and conversion gaps before design begins.",
+    image: fitVisuals[0]?.image,
+    alt: "Website discovery and planning for an Evolux client project"
+  },
+  {
+    num: "02",
+    title: "Structure",
+    time: "Week 1",
+    desc: "You get a clear sitemap and content direction, so the website has a job to do.",
+    image: fitVisuals[2]?.image ?? fitVisuals[1]?.image,
+    alt: "Website structure and content planning shown through Evolux project work"
+  },
+  {
+    num: "03",
+    title: "Design and build",
+    time: "Weeks 2-5",
+    desc: "The approved direction becomes a fast, responsive website built around trust.",
+    image: fitVisuals[4]?.image ?? fitVisuals[2]?.image,
+    alt: "Responsive website design and development by Evolux Web Design"
+  },
+  {
+    num: "04",
+    title: "Launch",
+    time: "Week 6",
+    desc: "Final checks, launch support and a calm handover, so you know what happens next.",
+    image: fitVisuals[6]?.image ?? fitVisuals[3]?.image,
+    alt: "Finished Evolux website project ready for launch"
+  }
+];
+
 const homepageFaqs = [
-  ["Can Evolux help if my website looks fine but does not bring in enough enquiries?", "Yes. This is one of the most common reasons businesses contact Evolux. The issue is often not the visual design alone; it is usually a mix of unclear positioning, weak proof, poor page structure, slow mobile experience or calls to action that do not feel obvious. A good starting point is the <a href=\"/free-review\">free website review</a>, where Joe identifies the main trust and conversion gaps before you commit to a full redesign."],
-  ["Do you design and build the website, or just create the visuals?", "Evolux handles both the design and the build. You work directly with Joe from strategy and page planning through to design, development, testing and launch. That means the finished site is not just a static concept; it is a fast, responsive, editable website built around clear business goals. You can see the main service options on the <a href=\"/services\">web design services</a> page."],
+  ["Can Evolux help if my website looks fine but does not bring in enough enquiries?", "Yes. This is one of the most common reasons businesses contact Evolux. The issue is often not the visual design alone; it is usually a mix of unclear positioning, weak proof, poor page structure, slow mobile experience or calls to action that do not feel obvious.\n\nA good starting point is the <a href=\"/free-review\">free website review</a>, where Joe identifies the main trust and conversion gaps before you commit to a full redesign."],
+  ["Do you design and build the website, or just create the visuals?", "Evolux handles both the design and the build. You work directly with Joe from strategy and page planning through to design, development, testing and launch.\n\nThat means the finished site is not just a static concept; it is a fast, responsive, editable website built around clear business goals. You can see the main service options on the <a href=\"/services\">web design services</a> page."],
   ["What types of businesses are a good fit for Evolux?", "Evolux is best suited to service-based businesses, local companies and growing UK brands that rely on trust before someone makes an enquiry. That includes professional services, recruitment, health and wellness, trades, education, hospitality and B2B suppliers. If you want to see the kind of work and outcomes Evolux focuses on, start with the <a href=\"/projects\">web design projects</a>."],
-  ["How much should I budget for a professional website?", "Most Evolux website projects start from the figures shown on the <a href=\"/packages\">website packages</a> page. The final investment depends on the number of pages, how much content needs writing, whether brand identity is included, SEO requirements and the level of post-launch support. Before anything starts, you receive a written scope so the deliverables, timeline and cost are clear."],
-  ["Can you improve my existing website instead of rebuilding it?", "Sometimes, yes. If the underlying site is technically sound, a focused <a href=\"/services/conversion-optimisation\">conversion optimisation</a> project may be enough to improve enquiries without starting again. If the structure, brand, platform or mobile experience is holding the business back, a rebuild may be the better long-term option. The review process helps make that decision with evidence rather than guesswork."],
+  ["How much should I budget for a professional website?", "Most Evolux website projects start from the figures shown on the <a href=\"/packages\">website packages</a> page. The final investment depends on the number of pages, how much content needs writing, whether brand identity is included, SEO requirements and any additional functionality. Before anything starts, you receive a written scope so the deliverables, timeline and cost are clear."],
+  ["Can you improve my existing website instead of rebuilding it?", "Sometimes, yes. If the underlying site is technically sound, a focused <a href=\"/services/conversion-optimisation\">conversion optimisation</a> project may be enough to improve enquiries without starting again.\n\nIf the structure, brand, platform or mobile experience is holding the business back, a rebuild may be the better long-term option. The review process helps make that decision with evidence rather than guesswork."],
   ["How quickly can a new website project start?", "Availability changes depending on current projects, but the first step is usually a short message, a call or a <a href=\"/free-review\">website review</a>. From there, Joe can confirm whether the project is a good fit, what timeline is realistic and which package or scope makes most sense. Focused Launch projects can move quickly; larger Studio or Elite projects need more discovery, content and design time."]
 ];
 
@@ -157,16 +203,15 @@ const homepageSchema = {
       <div class="home-hero__grid">
         <div>
           <p class="home-hero__text">
-            Conversion-focused web design in Sunderland for service businesses that need to build trust and generate better enquiries. Evolux turns credibility into enquiries through sharper positioning,
-            clearer page structure and fewer moments of doubt between first impression and contact.
+            Conversion-focused web design in Sunderland for professional service businesses and trust-led brands. Evolux helps you clarify your positioning, prove your credibility and make the next step obvious so better-fit clients feel ready to enquire.
           </p>
           <div class="home-hero__actions">
-            <a class="button button--accent" href="/contact"><span></span>Book a strategy call</a>
-            <a class="text-button" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+            <a class="button button--accent" href="/free-review"><span></span>Get a free website review</a>
+            <a class="text-button" href="/contact">Book a strategy call <span aria-hidden="true">&#8599;</span></a>
           </div>
           <div class="home-hero__review-signal" aria-label="Google review rating">
             <span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span>5.0 Google rating from local businesses</span>
+            <span>5.0 Google rating from businesses that rely on trust before enquiry</span>
           </div>
           <div class="home-hero__clients">
             <p class="type-index">Trusted by</p>
@@ -211,6 +256,35 @@ const homepageSchema = {
           <p class="type-index">clients served</p>
         </div>
         <p class="type-index">Evolux Web Design</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-fit" aria-labelledby="home-fit-title">
+    <div class="home-fit__inner">
+      <div class="home-fit__intro">
+        <div class="section-kicker"><span></span><p class="type-index">Who this is for</p></div>
+        <h2 id="home-fit-title">For businesses where trust wins enquiries.</h2>
+        <p>Professional services, consultants and trust-led local businesses that need a website to feel credible before someone gets in touch.</p>
+        <div class="home-fit__proof" aria-label="Evolux trust signals">
+          <span>20+ clients served</span>
+          <span>5.0 Google rating</span>
+          <span>Directly led by Joe</span>
+        </div>
+        <div class="home-fit__actions">
+          <a class="button button--accent" href="/free-review">Get a free website review</a>
+          <a class="text-button" href="/industries">Explore industry website guides <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+
+      <div class="home-fit__visual-belt" aria-hidden="true">
+        <div class="home-fit__visual-track">
+          {fitVisualTrack.map((item) => (
+            <figure class="home-fit__visual">
+              <img src={item.image} alt="" loading="lazy" />
+            </figure>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -300,7 +374,7 @@ const homepageSchema = {
           <footer>Olivia Bowman - Skyn & Glo</footer>
         </blockquote>
         <a class="button button--dark" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
-        <a class="text-button" href="/industries">Explore industry website guides <span aria-hidden="true">&#8599;</span></a>
+        <a class="text-button" href="/industries">See who Evolux works with <span aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </section>
@@ -322,37 +396,47 @@ const homepageSchema = {
   </script>
 
   <section class="credibility-section">
-    <div class="section-split">
-      <div>
+    <div class="credibility-section__inner">
+      <div class="credibility-section__intro">
         <div class="section-kicker"><span></span><p class="type-index">The four credibility gaps</p></div>
-        <h2 class="display-heading">Sound familiar?</h2>
+        <h2 class="display-heading">The doubts that stop good clients enquiring.</h2>
+        <p>A clearer website does more than look polished. It removes the small moments of uncertainty that make the right people hesitate.</p>
+        <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
+
+        <figure class="credibility-section__visual">
+          <img src="/assets/4K-Mockup-1-1_1779878754714.webp" alt="Website project shown on a mobile device" loading="lazy" />
+          <figcaption>
+            <span>Website review</span>
+            <strong>Spot the trust gaps before your next visitor does.</strong>
+          </figcaption>
+        </figure>
       </div>
-      <p>Most professional services websites fail for the same reason: they look credible enough at first glance, but don't build the trust a potential client needs to actually make contact.</p>
-    </div>
-    <div class="gap-grid">
-      {credibilityGaps.map(({ num, problem, benefit }, index) => (
-        <article class:list={["gap-card", index === 0 && "gap-card--lead"]}>
-          <div><span>{num}</span><span>&#8599;</span></div>
-          <h3>"{problem}"</h3>
-          <p class="type-index">What you gain</p>
-          <p>{benefit}</p>
-        </article>
-      ))}
-    </div>
-    <div class="review-bar">
-      <div>
-        <h3>Get a clearer read on your own credibility gaps.</h3>
-        <p>A free website review will identify the trust, clarity and conversion issues most likely to be affecting enquiries.</p>
+
+      <div class="credibility-section__diagnostic">
+        <div class="gap-grid">
+          {credibilityGaps.map(({ num, problem, benefit }, index) => (
+            <article class:list={["gap-card", index === 0 && "gap-card--lead"]}>
+              <div class="gap-card__meta">
+                <span>Gap {num}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <div class="gap-card__body">
+                <h3>{problem}</h3>
+                <p>{benefit}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <a class="button button--accent" href="/free-review">Get a free website review <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
   <section class="process-section" id="process">
+    <div class="process-section__wash" aria-hidden="true"></div>
     <div class="process-section__head">
       <div>
         <div class="mini-label"><span></span>How it works</div>
-        <h2 class="display-heading"><span>Four clear steps.</span><br />You're in control throughout.</h2>
+        <h2 class="display-heading"><span>A clear process,</span><br />without agency theatre.</h2>
       </div>
       <blockquote>
         <p>"Joe's patience, communication, attention to detail and flare for design combine perfectly to create the ideal online presence."</p>
@@ -360,24 +444,24 @@ const homepageSchema = {
       </blockquote>
     </div>
     <div class="timeline">
-      {[
-        ["01", "Discovery", "Day 1", "You leave with complete clarity - a sitemap, a content plan, and a clear picture of what your site needs to do for your business."],
-        ["02", "Design", "Week 2", "You see the finished user experience and interface in prototype form before a single line of code is written."],
-        ["03", "Development", "Weeks 3-5", "You get a fast-loading, fully responsive website built around the approved strategy and design."],
-        ["04", "Deployment", "Week 6", "You go live with confidence. Final testing, launch, and a full handover."]
-      ].map(([num, title, time, desc]) => (
+      {homepageProcessSteps.map(({ num, title, time, desc, image, alt }) => (
         <article class="timeline__item">
-          <span class="timeline__ghost">{num}</span>
-          <div class="timeline__dot"></div>
-          <div><h3>{title}</h3><p class="type-index">{time}</p></div>
-          <p>{desc}</p>
+          {image && (
+            <img src={image} alt={alt} loading="lazy" />
+          )}
+          <span class="timeline__ghost" aria-hidden="true">{num}</span>
+          <div class="timeline__content">
+            <p class="type-index">{time}</p>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </div>
         </article>
       ))}
     </div>
     <div class="kpi-bar">
       <div><strong>4-6 wks</strong><span class="type-index">From brief to launch</span></div>
-      <div><strong>30 days</strong><span class="type-index">Post-launch support</span></div>
-      <a class="button button--accent" href="/contact">Contact Evolux <span aria-hidden="true">&#8599;</span></a>
+      <div><strong>Clear</strong><span class="type-index">Handover process</span></div>
+      <a class="button button--accent" href="/contact">Book a strategy call <span aria-hidden="true">&#8599;</span></a>
     </div>
   </section>
 
@@ -412,7 +496,7 @@ const homepageSchema = {
             <strong>48h</strong>
             <span>Typical delivery</span>
           </div>
-          <a href="/free-review">Review details <span aria-hidden="true">&#8599;</span></a>
+          <a href="/free-review">See what's included <span aria-hidden="true">&#8599;</span></a>
         </div>
         <blockquote class="lead-section__testimonial">
           <img src="/assets/logos/steven-dunn-circular-branding.jpg" alt="Steven Dunn, Circular Branding Group" loading="lazy" />
@@ -462,7 +546,9 @@ const homepageSchema = {
         <a class="button button--dark" href="/contact">Ask Joe a question</a>
       </div>
       <div class="faq-accordion-list">
-        {homepageFaqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
+        {homepageFaqs.map(([q, a]) => (
+          <details><summary>{q}</summary><div class="faq-answer" set:html={formatHtmlParagraphs(a)}></div></details>
+        ))}
       </div>
     </div>
   </section>
@@ -484,8 +570,8 @@ const homepageSchema = {
     <div class="guarantee-bar">
       <div class="guarantee-bar__icon"><Icon name="shield" /></div>
       <div>
-        <h3>30-day post-launch guarantee, on every package.</h3>
-        <p>If something isn't right in the 30 days after you go live, we fix it. No quibble, no extra charge.</p>
+        <h3>Clear scope before anything starts.</h3>
+        <p>Pages, deliverables, timelines and ownership are agreed upfront so there are no awkward surprises halfway through.</p>
       </div>
       <a href="/free-review">Review my website first <span aria-hidden="true">&#8599;</span></a>
     </div>
@@ -493,7 +579,7 @@ const homepageSchema = {
     <div class="trust-grid">
       <article><span><Icon name="document" /></span><h3>No hidden costs</h3><p>Fully scoped before we start. What we quote is what you pay.</p></article>
       <article><span><Icon name="direct" /></span><h3>You deal with the designer</h3><p>No account managers. The person building your site is the person you talk to.</p></article>
-      <article><span><Icon name="shield" /></span><h3>30-day guarantee</h3><p>Not happy with something in the first 30 days after launch? We fix it.</p></article>
+      <article><span><Icon name="shield" /></span><h3>Launch checked properly</h3><p>Key pages, forms, responsive layouts and contact routes are tested before the site goes live.</p></article>
     </div>
   </section>
 

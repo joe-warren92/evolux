@@ -14,7 +14,7 @@ const visualTrack = [...heroVisuals, ...heroVisuals];
 
 <BaseLayout
   title="Web Design Projects & Case Studies | Evolux"
-  description="Explore web design projects by Evolux, including websites for professional services, recruitment, healthcare, education and growing UK businesses."
+  description="Explore web design projects by Evolux, including websites for service businesses, healthcare, education, B2B suppliers and growing UK brands."
 >
   <section class="portfolio-hero">
     <div class="portfolio-hero__glow"></div>
@@ -79,15 +79,15 @@ const visualTrack = [...heroVisuals, ...heroVisuals];
           <div>
             <p class="type-label">{featured.category}</p>
             <h2>{featured.title}</h2>
-            <p>{featured.description}</p>
+            <p>{featured.cardOutcome ?? featured.description}</p>
           </div>
           <dl>
-            <div><dt>Industry</dt><dd>{featured.industry}</dd></div>
+            <div><dt>Client type</dt><dd>{featured.clientType}</dd></div>
             <div><dt>Year</dt><dd>{featured.year}</dd></div>
           </dl>
           <div class="portfolio-featured-card__result">
             <strong>{featured.result}</strong>
-            <span class="type-index">{featured.resultLabel}</span>
+            <span>{featured.resultLabel}</span>
           </div>
         </div>
       </a>
@@ -113,9 +113,9 @@ const visualTrack = [...heroVisuals, ...heroVisuals];
                   <h2>{project.title}</h2>
                   <span class="portfolio-card__focus">{project.result}</span>
                 </div>
-                <p class="type-index">{project.category} · {project.year}</p>
-                <p>{project.description}</p>
-                <strong class="portfolio-card__link-text">View project</strong>
+                <p class="type-index">{project.industry} &middot; {project.year}</p>
+                <p>{project.cardOutcome}</p>
+                <strong class="portfolio-card__link-text">Read case study</strong>
               </div>
             </a>
           </article>

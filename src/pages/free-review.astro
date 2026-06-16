@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Icon from "../components/Icon.astro";
 import InsightsPreview from "../components/InsightsPreview.astro";
 import { PROJECTS } from "../data/projects";
-import { createFaqSchema } from "../utils/schema";
+import { createFaqSchema, formatHtmlParagraphs } from "../utils/schema";
 
 const whatYouGet = [
   ["01", "A sharper view of the problem", "Joe reviews the moments where visitors decide whether your business feels credible enough to contact."],
@@ -31,10 +31,10 @@ const reviewSignals = [
 ];
 
 const reviewFaqs = [
-  ["What will you actually look at in my website review?", "Joe reviews the parts of your website that affect enquiries: first impression, page structure, mobile usability, speed, trust signals, calls to action, service clarity, local SEO basics and whether the page gives people enough confidence to get in touch. It is a lighter starting point than a full <a href=\"/services/conversion-optimisation\">conversion optimisation audit</a>, but it gives you practical priorities rather than vague feedback."],
+  ["What will you actually look at in my website review?", "Joe reviews the parts of your website that affect enquiries: first impression, page structure, mobile usability, speed, trust signals, calls to action, service clarity, local SEO basics and whether the page gives people enough confidence to get in touch.\n\nIt is a lighter starting point than a full <a href=\"/services/conversion-optimisation\">conversion optimisation audit</a>, but it gives you practical priorities rather than vague feedback."],
   ["Is the website review really free?", "Yes. The review is genuinely free and designed to give UK businesses a clear starting point before they commit to a redesign, CRO audit or web design project. You receive a personalised video with the main issues and opportunities. If a larger project makes sense, Joe may point you toward the relevant <a href=\"/services\">web design services</a>, but there is no obligation or pressure call."],
   ["How long does the free review take to arrive?", "Submitting the form takes less than a minute. Your personalised video review is normally delivered within 48 business hours, depending on current availability. The review focuses on changes most likely to improve enquiries, such as clearer messaging, stronger proof, better page hierarchy, mobile experience and obvious SEO gaps."],
-  ["What do I need to send for the review?", "You only need to provide your website URL and business email address. If there is a specific issue, such as traffic but no leads, poor local visibility, weak mobile conversions or an outdated design, include that context too. The more detail you share, the more specific the review can be. If you are planning a rebuild, it can also help to look at the <a href=\"/packages\">website packages</a> before submitting."],
+  ["What do I need to send for the review?", "You only need to provide your website URL and business email address. If there is a specific issue, such as traffic but no leads, poor local visibility, weak mobile conversions or an outdated design, include that context too.\n\nThe more detail you share, the more specific the review can be. If you are planning a rebuild, it can also help to look at the <a href=\"/packages\">website packages</a> before submitting."],
   ["Will you just tell me I need a new website?", "No. Sometimes the right answer is a few focused improvements, better calls to action or clearer proof rather than a full rebuild. If the platform, structure, brand or mobile experience is holding the business back, Joe will explain why a rebuild may be more sensible. You can use the advice yourself, with your existing developer or with Evolux."],
   ["What kind of business gets the most value from a review?", "The review is best for service-based businesses, local companies and growing UK brands that rely on their website to generate enquiries. If your website looks fine but people are not getting in touch, if competitors look more credible, or if you are unsure what to fix first, this gives you a clear starting point. You can also read more practical guidance in the <a href=\"/insights\">web design insights</a>."]
 ];
@@ -229,7 +229,9 @@ const faqSchema = createFaqSchema("https://evoluxwebdesign.co.uk/free-review/#fa
         <a class="button button--dark" href="#top">Request the review</a>
       </div>
       <div class="faq-accordion-list">
-        {reviewFaqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a}></p></details>)}
+        {reviewFaqs.map(([q, a]) => (
+          <details><summary>{q}</summary><div class="faq-answer" set:html={formatHtmlParagraphs(a)}></div></details>
+        ))}
       </div>
     </div>
   </section>

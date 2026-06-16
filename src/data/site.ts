@@ -73,10 +73,10 @@ export const projects = [
   {
     slug: "manton-executives",
     title: "Manton Executives",
-    category: "Recruitment",
+    category: "Virtual PA services",
     image: "/assets/iMac-M4-Purple-1_1779878754716.jpg",
-    description: "A premium executive recruitment presence designed to match senior-level conversations.",
-    stats: ["Senior market", "Trust-led", "Lead quality"]
+    description: "A bold virtual PA website built around personality, trust and clearer service enquiries.",
+    stats: ["Personality", "Trust-led", "Service clarity"]
   }
 ];
 

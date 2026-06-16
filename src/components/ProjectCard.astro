@@ -6,6 +6,10 @@ interface Props {
     category: string;
     image: string;
     description: string;
+    industry?: string;
+    year?: string;
+    cardOutcome?: string;
+    cardProblem?: string;
   };
 }
 
@@ -19,6 +23,6 @@ const { project } = Astro.props;
   <div class="project-card__body">
     <p class="project-card__eyebrow">{project.category}</p>
     <h3 class="project-card__title">{project.title}</h3>
-    <p class="project-card__text">{project.description}</p>
+    <p class="project-card__text">{project.cardOutcome ?? project.description}</p>
   </div>
 </a>
